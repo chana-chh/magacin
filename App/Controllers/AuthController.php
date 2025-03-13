@@ -8,8 +8,7 @@ class AuthController extends Controller
 {
     public function getPrijava($request, $response)
     {
-        dd("AuthController.getPrijava");
-        $this->render($response, 'auth/prijava.twig');
+        $this->render($response, 'login.twig');
     }
 
     public function postPrijava($request, $response)
