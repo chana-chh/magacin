@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sr">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<title>{{ APP_NAME }}</title>
+		<link rel="icon" type="image/x-icon" href="icon.png"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet"/> {% block style %}{% endblock style %}
+		</head>
+		<body>
+			<header>
+				{% include 'templates/inc/navigation.twig' %}
+			</header>
+			<div>
+				{% include 'templates/inc/flash.twig' %}
+			</div>
+
+			<main class="container-fluid">
+				<div class="row">
+					<div class="col-12"> {% block full %}{% endblock full %}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8"> {% block article %}{% endblock article %}
+							</div>
+
+							<div class="col-lg-4"> {% block aside %}{% endblock aside %}
+								</div>
+
+							</div>
+
+						</main>
+
+						<footer>
+							{% include 'templates/inc/footer.twig' %}
+						</footer>
+
+						<script src="js/bootstrap.min.js"></script>
+					</body>
+				</html>
