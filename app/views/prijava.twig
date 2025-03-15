@@ -1,0 +1,28 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+	<div class="container" style="height: 90vh;">
+		<div class="row">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4 pt-5">
+				<h1 class="mb-5">Пријава корисника</h1>
+				<form action="{{ url_for('prijava') }}" method="POST">
+					{{ csrf|raw }}
+					<div class="mb-3">
+						<label for="korisnicko_ime" class="form-label">Корисничко име</label>
+						<input
+						type="text" class="form-control" id="korisnicko_ime" name="korisnicko_ime">
+					{# <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> #}
+					</div>
+					<div class="mb-3">
+						<label for="lozinka" class="form-label">Лозинка</label>
+						<input type="password" class="form-control" id="lozinka" name="lozinka">
+					</div>
+					<button type="submit" class="btn btn-primary">Пријави се</button>
+					<a href="{{ url_for('pocetna') }}" class="btn btn-warning">Одустани</a>
+				</form>
+
+			</div>
+			<div class="col-lg-4"></div>
+		</div>
+	</div>
+{% endblock full %}
