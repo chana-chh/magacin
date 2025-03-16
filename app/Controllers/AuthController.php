@@ -22,7 +22,7 @@ class AuthController extends Controller
         $data = $request->getParsedBody();
         $username = $data['korisnicko_ime'];
         $password = $data['lozinka'];
-        
+
         $ok = $this->container->get(Auth::class)->login($username, $password);
 
         if ($ok) {
@@ -34,6 +34,7 @@ class AuthController extends Controller
 
     public function getOdjava(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $response;
+        $this->container->get(Auth::class)->logout();
+        return $this->redirect($request, $response, 'pocetna');
     }
 }
