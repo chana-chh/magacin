@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use Slim\Views\Twig;
+use Slim\Flash\Messages;
 use Slim\Routing\RouteContext;
 use Psr\Container\ContainerInterface;
 
@@ -26,10 +27,10 @@ class Controller
         return $twig->render($response, $template, $vars);
     }
 
-    // protected function renderPartial($template, $vars = [])
-    // {
-    //     return $this->view->getEnvironment()->render($template, $vars);
-    // }
+    protected function flash($key, $message)
+    {
+        return $this->container->get(Messages::class)->addMessage($key, $message);
+    }
 
     // protected function addCsrfToken(array &$data)
     // {

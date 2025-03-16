@@ -26,15 +26,18 @@ class AuthController extends Controller
         $ok = $this->container->get(Auth::class)->login($username, $password);
 
         if ($ok) {
+            $this->flash('success', 'Корисник је успешно пријављен');
             return $this->redirect($request, $response, 'pocetna');
         }
 
+        $this->flash('danger', 'Погрешно корисничко име или лозинка');
         return $this->redirect($request, $response, 'prijava');
     }
 
     public function getOdjava(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $this->container->get(Auth::class)->logout();
+        $this->flash('success', 'Корисник је успешно одјављен');
         return $this->redirect($request, $response, 'pocetna');
     }
 }

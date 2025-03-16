@@ -9,13 +9,21 @@
 					{{ csrf|raw }}
 					<div class="mb-3">
 						<label for="korisnicko_ime" class="form-label">Корисничко име</label>
-						<input
-						type="text" class="form-control" id="korisnicko_ime" name="korisnicko_ime">
-					{# <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> #}
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="bi-person"></i>
+							</span>
+							<input type="text" class="form-control" id="korisnicko_ime" name="korisnicko_ime">
+						</div>
 					</div>
 					<div class="mb-3">
 						<label for="lozinka" class="form-label">Лозинка</label>
-						<input type="password" class="form-control" id="lozinka" name="lozinka">
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="bi-key"></i>
+							</span>
+							<input type="password" class="form-control" id="lozinka" name="lozinka">
+						</div>
 					</div>
 					<button type="submit" class="btn btn-primary">Пријави се</button>
 					<a href="{{ url_for('pocetna') }}" class="btn btn-warning">Одустани</a>
