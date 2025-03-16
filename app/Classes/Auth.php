@@ -3,15 +3,14 @@
 namespace App\Classes;
 
 use App\Models\Korisnik;
-use Psr\Container\ContainerInterface;
 
 class Auth
 {
     private $model;
 
-    public function __construct(private ContainerInterface $container)
+    public function __construct()
     {
-        $this->model = new Korisnik($container);
+        $this->model = new Korisnik();
     }
 
     public function login($username, $password)
