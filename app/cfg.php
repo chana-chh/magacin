@@ -2,8 +2,19 @@
 
 $config = [
     'settings' => [
-        'testis' => 'test C DIC',
-        'displayErrorDetails' => true,
+        'cyrillic' => true, // da li je aplikacija cirilicna
+        'pagination' => [
+            // Podesavanja za stranicenje
+            'per_page' => 10,
+            'page_span' => 3,
+            'css' => [ // TODO prepraviti za bootstrap 5.3
+                'buttons_container' => 'uk-pagination',
+                'button_active' => 'uk-active',
+                'button_disabled' => 'uk-disabled',
+                'goto' => 'uk-select uk-form-width-xsmall uk-form-small uk-text-primary',
+            ],
+        ],
+        'displayErrorDetails' => true, // da li ovo radi u Slim4
         'renderer' => [
             'template_path' => DIR . 'app' . DS . 'views',
             'cache_path' => false,

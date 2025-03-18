@@ -1,6 +1,11 @@
 {% extends "templates/app.twig" %}
 {% block full %}
-	<div class="d-flex align-items-center justify-content-center" style="height: 90vh;">
-		<img src="img/casa.jpg" class="rounded" alt="чашица">
-	</div>
+
+{% if korisnik.prijavljen %}
+<h1 class="text-center">{{ korisnik.puno_ime }}</h1>
+{% else %}
+<div class="d-flex align-items-center justify-content-center" style="height: 90vh;">
+	<img src="img/casa.jpg" class="rounded" alt="чашица">
+</div>
+{% endif %}
 {% endblock full %}

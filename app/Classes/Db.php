@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use \PDO;
+use Exception;
 use PDOException;
 
 /**
@@ -16,7 +17,6 @@ class Db
     private static $pdo;
     private static $stmt;
     private static $error;
-    private array $settings;
 
     public static function instance()
     {
@@ -42,6 +42,7 @@ class Db
             );
         } catch (PDOException $e) {
             self::$error = $e->getMessage();
+            dd($e->getMessage());
         }
     }
 
@@ -53,14 +54,13 @@ class Db
             self::$stmt = $stmt;
         } catch (PDOException $e) {
             self::$error = $e->getMessage();
-            dd($e->getMessage(), true);
+            dd($e->getMessage());
         }
         return $success;
     }
 
     public static function fetch(string $sql, ?array $params = null, ?string $model = null, int $fetch_mode = null)
     {
-
         try {
             $stmt = self::run($sql, $params);
             if ($model) {
@@ -70,29 +70,37 @@ class Db
             }
         } catch (PDOException $e) {
             self::$error = $e->getMessage();
-            dd($e->getMessage(), true);
+            dd($e->getMessage());
         }
         return $data;
     }
 
-    /**
-     * Odredjuje PDO tip parametra
-     *
-     * @param mixed $param Parametar za upit
-     * @return integer PDO tip parametra
-     */
-    protected static function pdoType($param)
+    public static function fetchAssoc(string $sql, array $params = []): array
     {
-        switch (gettype($param)) {
-            case 'NULL':
-                return PDO::PARAM_NULL;
-            case 'boolean':
-                return PDO::PARAM_BOOL;
-            case 'integer':
-                return PDO::PARAM_INT;
-            default:
-                return PDO::PARAM_STR;
+        self::$stmt = self::$pdo->prepare($sql);
+        self::$stmt->execute($params);
+        return self::$stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public static function transaction(string $sql, array $data): int
+    {
+        try {
+            self::$stmt = self::$pdo->prepare($sql);
+
+            self::$pdo->beginTransaction();
+
+            foreach ($data as $params) {
+                self::$stmt->execute($params);
+            }
+        } catch (Exception $e) {
+            if (self::$pdo->inTransaction()) {
+                self::$pdo->rollback();
+            }
+            throw $e;
         }
+
+        self::$pdo->commit();
+        return self::$stmt->rowCount();
     }
 
     public static function getPDO()
@@ -125,17 +133,17 @@ class Db
         return self::$stmt->queryString;
     }
 
-    public static function dumpDebug()
-    {
-        echo '<pre><code>';
-        self::$stmt->debugDumpParams();
-        echo '</code></pre>';
-    }
+    // public static function dumpDebug()
+    // {
+    //     echo '<pre><code>';
+    //     self::$stmt->debugDumpParams();
+    //     echo '</code></pre>';
+    // }
 
-    public static function getColumnMeta(int $column_index)
-    {
-        return self::$stmt->getColumnMeta($column_index);
-    }
+    // public static function getColumnMeta(int $column_index)
+    // {
+    //     return self::$stmt->getColumnMeta($column_index);
+    // }
 
     public static function getLastError()
     {

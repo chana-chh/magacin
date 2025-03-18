@@ -1,5 +1,7 @@
 <?php
 
+use App\Classes\Cfg;
+
 define('APP_NAME', 'DEMO rezervacije');
 
 define('DS', DIRECTORY_SEPARATOR);
@@ -20,6 +22,7 @@ define('HOST', filter_input(INPUT_SERVER, 'REQUEST_SCHEME', FILTER_SANITIZE_SPEC
 
 // $app = AppFactory::create();
 require DIR . 'app/dic.php';
+Cfg::instance($container);
 require DIR . 'app/mid.php';
 require DIR . 'app/routes.php';
 

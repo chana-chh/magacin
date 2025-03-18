@@ -2,6 +2,7 @@
 
 namespace App\Classes;
 
+use App\Models\Korisnik;
 use Slim\Views\Twig;
 use Slim\Flash\Messages;
 use Slim\Routing\RouteContext;
@@ -9,7 +10,24 @@ use Psr\Container\ContainerInterface;
 
 class Controller
 {
-    public function __construct(protected ContainerInterface $container) {}
+    protected ?Korisnik $korisnik;
+    protected ?Logger $logger;
+    // tip za logger
+    const DODAVANJE = "dodavanje";
+    const IZMENA = "izmena";
+    const BRISANJE = "brisanje";
+    const UPLOAD = "upload";
+
+    public function __construct(protected ContainerInterface $container)
+    {
+        $this->korisnik = $container->get(Auth::class)->korisnik();
+        $logger = new Logger($this->korisnik);
+    }
+
+    protected function log($tip, $opis, $model = null, $model_stari = null)
+    {
+        $this->logger->log($tip, $opis, $model, $model_stari);
+    }
 
     public function redirect($request, $response, $route_name, $params = [])
     {
