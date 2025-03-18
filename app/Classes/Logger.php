@@ -2,30 +2,34 @@
 
 namespace App\Classes;
 
-use App\Models\Log;
 use App\Models\Korisnik;
+use App\Models\Log;
 
 class Logger
 {
-    private Korisnik $korisnik;
-    private Log $model;
+    public $korisnik_id = 0;
+    public $model = null;
     const DODAVANJE = "dodavanje";
     const IZMENA = "izmena";
     const BRISANJE = "brisanje";
     const UPLOAD = "upload";
 
-    public function __construct($korisnik)
+    public function __construct($korisnik_id)
     {
-        $this->korisnik = $korisnik;
+        $this->korisnik_id = $korisnik_id;
         $this->model = new Log();
     }
 
     public function log($tip, $opis, $model = null, $model_stari = null)
     {
         $podaci = '';
+        $pk = '';
+        $tabela = '';
         if ($model !== null) {
             $podaci .= "[new]\n";
             $podaci .= json_encode($model);
+            $pk = $model->id;
+            $tabela = $model->getTable();
         }
         if ($model_stari !== null) {
             $podaci .= "\n\n[old]\n";
@@ -35,10 +39,10 @@ class Logger
         $data = [
             'tip' => $tip,
             'opis' => $opis,
-            'pk' => $model->pk,
-            'tabela' => $model->getTable(),
+            'pk' => $pk,
+            'tabela' => $tabela,
             'podaci' => $podaci,
-            'korisnik_id' => $this->korisnik->id,
+            'korisnik_id' => $this->korisnik_id,
         ];
 
         $this->model->insert($data);

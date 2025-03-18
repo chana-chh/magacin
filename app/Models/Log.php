@@ -6,5 +6,5 @@ use App\Classes\Model;
 
 class Log extends Model
 {
-    protected $table = 'logovi';
+    protected string $table = 'logovi';
 }

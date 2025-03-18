@@ -3,7 +3,7 @@
 namespace App\Classes;
 
 use App\Classes\Db;
-use App\Classes\Config;
+use App\Classes\Cfg;
 
 class Validator
 {

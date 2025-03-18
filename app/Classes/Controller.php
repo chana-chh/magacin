@@ -2,16 +2,17 @@
 
 namespace App\Classes;
 
-use App\Models\Korisnik;
 use Slim\Views\Twig;
+use App\Classes\Logger;
+use App\Models\Korisnik;
 use Slim\Flash\Messages;
 use Slim\Routing\RouteContext;
 use Psr\Container\ContainerInterface;
 
 class Controller
 {
-    protected ?Korisnik $korisnik;
-    protected ?Logger $logger;
+    protected $korisnik;
+    protected $logger;
     // tip za logger
     const DODAVANJE = "dodavanje";
     const IZMENA = "izmena";
@@ -20,8 +21,9 @@ class Controller
 
     public function __construct(protected ContainerInterface $container)
     {
-        $this->korisnik = $container->get(Auth::class)->korisnik();
-        $logger = new Logger($this->korisnik);
+        $auth = $container->get(Auth::class);
+        $this->korisnik = $auth->korisnik();
+        $this->logger = new Logger($this->korisnik->id);
     }
 
     protected function log($tip, $opis, $model = null, $model_stari = null)
