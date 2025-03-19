@@ -1,0 +1,1394 @@
+[19-Mar-2025 08:44:08 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:45:50 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:47:49 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:48:39 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:49:36 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:51:18 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:51:19 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  The magic method App\Classes\Db::__sleep() must have public visibility in D:\xampp\htdocs\magacin\app\Classes\Db.php on line 30
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  The magic method App\Classes\Db::__wakeup() must have public visibility in D:\xampp\htdocs\magacin\app\Classes\Db.php on line 31
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:53:34 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:56:23 Europe/Belgrade] PHP Warning:  The magic method App\Classes\Db::__wakeup() must have public visibility in D:\xampp\htdocs\magacin\app\Classes\Db.php on line 31
+[19-Mar-2025 08:56:23 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:56:23 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:56:23 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:56:23 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:56:45 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:56:45 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:56:45 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:56:45 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:57:10 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:57:10 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:57:10 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:57:10 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:57:28 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:57:28 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:01 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:01 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:01 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:01 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:01 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:01 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:02 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:02 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:02 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:03 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:03 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:03 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:03 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:03 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:04 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:04 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:04 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:04 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:04 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:04 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:11 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 08:58:11 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 08:58:11 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 08:58:11 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 08:58:11 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 08:58:12 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:05:39 Europe/Belgrade] Slim Application Error
+Type: RuntimeException
+Code: 0
+Message: Invalid CSRF storage. Use session_start() before instantiating the Guard middleware or provide array storage.
+File: D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php
+Line: 152
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(128): Slim\Csrf\Guard->setStorage(NULL)
+#1 D:\xampp\htdocs\magacin\app\dic.php(20): Slim\Csrf\Guard->__construct(Object(Slim\Psr7\Factory\ResponseFactory))
+#2 [internal function]: {closure}()
+#3 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Object(Closure), Array)
+#4 D:\xampp\htdocs\magacin\vendor\php-di\php-di\src\Definition\Resolver\FactoryResolver.php(69): Invoker\Invoker->call(Object(Closure), Array)
+#5 D:\xampp\htdocs\magacin\vendor\php-di\php-di\src\Definition\Resolver\ResolverDispatcher.php(62): DI\Definition\Resolver\FactoryResolver->resolve(Object(DI\Definition\FactoryDefinition), Array)
+#6 D:\xampp\htdocs\magacin\vendor\php-di\php-di\src\Container.php(354): DI\Definition\Resolver\ResolverDispatcher->resolve(Object(DI\Definition\FactoryDefinition), Array)
+#7 D:\xampp\htdocs\magacin\vendor\php-di\php-di\src\Container.php(136): DI\Container->resolveDefinition(Object(DI\Definition\FactoryDefinition))
+#8 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(84): DI\Container->get('Slim\\Csrf\\Guard')
+#9 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(38): Invoker\CallableResolver->resolveFromContainer(Array)
+#10 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(65): Invoker\CallableResolver->resolve(Array)
+#11 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(44): DI\Bridge\Slim\CallableResolver->resolvePossibleSignature('Slim\\Csrf\\Guard', 'process', 'Psr\\Http\\Server...')
+#12 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(176): DI\Bridge\Slim\CallableResolver->resolveMiddleware('Slim\\Csrf\\Guard')
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#14 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#16 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#20 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#21 {main}
+[19-Mar-2025 10:05:44 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:05:44 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:05:44 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:05:44 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:05:44 Europe/Belgrade] Slim Application Error
+Type: Twig\Error\SyntaxError
+Code: 0
+Message: Unknown "path_for" function.
+File: D:\xampp\htdocs\magacin\app\views\templates\inc\navigation.twig
+Line: 111
+Trace: #0 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(533): Twig\ExpressionParser->getFunction('path_for', 111)
+#1 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(322): Twig\ExpressionParser->getFunctionNode('path_for', 111)
+#2 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(265): Twig\ExpressionParser->parsePrimaryExpression()
+#3 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(102): Twig\ExpressionParser->getPrimary()
+#4 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(158): Twig\ExpressionParser->parseExpression()
+#5 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TokenParser\IfTokenParser.php(42): Twig\Parser->subparse(Array)
+#6 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(202): Twig\TokenParser\IfTokenParser->parse(Object(Twig\Token))
+#7 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(95): Twig\Parser->subparse(NULL, false)
+#8 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(559): Twig\Parser->parse(Object(Twig\TokenStream))
+#9 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(590): Twig\Environment->parse(Object(Twig\TokenStream))
+#10 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(409): Twig\Environment->compileSource(Object(Twig\Source))
+#11 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(299): Twig\Environment->loadTemplate('__TwigTemplate_...', 'templates/inc/n...', NULL)
+#12 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(70): Twig\Template->loadTemplate('templates/inc/n...', 'templates/app.t...', 17)
+#13 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_caae47b38af12e80092aca1a95c932b6c09ad4064220e1d9ebfba1feb9edfd1c->doDisplay(Array, Array)
+#14 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(47): Twig\Template->yield(Array, Array)
+#15 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_4fd04e47e965aabefcc96a3055d051541dc63648d5c1ad21ddd02a8761c6e310->doDisplay(Array, Array)
+#16 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(344): Twig\Template->yield(Array, Array)
+#17 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(359): Twig\Template->display(Array)
+#18 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TemplateWrapper.php(51): Twig\Template->render(Array)
+#19 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(334): Twig\TemplateWrapper->render(Array)
+#20 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(154): Twig\Environment->render('prijava.twig', Array)
+#21 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(210): Slim\Views\Twig->fetch('prijava.twig', Array)
+#22 D:\xampp\htdocs\magacin\app\Classes\Controller.php(47): Slim\Views\Twig->render(Object(Slim\Psr7\Response), 'prijava.twig', Array)
+#23 D:\xampp\htdocs\magacin\app\Controllers\AuthController.php(17): App\Classes\Controller->render(Object(Slim\Psr7\Response), 'prijava.twig')
+#24 [internal function]: App\Controllers\AuthController->getPrijava(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#25 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#26 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#28 D:\xampp\htdocs\magacin\app\Middlewares\GuestMiddleware.php(16): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#29 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\GuestMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\Routing\Route))
+#30 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#31 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#32 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#33 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#34 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#35 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#36 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#37 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#38 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#39 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#40 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#41 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#42 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#43 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#44 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#45 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#46 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#47 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#48 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#49 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#50 {main}
+[19-Mar-2025 10:05:58 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:05:58 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:05:58 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:05:58 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:05:58 Europe/Belgrade] Slim Application Error
+Type: Twig\Error\SyntaxError
+Code: 0
+Message: Unknown "path_for" function.
+File: D:\xampp\htdocs\magacin\app\views\templates\inc\navigation.twig
+Line: 111
+Trace: #0 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(533): Twig\ExpressionParser->getFunction('path_for', 111)
+#1 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(322): Twig\ExpressionParser->getFunctionNode('path_for', 111)
+#2 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(265): Twig\ExpressionParser->parsePrimaryExpression()
+#3 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(102): Twig\ExpressionParser->getPrimary()
+#4 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(158): Twig\ExpressionParser->parseExpression()
+#5 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TokenParser\IfTokenParser.php(42): Twig\Parser->subparse(Array)
+#6 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(202): Twig\TokenParser\IfTokenParser->parse(Object(Twig\Token))
+#7 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(95): Twig\Parser->subparse(NULL, false)
+#8 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(559): Twig\Parser->parse(Object(Twig\TokenStream))
+#9 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(590): Twig\Environment->parse(Object(Twig\TokenStream))
+#10 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(409): Twig\Environment->compileSource(Object(Twig\Source))
+#11 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(299): Twig\Environment->loadTemplate('__TwigTemplate_...', 'templates/inc/n...', NULL)
+#12 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(70): Twig\Template->loadTemplate('templates/inc/n...', 'templates/app.t...', 17)
+#13 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_caae47b38af12e80092aca1a95c932b6c09ad4064220e1d9ebfba1feb9edfd1c->doDisplay(Array, Array)
+#14 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(47): Twig\Template->yield(Array, Array)
+#15 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_0958c2e821303f53a1efbe90735758fc49fbb883d009746db3b0fc0bdc69b8df->doDisplay(Array, Array)
+#16 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(344): Twig\Template->yield(Array, Array)
+#17 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(359): Twig\Template->display(Array)
+#18 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TemplateWrapper.php(51): Twig\Template->render(Array)
+#19 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(334): Twig\TemplateWrapper->render(Array)
+#20 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(154): Twig\Environment->render('pocetna.twig', Array)
+#21 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(210): Slim\Views\Twig->fetch('pocetna.twig', Array)
+#22 D:\xampp\htdocs\magacin\app\Classes\Controller.php(47): Slim\Views\Twig->render(Object(Slim\Psr7\Response), 'pocetna.twig', Array)
+#23 D:\xampp\htdocs\magacin\app\Controllers\PocetnaController.php(13): App\Classes\Controller->render(Object(Slim\Psr7\Response), 'pocetna.twig')
+#24 [internal function]: App\Controllers\PocetnaController->getPocetna(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#25 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#26 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#28 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#29 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#30 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#31 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#32 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#33 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#34 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#35 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#36 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#37 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#38 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#39 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#40 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#41 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#42 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#43 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#44 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#45 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#46 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#47 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#48 {main}
+[19-Mar-2025 10:07:10 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:07:10 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:07:10 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:07:10 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:07:12 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:07:12 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:07:12 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:07:12 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:07:21 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:07:21 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:07:21 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:07:21 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:07:24 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Class "App\Controllers\Controller" not found
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 8
+Trace: #0 D:\xampp\htdocs\magacin\vendor\composer\ClassLoader.php(478): include()
+#1 D:\xampp\htdocs\magacin\vendor\composer\ClassLoader.php(346): Composer\Autoload\includeFile('D:\\xampp\\htdocs...')
+#2 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#3 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(60): is_callable(Array)
+#4 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(38): Invoker\CallableResolver->resolveFromContainer(Array)
+#5 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(75): Invoker\CallableResolver->resolve(Array)
+#6 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(36): DI\Bridge\Slim\CallableResolver->resolvePossibleSignature('App\\Controllers...', 'handle', 'Psr\\Http\\Server...')
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(345): DI\Bridge\Slim\CallableResolver->resolveRoute('App\\Controllers...')
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#12 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#14 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#16 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#28 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#29 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#30 {main}
+[19-Mar-2025 10:09:34 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method App\Controllers\KorisnikController::page()
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 15
+Trace: #0 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 10:16:12 Europe/Belgrade] Slim Application Error
+Type: TypeError
+Code: 0
+Message: App\Controllers\KorisnikController::getKorisnikLista(): Argument #1 ($request) must be of type App\Controllers\ServerRequestInterface, Slim\Psr7\Request given
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 11
+Trace: #0 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 10:17:03 Europe/Belgrade] Slim Application Error
+Type: ArgumentCountError
+Code: 0
+Message: Too few arguments to function App\Classes\Model::paginate(), 0 passed in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 15 and at least 1 expected
+File: D:\xampp\htdocs\magacin\app\Classes\Model.php
+Line: 125
+Trace: #0 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(15): App\Classes\Model->paginate()
+#1 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#2 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#12 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#13 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#14 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#15 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#16 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#17 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#26 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#27 {main}
+[19-Mar-2025 10:17:21 Europe/Belgrade] Slim Application Error
+Type: TypeError
+Code: 0
+Message: App\Classes\Model::fetch(): Argument #2 ($params) must be of type array, null given, called in D:\xampp\htdocs\magacin\app\Classes\Model.php on line 143
+File: D:\xampp\htdocs\magacin\app\Classes\Model.php
+Line: 27
+Trace: #0 D:\xampp\htdocs\magacin\app\Classes\Model.php(143): App\Classes\Model->fetch('SELECT SQL_CALC...', NULL)
+#1 D:\xampp\htdocs\magacin\app\Classes\Model.php(128): App\Classes\Model->pageData(1, 'SELECT SQL_CALC...', NULL, 10)
+#2 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(15): App\Classes\Model->paginate(1)
+#3 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#4 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#5 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#10 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#12 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#14 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#15 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#16 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#17 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#19 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#28 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#29 {main}
+[19-Mar-2025 10:25:04 Europe/Belgrade] Slim Application Error
+Type: Twig\Error\SyntaxError
+Code: 0
+Message: Unknown "path_for" function.
+File: D:\xampp\htdocs\magacin\app\views\korisnici\lista.twig
+Line: 52
+Trace: #0 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(533): Twig\ExpressionParser->getFunction('path_for', 52)
+#1 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(322): Twig\ExpressionParser->getFunctionNode('path_for', 52)
+#2 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(265): Twig\ExpressionParser->parsePrimaryExpression()
+#3 D:\xampp\htdocs\magacin\vendor\twig\twig\src\ExpressionParser.php(102): Twig\ExpressionParser->getPrimary()
+#4 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(158): Twig\ExpressionParser->parseExpression()
+#5 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TokenParser\ForTokenParser.php(43): Twig\Parser->subparse(Array)
+#6 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(202): Twig\TokenParser\ForTokenParser->parse(Object(Twig\Token))
+#7 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TokenParser\BlockTokenParser.php(46): Twig\Parser->subparse(Array, true)
+#8 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(202): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#9 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Parser.php(95): Twig\Parser->subparse(NULL, false)
+#10 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(559): Twig\Parser->parse(Object(Twig\TokenStream))
+#11 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(590): Twig\Environment->parse(Object(Twig\TokenStream))
+#12 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(409): Twig\Environment->compileSource(Object(Twig\Source))
+#13 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(371): Twig\Environment->loadTemplate('__TwigTemplate_...', 'korisnici/lista...')
+#14 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(334): Twig\Environment->load('korisnici/lista...')
+#15 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(154): Twig\Environment->render('korisnici/lista...', Array)
+#16 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(210): Slim\Views\Twig->fetch('korisnici/lista...', Array)
+#17 D:\xampp\htdocs\magacin\app\Classes\Controller.php(47): Slim\Views\Twig->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#18 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(17): App\Classes\Controller->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#19 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#20 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#21 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#28 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#29 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#30 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#31 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#32 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#33 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#34 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#35 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#36 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#37 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#38 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#39 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#40 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#41 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#42 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#43 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#44 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#45 {main}
+[19-Mar-2025 10:25:49 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:25:49 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:27:56 Europe/Belgrade] PHP Warning:  Undefined property: App\Models\Korisnik::$ime in D:\xampp\htdocs\magacin\app\Models\Korisnik.php on line 21
+[19-Mar-2025 10:27:56 Europe/Belgrade] PHP Warning:  Undefined property: App\Models\Korisnik::$prezime in D:\xampp\htdocs\magacin\app\Models\Korisnik.php on line 21
+[19-Mar-2025 10:27:56 Europe/Belgrade] Slim Application Error
+Type: Twig\Error\RuntimeError
+Code: 0
+Message: An exception has been thrown during the rendering of a template ("Named route does not exist for name: admin.korisnik.izmena.get").
+File: D:\xampp\htdocs\magacin\app\views\korisnici\lista.twig
+Line: 52
+Trace: #0 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(90): Twig\Template->yieldBlock('article', Array, Array)
+#1 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_caae47b38af12e80092aca1a95c932b6c09ad4064220e1d9ebfba1feb9edfd1c->doDisplay(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(51): Twig\Template->yield(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_291376ad5a0834272ea699cb026a3ae8b07c7e36a2a7fdbc808cdbd865275345->doDisplay(Array, Array)
+#4 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(344): Twig\Template->yield(Array, Array)
+#5 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(359): Twig\Template->display(Array)
+#6 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TemplateWrapper.php(51): Twig\Template->render(Array)
+#7 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(334): Twig\TemplateWrapper->render(Array)
+#8 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(154): Twig\Environment->render('korisnici/lista...', Array)
+#9 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(210): Slim\Views\Twig->fetch('korisnici/lista...', Array)
+#10 D:\xampp\htdocs\magacin\app\Classes\Controller.php(47): Slim\Views\Twig->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#11 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(17): App\Classes\Controller->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#12 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#13 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#14 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#16 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#22 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#24 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#26 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#28 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#29 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#30 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#31 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#32 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#33 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#34 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#35 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#36 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#37 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#38 {main}
+Previous Error:
+Type: RuntimeException
+Code: 0
+Message: Named route does not exist for name: admin.korisnik.izmena.get
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteCollector.php
+Line: 214
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteParser.php(42): Slim\Routing\RouteCollector->getNamedRoute('admin.korisnik....')
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteParser.php(107): Slim\Routing\RouteParser->relativeUrlFor('admin.korisnik....', Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigRuntimeExtension.php(47): Slim\Routing\RouteParser->urlFor('admin.korisnik....', Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(150): Slim\Views\TwigRuntimeExtension->urlFor('admin.korisnik....', Array)
+#4 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(432): __TwigTemplate_291376ad5a0834272ea699cb026a3ae8b07c7e36a2a7fdbc808cdbd865275345->block_article(Array, Array)
+#5 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(90): Twig\Template->yieldBlock('article', Array, Array)
+#6 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_caae47b38af12e80092aca1a95c932b6c09ad4064220e1d9ebfba1feb9edfd1c->doDisplay(Array, Array)
+#7 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(421) : eval()'d code(51): Twig\Template->yield(Array, Array)
+#8 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(388): __TwigTemplate_291376ad5a0834272ea699cb026a3ae8b07c7e36a2a7fdbc808cdbd865275345->doDisplay(Array, Array)
+#9 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(344): Twig\Template->yield(Array, Array)
+#10 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Template.php(359): Twig\Template->display(Array)
+#11 D:\xampp\htdocs\magacin\vendor\twig\twig\src\TemplateWrapper.php(51): Twig\Template->render(Array)
+#12 D:\xampp\htdocs\magacin\vendor\twig\twig\src\Environment.php(334): Twig\TemplateWrapper->render(Array)
+#13 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(154): Twig\Environment->render('korisnici/lista...', Array)
+#14 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\Twig.php(210): Slim\Views\Twig->fetch('korisnici/lista...', Array)
+#15 D:\xampp\htdocs\magacin\app\Classes\Controller.php(47): Slim\Views\Twig->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#16 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(17): App\Classes\Controller->render(Object(Slim\Psr7\Response), 'korisnici/lista...', Array)
+#17 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#18 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#19 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#22 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#28 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#29 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#30 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#31 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#32 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#33 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#34 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#35 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#36 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#37 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#38 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#39 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#40 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#41 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#42 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#43 {main}
+[19-Mar-2025 10:29:05 Europe/Belgrade] PHP Warning:  Undefined property: App\Models\Korisnik::$ime in D:\xampp\htdocs\magacin\app\Models\Korisnik.php on line 21
+[19-Mar-2025 10:29:05 Europe/Belgrade] PHP Warning:  Undefined property: App\Models\Korisnik::$prezime in D:\xampp\htdocs\magacin\app\Models\Korisnik.php on line 21
+[19-Mar-2025 10:29:05 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:29:05 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:30:02 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:30:02 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:30:51 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 10:30:51 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 10:30:51 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 10:30:51 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 10:30:51 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 10:30:51 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 11:48:29 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 11:48:30 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 11:48:30 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 11:48:30 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 11:48:30 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 11:48:38 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 11:48:38 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 11:48:38 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 11:48:38 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26
+[19-Mar-2025 12:28:11 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 12:28:11 Europe/Belgrade] 404 Not Found
+Type: Slim\Exception\HttpNotFoundException
+Code: 404
+Message: Not found.
+File: D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php
+Line: 76
+Trace: #0 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(44): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Psr7\Request))
+#1 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#2 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#8 {main}
+[19-Mar-2025 12:35:19 Europe/Belgrade] Slim Application Error
+Type: TypeError
+Code: 0
+Message: App\Controllers\KorisnikController::getKorisnikLista(): Argument #1 ($request) must be of type App\Controllers\ServerRequestInterface, Slim\Psr7\Request given
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 11
+Trace: #0 [internal function]: App\Controllers\KorisnikController->getKorisnikLista(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 12:44:47 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method App\Controllers\KorisnikController::data()
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 25
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 12:45:29 Europe/Belgrade] PHP Warning:  Undefined property: App\Controllers\KorisnikController::$validator in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 50
+[19-Mar-2025 12:45:29 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function validate() on null
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 50
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 12:48:13 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method App\Controllers\KorisnikController::validate()
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 50
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:00:53 Europe/Belgrade] PHP Warning:  Undefined property: DI\Container::$validator in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 51
+[19-Mar-2025 13:00:53 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function validate() on null
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 51
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:05:08 Europe/Belgrade] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected token "(", expecting identifier or variable or "{" or "$"
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 54
+Trace: #0 D:\xampp\htdocs\magacin\vendor\composer\ClassLoader.php(346): Composer\Autoload\includeFile('D:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(60): is_callable(Array)
+#3 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\CallableResolver.php(38): Invoker\CallableResolver->resolveFromContainer(Array)
+#4 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(75): Invoker\CallableResolver->resolve(Array)
+#5 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\CallableResolver.php(36): DI\Bridge\Slim\CallableResolver->resolvePossibleSignature('App\\Controllers...', 'handle', 'Psr\\Http\\Server...')
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(345): DI\Bridge\Slim\CallableResolver->resolveRoute('App\\Controllers...')
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#10 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#12 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#14 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#15 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#16 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#17 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#19 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#28 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#29 {main}
+[19-Mar-2025 13:05:58 Europe/Belgrade] PHP Warning:  Undefined property: DI\Container::$validator in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 51
+[19-Mar-2025 13:05:58 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function validate() on null
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 51
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:08:09 Europe/Belgrade] PHP Warning:  Undefined property: DI\Container::$validator in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 50
+[19-Mar-2025 13:08:09 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function validate() on null
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 50
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:18:30 Europe/Belgrade] PHP Warning:  Undefined property: DI\Container::$validator in D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php on line 50
+[19-Mar-2025 13:18:30 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function validate() on null
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 50
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:40:15 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method App\Models\Korisnik::lastId()
+File: D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php
+Line: 58
+Trace: #0 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#1 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#2 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#3 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#4 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#5 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#7 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#12 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#26 {main}
+[19-Mar-2025 13:44:34 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on array in D:\xampp\htdocs\magacin\app\Classes\Logger.php on line 31
+[19-Mar-2025 13:44:34 Europe/Belgrade] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function getTable() on array
+File: D:\xampp\htdocs\magacin\app\Classes\Logger.php
+Line: 32
+Trace: #0 D:\xampp\htdocs\magacin\app\Classes\Controller.php(31): App\Classes\Logger->log('dodavanje', Object(App\Models\Korisnik), Array, NULL)
+#1 D:\xampp\htdocs\magacin\app\Controllers\KorisnikController.php(59): App\Classes\Controller->log('dodavanje', Object(App\Models\Korisnik), Array)
+#2 [internal function]: App\Controllers\KorisnikController->postKorisnikDodavanje(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response))
+#3 D:\xampp\htdocs\magacin\vendor\php-di\invoker\src\Invoker.php(74): call_user_func_array(Array, Array)
+#4 D:\xampp\htdocs\magacin\vendor\php-di\slim-bridge\src\ControllerInvoker.php(45): Invoker\Invoker->call(Array, Array)
+#5 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(363): DI\Bridge\Slim\ControllerInvoker->__invoke(Array, Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#6 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Slim\Routing\Route->handle(Object(Slim\Psr7\Request))
+#7 D:\xampp\htdocs\magacin\app\Middlewares\AuthMiddleware.php(16): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#8 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\AuthMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Slim\MiddlewareDispatcher))
+#9 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#10 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\Route.php(321): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#11 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Routing\RouteRunner.php(74): Slim\Routing\Route->run(Object(Slim\Psr7\Request))
+#12 D:\xampp\htdocs\magacin\vendor\slim\twig-view\src\TwigMiddleware.php(117): Slim\Routing\RouteRunner->handle(Object(Slim\Psr7\Request))
+#13 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Views\TwigMiddleware->process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#14 D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php(28): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#15 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\UserMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#16 D:\xampp\htdocs\magacin\app\Middlewares\CsrfMiddleware.php(30): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#17 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(280): App\Middlewares\CsrfMiddleware->__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#18 D:\xampp\htdocs\magacin\vendor\slim\csrf\src\Guard.php(482): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#19 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(177): Slim\Csrf\Guard->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#20 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php(45): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#21 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\RoutingMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#22 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\Middleware\ErrorMiddleware.php(77): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#23 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(129): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#24 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\MiddlewareDispatcher.php(73): Psr\Http\Server\RequestHandlerInterface@anonymous->handle(Object(Slim\Psr7\Request))
+#25 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(209): Slim\MiddlewareDispatcher->handle(Object(Slim\Psr7\Request))
+#26 D:\xampp\htdocs\magacin\vendor\slim\slim\Slim\App.php(193): Slim\App->handle(Object(Slim\Psr7\Request))
+#27 D:\xampp\htdocs\magacin\pub\index.php(7): Slim\App->run()
+#28 {main}
+[19-Mar-2025 13:47:41 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 19
+[19-Mar-2025 13:47:41 Europe/Belgrade] PHP Warning:  Attempt to read property "puno_ime" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 20
+[19-Mar-2025 13:47:41 Europe/Belgrade] PHP Warning:  Attempt to read property "nivo" on null in D:\xampp\htdocs\magacin\app\Middlewares\UserMiddleware.php on line 21
+[19-Mar-2025 13:47:41 Europe/Belgrade] PHP Warning:  Attempt to read property "id" on null in D:\xampp\htdocs\magacin\app\Classes\Controller.php on line 26

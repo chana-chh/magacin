@@ -17,6 +17,12 @@ $app->post('/prijava', App\Controllers\AuthController::class . ':postPrijava')->
 
 // samo za prijavljene
 $app->group('', function (RouteCollectorProxy $group) {
+    // Korisnici
+    $group->get('/korisnik-lista', \App\Controllers\KorisnikController::class . ':getKorisnikLista')->setName('korisnik.lista');
+    $group->post('/korisnik-brisanje', \App\Controllers\KorisnikController::class . ':postKorisnikBrisanje')->setName('korisnik.brisanje');
+    $group->post('/korisnik-dodavanje', \App\Controllers\KorisnikController::class . ':postKorisnikDodavanje')->setName('korisnik.dodavanje');
+    $group->get('/korisnik-izmena/{id}', \App\Controllers\KorisnikController::class . ':getKorisnikIzmena')->setName('korisnik.izmena.get');
+    $group->post('/korisnik-izmena', \App\Controllers\KorisnikController::class . ':postKorisnikIzmena')->setName('korisnik.izmena.post');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

@@ -15,4 +15,9 @@ class Korisnik extends Model
         $params = [':kime' => $username];
         return $this->fetch($sql, $params)[0];
     }
+
+    public function logovi()
+    {
+        return $this->hasMany('App\Models\Log', 'id_korisnika');
+    }
 }
