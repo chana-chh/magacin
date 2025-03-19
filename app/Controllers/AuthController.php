@@ -19,9 +19,29 @@ class AuthController extends Controller
 
     public function postPrijava(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $data = $request->getParsedBody();
+        $data = $this->data($request);
         $username = $data['korisnicko_ime'];
         $password = $data['lozinka'];
+
+        $rules = [
+            'korisnicko_ime' => [
+                'required' => true,
+                'minlen' => 5,
+                'maxlen' => 50,
+                'alnum' => true,
+            ],
+            'lozinka' => [
+                'required' => true,
+                'minlen' => 4,
+            ],
+        ];
+
+        $this->validator()->validate($data, $rules);
+
+        if ($this->validator()->hasErrors()) {
+            $this->flash('danger', 'Погрешно корисничко име или лозинка');
+            return $this->redirect($request, $response, 'prijava');
+        }
 
         $ok = $this->container->get(Auth::class)->login($username, $password);
 

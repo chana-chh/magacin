@@ -68,7 +68,7 @@ class Validator
      */
     public function __construct()
     {
-        if (Cfg::get('cyrillic')) {
+        if (Cfg::get('settings')['cyrillic']) {
             $this->convert = true;
         }
     }

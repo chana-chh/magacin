@@ -13,7 +13,7 @@
 							<span class="input-group-text" id="basic-addon1">
 								<i class="bi-person"></i>
 							</span>
-							<input type="text" class="form-control" id="korisnicko_ime" name="korisnicko_ime">
+							<input type="text" class="form-control" id="korisnicko_ime" name="korisnicko_ime" oninvalid="this.setCustomValidity('Корисничко име је обавезно и мора да садржи најмање 5 и највише 50 карактера који морају бити слова или бројеви.')" oninput="this.setCustomValidity('')" minlength="5" maxlength="50" autocomplete="off" required autofocus>
 						</div>
 					</div>
 					<div class="mb-3">
@@ -22,7 +22,7 @@
 							<span class="input-group-text" id="basic-addon1">
 								<i class="bi-key"></i>
 							</span>
-							<input type="password" class="form-control" id="lozinka" name="lozinka">
+							<input type="password" class="form-control" id="lozinka" name="lozinka" oninvalid="this.setCustomValidity('Лозинка је обавезна и мора да садржи најмање 4 карактера.')" oninput="this.setCustomValidity('')" minlength="4" autocomplete="off" required>
 						</div>
 					</div>
 					<button type="submit" class="btn btn-primary">Пријави се</button>

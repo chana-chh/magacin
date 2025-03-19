@@ -13,6 +13,7 @@ class Controller
 {
     protected $korisnik;
     protected $logger;
+    protected $validator; 
     // tip za logger
     const DODAVANJE = "dodavanje";
     const IZMENA = "izmena";
@@ -21,9 +22,15 @@ class Controller
 
     public function __construct(protected ContainerInterface $container)
     {
+        $this->validator = $container->get(Validator::class);
         $auth = $container->get(Auth::class);
         $this->korisnik = $auth->korisnik();
         $this->logger = new Logger($this->korisnik->id);
+    }
+
+    protected function validator()
+    {
+        return $this->container->get(Validator::class);
     }
 
     protected function log($tip, $opis, $model = null, $model_stari = null)
@@ -52,14 +59,11 @@ class Controller
         return $this->container->get(Messages::class)->addMessage($key, $message);
     }
 
-    // protected function addCsrfToken(array &$data)
-    // {
-    //     $data['csrf_name'] = $this->csrf->getTokenName();
-    //     $data['csrf_value'] = $this->csrf->getTokenValue();
-    // }
-
-    // protected function log($tip, $model, $polje, $model_stari = null)
-    // {
-    //     $this->logger->log($tip, $model, $polje, $model_stari);
-    // }
+    protected function data($request)
+    {
+        $data = $request->getParsedBody();
+        unset($data['csrf_name']);
+        unset($data['csrf_value']);
+        return $data;
+    }
 }

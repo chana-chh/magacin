@@ -151,7 +151,7 @@ abstract class Model
     }
 
     // FIXME srediti URL
-    protected function pageLinks(int $page, ?int $perpage = null)
+    protected function pageLinks($request, int $page, ?int $perpage = null)
     {
         $css = $this->pagination_config['css'];
         $links = [];
@@ -163,10 +163,8 @@ abstract class Model
         $span = $this->pagination_config['page_span'];
         $count = $this->foundRows();
         $links['total_rows'] = $count;
-        // $u = Config::getContainer('request')->getUri();
-        // $url = $u->getBaseUrl() . '/' . $u->getPath();
-        // $links['url'] = $url;
-        $url="";
+        $url = $request->getRquestTarget();
+        $links['url'] = $url;
         $pages = (int)ceil($count / $perpage);
         $links['total_pages'] = $pages;
         $full_span = (($span * 2 + 1) > $pages) ? $pages : $span * 2 + 1;
