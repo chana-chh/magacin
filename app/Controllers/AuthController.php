@@ -39,7 +39,7 @@ class AuthController extends Controller
         $this->validator()->validate($data, $rules);
 
         if ($this->validator()->hasErrors()) {
-            $this->flash('danger', 'Погрешно корисничко име или лозинка');
+            $this->flash('danger', 'Неисправно корисничко име или лозинка');
             return $this->redirect($request, $response, 'prijava');
         }
 

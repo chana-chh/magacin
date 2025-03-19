@@ -1,163 +1,161 @@
 {% extends "templates/app.twig" %}
 {% block full %}
-<div class="row mt-md-2 d-none d-sm-flex">
-  <div class="col">
-    <h1> Корисници апликације</h1>
-  </div>
-</div>
-<div class="row mt-2 d-sm-none">
-  <div class="col">
-    <h4> Корисници апликације</h4>
-  </div>
-</div>
-<hr />
+	<div class="row mt-md-2 d-none d-sm-flex">
+		<div class="col">
+			<h1>
+				Корисници апликације</h1>
+		</div>
+	</div>
+	<div class="row mt-2 d-sm-none">
+		<div class="col">
+			<h4>
+				Корисници апликације</h4>
+		</div>
+	</div>
+	<hr/>
 {% endblock full %}
 {% block article %}
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th class="w-10">ИД</th>
-      <th class="w-30">Име и презиме</th>
-      <th class="w-20">Корисничко име</th>
-      <th class="w-20">Ниво права</th>
-      <th class="w-20 text-right"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for korisnik in data %}
-    <tr>
-      <td class="text-danger">{{ korisnik.id }}</td>
-      <td>{{ korisnik.puno_ime }}</td>
-      <td>{{ korisnik.korisnicko_ime }}</td>
-      <td>{{ korisnik.nivo }}</td>
-      <td class="text-end">
-        <div class="btn-group btn-group-sm">
-          <a class="btn btn-warning" href="{{ url_for('korisnik.izmena.get', { id: korisnik.id }) }}"
-            title="Измена података о кориснику">Измена
-          </a>
-          <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" data-bs-target="#brisanjeModal"
-            value="{{ korisnik.id }}" title="Брисање одабраног корисника">Брисање
-          </button>
-        </div>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{# <div class="row">
-  <nav class="col">
-    <ul class="pagination pagination-sm">
-      {% for button in data.links.buttons %}
-      <li class="page-item{{ button.current ? ' active' : '' }}">
-        <a class="page-link" href="{{ button.url }}">{{ button.page }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
-  <p class="col justify-content-end text-right text-info">
-    <strong>
-      Приказани редови
-      <em>{{ data.links.row_from }}</em> до <em>{{ data.links.row_to }}</em> од
-      укупно
-      <em>{{ data.links.total_rows }}</em>
-    </strong>
-  </p>
-</div> #}
+	<table class="table table-striped table-hover table-sm">
+		<thead class="table-dark">
+			<tr>
+				<th class="w-10">#</th>
+				<th class="w-30">Име и презиме</th>
+				<th class="w-20">Корисничко име</th>
+				<th class="w-20">Ниво права</th>
+				<th class="w-20 text-right"></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for korisnik in data %}
+				<tr>
+					<td class="text-danger">{{ korisnik.id }}</td>
+					<td>{{ korisnik.puno_ime }}</td>
+					<td>{{ korisnik.korisnicko_ime }}</td>
+					<td>{{ korisnik.nivo }}</td>
+					<td class="text-end">
+						<div class="btn-group btn-group-sm">
+							<a class="btn btn-warning" href="{{ url_for('korisnik.izmena.get', { id: korisnik.id }) }}" title="Измена података о кориснику">Измена
+							</a>
+							<button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" data-bs-target="#brisanjeModal" value="{{ korisnik.id }}" title="Брисање одабраног корисника">Брисање
+							</button>
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{# <div class="row">
+				  <nav class="col">
+				    <ul class="pagination pagination-sm">
+				      {% for button in data.links.buttons %}
+				      <li class="page-item{{ button.current ? ' active' : '' }}">
+				        <a class="page-link" href="{{ button.url }}">{{ button.page }}</a>
+				      </li>
+				      {% endfor %}
+				    </ul>
+				  </nav>
+				  <p class="col justify-content-end text-right text-info">
+				    <strong>
+				      Приказани редови
+				      <em>{{ data.links.row_from }}</em> до <em>{{ data.links.row_to }}</em> од
+				      укупно
+				      <em>{{ data.links.total_rows }}</em>
+				    </strong>
+				  </p>
+				</div> #}
 
-{# Modal za brisanje #}
-<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title text-danger">Упозорење!</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
-      </div>
-      <div class="modal-body">
-        <h4>Да ли желите трајно да обришете корисника?</h4>
-        <p class="text-danger lead">* Ова акција је неповратна!</p>
-        <form id="brisanje-forma" action="{{ url_for('korisnik.brisanje') }}" method="POST">
-          {{ csrf | raw }}
-          <input type="hidden" id="idBrisanje" name="idBrisanje" />
-      </div>
-      <div class="modal-footer">
-        <div class="form-group">
-          <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
-          </button>
-          <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
-          </a>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-{# Kraj modala za brisanje #}
-
+	{# Modal za brisanje #}
+	<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title text-danger">Упозорење!</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+				</div>
+				<div class="modal-body">
+					<h4>Да ли желите трајно да обришете корисника?</h4>
+					<p class="text-danger lead">* Ова акција је неповратна!</p>
+					<form id="brisanje-forma" action="{{ url_for('korisnik.brisanje') }}" method="POST">
+						{{ csrf | raw }}
+						<input type="hidden" id="idBrisanje" name="idBrisanje"/>
+					</div>
+					<div class="modal-footer">
+						<div class="form-group">
+							<button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
+							</button>
+							<a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{# Kraj modala za brisanje #}
 {% endblock article %}
 {% block aside %}
-<div class="card border-dark mb-3">
-  <div class="card-header">Додавање корисника</div>
-  <div class="card-body text-dark mobilni">
-    <form action="{{ url_for('korisnik.dodavanje') }}" method="POST">
-      {{ csrf | raw }}
-      <div class="form-row">
-        <div class="form-group">
-          <label for="puno_ime"> Име и презиме</label>
-          <input type="text" class="form-control" name="puno_ime" id="puno_ime" value="{{ old.puno_ime ? : ''  }}" autocomplete="off" required />
-        </div>
-      </div>
-      <div class="form-row">
-      <div class="form-group">
-        <label for="korisnicko_ime">Корисничко име</label>
-        <input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime" value="{{ old.korisnicko_ime ? : '' }}"
-          autocomplete="off" required minlength="5" />
-      </div>
-      </div>
-      <div class="form-row">
-      <div class="form-group">
-        <label for="lozinka">Лозинка</label>
-        <input class="form-control" type="password" name="lozinka"
-          id="lozinka" autocomplete="new-password" required minlength="6" />
-      </div>
-      </div>
-      <div class="form-row">
-      <div class="form-group">
-        <label for="lozinka_potvrda">Потврда лозинке</label>
-        <input class="form-control" type="password" name="lozinka_potvrda" id="lozinka_potvrda" autocomplete="off" required />
-      </div>
-      </div>
-      <div class="form-row">
-      <div class="form-group">
-        <label for="nivo">Ниво корисничких права</label>
-        <select class="form-select" id="nivo" name="nivo" required>
-          <option value=""></option>
-          {% if auth.user.nivo == 0 %}
-          <option value="0">Администратор</option>
-          {% endif %}
-          <option value="100">Корисник</option>
-        </select>
-      </div>
-      </div>
-      <div class="form-row text-end mt-2">
-        <div class="col">
-          <button type="submit" class="btn btn-primary text-right">
-            &emsp;Додај
-          </button>
-          <a href="{{ url_for('korisnik.lista') }}" class="btn btn-secondary">
-            &emsp;Откажи</a>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-{% endblock aside %} 
+	<div class="card border-dark mb-3">
+		<div class="card-header">Додавање корисника</div>
+		<div class="card-body text-dark mobilni">
+			<form action="{{ url_for('korisnik.dodavanje') }}" method="POST">
+				{{ csrf | raw }}
+				<div class="form-row">
+					<div class="form-group">
+						<label for="puno_ime">
+							Име и презиме</label>
+						<input type="text" class="form-control" name="puno_ime" id="puno_ime" value="{{ old.puno_ime ? : '' }}" autocomplete="off" required/>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="korisnicko_ime">Корисничко име</label>
+						<input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime" value="{{ old.korisnicko_ime ? : '' }}" autocomplete="off" required minlength="5"/>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="lozinka">Лозинка</label>
+						<input class="form-control" type="password" name="lozinka" id="lozinka" autocomplete="new-password" required minlength="6"/>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="lozinka_potvrda">Потврда лозинке</label>
+						<input class="form-control" type="password" name="lozinka_potvrda" id="lozinka_potvrda" autocomplete="off" required/>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="nivo">Ниво корисничких права</label>
+						<select class="form-select" id="nivo" name="nivo" required>
+							<option value=""></option>
+							{% if auth.user.nivo == 0 %}
+								<option value="0">Администратор</option>
+							{% endif %}
+							<option value="100">Корисник</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-row text-end mt-2">
+					<div class="col">
+						<button type="submit" class="btn btn-primary text-right">
+							&emsp;Додај
+						</button>
+						<a href="{{ url_for('korisnik.lista') }}" class="btn btn-secondary">
+							&emsp;Откажи</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock aside %}
 {% block skripta %}
-<script>
-  $(document).ready(function () {
-    $(document).on("click", ".otvori-brisanje", function () {
-      var id = $(this).val();
-      $("#idBrisanje").val(id);
-    });
-  });
-</script>
+	<script>
+		$(document).ready(function () {
+$(document).on("click", ".otvori-brisanje", function () {
+var id = $(this).val();
+$("#idBrisanje").val(id);
+});
+});
+	</script>
 {% endblock skripta %}
