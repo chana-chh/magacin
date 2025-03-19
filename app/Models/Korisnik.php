@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Classes\Model;
-use Psr\Container\ContainerInterface;
 
 class Korisnik extends Model
 {

@@ -26,14 +26,18 @@ class Logger
         $pk = '';
         $tabela = '';
         if ($model !== null) {
-            $podaci .= "[new]\n";
+            $podaci .= '{"new":';
             $podaci .= json_encode($model);
             $pk = $model->id;
             $tabela = $model->getTable();
         }
         if ($model_stari !== null) {
-            $podaci .= "\n\n[old]\n";
+            $podaci .= ',"old":';
             $podaci .= json_encode($model_stari);
+        }
+
+        if ($podaci !== '') {
+            $podaci .= '}';
         }
 
         $data = [
@@ -42,7 +46,7 @@ class Logger
             'pk' => $pk,
             'tabela' => $tabela,
             'podaci' => $podaci,
-            'korisnik_id' => $this->korisnik_id,
+            'id_korisnika' => $this->korisnik_id,
         ];
 
         $this->model->insert($data);

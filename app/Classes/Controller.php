@@ -13,12 +13,12 @@ class Controller
 {
     protected $korisnik;
     protected $logger;
-    protected $validator; 
+    protected $validator;
     // tip za logger
-    const DODAVANJE = "dodavanje";
-    const IZMENA = "izmena";
-    const BRISANJE = "brisanje";
-    const UPLOAD = "upload";
+    const DODAVANJE = "ДОДАВАЊЕ";
+    const IZMENA = "ИЗМЕНА";
+    const BRISANJE = "БРИСАЊЕ";
+    const UPLOAD = "ПРИЛАГАЊЕ";
 
     public function __construct(protected ContainerInterface $container)
     {

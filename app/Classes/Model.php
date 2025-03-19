@@ -224,94 +224,94 @@ abstract class Model
 
     // XXX ovo bih izbacio, cini mi se da je lakse napisati upit
 
-    // /**
-    //  * Vraca Model povezan kao has one
-    //  *
-    //  * one to one (vraca dete)
-    //  *
-    //  * @param string $model_class Klasa deteta
-    //  * @param string $foreign_table_fk
-    //  * @return \App\Classes\Model Instanca deteta
-    //  */
-    // public function hasOne($model_class, $foreign_table_fk)
-    // {
-    //     $m = new $model_class();
-    //     $sql = "SELECT * FROM {$m->getTable()} WHERE {$foreign_table_fk} = :{$foreign_table_fk};";
-    //     $pk = $this->getPrimaryKey();
-    //     $params = [":{$foreign_table_fk}" => $this->$pk];
-    //     $result = $this->fetch($sql, $params, $model_class);
-    //     if (!$result) {
-    //         return null;
-    //     } else {
-    //         return $result[0];
-    //     }
-    // }
+    /**
+     * Vraca Model povezan kao has one
+     *
+     * one to one (vraca dete)
+     *
+     * @param string $model_class Klasa deteta
+     * @param string $foreign_table_fk
+     * @return \App\Classes\Model Instanca deteta
+     */
+    public function hasOne($model_class, $foreign_table_fk)
+    {
+        $m = new $model_class();
+        $sql = "SELECT * FROM {$m->getTable()} WHERE {$foreign_table_fk} = :{$foreign_table_fk};";
+        $pk = $this->getPrimaryKey();
+        $params = [":{$foreign_table_fk}" => $this->$pk];
+        $result = $this->fetch($sql, $params, $model_class);
+        if (!$result) {
+            return null;
+        } else {
+            return $result[0];
+        }
+    }
 
-    // /**
-    //  * Vraca Modele povezane kao has many
-    //  *
-    //  * one to many (vraca decu)
-    //  *
-    //  * @param string $model_class Klasa deteta
-    //  * @param string $foreign_table_fk
-    //  * @return array \App\Classes\Model Niz instanci dece
-    //  */
-    // public function hasMany($model_class, $foreign_table_fk, $order = null)
-    // {
-    //     $m = new $model_class();
-    //     $o = $order === null ? '' : ' ORDER BY ' . $order;
-    //     $sql = "SELECT * FROM {$m->getTable()} WHERE {$foreign_table_fk} = :{$foreign_table_fk}{$o};";
-    //     $pk = $this->getPrimaryKey();
-    //     $params = [":{$foreign_table_fk}" => $this->$pk];
-    //     $result = $this->fetch($sql, $params, $model_class);
-    //     return $result;
-    // }
+    /**
+     * Vraca Modele povezane kao has many
+     *
+     * one to many (vraca decu)
+     *
+     * @param string $model_class Klasa deteta
+     * @param string $foreign_table_fk
+     * @return array \App\Classes\Model Niz instanci dece
+     */
+    public function hasMany($model_class, $foreign_table_fk, $order = null)
+    {
+        $m = new $model_class();
+        $o = $order === null ? '' : ' ORDER BY ' . $order;
+        $sql = "SELECT * FROM {$m->getTable()} WHERE {$foreign_table_fk} = :{$foreign_table_fk}{$o};";
+        $pk = $this->getPrimaryKey();
+        $params = [":{$foreign_table_fk}" => $this->$pk];
+        $result = $this->fetch($sql, $params, $model_class);
+        return $result;
+    }
 
-    // /**
-    //  * Vraca Model povezan kao belongs to
-    //  *
-    //  * one to one (vraca roditelja)
-    //  * one to many (vraca roditelja)
-    //  *
-    //  * @param string $model_class Klasa roditelja
-    //  * @param string $this_table_fk
-    //  * @return \App\Classes\Model Instanca roditelja
-    //  */
-    // public function belongsTo($model_class, $this_table_fk)
-    // {
-    //     $m = new $model_class();
-    //     $sql = "SELECT * FROM {$m->getTable()} WHERE {$m->getPrimaryKey()} = :{$m->getPrimaryKey()};";
-    //     $params = [":{$m->getPrimaryKey()}" => $this->$this_table_fk];
-    //     $result = $this->fetch($sql, $params, $model_class);
-    //     if (!$result) {
-    //         return null;
-    //     } else {
-    //         return $result[0];
-    //     }
-    // }
+    /**
+     * Vraca Model povezan kao belongs to
+     *
+     * one to one (vraca roditelja)
+     * one to many (vraca roditelja)
+     *
+     * @param string $model_class Klasa roditelja
+     * @param string $this_table_fk
+     * @return \App\Classes\Model Instanca roditelja
+     */
+    public function belongsTo($model_class, $this_table_fk)
+    {
+        $m = new $model_class();
+        $sql = "SELECT * FROM {$m->getTable()} WHERE {$m->getPrimaryKey()} = :{$m->getPrimaryKey()};";
+        $params = [":{$m->getPrimaryKey()}" => $this->$this_table_fk];
+        $result = $this->fetch($sql, $params, $model_class);
+        if (!$result) {
+            return null;
+        } else {
+            return $result[0];
+        }
+    }
 
-    // /**
-    //  * Vraca Modele povezane kao belongs to many
-    //  *
-    //  * many to many (vraca drugu stranu pivot tabele)
-    //  *
-    //  * @param string $model_class Klasa druge strane
-    //  * @param string $pivot_table Naziv pivot tabele
-    //  * @param string $pt_this_table_fk FK ove strane u pivot tabeli
-    //  * @param string $pt_foreign_table_fk FK druge strane u pivot tabeli
-    //  * @return array \App\Classes\Model Niz instanci druge strane
-    //  */
-    // public function belongsToMany($model_class, $pivot_table, $pt_this_table_fk, $pt_foreign_table_fk, $order = null)
-    // {
-    //     $m = new $model_class();
-    //     $tbl = $m->getTable();
-    //     $o = $order === null ? '' : ' ORDER BY ' . $order;
-    //     $pk = $this->getPrimaryKey();
-    //     $params = [":{$pk}" => $this->$pk];
-    //     $sql = "SELECT {$tbl}.* FROM {$tbl} JOIN {$pivot_table} ON {$tbl}.{$m->getPrimaryKey()} = {$pivot_table}.{$pt_foreign_table_fk} WHERE {$pivot_table}.{$pt_this_table_fk} = :{$pk}{$o};";
-    //     $result = $this->fetch($sql, $params, $model_class);
-    //     return $result;
-    // }
+    /**
+     * Vraca Modele povezane kao belongs to many
+     *
+     * many to many (vraca drugu stranu pivot tabele)
+     *
+     * @param string $model_class Klasa druge strane
+     * @param string $pivot_table Naziv pivot tabele
+     * @param string $pt_this_table_fk FK ove strane u pivot tabeli
+     * @param string $pt_foreign_table_fk FK druge strane u pivot tabeli
+     * @return array \App\Classes\Model Niz instanci druge strane
+     */
+    public function belongsToMany($model_class, $pivot_table, $pt_this_table_fk, $pt_foreign_table_fk, $order = null)
+    {
+        $m = new $model_class();
+        $tbl = $m->getTable();
+        $o = $order === null ? '' : ' ORDER BY ' . $order;
+        $pk = $this->getPrimaryKey();
+        $params = [":{$pk}" => $this->$pk];
+        $sql = "SELECT {$tbl}.* FROM {$tbl} JOIN {$pivot_table} ON {$tbl}.{$m->getPrimaryKey()} = {$pivot_table}.{$pt_foreign_table_fk} WHERE {$pivot_table}.{$pt_this_table_fk} = :{$pk}{$o};";
+        $result = $this->fetch($sql, $params, $model_class);
+        return $result;
+    }
 
     public function getTable()
     {

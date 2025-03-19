@@ -83,7 +83,7 @@
 						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Шифарници</a>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 							<li>
-								<a class="dropdown-item" href="#">Јединице мере</a>
+								<a class="dropdown-item" href="{{ url_for('jedinica.mere.lista') }}">Јединице мере</a>
 							</li>
 							<li><hr class="dropdown-divider"/></li>
 							<li>
@@ -109,6 +109,9 @@
 							<li><hr class="dropdown-divider"/></li>
 							<li>
 								<a class="dropdown-item" href="{{ url_for('korisnik.lista') }}">Корисници</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Логови</a>
 							</li>
 						</ul>
 					</li>
