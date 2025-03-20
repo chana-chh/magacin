@@ -2,7 +2,8 @@
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{{ url_for('pocetna') }}">МАГАЦИН</a>
 
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,120 +13,143 @@
 				</li>
 
 				{% if korisnik.prijavljen %}
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Стање</a>
-						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="#">Укупно</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">По магацину</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">По артиклу</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">Картица артикла</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Пријемнице</a>
-						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="#">Све пријемнице</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">По добављачу</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">По магацину</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Отпремнице</a>
-						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="#">Све отпремнице</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">По купцу</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">По магацину</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Налози</a>
-						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="#">Сви налози</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">По пријемном магацину</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">По отпремном магацину</a>
-							</li>
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('pocetna') }}">Пописи</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Шифарници</a>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="{{ url_for('jedinica.mere.lista') }}">Јединице мере</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">Категорије артикала</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Артикли</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">Типови магацина</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Магацини</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="#">Купци</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Добављачи</a>
-							</li>
-							<li><hr class="dropdown-divider"/></li>
-							<li>
-								<a class="dropdown-item" href="{{ url_for('korisnik.lista') }}">Корисници</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Логови</a>
-							</li>
-						</ul>
-					</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Стање</a>
+					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#">Укупно</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По магацину</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По артиклу</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Картица артикла</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Пријемнице</a>
+					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#">Све пријемнице</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По добављачу</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По магацину</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Отпремнице</a>
+					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#">Све отпремнице</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По купцу</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По магацину</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Налози</a>
+					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="#">Сви налози</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По пријемном магацину</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">По отпремном магацину</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ url_for('pocetna') }}">Пописи</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Шифарници</a>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="{{ full_url_for('jedinica.mere.lista') }}">Јединице мере</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Категорије артикала</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Артикли</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Типови магацина</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Магацини</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Купци</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="#">Добављачи</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ full_url_for('korisnik.lista') }}">Корисници</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ full_url_for('log.lista') }}">Логови</a>
+						</li>
+					</ul>
+				</li>
 
 				{% endif %}
 
 				{% if korisnik.prijavljen %}
-					<li class="nav-item">
-						<a class="nav-link text-danger" href="{{ url_for('odjava') }}">Одјава</a>
-					</li>
+				<li class="nav-item">
+					<a class="nav-link text-danger" href="{{ url_for('odjava') }}">Одјава</a>
+				</li>
 				{% else %}
-					<li class="nav-item">
-						<a class="nav-link text-success" href="{{ url_for('prijava') }}">Пријава</a>
-					</li>
+				<li class="nav-item">
+					<a class="nav-link text-success" href="{{ url_for('prijava') }}">Пријава</a>
+				</li>
 				{% endif %}
 
 			</ul>

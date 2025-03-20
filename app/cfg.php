@@ -8,10 +8,10 @@ $config = [
             'per_page' => 10,
             'page_span' => 3,
             'css' => [ // TODO prepraviti za bootstrap 5.3
-                'buttons_container' => 'uk-pagination',
-                'button_active' => 'uk-active',
-                'button_disabled' => 'uk-disabled',
-                'goto' => 'uk-select uk-form-width-xsmall uk-form-small uk-text-primary',
+                'buttons_container' => 'pagination',
+                'button_active' => 'active',
+                'button_disabled' => 'disabled',
+                'goto' => 'form-select form-select-sm',
             ],
         ],
         'displayErrorDetails' => true, // da li ovo radi u Slim4

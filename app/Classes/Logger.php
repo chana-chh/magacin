@@ -9,10 +9,6 @@ class Logger
 {
     public $korisnik_id = 0;
     public $model = null;
-    const DODAVANJE = "dodavanje";
-    const IZMENA = "izmena";
-    const BRISANJE = "brisanje";
-    const UPLOAD = "upload";
 
     public function __construct($korisnik_id)
     {
@@ -26,24 +22,24 @@ class Logger
         $pk = '';
         $tabela = '';
         if ($model !== null) {
-            $podaci .= '{"new":';
-            $podaci .= json_encode($model);
-            $pk = $model->id;
             $tabela = $model->getTable();
+            $podaci .= "[NEW]\n";
+            $mod = get_object_vars($model);
+            foreach ($mod as $key => $value) {
+                $podaci .= $key . " = " . $value . "\n";
+            }
         }
         if ($model_stari !== null) {
-            $podaci .= ',"old":';
-            $podaci .= json_encode($model_stari);
-        }
-
-        if ($podaci !== '') {
-            $podaci .= '}';
+            $podaci .= "\n[OLD]\n";
+            $mod = get_object_vars($model_stari);
+            foreach ($mod as $key => $value) {
+                $podaci .= $key . " = " . $value . "\n";
+            }
         }
 
         $data = [
             'tip' => $tip,
             'opis' => $opis,
-            'pk' => $pk,
             'tabela' => $tabela,
             'podaci' => $podaci,
             'id_korisnika' => $this->korisnik_id,

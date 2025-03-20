@@ -1,0 +1,75 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<h1>Логови</h1>
+{% set data = logovi.data %}
+{% set links = logovi.links %}
+
+<form action="" method="POST" class="form mb-3">
+	<div class="input-group">
+		<input type="text" class="form-control" name="search" placeholder="Претраживање" value="{{ search }}">
+		<button class="btn btn-primary" type="submit">Претражи</button>
+	</div>
+</form>
+
+{% if logovi %}
+<table class="table table-striped table-hover table-sm">
+	<thead class="table-dark">
+		<tr>
+			<th class="w-5">#</th>
+			<th class="w-10">Тип</th>
+			<th class="w-15">Опис</th>
+			<th class="w-15">Табела</th>
+			<th class="w-25">Подаци</th>
+			<th class="w-15">Време</th>
+			<th class="w-15">Корисник</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for log in data %}
+		<tr>
+			<td class="text-danger">
+				<em>{{ log.id }}</em>
+			</td>
+			<td class="text-primary">
+				{{ log.tip }}
+			</td>
+			<td>
+				<em>{{ log.opis }}</em>
+			</td>
+			<td class="text-success">
+				<strong>{{ log.tabela }}</strong>
+			</td>
+			<td>
+				{{log.podaci|nl2br }}
+			</td>
+			<td>
+				<em>{{ log.vreme|date('d.m.Y у H:i:s') }}</em>
+			</td>
+			<td>
+				{{ log.korisnik().puno_ime }}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<div>
+	<div>{{ links.buttons|raw }}</div>
+	<div>Иди на страну
+		{{ links.select|raw }}</div>
+	<div>
+		<p>
+			Приказани редови од
+			<em>{{ links.row_from }}</em>
+			до
+			<em>{{ links.row_to }}</em>
+			од укупно
+			<em>{{ links.total_rows }}</em>
+		</p>
+	</div>
+</div>
+{% else %}
+<h2>Нема логова</h2>
+{% endif %}
+
+{% endblock full %}

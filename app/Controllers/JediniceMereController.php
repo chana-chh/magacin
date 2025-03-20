@@ -71,7 +71,7 @@ class JediniceMereController extends Controller
                 'required' => true,
                 'alnum' => true,
                 'maxlen' => 10,
-                'unique' => 'jedinice_mere.jm#id:'.$id
+                'unique' => 'jedinice_mere.jm#id:' . $id
             ],
             'naziv' => [
                 'required' => true,
@@ -88,16 +88,16 @@ class JediniceMereController extends Controller
         if ($this->validator()->hasErrors()) {
             $this->flash('danger', 'Неуспешна измена јединице мере');
             return $this->redirect($request, $response, 'jedinica.mere.izmena.get', ['id' => $id]);
-        }else {
-            $this->flash('success', 'Подаци јединице мере су успешно измењени.');
-            $jm = new JedinicaMere();
-            $stari = $jm->find($id);
-
-            $jm->update($data, $id);
-            $jedinica = $jm->find($id);
-            $this->log($this::IZMENA, 'Измена јединице мере', $jedinica, $stari);
-            return $this->redirect($request, $response, 'jedinica.mere.lista');
         }
+
+        $this->flash('success', 'Подаци јединице мере су успешно измењени.');
+        $jm = new JedinicaMere();
+        $stari = $jm->find($id);
+
+        $jm->update($data, $id);
+        $jedinica = $jm->find($id);
+        $this->log($this::IZMENA, 'Измена јединице мере', $jedinica, $stari);
+        return $this->redirect($request, $response, 'jedinica.mere.lista');
     }
 
     public function postJedinicaMereBrisanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -112,6 +112,7 @@ class JediniceMereController extends Controller
             $this->flash('danger', 'Неуспешно брисање јединице мере');
             return $this->redirect($request, $response, 'jedinica.mere.lista');
         }
+        
         $this->log($this::BRISANJE, 'Брисање јединице мере', $model);
         $this->flash('success', 'Успешно брисање јединице мере');
         return $this->redirect($request, $response, 'jedinica.mere.lista');

@@ -123,11 +123,11 @@ abstract class Model
         }
     }
 
-    public function paginate(int $page, ?string $sql = null, ?array $params = null, ?int $perpage = null, ?int $span = null)
+    public function paginate($path, int $page, ?string $sql = null, ?array $params = null, ?int $perpage = null, ?int $span = null)
     {
         $sql = ($sql !== null) ? $sql : "SELECT * FROM {$this->table};";
         $data = $this->pageData($page, $sql, $params, $perpage);
-        $links = $this->pageLinks($page, $perpage, $span);
+        $links = $this->pageLinks($path, $page, $perpage, $span);
         return ['data' => $data, 'links' => $links];
     }
 
@@ -152,7 +152,7 @@ abstract class Model
     }
 
     // FIXME srediti URL
-    protected function pageLinks($request, int $page, ?int $perpage = null)
+    protected function pageLinks($path, int $page, ?int $perpage = null)
     {
         $css = $this->pagination_config['css'];
         $links = [];
@@ -164,7 +164,7 @@ abstract class Model
         $span = $this->pagination_config['page_span'];
         $count = $this->foundRows();
         $links['total_rows'] = $count;
-        $url = $request->getRquestTarget();
+        $url = $path;
         $links['url'] = $url;
         $pages = (int)ceil($count / $perpage);
         $links['total_pages'] = $pages;
@@ -196,17 +196,17 @@ abstract class Model
         $links['row_to'] = $zapis_do;
 
         $buttons = "<ul class=\"{$css['buttons_container']}\">";
-        $buttons .= "<li><a class=\"{$disabled_begin}\" href=\"{$url}?page=1\" tabindex=\"-1\">1</a></li>";
-        $buttons .= "<li><a class=\"{$disabled_begin}\" href=\"{$url}?page={$prev}\" tabindex=\"-1\"><span uk-icon=\"chevron-left\"></span></a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_begin}\" href=\"{$url}?page=1\" tabindex=\"-1\">1</a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_begin}\" href=\"{$url}?page={$prev}\" tabindex=\"-1\"><span uk-icon=\"chevron-left\"></span></a></li>";
         for ($i = $start; $i <= $end; $i++) {
-            $current = '';
+            $current = 'page-link';
             if ($page === $i) {
-                $current = $css['button_active'] . ' ' . $css['button_disabled'];
+                $current = ' ' . $css['button_active'] . ' ' . $css['button_disabled'];
             }
-            $buttons .= "<li><a class=\"{$current}\" href=\"{$url}?page={$i}\" tabindex=\"-1\">{$i}</a></li>";
+            $buttons .= "<li class=\"page-item\"><a class=\"{$current}\" href=\"{$url}?page={$i}\" tabindex=\"-1\">{$i}</a></li>";
         }
-        $buttons .= "<li><a class=\"{$disabled_end}\" href=\"{$url}?page={$next}\" tabindex=\"-1\"><span uk-icon=\"chevron-right\"></span></a></li>";
-        $buttons .= "<li><a class=\"{$disabled_end}\" href=\"{$url}?page={$pages}\" tabindex=\"-1\">{$pages}</a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_end}\" href=\"{$url}?page={$next}\" tabindex=\"-1\"><span uk-icon=\"chevron-right\"></span></a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_end}\" href=\"{$url}?page={$pages}\" tabindex=\"-1\">{$pages}</a></li>";
         $buttons .= "</ul>";
         $links['buttons'] = $buttons;
         $goto = "<select class=\"{$css['goto']}\" name=\"pgn-goto\" id=\"pgn-goto\">";
