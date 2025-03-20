@@ -86,7 +86,7 @@ CREATE TABLE `jedinice_mere` (
   `opis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `jedinice_mere_unique` (`jm`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,8 @@ CREATE TABLE `jedinice_mere` (
 
 LOCK TABLES `jedinice_mere` WRITE;
 /*!40000 ALTER TABLE `jedinice_mere` DISABLE KEYS */;
+INSERT INTO `jedinice_mere` VALUES
+(10,'ком','комад','опис 123');
 /*!40000 ALTER TABLE `jedinice_mere` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,13 +191,12 @@ CREATE TABLE `logovi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tip` varchar(50) NOT NULL,
   `opis` varchar(255) NOT NULL DEFAULT '',
-  `pk` int(10) unsigned NOT NULL DEFAULT 0,
-  `tabela` varchar(100) NOT NULL DEFAULT '',
+  `tabela` varchar(200) DEFAULT NULL,
   `podaci` text DEFAULT NULL,
   `vreme` datetime NOT NULL DEFAULT current_timestamp(),
   `id_korisnika` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,6 +205,14 @@ CREATE TABLE `logovi` (
 
 LOCK TABLES `logovi` WRITE;
 /*!40000 ALTER TABLE `logovi` DISABLE KEYS */;
+INSERT INTO `logovi` VALUES
+(1,'ДОДАВАЊЕ','Додавање јединице мере',NULL,'[NEW]\nid = 10\njm = ком\nnaziv = комад\nopis = \n','2025-03-20 20:30:35',1),
+(2,'ДОДАВАЊЕ','Додавање јединице мере',NULL,'[NEW]\nid = 11\njm = л\nnaziv = литар\nopis = \n','2025-03-20 20:30:53',1),
+(3,'ДОДАВАЊЕ','Додавање јединице мере',NULL,'[NEW]\njedinice_mere\nid = 12\njm = т\nnaziv = тона\nopis = \n','2025-03-20 20:36:57',1),
+(4,'БРИСАЊЕ','Брисање јединице мере',NULL,'[NEW]\ntable = jedinice_mere\nid = 12\njm = т\nnaziv = тона\nopis = \n','2025-03-20 20:40:04',1),
+(5,'БРИСАЊЕ','Брисање јединице мере','jedinice_mere','[NEW]\ntable = jedinice_mere\nid = 11\njm = л\nnaziv = литар\nopis = \n','2025-03-20 21:02:43',1),
+(6,'ИЗМЕНА','Измена јединице мере','jedinice_mere','[NEW]\nid = 10\njm = ком\nnaziv = комад\nopis = опис\n\n\n[OLD]\nid = 10\njm = ком\nnaziv = комад\nopis = \n','2025-03-20 21:08:40',1),
+(7,'ИЗМЕНА','Измена јединице мере','jedinice_mere','[NEW]\nid = 10\njm = ком\nnaziv = комад\nopis = опис 123\n\n[OLD]\nid = 10\njm = ком\nnaziv = комад\nopis = опис\n','2025-03-20 21:09:54',1);
 /*!40000 ALTER TABLE `logovi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -535,4 +544,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-18 22:01:34
+-- Dump completed on 2025-03-20 21:20:40
