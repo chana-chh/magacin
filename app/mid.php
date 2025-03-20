@@ -8,8 +8,8 @@ use App\Middlewares\CsrfMiddleware;
 use App\Middlewares\UserMiddleware;
 use App\Middlewares\ErrorsMiddleware;
 
-$app->add(TwigMiddleware::create($app, $container->get(Twig::class)));
 $app->add(new UserMiddleware($container));
+$app->add(TwigMiddleware::create($app, $container->get(Twig::class)));
 $app->add(new CsrfMiddleware($container));
 $app->add(new OldMiddleware($container));
 $app->add(new ErrorsMiddleware($container));

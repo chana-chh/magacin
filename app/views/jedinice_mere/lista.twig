@@ -23,19 +23,14 @@
             <td>{{ jm.opis }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-warning" href="{{ url_for('jedinica.mere.izmena.get', { id: jm.id }) }}"
-                        title="Измена јединице мере"><i class="bi-pencil"></i></a>
-                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
-                        data-bs-target="#brisanjeModal" value="{{ jm.id }}" title="Брисање јединице мере"
-                        onclick="document.getElementById('idBrisanje').value = this.value"><i
-                            class="bi-trash"></i></button>
+                    <a class="btn btn-warning" href="{{ url_for('jedinica.mere.izmena.get', { id: jm.id }) }}" title="Измена јединице мере"><i class="bi-pencil"></i></a>
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje" data-bs-target="#brisanjeModal" value="{{ jm.id }}" title="Брисање јединице мере" onclick="document.getElementById('idBrisanje').value = this.value"><i class="bi-trash"></i></button>
                 </div>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-
 {# Modal za brisanje #}
 <div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -65,7 +60,6 @@
 </div>
 {# Kraj modala za brisanje #}
 {% endblock article %}
-
 {% block aside %}
 <div class="card border-dark">
     <div class="card-header">Додавање јединице мере</div>
@@ -75,30 +69,21 @@
             <div class="form-row">
                 <div class="form-group mt-3">
                     <label for="jm">Скраћеница (јм)</label>
-                    <input type="text" class="form-control{{ errors.jm ? ' is-invalid' : '' }}" name="jm" id="jm"
-                        value="{{ old.jm ? : '' }}" maxlength="10" minlength="1"
-                        oninvalid="this.setCustomValidity('Јединица мере је обавезна и мора да садржи највише 10 карактера.')"
-                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <input type="text" class="form-control{{ errors.jm ? ' is-invalid' : '' }}" name="jm" id="jm" value="{{ old.jm ? : '' }}" maxlength="10" minlength="1" oninvalid="this.setCustomValidity('Јединица мере је обавезна и мора да садржи највише 10 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
                     <div class="invalid-feedback">{{ errors.jm.0 }}</div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group mt-3">
                     <label for="naziv">Пун назив</label>
-                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv"
-                        id="naziv" value="{{ old.naziv ? : '' }}" maxlength="100"
-                        oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')"
-                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv" id="naziv" value="{{ old.naziv ? : '' }}" maxlength="100" oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
                     <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group mt-3">
                     <label for="opis">Опис</label>
-                    <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis"
-                        value="{{ old.opis ? : '' }}" maxlength="250"
-                        oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')"
-                        oninput="this.setCustomValidity('')" autocomplete="off">
+                    <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis" value="{{ old.opis ? : '' }}" maxlength="250" oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.opis.0 }}</div>
                 </div>
             </div>

@@ -55,15 +55,49 @@ class JediniceMereController extends Controller
 
     public function getJedinicaMereIzmena(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $id = $request->getAttribute('id');
-        dd($id);
-        return $this->render($response, 'jedinice_mere/izmena.twig');
+        $id = (int) $request->getAttribute('id');
+        $model = new JedinicaMere();
+        $jedinica = $model->find($id);
+        return $this->render($response, 'jedinice_mere/izmena.twig', compact('jedinica'));
     }
 
     public function postJedinicaMereIzmena(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        dd('postJedinicaMereIzmena');
-        return $this->redirect($request, $response, 'jedinica.mere.lista');
+        $data = $this->data($request);
+        $id = (int) $data['id'];
+        unset($data['id']);
+        $rules = [
+            'jm' => [
+                'required' => true,
+                'alnum' => true,
+                'maxlen' => 10,
+                'unique' => 'jedinice_mere.jm#id:'.$id
+            ],
+            'naziv' => [
+                'required' => true,
+                'maxlen' => 100,
+                'alnum' => true,
+            ],
+            'opis' => [
+                'maxlen' => 255,
+            ],
+        ];
+
+        $this->validator()->validate($data, $rules);
+
+        if ($this->validator()->hasErrors()) {
+            $this->flash('danger', 'Неуспешна измена јединице мере');
+            return $this->redirect($request, $response, 'jedinica.mere.izmena.get', ['id' => $id]);
+        }else {
+            $this->flash('success', 'Подаци јединице мере су успешно измењени.');
+            $jm = new JedinicaMere();
+            $stari = $jm->find($id);
+
+            $jm->update($data, $id);
+            $jedinica = $jm->find($id);
+            $this->log($this::IZMENA, 'Измена јединице мере', $jedinica, $stari);
+            return $this->redirect($request, $response, 'jedinica.mere.lista');
+        }
     }
 
     public function postJedinicaMereBrisanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

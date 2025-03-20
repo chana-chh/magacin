@@ -75,6 +75,7 @@ abstract class Model
     public function update(array $data, int $id)
     {
         $updates = [];
+
         $params = array_merge($data, ['id' => $id]);
         foreach ($data as $key => $value) {
             $updates[] = "{$key} = :{$key}";

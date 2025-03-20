@@ -24,7 +24,6 @@ class UserMiddleware extends Middleware
 
         $twig = $this->container->get(Twig::class);
         $twig->getEnvironment()->addGlobal('korisnik', $korisnik);
-
         return $handler->handle($request);
     }
 }

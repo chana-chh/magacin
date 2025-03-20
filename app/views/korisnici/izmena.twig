@@ -13,79 +13,16 @@
 		</div>
 	</div>
 	<hr/>
-{% endblock full %}
-{% block article %}
-	<table class="table table-striped table-hover table-sm">
-		<thead class="table-dark">
-			<tr>
-				<th class="w-10">#</th>
-				<th class="w-30">Име и презиме</th>
-				<th class="w-20">Корисничко име</th>
-				<th class="w-20">Ниво права</th>
-				<th class="w-20 text-end"></th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for kor in data %}
-				<tr>
-					<td class="text-danger">{{ kor.id }}</td>
-					<td>{{ kor.puno_ime }}</td>
-					<td>{{ kor.korisnicko_ime }}</td>
-					<td>{{ kor.nivo }}</td>
-					<td class="text-end">
-						<div class="btn-group btn-group-sm">
-							<a class="btn btn-warning" href="{{ url_for('korisnik.izmena.get', { id: kor.id }) }}" title="Измена података о кориснику">Измена
-							</a>
-							<button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" data-bs-target="#brisanjeModal" 
-							onclick="document.getElementById('idBrisanje').value = this.value"
-							value="{{ kor.id }}" title="Брисање одабраног корисника">Брисање
-							</button>
-						</div>
-					</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	{# Modal za brisanje #}
-	<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title text-danger">Упозорење!</h2>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
-				</div>
-				<div class="modal-body">
-					<h4>Да ли желите трајно да обришете корисника?</h4>
-					<p class="text-danger lead">* Ова акција је неповратна!</p>
-					<form id="brisanje-forma" action="{{ url_for('korisnik.brisanje') }}" method="POST">
-						{{ csrf | raw }}
-						<input type="hidden" id="idBrisanje" name="idBrisanje"/>
-					</div>
-					<div class="modal-footer">
-						<div class="form-group">
-							<button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
-							</button>
-							<a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
-							</a>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	{# Kraj modala za brisanje #}
-{% endblock article %}
-{% block aside %}
-	<div class="card border-dark mb-3">
-		<div class="card-header">Додавање корисника</div>
+		<div class="card border-dark mb-3">
+		<div class="card-header">Измена података корисника</div>
 		<div class="card-body text-dark mobilni">
-			<form action="{{ url_for('korisnik.dodavanje') }}" method="POST" oninput='lozinka_potvrda.setCustomValidity(lozinka_potvrda.value != lozinka.value ? "Лозинка се не поклапа!" : "")'>
+			<form action="{{ url_for('korisnik.izmena.post') }}" method="POST" oninput='lozinka_potvrda.setCustomValidity(lozinka_potvrda.value != lozinka.value ? "Лозинка се не поклапа!" : "")'>
 				{{ csrf | raw }}
+				<input type="hidden" id="id" name="id" value="{{ kor.id }}"/>
 				<div class="form-row">
 					<div class="form-group">
 						<label for="puno_ime">Име и презиме</label>
-						<input type="text" class="form-control{{ errors.puno_ime ? ' is-invalid' : '' }}" name="puno_ime" id="puno_ime" value="{{ old.puno_ime ? : '' }}" 
+						<input type="text" class="form-control{{ errors.puno_ime ? ' is-invalid' : '' }}" name="puno_ime" id="puno_ime" value="{{ old.puno_ime ? : kor.puno_ime }}" 
 						oninvalid="this.setCustomValidity('Име и презиме је обавезно поље.')"
                         oninput="this.setCustomValidity('')"
                         autocomplete="off" required/>
@@ -95,7 +32,7 @@
 				<div class="form-row">
 					<div class="form-group">
 						<label for="korisnicko_ime">Корисничко име</label>
-						<input type="text" class="form-control{{ errors.korisnicko_ime ? ' is-invalid' : '' }}" name="korisnicko_ime" id="korisnicko_ime" value="{{ old.korisnicko_ime ? : '' }}" 
+						<input type="text" class="form-control{{ errors.korisnicko_ime ? ' is-invalid' : '' }}" name="korisnicko_ime" id="korisnicko_ime" value="{{ old.korisnicko_ime ? : kor.korisnicko_ime }}" 
 						oninvalid="this.setCustomValidity('Корисничко име је обавезно поље са најмање 5 карактера.')"
                         oninput="this.setCustomValidity('')"
                         autocomplete="off" required minlength="5"/>
@@ -108,7 +45,7 @@
 						<input class="form-control{{ errors.lozinka ? ' is-invalid' : '' }}" type="password" name="lozinka" id="lozinka"
 						oninvalid="this.setCustomValidity('Лозинка је обавезно поље са најмање 6 карактера.')"
                         oninput="this.setCustomValidity('')"
-                        autocomplete="new-password" required minlength="6"/>
+                        autocomplete="new-password"/>
                         <div class="invalid-feedback">{{ errors.lozinka.0 }}</div>
 					</div>
 				</div>
@@ -118,7 +55,7 @@
 						<input class="form-control{{ errors.lozinka_potvrda ? ' is-invalid' : '' }}" type="password" name="lozinka_potvrda" id="lozinka_potvrda" 
 						oninvalid="this.setCustomValidity('Потврда лозинке је обавезно поље које мора бити исто као и поље лозинка.')"
                         oninput="this.setCustomValidity('')"
-                        autocomplete="off" required/>
+                        autocomplete="off"/>
                         <div class="invalid-feedback">{{ errors.lozinka_potvrda.0 }}</div>
 					</div>
 				</div>
@@ -131,9 +68,9 @@
                         name="nivo" required>
 							<option value=""></option>
 							{% if auth.user.nivo == 0 %}
-								<option value="0">Администратор</option>
+								<option value="0" {{ korisnik.nivo == 0 ? ' selected' : '' }}>Администратор</option>
 							{% endif %}
-							<option value="100">Корисник</option>
+							<option value="100" {{ korisnik.nivo == 100 ? ' selected' : '' }}>Корисник</option>
 						</select>
 						<div class="invalid-feedback">{{ errors.nivo.0 }}</div>
 					</div>
@@ -141,7 +78,7 @@
 				<div class="form-row text-end mt-2">
 					<div class="col">
 						<button type="submit" class="btn btn-primary text-right">
-							&emsp;Додај
+							&emsp;Измени
 						</button>
 						<a href="{{ url_for('korisnik.lista') }}" class="btn btn-secondary">
 							&emsp;Откажи</a>
@@ -150,4 +87,4 @@
 			</form>
 		</div>
 	</div>
-{% endblock aside %}
+{% endblock full %}
