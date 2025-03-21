@@ -30,6 +30,11 @@ abstract class Model
         return Db::fetch($sql, $params, $model);
     }
 
+    public function fetchAssoc(string $sql, array $params = [])
+    {
+        return Db::fetchAssoc($sql, $params);
+    }
+
     public function all(string $sort_column = 'id', $sort = 'ASC')
     {
         $order_by = '';

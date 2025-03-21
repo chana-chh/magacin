@@ -1,16 +1,66 @@
 {% extends "templates/app.twig" %}
 {% block full %}
-<h1>Логови</h1>
+<div class="row">
+	<div class="col">
+		<h1>Логови</h1>
+	</div>
+	<div class="col text-end mt-3">
+		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
+			<i class="bi-search"></i> Претрага
+		</button>
+	</div>
+</div>
+
 {% set data = logovi.data %}
 {% set links = logovi.links %}
 
-<form action="" method="POST" class="form mb-3">
-	<div class="input-group">
-		<input type="text" class="form-control" name="search" placeholder="Претраживање" value="{{ search }}">
-		<button class="btn btn-primary" type="submit">Претражи</button>
-	</div>
-</form>
-
+<div class="collapse border border-primary p-2 mb-2 rounded-2" id="pretraga">
+	<form action="" method="POST" class="form row">
+		<div class="col">
+			<label for="tip" class="form-label">Тип</label>
+			<select name="tip" id="tip" class="form-select">
+				<option value="" selected disabled>...</option>
+				<option value="ДОДАВАЊЕ">ДОДАВАЊЕ</option>
+				<option value="ИЗМЕНА">ИЗМЕНА</option>
+				<option value="БРИСАЊЕ">БРИСАЊЕ</option>
+				<option value="ПРИЛАГАЊЕ">ПРИЛАГАЊЕ</option>
+			</select>
+		</div>
+		<div class="col">
+			<label for="tabela" class="form-label">Табела</label>
+			<select name="tabela" id="tabela" class="form-select">
+				<option value="" selected disabled>...</option>
+				{% for tabela in tabele %}
+				<option value="{{ tabela }}">{{ tabela }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col">
+			<label for="opis" class="form-label">Опис</label>
+			<input type="text" name="opis" id="opis" class="form-control">
+		</div>
+		<div class="col">
+			<label for="datum_1" class="form-label">Датум од</label>
+			<input type="date-local" name="datum_1" id="datum_1" class="form-control">
+		</div>
+		<div class="col">
+			<label for="datum_1" class="form-label">Датум до</label>
+			<input type="date" name="datum_1" id="datum_1" class="form-control">
+		</div>
+		<div class="col">
+			<label for="korisnik" class="form-label">Корисник</label>
+			<select name="korisnik" id="korisnik" class="form-select">
+				<option value="" selected disabled>...</option>
+				{% for korisnik in korisnici %}
+				<option value="{{ korisnik.id }}">{{ korisnik.puno_ime }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col align-content-end">
+			<button type="submit" class="btn btn-primary">Пронађи</button>
+		</div>
+	</form>
+</div>
 {% if logovi %}
 <table class="table table-striped table-hover table-sm">
 	<thead class="table-dark">
