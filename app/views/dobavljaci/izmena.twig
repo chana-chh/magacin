@@ -1,0 +1,47 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<h1>Добављачи</h1>
+<hr />
+<div class="card border-dark">
+    <div class="card-header">Измена добављача</div>
+    <div class="card-body">
+        <form action="{{ url_for('dobavljac.izmena') }}" method="POST">
+            {{ csrf | raw }}
+            <input type="hidden" id="id" name="id" value="{{ dobavljac.id }}"/>
+            <div class="form-row">
+                <div class="form-group mt-3">
+                    <label for="naziv">Пун назив</label>
+                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv"
+                        id="naziv" value="{{ old.naziv ? : dobavljac.naziv }}" maxlength="255"
+                        oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 255 карактера.')"
+                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mt-3">
+                    <label for="sediste">Седиште</label>
+                    <input type="text" class="form-control{{ errors.sediste ? ' is-invalid' : '' }}" name="sediste" id="sediste"
+                        value="{{ old.sediste ? : dobavljac.sediste }}" maxlength="255"
+                        oninvalid="this.setCustomValidity('Седиште мора да садржи највише 255 карактера.')"
+                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.sediste.0 }}</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mt-3">
+                    <label for="napomena" class="form-label">Напомена</label>
+                    <textarea name="napomena" class="form-control" id="napomena" rows="3">{{ old.napomena ? : dobavljac.napomena }}</textarea>
+                </div>
+            </div>
+            <div class="form-row text-end mt-3">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Измени</button>
+                    <a href="{{ url_for('dobavljac.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                        Откажи</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock full %}
