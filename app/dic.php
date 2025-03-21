@@ -25,4 +25,4 @@ $container = $builder->addDefinitions([
 $container = $container->build();
 
 $app = \DI\Bridge\Slim\Bridge::create($container);
-$app->setBasePath("/magacin/pub");
+// $app->setBasePath("/magacin/pub");
