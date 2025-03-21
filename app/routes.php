@@ -26,7 +26,8 @@ $app->group('', function (RouteCollectorProxy $group) {
 
     // Logovi
     $group->get('/log-lista', \App\Controllers\LogController::class . ':getLogLista')->setName('log.lista');
-    $group->post('/log-pretraga', \App\Controllers\LogController::class . ':postLogPretraga')->setName('log.pretraga');
+    $group->post('/log-pretraga', \App\Controllers\LogController::class . ':postLogPretraga')->setName('log.pretraga.post');
+    $group->get('/log-pretraga', \App\Controllers\LogController::class . ':getLogPretraga')->setName('log.pretraga.get');
 
     // Jedinice mere
     $group->get('/jedinica-mere-lista', \App\Controllers\JediniceMereController::class . ':getJedinicaMereLista')->setName('jedinica.mere.lista');

@@ -8,9 +8,8 @@ $config = [
             'per_page' => 10,
             'page_span' => 3,
             'css' => [ // TODO prepraviti za bootstrap 5.3
-                'buttons_container' => 'pagination',
+                'buttons_container' => 'pagination pagination-sm',
                 'button_active' => 'active',
-                'button_disabled' => 'disabled',
                 'goto' => 'form-select form-select-sm',
             ],
         ],

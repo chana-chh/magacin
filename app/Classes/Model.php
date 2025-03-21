@@ -192,8 +192,8 @@ abstract class Model
             $start = 1;
             $end = $pages;
         }
-        $disabled_begin = ($page === 1) ? $css['button_disabled'] : "";
-        $disabled_end = ($page === $pages) ? $css['button_disabled'] : "";
+        // $disabled_begin = ($page === 1) ? $css['button_disabled'] : "";
+        // $disabled_end = ($page === $pages) ? $css['button_disabled'] : "";
         $zapis_od = (($page - 1) * $perpage) + 1;
         $zapis_do = ($zapis_od + $perpage) - 1;
         $zapis_do = $zapis_do >= $count ? $count : $zapis_do;
@@ -201,17 +201,17 @@ abstract class Model
         $links['row_to'] = $zapis_do;
 
         $buttons = "<ul class=\"{$css['buttons_container']}\">";
-        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_begin}\" href=\"{$url}?page=1\" tabindex=\"-1\">1</a></li>";
-        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_begin}\" href=\"{$url}?page={$prev}\" tabindex=\"-1\"><span uk-icon=\"chevron-left\"></span></a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link bg-primary text-white\" href=\"{$url}?page=1\" tabindex=\"-1\">&lt;&lt;</a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link bg-info text-white\" href=\"{$url}?page={$prev}\" tabindex=\"-1\">&lt;</a></li>";
         for ($i = $start; $i <= $end; $i++) {
             $current = 'page-link';
             if ($page === $i) {
-                $current = ' ' . $css['button_active'] . ' ' . $css['button_disabled'];
+                $current .= ' ' . $css['button_active'];
             }
             $buttons .= "<li class=\"page-item\"><a class=\"{$current}\" href=\"{$url}?page={$i}\" tabindex=\"-1\">{$i}</a></li>";
         }
-        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_end}\" href=\"{$url}?page={$next}\" tabindex=\"-1\"><span uk-icon=\"chevron-right\"></span></a></li>";
-        $buttons .= "<li class=\"page-item\"><a class=\"page-link {$disabled_end}\" href=\"{$url}?page={$pages}\" tabindex=\"-1\">{$pages}</a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link bg-info text-white\" href=\"{$url}?page={$next}\" tabindex=\"-1\">&gt;</a></li>";
+        $buttons .= "<li class=\"page-item\"><a class=\"page-link bg-primary text-white\" href=\"{$url}?page={$pages}\" tabindex=\"-1\">&gt;&gt;</a></li>";
         $buttons .= "</ul>";
         $links['buttons'] = $buttons;
         $goto = "<select class=\"{$css['goto']}\" name=\"pgn-goto\" id=\"pgn-goto\">";

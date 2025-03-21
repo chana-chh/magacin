@@ -2,20 +2,30 @@
 {% block full %}
 <div class="row">
 	<div class="col">
-		<h1>Логови</h1>
+		<h1>
+			Логови
+			{% if data %}
+			<span class="text-danger fs-4">[филтрирано]</span>
+			{% else %}
+			<span class="text-success fs-4">[сви записи]</span>
+			{% endif %}
+		</h1>
 	</div>
 	<div class="col text-end mt-3">
 		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
-			<i class="bi-search"></i> Претрага
+			<i class="bi-arrow-down-square"></i> Претрага
 		</button>
+		<a class="btn btn-success" type="button" href="{{ url_for('log.lista') }}">
+			<i class="bi-view-list"></i> Сви логови
+		</a>
 	</div>
 </div>
 
 {% set data = logovi.data %}
 {% set links = logovi.links %}
 
-<div class="collapse border border-primary p-2 mb-2 rounded-2" id="pretraga">
-	<form action="{{ url_for('log.pretraga') }}" method="POST" class="form row">
+<div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
+	<form action="{{ url_for('log.pretraga.post') }}" method="POST" class="form row">
 		{{ csrf|raw }}
 		<div class="col">
 			<label for="tip" class="form-label">Тип</label>
@@ -53,12 +63,13 @@
 			<select name="korisnik" id="korisnik" class="form-select">
 				<option value="" selected disabled>...</option>
 				{% for korisnik in korisnici %}
-				<option value="{{ korisnik.id }}">{{ korisnik.puno_ime }}</option>
+				<option value="{{ korisnik.id }}">
+					{{ korisnik.puno_ime }}</option>
 				{% endfor %}
 			</select>
 		</div>
 		<div class="col align-content-end">
-			<button type="submit" class="btn btn-primary">Пронађи</button>
+			<button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
 		</div>
 	</form>
 </div>
@@ -82,7 +93,7 @@
 				<em>{{ log.id }}</em>
 			</td>
 			<td class="text-primary">
-				{{ log.tip }}
+				<strong>{{ log.tip }}</strong>
 			</td>
 			<td>
 				<em>{{ log.opis }}</em>
@@ -90,8 +101,8 @@
 			<td class="text-success">
 				<strong>{{ log.tabela }}</strong>
 			</td>
-			<td>
-				{{log.podaci|nl2br }}
+			<td class="lh-sm">
+				<small>{{ log.podaci|nl2br }}</small>
 			</td>
 			<td>
 				<em>{{ log.vreme|date('d.m.Y у H:i:s') }}</em>
@@ -104,19 +115,18 @@
 	</tbody>
 </table>
 
-<div>
-	<div>{{ links.buttons|raw }}</div>
-	<div>Иди на страну
-		{{ links.select|raw }}</div>
-	<div>
-		<p>
-			Приказани редови од
-			<em>{{ links.row_from }}</em>
-			до
-			<em>{{ links.row_to }}</em>
-			од укупно
-			<em>{{ links.total_rows }}</em>
-		</p>
+<div class="row row-cols-auto">
+	<div class="col">{{ links.buttons|raw }}</div>
+	<div class="col">
+		{{ links.select|raw }}
+	</div>
+	<div class="col text-secondary pt-1">
+		Приказани редови од
+		<span class="text-danger">{{ links.row_from }}</span>
+		до
+		<span class="text-danger">{{ links.row_to }}</span>
+		од укупно
+		<span class="text-danger">{{ links.total_rows }}</span>
 	</div>
 </div>
 {% else %}
