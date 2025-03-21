@@ -12,6 +12,13 @@ class LogController extends Controller
 {
     public function getLogLista(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        $where_data = [];
+        if (isset($_SESSION['MAGACIN_LOG_PRETRAGA'])) {
+            $where_data = $_SESSION['MAGACIN_LOG_PRETRAGA'];
+            unset($_SESSION['MAGACIN_LOG_PRETRAGA']);
+        }
+
+        d(empty($where_data), false);
 
         $path = $request->getUri()->getPath();
         $query = $request->getQueryParams();
@@ -28,5 +35,21 @@ class LogController extends Controller
         $sql = "SELECT * FROM logovi ORDER BY vreme DESC;";
         $logovi = $modelLog->paginate($path, $page, $sql, [], 2, 3);
         return $this->render($response, 'logovi.twig', compact('logovi', 'tabele', 'korisnici'));
+    }
+
+    public function postLogPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $_SESSION['MAGACIN_LOG_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'log.lista');
+    }
+
+    private function compileWhere(array $where_data): string
+    {
+        $where = [];
+        foreach ($where_data as $key => $value) {
+            $where[] = "$key = '$value'";
+        }
+        return implode(' AND ', $where);
     }
 }

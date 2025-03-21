@@ -15,7 +15,8 @@
 {% set links = logovi.links %}
 
 <div class="collapse border border-primary p-2 mb-2 rounded-2" id="pretraga">
-	<form action="" method="POST" class="form row">
+	<form action="{{ url_for('log.pretraga') }}" method="POST" class="form row">
+		{{ csrf|raw }}
 		<div class="col">
 			<label for="tip" class="form-label">Тип</label>
 			<select name="tip" id="tip" class="form-select">
@@ -41,11 +42,11 @@
 		</div>
 		<div class="col">
 			<label for="datum_1" class="form-label">Датум од</label>
-			<input type="date-local" name="datum_1" id="datum_1" class="form-control">
+			<input type="date" name="datum_1" id="datum_1" class="form-control">
 		</div>
 		<div class="col">
-			<label for="datum_1" class="form-label">Датум до</label>
-			<input type="date" name="datum_1" id="datum_1" class="form-control">
+			<label for="datum_2" class="form-label">Датум до</label>
+			<input type="date" name="datum_2" id="datum_2" class="form-control">
 		</div>
 		<div class="col">
 			<label for="korisnik" class="form-label">Корисник</label>
