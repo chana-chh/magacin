@@ -17,9 +17,9 @@
 		<div class="card-header">Измена података корисника</div>
 		<div class="card-body text-dark mobilni">
 			<form action="{{ url_for('korisnik.izmena.post') }}" method="POST" oninput='lozinka_potvrda.setCustomValidity(lozinka_potvrda.value != lozinka.value ? "Лозинка се не поклапа!" : "")'>
-				{{ csrf | raw }}
+				{{ csrf|raw }}
 				<input type="hidden" id="id" name="id" value="{{ kor.id }}"/>
-				<div class="form-row">
+				<div class="form-row mt-3">
 					<div class="form-group">
 						<label for="puno_ime">Име и презиме</label>
 						<input type="text" class="form-control{{ errors.puno_ime ? ' is-invalid' : '' }}" name="puno_ime" id="puno_ime" value="{{ old.puno_ime ? : kor.puno_ime }}" 
@@ -29,7 +29,7 @@
                         <div class="invalid-feedback">{{ errors.puno_ime.0 }}</div>
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row mt-3">
 					<div class="form-group">
 						<label for="korisnicko_ime">Корисничко име</label>
 						<input type="text" class="form-control{{ errors.korisnicko_ime ? ' is-invalid' : '' }}" name="korisnicko_ime" id="korisnicko_ime" value="{{ old.korisnicko_ime ? : kor.korisnicko_ime }}" 
@@ -39,7 +39,7 @@
                         <div class="invalid-feedback">{{ errors.korisnicko_ime.0 }}</div>
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row mt-3">
 					<div class="form-group">
 						<label for="lozinka">Лозинка</label>
 						<input class="form-control{{ errors.lozinka ? ' is-invalid' : '' }}" type="password" name="lozinka" id="lozinka"
@@ -49,7 +49,7 @@
                         <div class="invalid-feedback">{{ errors.lozinka.0 }}</div>
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row mt-3">
 					<div class="form-group">
 						<label for="lozinka_potvrda">Потврда лозинке</label>
 						<input class="form-control{{ errors.lozinka_potvrda ? ' is-invalid' : '' }}" type="password" name="lozinka_potvrda" id="lozinka_potvrda" 
@@ -59,7 +59,7 @@
                         <div class="invalid-feedback">{{ errors.lozinka_potvrda.0 }}</div>
 					</div>
 				</div>
-				<div class="form-row">
+				<div class="form-row mt-3">
 					<div class="form-group">
 						<label for="nivo">Ниво корисничких права</label>
 						<select class="form-select{{ errors.nivo ? ' is-invalid' : '' }}" id="nivo" 
@@ -75,13 +75,14 @@
 						<div class="invalid-feedback">{{ errors.nivo.0 }}</div>
 					</div>
 				</div>
-				<div class="form-row text-end mt-2">
+				<div class="form-row text-end mt-3">
 					<div class="col">
 						<button type="submit" class="btn btn-primary text-right">
-							&emsp;Измени
+							<i class="bi-save"></i> Измени
 						</button>
 						<a href="{{ url_for('korisnik.lista') }}" class="btn btn-secondary">
-							&emsp;Откажи</a>
+							<i class="bi-x-square"></i>
+							Откажи</a>
 					</div>
 				</div>
 			</form>
