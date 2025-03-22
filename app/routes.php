@@ -44,6 +44,13 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/magacin-izmena', \App\Controllers\MagacinController::class . ':postMagacinIzmena')->setName('magacin.izmena.post');
     $group->post('/magacin-brisanje', \App\Controllers\MagacinController::class . ':postMagacinBrisanje')->setName('magacin.brisanje');
     
+    // Kategorije artikala
+    $group->get('/kategorija-artikla-lista', \App\Controllers\KategorijeArtikalaController::class . ':getKategorijaArtiklaLista')->setName('kategorija.artikla.lista');
+    $group->post('/kategorija-artikla-dodavanje', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaDodavanje')->setName('kategorija.artikla.dodavanje');
+    $group->get('/kategorija-artikla-izmena/{id}', \App\Controllers\KategorijeArtikalaController::class . ':getKategorijaArtiklaIzmena')->setName('kategorija.artikla.izmena.get');
+    $group->post('/kategorija-artikla-izmena', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaIzmena')->setName('kategorija.artikla.izmena.post');
+    $group->post('/kategorija-artikla-brisanje', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaBrisanje')->setName('kategorija.artikla.brisanje');
+    
     // Jedinice mere
     $group->get('/jedinica-mere-lista', \App\Controllers\JediniceMereController::class . ':getJedinicaMereLista')->setName('jedinica.mere.lista');
     $group->post('/jedinica-mere-dodavanje', \App\Controllers\JediniceMereController::class . ':postJedinicaMereDodavanje')->setName('jedinica.mere.dodavanje');
