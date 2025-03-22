@@ -43,14 +43,14 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/magacin-izmena/{id}', \App\Controllers\MagacinController::class . ':getMagacinIzmena')->setName('magacin.izmena.get');
     $group->post('/magacin-izmena', \App\Controllers\MagacinController::class . ':postMagacinIzmena')->setName('magacin.izmena.post');
     $group->post('/magacin-brisanje', \App\Controllers\MagacinController::class . ':postMagacinBrisanje')->setName('magacin.brisanje');
-    
+
     // Kategorije artikala
     $group->get('/kategorija-artikla-lista', \App\Controllers\KategorijeArtikalaController::class . ':getKategorijaArtiklaLista')->setName('kategorija.artikla.lista');
     $group->post('/kategorija-artikla-dodavanje', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaDodavanje')->setName('kategorija.artikla.dodavanje');
     $group->get('/kategorija-artikla-izmena/{id}', \App\Controllers\KategorijeArtikalaController::class . ':getKategorijaArtiklaIzmena')->setName('kategorija.artikla.izmena.get');
     $group->post('/kategorija-artikla-izmena', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaIzmena')->setName('kategorija.artikla.izmena.post');
     $group->post('/kategorija-artikla-brisanje', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaBrisanje')->setName('kategorija.artikla.brisanje');
-    
+
     // Artikli
     $group->get('/artikal-lista', \App\Controllers\ArtikalController::class . ':getArtikalLista')->setName('artikal.lista');
     $group->get('/artikal-dodavanje', \App\Controllers\ArtikalController::class . ':getArtikalDodavanje')->setName('artikal.dodavanje.get');
@@ -67,12 +67,14 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/jedinica-mere-izmena/{id}', \App\Controllers\JediniceMereController::class . ':getJedinicaMereIzmena')->setName('jedinica.mere.izmena.get');
     $group->post('/jedinica-mere-brisanje', \App\Controllers\JediniceMereController::class . ':postJedinicaMereBrisanje')->setName('jedinica.mere.brisanje');
     $group->post('/jedinica-izmena', \App\Controllers\JediniceMereController::class . ':postJedinicaMereIzmena')->setName('jedinica.mere.izmena');
-    // Dostavljaci
+
+    // Dobavljaci
     $group->get('/dodavljac-lista', \App\Controllers\DobavljacController::class . ':getDobavljacLista')->setName('dobavljac.lista');
     $group->post('/dodavljac-dodavanje', \App\Controllers\DobavljacController::class . ':postDobavljacDodavanje')->setName('dobavljac.dodavanje');
     $group->get('/dodavljac-izmena/{id}', \App\Controllers\DobavljacController::class . ':getDobavljacIzmena')->setName('dobavljac.izmena.get');
     $group->post('/dodavljac-brisanje', \App\Controllers\DobavljacController::class . ':postDobavljacBrisanje')->setName('dobavljac.brisanje');
     $group->post('/dodavljac-izmena', \App\Controllers\DobavljacController::class . ':postDobavljacIzmena')->setName('dobavljac.izmena');
+
     // Kupci
     $group->get('/kupac-lista', \App\Controllers\KupacController::class . ':getKupacLista')->setName('kupac.lista');
     $group->post('/kupac-dodavanje', \App\Controllers\KupacController::class . ':postKupacDodavanje')->setName('kupac.dodavanje');
