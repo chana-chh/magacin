@@ -29,6 +29,13 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/log-pretraga', \App\Controllers\LogController::class . ':postLogPretraga')->setName('log.pretraga.post');
     $group->get('/log-pretraga', \App\Controllers\LogController::class . ':getLogPretraga')->setName('log.pretraga.get');
 
+    // Tipovi magacina
+    $group->get('/tip-magacina-lista', \App\Controllers\TipMagacinaController::class . ':getTipMagacinaLista')->setName('tip.magacina.lista');
+    $group->post('/tip-magacina-dodavanje', \App\Controllers\TipMagacinaController::class . ':postTipMagacinaDodavanje')->setName('tip.magacina.dodavanje');
+    $group->get('/tip-magacina-izmena/{id}', \App\Controllers\TipMagacinaController::class . ':getTipMagacinaIzmena')->setName('tip.magacina.izmena.get');
+    $group->post('/tip-magacina-brisanje', \App\Controllers\TipMagacinaController::class . ':postTipMagacinaBrisanje')->setName('tip.magacina.brisanje');
+    $group->post('/tip-magacina-izmena', \App\Controllers\TipMagacinaController::class . ':postTipMagacinaIzmena')->setName('tip.magacina.izmena');
+    
     // Jedinice mere
     $group->get('/jedinica-mere-lista', \App\Controllers\JediniceMereController::class . ':getJedinicaMereLista')->setName('jedinica.mere.lista');
     $group->post('/jedinica-mere-dodavanje', \App\Controllers\JediniceMereController::class . ':postJedinicaMereDodavanje')->setName('jedinica.mere.dodavanje');

@@ -1,0 +1,41 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<h1>Типови магацина</h1>
+<hr>
+<div class="card border-dark">
+    <div class="card-header">Измена типа магацина</div>
+    <div class="card-body">
+        <form action="{{ url_for('tip.magacina.izmena') }}" method="POST">
+            {{ csrf | raw }}
+            <input type="hidden" id="id" name="id" value="{{ tip.id }}">
+            <div class="form-row">
+                <div class="form-group mt-3">
+                    <label for="naziv">Назив</label>
+                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv"
+                        id="naziv" value="{{ old.naziv ? : tip.naziv }}" maxlength="100"
+                        oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')"
+                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group mt-3">
+                    <label for="opis">Опис</label>
+                    <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis"
+                        value="{{ old.opis ? : tip.opis }}" maxlength="250"
+                        oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')"
+                        oninput="this.setCustomValidity('')" autocomplete="off">
+                    <div class="invalid-feedback">{{ errors.opis.0 }}</div>
+                </div>
+            </div>
+            <div class="form-row text-end mt-3">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Измени</button>
+                    <a href="{{ url_for('tip.magacina.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                        Откажи</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock full %}
