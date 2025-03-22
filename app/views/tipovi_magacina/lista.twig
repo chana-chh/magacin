@@ -67,7 +67,7 @@
     <div class="card-header">Додавање типа магацина</div>
     <div class="card-body">
         <form action="{{ url_for('tip.magacina.dodavanje') }}" method="POST">
-            {{ csrf | raw }}
+            {{ csrf|raw }}
             <div class="form-row">
                 <div class="form-group mt-3">
                     <label for="naziv">Назив</label>
