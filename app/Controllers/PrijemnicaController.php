@@ -137,7 +137,62 @@ class PrijemnicaController extends Controller
         return $this->redirect($request, $response, 'prijemnica.lista');
     }
 
-    public function postPrijemnicaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface {}
+    public function postPrijemnicaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $_SESSION['MAGACIN_PRIJEMNICE_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'prijemnica.pretraga.get');
+    }
 
-    public function getPrijemnicaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface {}
+    public function getPrijemnicaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $_SESSION['MAGACIN_PRIJEMNICE_PRETRAGA'] ?? [];
+        $conditions = [];
+        $params = [];
+
+        if (!empty($data['id_magacina'])) {
+            $conditions[] = 'id_magacina = :id_magacina';
+            $params[':id_magacina'] = $data['id_magacina'];
+        }
+
+        if (!empty($data['broj'])) {
+            $conditions[] = 'broj LIKE :broj';
+            $params[':broj'] = '%' . $data['broj'] . '%';
+        }
+
+        if (!empty($data['id_dobavljaca'])) {
+            $conditions[] = 'id_dobavljaca = :id_dobavljaca';
+            $params[':id_dobavljaca'] = $data['id_dobavljaca'];
+        }
+
+        if (!empty($data['datum_1'])) {
+            $conditions[] = 'datum >= :datum_od';
+            $params[':datum_od'] = $data['datum_1'];
+        }
+
+        if (!empty($data['datum_2'])) {
+            $conditions[] = 'datum >= :datum_do';
+            $params[':datum_do'] = $data['datum_2'];
+        }
+
+        if (empty($conditions)) {
+            return $this->redirect($request, $response, 'prijemnica.lista');
+        }
+
+        $where = "WHERE " . implode(' AND ', $conditions);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $pri = new Prijemnica();
+        $magacini = (new Magacin())->all();
+        $dobavljaci = (new Dobavljac())->all();
+
+        // Logovi
+        $sql = "SELECT * FROM prijemnice {$where} ORDER BY datum DESC;";
+        $prijemnice = $pri->paginate($path, $page, $sql, $params, 2, 3);
+        return $this->render($response, 'prijemnice/lista.twig', compact('prijemnice', 'magacini', 'dobavljaci', 'data'));
+    }
 }
