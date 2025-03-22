@@ -13,4 +13,8 @@ class Prijemnica extends Model
         return $this->belongsTo('App\Models\Dobavljac', 'id_dobavljaca');
     }
 
+    public function magacin()
+    {
+        return (new Magacin())->find($this->id_magacina);
+    }
 }

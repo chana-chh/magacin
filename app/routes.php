@@ -82,5 +82,15 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/kupac-brisanje', \App\Controllers\KupacController::class . ':postKupacBrisanje')->setName('kupac.brisanje');
     $group->post('/kupac-izmena', \App\Controllers\KupacController::class . ':postKupacIzmena')->setName('kupac.izmena');
 
+    //Prijemnice
+    $group->get('/prijemnica-lista', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
+    $group->get('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDodavanje')->setName('prijemnica.dodavanje.get');
+    $group->post('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaDodavanje')->setName('prijemnica.dodavanje.post');
+    $group->get('/prijemnica-izmena/{id}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaIzmena')->setName('prijemnica.izmena.get');
+    $group->post('/prijemnica-izmena', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaIzmena')->setName('prijemnica.izmena.post');
+    $group->post('/prijemnica-pretraga', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaPretraga')->setName('prijemnica.pretraga.post');
+    $group->get('/prijemnica-pretraga', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPretraga')->setName('prijemnica.pretraga.get');
+    $group->post('/prijemnica-brisanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaBrisanje')->setName('prijemnica.brisanje');
+
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

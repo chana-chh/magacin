@@ -1,0 +1,154 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3">
+    <div class="col">
+        <h1>
+            Пријемнице
+            {% if data %}
+            <span class="text-danger fs-4">[филтрирано]</span>
+            {% else %}
+            <span class="text-success fs-4">[сви записи]</span>
+            {% endif %}
+        </h1>
+    </div>
+    <div class="col text-end">
+        <a class="btn btn-primary" type="button" href="{{ url_for('prijemnica.dodavanje.get') }}">
+            <i class="bi-plus-square"></i> Додај пријемницу
+        </a>
+        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
+            <i class="bi-arrow-down-square"></i> Филтер
+        </button>
+        <a class="btn btn-success" type="button" href="{{ url_for('prijemnica.lista') }}">
+            <i class="bi-view-list"></i> Сви записи
+        </a>
+    </div>
+</div>
+<hr>
+{% set data = prijemnice.data %}
+{% set links = prijemnice.links %}
+
+<div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
+    <form action="{{ url_for('prijemnica.pretraga.post') }}" method="POST" class="form row">
+        {{ csrf|raw }}
+
+        <div class="col">
+            <label for="id_magacina" class="form-label">Магацин</label>
+            <select name="id_magacina" id="id_magacina" class="form-select">
+                <option value="" selected>...</option>
+                {% for mag in magacini %}
+                <option value="{{ mag.id }}">{{ mag.naziv }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col">
+            <label for="broj" class="form-label">Број</label>
+            <input type="text" name="broj" id="broj" class="form-control">
+        </div>
+
+        <div class="col">
+            <label for="id_dobavljaca" class="form-label">Добављач</label>
+            <select name="id_dobavljaca" id="id_dobavljaca" class="form-select">
+                <option value="" selected>...</option>
+                {% for dob in dobavljaci %}
+                <option value="{{ dob.id }}">{{ dob.naziv }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col">
+            <label for="datum_1" class="form-label">Датум од</label>
+            <input type="date" name="datum_1" id="datum_1" class="form-control">
+        </div>
+        <div class="col">
+            <label for="datum_2" class="form-label">Датум до</label>
+            <input type="date" name="datum_2" id="datum_2" class="form-control">
+        </div>
+
+        <div class="col align-content-end">
+            <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+        </div>
+    </form>
+</div>
+
+<table class="table table-striped table-hover table-sm">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-20">Магацин</th>
+            <th class="w-10">Датум</th>
+            <th class="w-15">Број</th>
+            <th class="w-20">Добављач</th>
+            <th class="w-20">Напомена</th>
+            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pr in data %}
+        <tr>
+            <td class="text-danger">{{ pr.id }}</td>
+            <td>{{ pr.magacin().naziv }}</td>
+            <td>{{ pr.datum|date('d.m.Y') }}</td>
+            <td>{{ pr.broj }}</td>
+            <td>{{ pr.dobavljac().naziv }}</td>
+            <td>{{ pr.napomena|nl2br }}</td>
+            <td class="text-end">
+                <div class="btn-group btn-group-sm">
+                    <a class="btn btn-warning" href="{{ url_for('prijemnica.izmena.get', { id: pr.id }) }}"
+                        title="Измена артикла"><i class="bi-pencil"></i></a>
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
+                        data-bs-target="#brisanjeModal" value="{{ pr.id }}" title="Брисање артикла"
+                        onclick="document.getElementById('idBrisanje').value = this.value">
+                        <i class="bi-trash"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="row row-cols-auto">
+    <div class="col">{{ links.buttons|raw }}</div>
+    <div class="col">
+        {{ links.select|raw }}
+    </div>
+    <div class="col text-secondary pt-1">
+        Приказани редови од
+        <span class="text-danger">{{ links.row_from }}</span>
+        до
+        <span class="text-danger">{{ links.row_to }}</span>
+        од укупно
+        <span class="text-danger">{{ links.total_rows }}</span>
+    </div>
+</div>
+
+{# Modal za brisanje #}
+<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-danger">Упозорење!</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Да ли желите трајно да обришете артикал?</h4>
+                <p class="text-danger lead">* Ова акција је неповратна!</p>
+                <form id="brisanje-forma" action="{{ url_for('prijemnica.brisanje') }}" method="POST">
+                    {{ csrf|raw }}
+                    <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
+                    </button>
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{# Kraj modala za brisanje #}
+
+{% endblock full %}
