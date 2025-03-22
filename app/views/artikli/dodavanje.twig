@@ -1,19 +1,19 @@
 {% extends "templates/app.twig" %}
 {% block full %}
-<h1>Магацин</h1>
+<h1>Артикал</h1>
 <hr>
 <div class="card border-dark">
-    <div class="card-header">Додавање магацина</div>
+    <div class="card-header">Додавање артикла</div>
     <div class="card-body">
-        <form action="{{ url_for('magacin.dodavanje.post') }}" method="POST">
+        <form action="{{ url_for('artikal.dodavanje.post') }}" method="POST">
             {{ csrf|raw }}
 
             <div class="row">
                 <div class="mt-3 col-3">
-                    <label for="id_tipa" class="form-label">Тип магацина</label>
-                    <select name="id_tipa" id="id_tipa" class="form-select">
-                        {% for tip in tipovi %}
-                        <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>{{ tip.naziv }}
+                    <label for="id_kategorije" class="form-label">Категорија артикла</label>
+                    <select name="id_kategorije" id="id_kategorije" class="form-select">
+                        {% for kat in kategorije %}
+                        <option value="{{ kat.id }}" {{ old.id_kategorije==kat.id ? ' selected' : '' }}>{{ kat.naziv }}
                         </option>
                         {% endfor %}
                     </select>
@@ -21,22 +21,22 @@
                 <div class="mt-3 col-9">
                     <label for="naziv" class="form-label">Назив</label>
                     <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv"
-                        id="naziv" value="{{ old.naziv }}" maxlength="100"
-                        oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')"
+                        id="naziv" value="{{ old.naziv }}" maxlength="255"
+                        oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 255 карактера.')"
                         oninput="this.setCustomValidity('')" autocomplete="off" required>
                     <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="mt-3 col">
-                    <label for="adresa" class="form-label">Адреса</label>
-                    <input type="text" class="form-control{{ errors.adresa ? ' is-invalid' : '' }}" name="adresa"
-                        id="adresa" value="{{ old.adresa }}" maxlength="255"
-                        oninvalid="this.setCustomValidity('Адреса је обавезна и мора да садржи највише 255 карактера.')"
-                        oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.adresa.0 }}</div>
-                </div>
+            <div class="mt-3 col-3">
+                <label for="id_jm" class="form-label">Јединица мере</label>
+                <select name="id_jm" id="id_jm" class="form-select">
+                    {% for j in jm %}
+                    <option value="{{ j.id }}" {{ old.id_jm==j.id ? ' selected' : '' }}>
+                        {{ j.jm }} [{{ j.naziv }}]
+                    </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="row">
@@ -51,7 +51,7 @@
             <div class="row text-end">
                 <div class="mt-3 col">
                     <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
-                    <a href="{{ url_for('magacin.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                    <a href="{{ url_for('artikal.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
                         Откажи</a>
                 </div>
             </div>

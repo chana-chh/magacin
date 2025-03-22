@@ -51,6 +51,16 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/kategorija-artikla-izmena', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaIzmena')->setName('kategorija.artikla.izmena.post');
     $group->post('/kategorija-artikla-brisanje', \App\Controllers\KategorijeArtikalaController::class . ':postKategorijaArtiklaBrisanje')->setName('kategorija.artikla.brisanje');
     
+    // Artikli
+    $group->get('/artikal-lista', \App\Controllers\ArtikalController::class . ':getArtikalLista')->setName('artikal.lista');
+    $group->get('/artikal-dodavanje', \App\Controllers\ArtikalController::class . ':getArtikalDodavanje')->setName('artikal.dodavanje.get');
+    $group->post('/artikal-dodavanje', \App\Controllers\ArtikalController::class . ':postArtikalDodavanje')->setName('artikal.dodavanje.post');
+    $group->get('/artikal-izmena/{id}', \App\Controllers\ArtikalController::class . ':getArtikalIzmena')->setName('artikal.izmena.get');
+    $group->post('/artikal-izmena', \App\Controllers\ArtikalController::class . ':postArtikalIzmena')->setName('artikal.izmena.post');
+    $group->post('/artikal-brisanje', \App\Controllers\ArtikalController::class . ':postArtikalBrisanje')->setName('artikal.brisanje');
+    $group->get('/artikal-pretraga', \App\Controllers\ArtikalController::class . ':getArtikalPretraga')->setName('artikal.pretraga.get');
+    $group->post('/artikal-pretraga', \App\Controllers\ArtikalController::class . ':postArtikalPretraga')->setName('artikal.pretraga.post');
+
     // Jedinice mere
     $group->get('/jedinica-mere-lista', \App\Controllers\JediniceMereController::class . ':getJedinicaMereLista')->setName('jedinica.mere.lista');
     $group->post('/jedinica-mere-dodavanje', \App\Controllers\JediniceMereController::class . ':postJedinicaMereDodavanje')->setName('jedinica.mere.dodavanje');
