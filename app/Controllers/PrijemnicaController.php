@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Artikal;
 use App\Models\Magacin;
 use App\Models\Dobavljac;
 use App\Models\Prijemnica;
@@ -194,5 +195,43 @@ class PrijemnicaController extends Controller
         $sql = "SELECT * FROM prijemnice {$where} ORDER BY datum DESC;";
         $prijemnice = $pri->paginate($path, $page, $sql, $params, 2, 3);
         return $this->render($response, 'prijemnice/lista.twig', compact('prijemnice', 'magacini', 'dobavljaci', 'data'));
+    }
+
+    public function getPrijemnicaPregled(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id = $request->getAttribute('id');
+        $prijemnica = (new Prijemnica())->find($id);
+        $artikli = (new Artikal())->all();
+        return $this->render($response, 'prijemnice/pregled.twig', compact('prijemnica', 'artikli'));
+    }
+
+    public function getPrijemnicaDobavljac(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_dobavljaca = (int) $request->getAttribute('id');
+        $prijemnice = [];
+        $dob = new Dobavljac();
+        $dobaljac = null;
+        if ($id_dobavljaca !== 0) {
+            $sql = "SELECT * FROM prijemnice WHERE id_dobavljaca = :id_dobavljaca ORDER BY datum DESC;";
+            $prijemnice = (new Prijemnica())->fetch($sql, [':id_dobavljaca' => $id_dobavljaca]);
+            $dobavljac = $dob->find($id_dobavljaca);
+        }
+        $dobavljaci = $dob->all();
+        return $this->render($response, 'prijemnice/lista_1.twig', compact('prijemnice', 'dobavljaci', 'dobavljac'));
+    }
+
+    public function getPrijemnicaMagacin(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_magacina = $request->getAttribute('id');
+        $prijemnice = [];
+        $mag = new Magacin();
+        $magacin = null;
+        if ($id_magacina !== 0) {
+            $sql = "SELECT * FROM prijemnice WHERE id_magacina = :id_magacina ORDER BY datum DESC;";
+            $prijemnice = (new Prijemnica())->fetch($sql, [':id_magacina' => $id_magacina]);
+            $magacin = $mag->find($id_magacina);
+        }
+        $magacini = $mag->all();
+        return $this->render($response, 'prijemnice/lista_1.twig', compact('prijemnice', 'magacini', 'magacin'));
     }
 }

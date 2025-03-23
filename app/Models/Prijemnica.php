@@ -17,4 +17,9 @@ class Prijemnica extends Model
     {
         return (new Magacin())->find($this->id_magacina);
     }
+
+    public function stavke()
+    {
+        return $this->hasMany('App\Models\PrijemnicaArtikal', 'id_prijemnice');
+    }
 }

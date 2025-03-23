@@ -86,11 +86,18 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/prijemnica-lista', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
     $group->get('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDodavanje')->setName('prijemnica.dodavanje.get');
     $group->post('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaDodavanje')->setName('prijemnica.dodavanje.post');
-    $group->get('/prijemnica-izmena/{id}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaIzmena')->setName('prijemnica.izmena.get');
+    $group->get('/prijemnica-izmena/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaIzmena')->setName('prijemnica.izmena.get');
     $group->post('/prijemnica-izmena', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaIzmena')->setName('prijemnica.izmena.post');
     $group->post('/prijemnica-pretraga', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaPretraga')->setName('prijemnica.pretraga.post');
     $group->get('/prijemnica-pretraga', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPretraga')->setName('prijemnica.pretraga.get');
     $group->post('/prijemnica-brisanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaBrisanje')->setName('prijemnica.brisanje');
+    $group->get('/prijemnica-pregled/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPregled')->setName('prijemnica.pregled');
+    $group->get('/prijemnica-dobavljac/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDobavljac')->setName('prijemnica.dobavljac');
+    $group->get('/prijemnica-magacin/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaMagacin')->setName('prijemnica.magacin');
+    // Prijemnica stavke
+    $group->post('/prijemnica-stavke-dodavanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeDodavanje')->setName('prijemnica.stavke.dodavanje');
+    $group->post('/prijemnica-stavke-brisanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeBrisanje')->setName('prijemnica.stavke.brisanje');
+
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

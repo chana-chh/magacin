@@ -48,10 +48,11 @@
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">По добављачу</a>
+							<a class="dropdown-item" href="{{ url_for('prijemnica.dobavljac', {id: 0}) }}">По
+								добављачу</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">По магацину</a>
+							<a class="dropdown-item" href="{{ url_for('prijemnica.magacin', {id: 0}) }}">По магацину</a>
 						</li>
 					</ul>
 				</li>

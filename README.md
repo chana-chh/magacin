@@ -7,4 +7,4 @@
 - get_uri() - returns the UriInterface object from the incoming ServerRequestInterface object
 - base_path() - returns the base path.
 
-Test
+Za artikle unique da se postavi na kategoriju i naziv umesto samo na naziv.

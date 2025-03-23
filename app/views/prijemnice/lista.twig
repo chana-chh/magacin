@@ -94,10 +94,12 @@
             <td>{{ pr.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
+                    <a class="btn btn-success" href="{{ url_for('prijemnica.pregled', { id: pr.id }) }}"
+                        title="Преглед пријемнице"><i class="bi-eye"></i></a>
                     <a class="btn btn-warning" href="{{ url_for('prijemnica.izmena.get', { id: pr.id }) }}"
-                        title="Измена артикла"><i class="bi-pencil"></i></a>
+                        title="Измена пријемнице"><i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
-                        data-bs-target="#brisanjeModal" value="{{ pr.id }}" title="Брисање артикла"
+                        data-bs-target="#brisanjeModal" value="{{ pr.id }}" title="Брисање пријемнице"
                         onclick="document.getElementById('idBrisanje').value = this.value">
                         <i class="bi-trash"></i></button>
                 </div>
