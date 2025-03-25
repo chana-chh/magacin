@@ -89,7 +89,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/kupac-pretraga', \App\Controllers\KupacController::class . ':getKupacPretraga')->setName('kupac.pretraga.get');
 
     //Prijemnice
-    $group->get('/prijemnica-lista', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
+    $group->get('/prijemnica-lista', \App\Controllers\OtpremnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
     $group->get('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDodavanje')->setName('prijemnica.dodavanje.get');
     $group->post('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaDodavanje')->setName('prijemnica.dodavanje.post');
     $group->get('/prijemnica-izmena/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaIzmena')->setName('prijemnica.izmena.get');
@@ -103,6 +103,22 @@ $app->group('', function (RouteCollectorProxy $group) {
     // Prijemnica stavke
     $group->post('/prijemnica-stavke-dodavanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeDodavanje')->setName('prijemnica.stavke.dodavanje');
     $group->post('/prijemnica-stavke-brisanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeBrisanje')->setName('prijemnica.stavke.brisanje');
+
+    //Otpremnice
+    $group->get('/otpremnica-lista', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaLista')->setName('otpremnica.lista');
+    $group->get('/otpremnica-dodavanje', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaDodavanje')->setName('otpremnica.dodavanje.get');
+    $group->post('/otpremnica-dodavanje', \App\Controllers\OtpremnicaController::class . ':postOtpremnicaDodavanje')->setName('otpremnica.dodavanje.post');
+    $group->get('/otpremnica-izmena/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaIzmena')->setName('otpremnica.izmena.get');
+    $group->post('/otpremnica-izmena', \App\Controllers\OtpremnicaController::class . ':postOtpremnicaIzmena')->setName('otpremnica.izmena.post');
+    $group->post('/otpremnica-pretraga', \App\Controllers\OtpremnicaController::class . ':postOtpremnicaPretraga')->setName('otpremnica.pretraga.post');
+    $group->get('/otpremnica-pretraga', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaPretraga')->setName('otpremnica.pretraga.get');
+    $group->post('/otpremnica-brisanje', \App\Controllers\OtpremnicaController::class . ':postOtpremnicaBrisanje')->setName('otpremnica.brisanje');
+    $group->get('/otpremnica-pregled/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaPregled')->setName('otpremnica.pregled');
+    $group->get('/otpremnica-kupac/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaKupac')->setName('otpremnica.kupac');
+    $group->get('/otpremnica-magacin/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaMagacin')->setName('otpremnica.magacin');
+    // otpremnica stavke
+    $group->post('/otpremnica-stavke-dodavanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeDodavanje')->setName('otpremnica.stavke.dodavanje');
+    $group->post('/otpremnica-stavke-brisanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeBrisanje')->setName('otpremnica.stavke.brisanje');
 
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');

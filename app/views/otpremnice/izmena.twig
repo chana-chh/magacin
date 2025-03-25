@@ -1,0 +1,74 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<h1>Отпремница</h1>
+<hr>
+<div class="card border-dark">
+    <div class="card-header">Измена отпремнице</div>
+    <div class="card-body">
+        <form action="{{ url_for('otpremnica.izmena.post') }}" method="POST">
+            {{ csrf|raw }}
+            <input type="hidden" name="id" value="{{ otpremnica.id }}">
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="id_magacina" class="form-label">Магацин</label>
+                    <select name="id_magacina" id="id_magacina" class="form-select">
+                        {% for mag in magacini %}
+                        <option value="{{ mag.id }}" {{ (old.id_magacina==mag.id or otpremnica.id_magacina==mag.id)
+                            ? ' selected' : '' }}>
+                            {{ mag.naziv }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="datum" class="form-label">Датум</label>
+                    <input type="date" class="form-control{{ errors.datum ? ' is-invalid' : '' }}" name="datum"
+                        id="datum" value="{{ old.datum ? : otpremnica.datum }}"
+                        oninvalid="this.setCustomValidity('Датум је обавезан.')" oninput="this.setCustomValidity('')"
+                        autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.datum.0 }}</div>
+                </div>
+
+                <div class="col">
+                    <label for="broj" class="form-label">Број</label>
+                    <input type="text" class="form-control{{ errors.broj ? ' is-invalid' : '' }}" name="broj" id="broj"
+                        value="{{ old.broj ? : otpremnica.broj }}" maxlength="100"
+                        oninvalid="this.setCustomValidity('Број је обавезан и мора да садржи највише 100 карактера.')"
+                        oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.broj.0 }}</div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="id_kupca" class="form-label">Купац</label>
+                    <select name="id_kupca" id="id_kupca" class="form-select">
+                        {% for kupac in kupci %}
+                        <option value="{{ kupac.id }}" {{ (old.id_kupca==kupac.id or otpremnica.id_kupca==kupac.id)
+                            ? ' selected' : '' }}>
+                            {{ kupac.naziv }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="napomena" class="form-label">Напомена</label>
+                    <textarea class="form-control{{ errors.napomena ? ' is-invalid' : '' }}" name="napomena"
+                        id="napomena" rows="3">{{ old.napomena ? : otpremnica.napomena }}</textarea>
+                    <div class="invalid-feedback">{{ errors.napomena.0 }}</div>
+                </div>
+            </div>
+
+            <div class="row text-end">
+                <div class="mt-3 col">
+                    <button type="submit" class="btn btn-primary"><i class="bi-save"></i> Измени</button>
+                    <a href="{{ url_for('otpremnica.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                        Откажи</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock full %}

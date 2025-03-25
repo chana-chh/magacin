@@ -13,4 +13,14 @@ class Otpremnica extends Model
         return $this->belongsTo('App\Models\Kupac', 'id_kupca');
     }
 
+    public function magacin()
+    {
+        return (new Magacin())->find($this->id_magacina);
+    }
+
+    public function stavke()
+    {
+        return $this->hasMany('App\Models\OtpremnicaArtikal', 'id_otpremnice');
+    }
+
 }

@@ -1,0 +1,127 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row align-items-end">
+    <div class="col-8">
+        <h1>Отпремница</h1>
+        <div class="h5">
+            <em>Број:</em> <span class="text-success">{{ otpremnica.broj }}</span>
+            <em>од</em> <span class="text-success">{{ otpremnica.datum|date('d.m.Y') }}</span>
+            <em>| Магацин:</em> <span class="text-success">{{ otpremnica.magacin().naziv }}</span>
+            <em>| Купац:</em> <span class="text-success">{{ otpremnica.kupac().naziv }}</span>
+        </div>
+    </div>
+    <div class="col-4 text-end">
+        <button class="btn btn-warning" onclick="history.back()">
+            <i class="bi-arrow-left-short"></i> Назад
+        </button>
+        <a href="{{ url_for('otpremnica.lista') }}" class="btn btn-primary"><i class="bi-arrow-left"></i> Отпремнице</a>
+    </div>
+</div>
+<hr>
+{% endblock full %}
+
+{% block article %}
+<table class="table table-striped table-hover table-sm">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-50">Артикал</th>
+            <th class="w-5 text-center">Јм</th>
+            <th class="w-00 text-end">Количина</th>
+            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stavka in otpremnica.stavke() %}
+        <tr>
+            <td class="text-danger">{{ stavka.id }}</td>
+            <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
+            <td class="text-center">{{ stavka.artikal().jm.jm }}</td>
+            <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
+            <td class="text-end">
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
+                        data-bs-target="#brisanjeModal" value="{{ stavka.id }}"
+                        onclick="document.getElementById('idBrisanje').value = this.value">
+                        <i class="bi-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{# Modal za brisanje #}
+<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title text-danger">!!! УПОЗОРЕЊЕ !!!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+                <p>Да ли желите трајно да обришете ставку отпремнице?</p>
+                <p class="text-danger lead">* Ова акција је неповратна!</p>
+                <form id="brisanje-forma" action="{{ url_for('otpremnica.stavke.brisanje') }}" method="POST">
+                    {{ csrf|raw }}
+                    <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
+                    <input type="hidden" name="idMagacina" value="{{ otpremnica.magacin().id }}">
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">
+                        <i class="bi-trash"></i> Обриши
+                    </button>
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi-x-square"></i> Откажи
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{# Kraj modala za brisanje #}
+{% endblock article %}
+
+{% block aside %}
+<div class="card border-dark">
+    <div class="card-header bg-black text-white"><strong>Додавање ставке отпремнице</strong></div>
+    <div class="card-body">
+        <form action="{{ url_for('otpremnica.stavke.dodavanje') }}" method="POST">
+            {{ csrf|raw }}
+            <input type="hidden" name="id_otpremnice" value="{{ otpremnica.id }}">
+            <input type="hidden" name="id_magacina" value="{{ otpremnica.magacin().id }}">
+            <div class="mt-3">
+                <label for="id_artikla" class="form-label">Артикал</label>
+                <select name="id_artikla" id="id_artikla"
+                    class="form-select{{ errors.id_artikla ? ' is-invalid' : '' }}" required autocomplete="off"
+                    autofocus>
+                    {% for art in artikli %}
+                    <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }}>
+                        {{ art.naziv }} [{{ art.kategorija().naziv }}]
+                    </option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback">{{ errors.id_artikla.0 }}</div>
+            </div>
+            <div class="mt-3">
+                <label for="kolicina">Количина</label>
+                <input type="number" class="form-control{{ errors.kolicina ? ' is-invalid' : '' }}" name="kolicina"
+                    id="kolicina" value="{{ old.kolicina ? : '0.00' }}" min="0" step="0.01" inputmode="decimal"
+                    oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0.')"
+                    oninput="this.setCustomValidity('')" autocomplete="off" required>
+                <div class="invalid-feedback">{{ errors.kolicina.0 }}</div>
+            </div>
+            <div class="form-row text-end mt-3">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
+                    <a href="" class="btn btn-secondary"><i class="bi-x-square"></i>
+                        Откажи</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock aside %}
