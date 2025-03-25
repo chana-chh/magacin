@@ -15,6 +15,7 @@ class UserMiddleware extends Middleware
     {
         $aut = $this->container->get(Auth::class);
 
+        if ($aut->isLoggedIn()) {
         $korisnik = [
             'id' => $aut->korisnik()->id,
             'puno_ime' => $aut->korisnik()->puno_ime,
@@ -24,6 +25,7 @@ class UserMiddleware extends Middleware
 
         $twig = $this->container->get(Twig::class);
         $twig->getEnvironment()->addGlobal('korisnik', $korisnik);
+        }
         return $handler->handle($request);
     }
 }

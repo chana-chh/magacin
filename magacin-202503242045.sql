@@ -60,7 +60,10 @@ DROP TABLE IF EXISTS `dobavljaci`;
 CREATE TABLE `dobavljaci` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) NOT NULL,
-  `sediste` varchar(255) NOT NULL,
+  `adresa_ulica` varchar(100) DEFAULT NULL,
+  `adresa_broj` varchar(30) DEFAULT NULL,
+  `telefon` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
   `napomena` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `kupci_unique` (`naziv`)
@@ -175,7 +178,10 @@ DROP TABLE IF EXISTS `kupci`;
 CREATE TABLE `kupci` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) NOT NULL,
-  `sediste` varchar(255) NOT NULL,
+  `adresa_ulica` varchar(100) DEFAULT NULL,
+  `adresa_broj` varchar(30) DEFAULT NULL,
+  `telefon` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
   `napomena` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `kupci_unique` (`naziv`)

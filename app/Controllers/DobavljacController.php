@@ -12,9 +12,89 @@ class DobavljacController extends Controller
 
     public function getDobavljacLista(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        unset($_SESSION['DOBAVLJAC_PRETRAGA']);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
         $model = new Dobavljac();
-        $data = $model->all();
-        return $this->render($response, 'dobavljaci/lista.twig', compact('data'));
+
+        $sql = "SELECT * FROM dobavljaci ORDER BY naziv DESC;";
+        $dobavljaci = $model->paginate($path, $page, $sql, [], 2, 3);
+        return $this->render($response, 'dobavljaci/lista.twig', compact('dobavljaci'));
+    }
+
+    public function postDobavljacPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $_SESSION['DOBAVLJAC_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'dobavljac.pretraga.get');
+    }
+
+    public function getDobavljacPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $_SESSION['DOBAVLJAC_PRETRAGA'] ?? [];
+        $conditions = [];
+        $params = [];
+
+        if (!empty($data['naziv'])) {
+            $conditions[] = 'naziv LIKE :naziv';
+            $params[':naziv'] = '%' . $data['naziv'] . '%';
+        }
+
+        if (!empty($data['adresa_mesto'])) {
+            $conditions[] = 'adresa_mesto LIKE :adresa_mesto';
+            $params[':adresa_mesto'] = '%' . $data['adresa_mesto'] . '%';
+        }
+
+        if (!empty($data['adresa_ulica'])) {
+            $conditions[] = 'adresa_ulica LIKE :adresa_ulica';
+            $params[':adresa_ulica'] = '%' . $data['adresa_ulica'] . '%';
+        }
+
+        if (!empty($data['adresa_broj'])) {
+            $conditions[] = 'adresa_broj LIKE :adresa_broj';
+            $params[':adresa_broj'] = '%' . $data['adresa_broj'] . '%';
+        }
+
+        if (!empty($data['telefon'])) {
+            $conditions[] = 'telefon LIKE :telefon';
+            $params[':telefon'] = '%' . $data['telefon'] . '%';
+        }
+
+        if (!empty($data['email'])) {
+            $conditions[] = 'email LIKE :email';
+            $params[':email'] = '%' . $data['email'] . '%';
+        }
+
+        if (!empty($data['napomena'])) {
+            $conditions[] = 'napomena LIKE :napomena';
+            $params[':napomena'] = '%' . $data['napomena'] . '%';
+        }
+
+        if (empty($conditions)) {
+            return $this->redirect($request, $response, 'dobavljac.lista');
+        }
+
+        $where = "WHERE " . implode(' AND ', $conditions);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $model = new Dobavljac();
+
+        $sql = "SELECT * FROM dobavljaci ORDER BY naziv DESC;";
+        $dobavljaci = $model->paginate($path, $page, $sql, [], 2, 3);
+        return $this->render($response, 'dobavljaci/lista.twig', compact('dobavljaci', 'data'));
+    }
+
+    public function getDobavljacDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        return $this->render($response, 'dobavljaci/dodavanje.twig');
     }
 
     public function postDobavljacDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -27,8 +107,21 @@ class DobavljacController extends Controller
                 'maxlen' => 255,
                 'alnum' => true,
             ],
-            'sediste' => [
-                'maxlen' => 255,
+            'adresa_mesto' => [
+                'maxlen' => 50,
+            ],
+            'adresa_ulica' => [
+                'maxlen' => 100,
+            ],
+            'adresa_broj' => [
+                'maxlen' => 30,
+            ],
+            'telefon' => [
+                'maxlen' => 30,
+            ],
+            'email' => [
+                'maxlen' => 30,
+                'email' => true,
             ]
         ];
 
@@ -64,12 +157,25 @@ class DobavljacController extends Controller
         $rules = [
             'naziv' => [
                 'required' => true,
-                'unique' => 'dobavljaci.naziv#id:' . $id,
+                'unique' => 'dobavljaci.naziv#id:'.$id,
                 'maxlen' => 255,
                 'alnum' => true,
             ],
-            'sediste' => [
-                'maxlen' => 255,
+            'adresa_mesto' => [
+                'maxlen' => 50,
+            ],
+            'adresa_ulica' => [
+                'maxlen' => 100,
+            ],
+            'adresa_broj' => [
+                'maxlen' => 30,
+            ],
+            'telefon' => [
+                'maxlen' => 30,
+            ],
+            'email' => [
+                'maxlen' => 30,
+                'email' => true,
             ]
         ];
 

@@ -12,9 +12,89 @@ class KupacController extends Controller
 
     public function getKupacLista(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        unset($_SESSION['KUPAC_PRETRAGA']);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
         $model = new Kupac();
-        $data = $model->all();
-        return $this->render($response, 'kupci/lista.twig', compact('data'));
+
+        $sql = "SELECT * FROM kupci ORDER BY naziv DESC;";
+        $kupci = $model->paginate($path, $page, $sql, [], 2, 3);
+        return $this->render($response, 'kupci/lista.twig', compact('kupci'));
+    }
+
+    public function postKupacPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $_SESSION['KUPAC_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'kupac.pretraga.get');
+    }
+
+    public function getKupacPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $_SESSION['KUPAC_PRETRAGA'] ?? [];
+        $conditions = [];
+        $params = [];
+
+        if (!empty($data['naziv'])) {
+            $conditions[] = 'naziv LIKE :naziv';
+            $params[':naziv'] = '%' . $data['naziv'] . '%';
+        }
+
+        if (!empty($data['adresa_mesto'])) {
+            $conditions[] = 'adresa_mesto LIKE :adresa_mesto';
+            $params[':adresa_mesto'] = '%' . $data['adresa_mesto'] . '%';
+        }
+
+        if (!empty($data['adresa_ulica'])) {
+            $conditions[] = 'adresa_ulica LIKE :adresa_ulica';
+            $params[':adresa_ulica'] = '%' . $data['adresa_ulica'] . '%';
+        }
+
+        if (!empty($data['adresa_broj'])) {
+            $conditions[] = 'adresa_broj LIKE :adresa_broj';
+            $params[':adresa_broj'] = '%' . $data['adresa_broj'] . '%';
+        }
+
+        if (!empty($data['telefon'])) {
+            $conditions[] = 'telefon LIKE :telefon';
+            $params[':telefon'] = '%' . $data['telefon'] . '%';
+        }
+
+        if (!empty($data['email'])) {
+            $conditions[] = 'email LIKE :email';
+            $params[':email'] = '%' . $data['email'] . '%';
+        }
+
+        if (!empty($data['napomena'])) {
+            $conditions[] = 'napomena LIKE :napomena';
+            $params[':napomena'] = '%' . $data['napomena'] . '%';
+        }
+
+        if (empty($conditions)) {
+            return $this->redirect($request, $response, 'kupac.lista');
+        }
+
+        $where = "WHERE " . implode(' AND ', $conditions);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $model = new Kupac();
+
+        $sql = "SELECT * FROM kupci {$where} ORDER BY naziv DESC;";
+        $kupci = $model->paginate($path, $page, $sql, $params, 2, 3);
+        return $this->render($response, 'kupci/lista.twig', compact('kupci', 'data'));
+    }
+
+    public function getKupacDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        return $this->render($response, 'kupci/dodavanje.twig');
     }
 
     public function postKupacDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -27,23 +107,36 @@ class KupacController extends Controller
                 'maxlen' => 255,
                 'alnum' => true,
             ],
-            'sediste' => [
-                'maxlen' => 255,
+            'adresa_mesto' => [
+                'maxlen' => 50,
+            ],
+            'adresa_ulica' => [
+                'maxlen' => 100,
+            ],
+            'adresa_broj' => [
+                'maxlen' => 30,
+            ],
+            'telefon' => [
+                'maxlen' => 30,
+            ],
+            'email' => [
+                'maxlen' => 30,
+                'email' => true,
             ]
         ];
 
         $this->validator()->validate($data, $rules);
 
         if ($this->validator()->hasErrors()) {
-            $this->flash('danger', 'Неуспешно додавање добављача');
+            $this->flash('danger', 'Неуспешно додавање купца');
             return $this->redirect($request, $response, 'kupac.lista');
         }
 
         $objekat = new Kupac();
         $id = $objekat->insert($data);
         $model = $objekat->find($id);
-        $this->log($this::DODAVANJE, 'Додавање добављача', $model);
-        $this->flash('success', 'Успешно додавање добављача');
+        $this->log($this::DODAVANJE, 'Додавање купца', $model);
+        $this->flash('success', 'Успешно додавање купца');
 
         return $this->redirect($request, $response, 'kupac.lista');
     }
@@ -64,29 +157,42 @@ class KupacController extends Controller
         $rules = [
             'naziv' => [
                 'required' => true,
-                'unique' => 'kupci.naziv#id:' . $id,
+                'unique' => 'kupci.naziv#id:'.$id,
                 'maxlen' => 255,
                 'alnum' => true,
             ],
-            'sediste' => [
-                'maxlen' => 255,
+            'adresa_mesto' => [
+                'maxlen' => 50,
+            ],
+            'adresa_ulica' => [
+                'maxlen' => 100,
+            ],
+            'adresa_broj' => [
+                'maxlen' => 30,
+            ],
+            'telefon' => [
+                'maxlen' => 30,
+            ],
+            'email' => [
+                'maxlen' => 30,
+                'email' => true,
             ]
         ];
 
         $this->validator()->validate($data, $rules);
 
         if ($this->validator()->hasErrors()) {
-            $this->flash('danger', 'Неуспешна измена добављача');
+            $this->flash('danger', 'Неуспешна измена купца');
             return $this->redirect($request, $response, 'kupac.izmena.get', ['id' => $id]);
         }
 
-        $this->flash('success', 'Подаци добављача су успешно измењени.');
+        $this->flash('success', 'Подаци купца су успешно измењени.');
         $objekat = new Kupac();
         $stari = $objekat->find($id);
 
         $objekat->update($data, $id);
         $kupac = $objekat->find($id);
-        $this->log($this::IZMENA, 'Измена добављача', $kupac, $stari);
+        $this->log($this::IZMENA, 'Измена купца', $kupac, $stari);
         return $this->redirect($request, $response, 'kupac.lista');
     }
 
@@ -99,12 +205,12 @@ class KupacController extends Controller
         $ok = $objekat->deleteOne($id);
 
         if (!$ok) {
-            $this->flash('danger', 'Неуспешно брисање добављача');
+            $this->flash('danger', 'Неуспешно брисање купца');
             return $this->redirect($request, $response, 'kupac.lista');
         }
         
-        $this->log($this::BRISANJE, 'Брисање добављача', $model);
-        $this->flash('success', 'Успешно брисање добављача');
+        $this->log($this::BRISANJE, 'Брисање купца', $model);
+        $this->flash('success', 'Успешно брисање купца');
         return $this->redirect($request, $response, 'kupac.lista');
     }
 }

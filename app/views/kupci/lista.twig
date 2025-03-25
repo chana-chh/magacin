@@ -1,16 +1,85 @@
 {% extends "templates/app.twig" %}
 {% block full %}
-<h1>Купци</h1>
-<hr />
-{% endblock full %}
-{% block article %}
+<div class="row">
+    <div class="col-md-6">
+        <h1>
+            Купци
+            {% if data %}
+            <span class="text-danger fs-4">[филтрирано]</span>
+            {% else %}
+            <span class="text-success fs-4">[сви записи]</span>
+            {% endif %}
+        </h1>
+    </div>
+    <div class="col-md-6 text-end mt-3">
+        <a class="btn btn-primary" type="button" href="{{ url_for('kupac.dodavanje.get') }}">
+            <i class="bi-plus-square"></i> Додај купца
+        </a>
+        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
+            <i class="bi-arrow-down-square"></i> Филтер
+        </button>
+        <a class="btn btn-success" type="button" href="{{ url_for('kupac.lista') }}">
+            <i class="bi-view-list"></i> Сви записи
+        </a>
+    </div>
+</div>
+<hr>
+{% set data = kupci.data %}
+{% set links = kupci.links %}
+
+<div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
+    <form action="{{ url_for('kupac.pretraga.post') }}" method="POST">
+        {{ csrf|raw }}
+    <div class="row">
+        <div class="col-md-3">
+            <label for="naziv" class="form-label">Назив</label>
+            <input type="text" name="naziv" id="naziv" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label for="adresa_mesto" class="form-label">Адреса место</label>
+            <input type="text" name="adresa_mesto" id="adresa_mesto" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label for="adresa_ulica" class="form-label">Адреса улица</label>
+            <input type="text" name="adresa_ulica" id="adresa_ulica" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label for="adresa_broj" class="form-label">Адреса број</label>
+            <input type="text" name="adresa_broj" id="adresa_broj" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label for="email" class="form-label">Електорнска адреса</label>
+            <input type="text" name="email" id="email" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label for="telefon" class="form-label">Телефон</label>
+            <input type="text" name="telefon" id="telefon" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label for="napomena" class="form-label">Напомена</label>
+            <input type="text" name="napomena" id="napomena" class="form-control">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-end">
+            <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+{% if data|length > 0 %}
 <table class="table table-striped table-hover table-sm">
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
             <th class="w-15">Назив</th>
-            <th class="w-10">Седиште</th>
-            <th class="w-60">Напомена</th>
+            <th class="w-20">Адреса</th>
+            <th class="w-15">Електорнска адреса</th>
+            <th class="w-15">Телефон</th>
+            <th class="w-20">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
@@ -19,7 +88,9 @@
         <tr>
             <td class="text-danger">{{ kupac.id }}</td>
             <td>{{ kupac.naziv }}</td>
-            <td>{{ kupac.sediste }}</td>
+            <td>{{ kupac.adresa_ulica }} {{ kupac.adresa_broj }}, {{ kupac.adresa_mesto }}</td>
+            <td>{{ kupac.email }}</td>
+            <td>{{ kupac.telefon }}</td>
             <td>{{ kupac.napomena }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
@@ -31,6 +102,25 @@
         {% endfor %}
     </tbody>
 </table>
+
+<div class="row row-cols-auto">
+    <div class="col">{{ links.buttons|raw }}</div>
+    <div class="col">
+        {{ links.select|raw }}
+    </div>
+    <div class="col text-secondary pt-1">
+        Приказани редови од
+        <span class="text-danger">{{ links.row_from }}</span>
+        до
+        <span class="text-danger">{{ links.row_to }}</span>
+        од укупно
+        <span class="text-danger">{{ links.total_rows }}</span>
+    </div>
+</div>
+{% else %}
+<h2>Нема купаца</h2>
+{% endif %}
+
 {# Modal za brisanje #}
 <div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -59,41 +149,4 @@
     </div>
 </div>
 {# Kraj modala za brisanje #}
-{% endblock article %}
-{% block aside %}
-<div class="card border-dark">
-    <div class="card-header">Додавање купца</div>
-    <div class="card-body">
-        <form action="{{ url_for('kupac.dodavanje') }}" method="POST">
-            {{ csrf | raw }}
-            <div class="form-row">
-                <div class="form-group mt-3">
-                    <label for="naziv">Назив купца</label>
-                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv" id="naziv" value="{{ old.naziv ? : '' }}" maxlength="255" oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group mt-3">
-                    <label for="sediste">Седиште</label>
-                    <input type="text" class="form-control{{ errors.sediste ? ' is-invalid' : '' }}" name="sediste" id="sediste" value="{{ old.sediste ? : '' }}" maxlength="255" oninvalid="this.setCustomValidity('Седиште мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.sediste.0 }}</div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group mb-3">
-                    <label for="napomena" class="form-label">Напомена</label>
-                    <textarea name="napomena" class="form-control" id="napomena" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-row text-end mt-3">
-                <div class="col">
-                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
-                    <a href="{{ url_for('kupac.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
-                        Откажи</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-{% endblock aside %}
+{% endblock full %}

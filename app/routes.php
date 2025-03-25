@@ -70,17 +70,23 @@ $app->group('', function (RouteCollectorProxy $group) {
 
     // Dobavljaci
     $group->get('/dodavljac-lista', \App\Controllers\DobavljacController::class . ':getDobavljacLista')->setName('dobavljac.lista');
+    $group->get('/dodavljac-dodavanje', \App\Controllers\DobavljacController::class . ':getDobavljacDodavanje')->setName('dobavljac.dodavanje.get');
     $group->post('/dodavljac-dodavanje', \App\Controllers\DobavljacController::class . ':postDobavljacDodavanje')->setName('dobavljac.dodavanje');
     $group->get('/dodavljac-izmena/{id}', \App\Controllers\DobavljacController::class . ':getDobavljacIzmena')->setName('dobavljac.izmena.get');
     $group->post('/dodavljac-brisanje', \App\Controllers\DobavljacController::class . ':postDobavljacBrisanje')->setName('dobavljac.brisanje');
     $group->post('/dodavljac-izmena', \App\Controllers\DobavljacController::class . ':postDobavljacIzmena')->setName('dobavljac.izmena');
+    $group->post('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':postDobavljacPretraga')->setName('dodavljac.pretraga.post');
+    $group->get('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':getDobavljacPretraga')->setName('dodavljac.pretraga.get');
 
     // Kupci
     $group->get('/kupac-lista', \App\Controllers\KupacController::class . ':getKupacLista')->setName('kupac.lista');
+    $group->get('/kupac-dodavanje', \App\Controllers\KupacController::class . ':getKupacDodavanje')->setName('kupac.dodavanje.get');
     $group->post('/kupac-dodavanje', \App\Controllers\KupacController::class . ':postKupacDodavanje')->setName('kupac.dodavanje');
     $group->get('/kupac-izmena/{id}', \App\Controllers\KupacController::class . ':getKupacIzmena')->setName('kupac.izmena.get');
     $group->post('/kupac-brisanje', \App\Controllers\KupacController::class . ':postKupacBrisanje')->setName('kupac.brisanje');
     $group->post('/kupac-izmena', \App\Controllers\KupacController::class . ':postKupacIzmena')->setName('kupac.izmena');
+    $group->post('/kupac-pretraga', \App\Controllers\KupacController::class . ':postKupacPretraga')->setName('kupac.pretraga.post');
+    $group->get('/kupac-pretraga', \App\Controllers\KupacController::class . ':getKupacPretraga')->setName('kupac.pretraga.get');
 
     //Prijemnice
     $group->get('/prijemnica-lista', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
