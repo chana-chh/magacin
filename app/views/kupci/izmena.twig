@@ -20,12 +20,12 @@
             </div>
             <div class="form-row">
                 <div class="form-group mt-3">
-                    <label for="sediste">Седиште</label>
-                    <input type="text" class="form-control{{ errors.sediste ? ' is-invalid' : '' }}" name="sediste" id="sediste"
-                        value="{{ old.sediste ? : kupac.sediste }}" maxlength="255"
-                        oninvalid="this.setCustomValidity('Седиште мора да садржи највише 255 карактера.')"
+                    <label for="adresa_mesto">Адреса место</label>
+                    <input type="text" class="form-control{{ errors.adresa_mesto ? ' is-invalid' : '' }}" name="adresa_mesto" id="adresa_mesto"
+                        value="{{ old.adresa_mesto ? : kupac.adresa_mesto }}" maxlength="50"
+                        oninvalid="this.setCustomValidity('Адреса место мора да садржи највише 50 карактера.')"
                         oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.sediste.0 }}</div>
+                    <div class="invalid-feedback">{{ errors.adresa_mesto.0 }}</div>
                 </div>
             </div>
             <div class="form-row">

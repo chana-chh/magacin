@@ -60,14 +60,15 @@ DROP TABLE IF EXISTS `dobavljaci`;
 CREATE TABLE `dobavljaci` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) NOT NULL,
+  `adresa_mesto` varchar(50) DEFAULT NULL,
   `adresa_ulica` varchar(100) DEFAULT NULL,
   `adresa_broj` varchar(30) DEFAULT NULL,
   `telefon` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `napomena` text DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `kupci_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `dobavljaci_unique` (`naziv`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,8 +78,7 @@ CREATE TABLE `dobavljaci` (
 LOCK TABLES `dobavljaci` WRITE;
 /*!40000 ALTER TABLE `dobavljaci` DISABLE KEYS */;
 INSERT INTO `dobavljaci` VALUES
-(1,'добављач 1','Ниш',NULL),
-(2,'добављач 2','Крагујевац',NULL);
+(1, 'Neki dobavljac A', 'Kragujevac', 'Neka ulica', '23', '33344455', 'nmelic@mmm.com', 'Napomena 123');
 /*!40000 ALTER TABLE `dobavljaci` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,6 +178,7 @@ DROP TABLE IF EXISTS `kupci`;
 CREATE TABLE `kupci` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) NOT NULL,
+  `adresa_mesto` varchar(50) DEFAULT NULL,
   `adresa_ulica` varchar(100) DEFAULT NULL,
   `adresa_broj` varchar(30) DEFAULT NULL,
   `telefon` varchar(30) DEFAULT NULL,
@@ -195,8 +196,7 @@ CREATE TABLE `kupci` (
 LOCK TABLES `kupci` WRITE;
 /*!40000 ALTER TABLE `kupci` DISABLE KEYS */;
 INSERT INTO `kupci` VALUES
-(1,'купац 1','Београд',NULL),
-(2,'купац 2','Крагујевац',NULL);
+(1, 'купац 1', 'Београд', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `kupci` ENABLE KEYS */;
 UNLOCK TABLES;
 
