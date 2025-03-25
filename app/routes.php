@@ -89,7 +89,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/kupac-pretraga', \App\Controllers\KupacController::class . ':getKupacPretraga')->setName('kupac.pretraga.get');
 
     //Prijemnice
-    $group->get('/prijemnica-lista', \App\Controllers\OtpremnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
+    $group->get('/prijemnica-lista', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaLista')->setName('prijemnica.lista');
     $group->get('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDodavanje')->setName('prijemnica.dodavanje.get');
     $group->post('/prijemnica-dodavanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaDodavanje')->setName('prijemnica.dodavanje.post');
     $group->get('/prijemnica-izmena/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaIzmena')->setName('prijemnica.izmena.get');
