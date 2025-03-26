@@ -25,6 +25,9 @@ class OtpremnicaArtikalController extends Controller
                 'required' => true,
                 'min' => 0,
             ],
+            'opis' => [
+                'maxlen' => 255,
+            ],
         ];
 
         $this->validator()->validate($data, $rules);

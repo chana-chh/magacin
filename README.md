@@ -6,3 +6,5 @@
 - current_url() - returns the current path, with or without the query string.
 - get_uri() - returns the UriInterface object from the incoming ServerRequestInterface object
 - base_path() - returns the base path.
+
+Interno prebacivanje (nalozi), pretvaranje sirovina->kljuk->meka->ljuta->gotova->flasirana ???

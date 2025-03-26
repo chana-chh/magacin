@@ -25,9 +25,10 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-50">Артикал</th>
+            <th class="w-40">Артикал</th>
             <th class="w-5 text-center">Јм</th>
-            <th class="w-00 text-end">Количина</th>
+            <th class="w-10 text-end">Количина</th>
+            <th class="w-30">Опис</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
@@ -113,6 +114,14 @@
                     oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0.')"
                     oninput="this.setCustomValidity('')" autocomplete="off" required>
                 <div class="invalid-feedback">{{ errors.kolicina.0 }}</div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="opis" class="form-label">Опис</label>
+                    <textarea class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis"
+                        rows="3">{{ old.opis }}</textarea>
+                    <div class="invalid-feedback">{{ errors.opis.0 }}</div>
+                </div>
             </div>
             <div class="form-row text-end mt-3">
                 <div class="col">

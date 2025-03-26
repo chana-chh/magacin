@@ -358,6 +358,7 @@ CREATE TABLE `nalog_artikal` (
   `id_naloga` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -422,6 +423,7 @@ CREATE TABLE `otpremnica_artikal` (
   `id_otpremnice` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -546,6 +548,7 @@ CREATE TABLE `prijemnica_artikal` (
   `id_prijemnice` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -563,11 +566,11 @@ CREATE TABLE `prijemnica_artikal` (
 LOCK TABLES `prijemnica_artikal` WRITE;
 /*!40000 ALTER TABLE `prijemnica_artikal` DISABLE KEYS */;
 INSERT INTO `prijemnica_artikal` VALUES
-(1,4,4,5500.00,'2025-03-26 18:37:46','2025-03-26 18:37:46'),
-(2,5,4,2750.00,'2025-03-26 18:39:21','2025-03-26 18:39:21'),
-(3,6,4,8050.00,'2025-03-26 18:40:47','2025-03-26 18:40:47'),
-(4,7,4,11240.00,'2025-03-26 18:43:58','2025-03-26 18:43:58'),
-(5,5,11,4950.00,'2025-03-26 18:53:26','2025-03-26 18:53:26');
+(1,4,4,5500.00,NULL,'2025-03-26 18:37:46','2025-03-26 18:37:46'),
+(2,5,4,2750.00,NULL,'2025-03-26 18:39:21','2025-03-26 18:39:21'),
+(3,6,4,8050.00,NULL,'2025-03-26 18:40:47','2025-03-26 18:40:47'),
+(4,7,4,11240.00,NULL,'2025-03-26 18:43:58','2025-03-26 18:43:58'),
+(5,5,11,4950.00,NULL,'2025-03-26 18:53:26','2025-03-26 18:53:26');
 /*!40000 ALTER TABLE `prijemnica_artikal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -691,4 +694,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-26 18:56:23
+-- Dump completed on 2025-03-26 19:21:58
