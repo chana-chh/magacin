@@ -46,6 +46,7 @@ class ArtikalController extends Controller
             'naziv' => [
                 'required' => true,
                 'maxlen' => 255,
+                'multi_unique' => 'artikli.id_kategorije,naziv',
             ],
             'id_jm' => [
                 'required' => true,
@@ -89,6 +90,7 @@ class ArtikalController extends Controller
             'naziv' => [
                 'required' => true,
                 'maxlen' => 255,
+                'multi_unique' => 'artikli.id_kategorije,naziv#id:' . $id,
             ],
             'id_jm' => [
                 'required' => true,

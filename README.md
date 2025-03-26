@@ -6,5 +6,3 @@
 - current_url() - returns the current path, with or without the query string.
 - get_uri() - returns the UriInterface object from the incoming ServerRequestInterface object
 - base_path() - returns the base path.
-
-Za artikle unique da se postavi na kategoriju i naziv umesto samo na naziv.

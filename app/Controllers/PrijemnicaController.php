@@ -26,7 +26,7 @@ class PrijemnicaController extends Controller
 
         $pri = new Prijemnica();
         $sql = "SELECT * FROM prijemnice ORDER BY datum DESC;";
-        $prijemnice = $pri->paginate($path, $page, $sql, [], 2, 3);
+        $prijemnice = $pri->paginate($path, $page, $sql, []);
 
         return $this->render($response, 'prijemnice/lista.twig', compact('prijemnice', 'magacini', 'dobavljaci'));
     }
@@ -193,7 +193,7 @@ class PrijemnicaController extends Controller
 
         // Logovi
         $sql = "SELECT * FROM prijemnice {$where} ORDER BY datum DESC;";
-        $prijemnice = $pri->paginate($path, $page, $sql, $params, 2, 3);
+        $prijemnice = $pri->paginate($path, $page, $sql, $params);
         return $this->render($response, 'prijemnice/lista.twig', compact('prijemnice', 'magacini', 'dobavljaci', 'data'));
     }
 

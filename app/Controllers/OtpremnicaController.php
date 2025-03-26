@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Artikal;
 use App\Models\Magacin;
 use App\Models\Kupac;
 use App\Models\Otpremnica;
@@ -203,7 +202,7 @@ class OtpremnicaController extends Controller
         $id = $request->getAttribute('id');
         $otpremnica = (new Otpremnica())->find($id);
         //$artikli = (new Artikal())->all();
-        $artikli = (new Stanje())->magacin($otpremnica->id_magacina);
+        $artikli = (new Stanje())->stanjeMagacin($otpremnica->id_magacina);
         return $this->render($response, 'otpremnice/pregled.twig', compact('otpremnica', 'artikli'));
     }
 
