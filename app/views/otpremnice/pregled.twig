@@ -26,8 +26,8 @@
         <tr>
             <th class="w-5">#</th>
             <th class="w-40">Артикал</th>
-            <th class="w-5 text-center">Јм</th>
             <th class="w-10 text-end">Количина</th>
+            <th class="w-5 text-center">Јм</th>
             <th class="w-30">Опис</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
@@ -37,8 +37,8 @@
         <tr>
             <td class="text-danger">{{ stavka.id }}</td>
             <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
-            <td class="text-center">{{ stavka.artikal().jm.jm }}</td>
             <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
+            <td class="text-center">{{ stavka.artikal().jm.jm }}</td>
             <td>{{ stavka.opis }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
@@ -100,11 +100,11 @@
                 <select name="id_artikla" id="id_artikla"
                     class="form-select{{ errors.id_artikla ? ' is-invalid' : '' }}" required autocomplete="off"
                     autofocus>
-                    {% for art in artikli %}
-                    <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }}
-                        data-kolicina="{{ art.kolicina }}">
-                        {{ art.artikal().naziv }} {{ art.artikal().jm.jm}} [{{ art.artikal().kategorija().naziv }}]
-                        доступно {{ art.kolicina }}
+                    {% for stanje in artikli %}
+                    <option value="{{ stanje.id_artikla }}" {{ old.id_artikla==stanje.id_artikla ? ' selected' : '' }}
+                        data-kolicina="{{ stanje.kolicina }}">
+                        {{ stanje.artikal().naziv }} {{ stanje.artikal().jm.jm}} [{{ stanje.artikal().kategorija().naziv }}]
+                        доступно {{ stanje.kolicina }}
                     </option>
                     {% endfor %}
                 </select>

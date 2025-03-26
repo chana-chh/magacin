@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Artikal;
-use App\Models\Magacin;
-use App\Models\Dobavljac;
-use App\Models\Prijemnica;
 use App\Classes\Controller;
 use App\Models\PrijemnicaArtikal;
 use App\Models\Stanje;
@@ -40,12 +36,13 @@ class PrijemnicaArtikalController extends Controller
         $id_magacina = (int) $data['id_magacina'];
         unset($data['id_magacina']);
 
+        // Update kolicine na stanju (pre dodavanja stavke zbog stanja)
+        $stanje = new Stanje();
+        $stanje->dodajKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
+
         $st = new PrijemnicaArtikal();
         $id = $st->insert($data);
         $stavka = $st->find($id);
-        // Update kolicine na stanju
-        $stanje = new Stanje();
-        $stanje->dodajKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $this->log($this::DODAVANJE, 'Додавање ставке пријемнице', $stavka);
         $this->flash('success', 'Успешно додавање ставке пријемнице');
@@ -60,16 +57,16 @@ class PrijemnicaArtikalController extends Controller
         $id_magacina = (int) $data['idMagacina'];
         $st = new PrijemnicaArtikal();
         $model = $st->find($id);
+        // Update kolicine na stanju (pre brisanja stavke zbog stanja)
+        $stanje = new Stanje();
+        $stanje->oduzmiKolicinu($id_magacina, (int) $model->id_artikla, (float) $model->kolicina);
+        
         $ok = $st->deleteOne($id);
 
         if (!$ok) {
             $this->flash('danger', 'Неуспешно брисање ставке пријемнице');
             return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $model->id_prijemnice]);
         }
-
-        // Update kolicine na stanju
-        $stanje = new Stanje();
-        $stanje->oduzmiKolicinu($id_magacina, (int) $model->id_artikla, (float) $model->kolicina);
 
         $this->log($this::BRISANJE, 'Брисање ставке пријемнице', $model);
         $this->flash('success', 'Успешно брисање ставке пријемнице');

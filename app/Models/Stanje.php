@@ -13,10 +13,10 @@ class Stanje extends Model
         return $this->belongsTo('App\Models\Artikal', 'id_artikla');
     }
 
-    // public function magacin()
-    // {
-    //     return $this->belongsTo('App\Models\Magacin', 'id_magacina');
-    // }
+    public function magacin()
+    {
+        return $this->belongsTo('App\Models\Magacin', 'id_magacina');
+    }
 
     public function dodajKolicinu(int $id_magacina, int $id_artikla, float $kolicina)
     {

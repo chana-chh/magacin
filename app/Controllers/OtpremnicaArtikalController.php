@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Artikal;
-use App\Models\Magacin;
-use App\Models\Kupac;
-use App\Models\Otpremnica;
 use App\Classes\Controller;
 use App\Models\OtpremnicaArtikal;
 use App\Models\Stanje;
@@ -40,12 +36,13 @@ class OtpremnicaArtikalController extends Controller
         $id_magacina = (int) $data['id_magacina'];
         unset($data['id_magacina']);
 
+        // Update kolicine na stanju (pre dodavanja stavke zbog stanja)
+        $stanje = new Stanje();
+        $stanje->oduzmiKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
+
         $st = new OtpremnicaArtikal();
         $id = $st->insert($data);
         $stavka = $st->find($id);
-        // Update kolicine na stanju
-        $stanje = new Stanje();
-        $stanje->oduzmiKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $this->log($this::DODAVANJE, 'Додавање ставке отпремнице', $stavka);
         $this->flash('success', 'Успешно додавање ставке отпремнице');
@@ -60,16 +57,16 @@ class OtpremnicaArtikalController extends Controller
         $id_magacina = (int) $data['idMagacina'];
         $st = new OtpremnicaArtikal();
         $model = $st->find($id);
+        // Update kolicine na stanju (pre brisanja stavke zbog stanja)
+        $stanje = new Stanje();
+        $stanje->dodajKolicinu($id_magacina, (int) $model->id_artikla, (float) $model->kolicina);
+
         $ok = $st->deleteOne($id);
 
         if (!$ok) {
             $this->flash('danger', 'Неуспешно брисање ставке отпремнице');
             return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $model->id_otpremnice]);
         }
-
-        // Update kolicine na stanju
-        $stanje = new Stanje();
-        $stanje->dodajKolicinu($id_magacina, (int) $model->id_artikla, (float) $model->kolicina);
 
         $this->log($this::BRISANJE, 'Брисање ставке отпремнице', $model);
         $this->flash('success', 'Успешно брисање ставке отпремнице');
