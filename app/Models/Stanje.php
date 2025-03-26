@@ -8,6 +8,11 @@ class Stanje extends Model
 {
     protected string $table = 'stanje';
 
+    public function artikal()
+    {
+        return $this->belongsTo('App\Models\Artikal', 'id_artikla');
+    }
+
     public function dodajKolicinu(int $id_magacina, int $id_artikla, float $kolicina)
     {
         $kolicina = round($kolicina, 2);
@@ -32,5 +37,12 @@ class Stanje extends Model
         $stanje = $stanje[0];
         $nova_kolicina = $stanje->kolicina - $kolicina;
         $this->update(['kolicina' => $nova_kolicina], $stanje->id);
+    }
+
+    public function magacin(int $id_magacina)
+    {
+        $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina";
+        $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
+        return $stanje;
     }
 }

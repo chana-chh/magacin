@@ -1,7 +1,7 @@
 {% extends "templates/app.twig" %}
 {% block full %}
 <div class="row">
-    <div class="col">
+    <div class="col-md-6">
         <h1>
             Артикли
             {% if data %}
@@ -11,7 +11,7 @@
             {% endif %}
         </h1>
     </div>
-    <div class="col text-end mt-3">
+    <div class="col-md-6 text-end mt-3">
         <a class="btn btn-primary" type="button" href="{{ url_for('artikal.dodavanje.get') }}">
             <i class="bi-plus-square"></i> Додај артикал
         </a>
@@ -29,7 +29,8 @@
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
     <form action="{{ url_for('artikal.pretraga.post') }}" method="POST" class="form row">
         {{ csrf|raw }}
-        <div class="col">
+        <div class="row mt-3">
+        <div class="col-md-4">
             <label for="id_kategorije" class="form-label">Категорија</label>
             <select name="id_kategorije" id="id_kategorije" class="form-select">
                 <option value="" selected disabled>...</option>
@@ -39,11 +40,11 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <label for="naziv" class="form-label">Назив</label>
             <input type="text" name="naziv" id="naziv" class="form-control">
         </div>
-        <div class="col">
+        <div class="col-md-4">
             <label for="id_jm" class="form-label">Јединица мере</label>
             <select name="id_jm" id="id_jm" class="form-select">
                 <option value="" selected disabled>...</option>
@@ -54,9 +55,11 @@
                 {% endfor %}
             </select>
         </div>
-
-        <div class="col align-content-end">
+        </div>
+        <div class="row mt-3 text-end">
+        <div class="col">
             <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+        </div>
         </div>
     </form>
 </div>

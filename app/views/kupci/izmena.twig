@@ -39,21 +39,21 @@
                 </div>
             </div>
             <div class="row g-3 mt-3">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="telefon">Телефон</label>
                     <input type="text" class="form-control{{ errors.telefon ? ' is-invalid' : '' }}" name="telefon" id="telefon" value="{{ old.telefon ? : kupac.telefon }}" maxlength="30" 
                     oninvalid="this.setCustomValidity('Телефон мора да садржи највише 30 карактера.')" 
                     oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.telefon.0 }}</div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="email">Електорнска адреса</label>
                     <input type="email" placeholder="ime@domen.com" class="form-control{{ errors.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old.email ? : kupac.email }}" maxlength="100" 
                     oninvalid="this.setCustomValidity('Електорнска адреса мора да садржи највише 100 карактера.')" 
                     oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.adresa_mesto.0 }}</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="napomena" class="form-label">Напомена</label>
                     <textarea name="napomena" class="form-control" id="napomena" rows="3">{{ old.napomena ? : kupac.napomena }}</textarea>
                 </div>

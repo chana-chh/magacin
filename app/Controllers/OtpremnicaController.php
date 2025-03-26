@@ -6,6 +6,7 @@ use App\Models\Artikal;
 use App\Models\Magacin;
 use App\Models\Kupac;
 use App\Models\Otpremnica;
+use App\Models\Stanje;
 use App\Classes\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -26,7 +27,7 @@ class OtpremnicaController extends Controller
 
         $otpr = new Otpremnica();
         $sql = "SELECT * FROM otpremnice ORDER BY datum DESC;";
-        $otpremnice = $otpr->paginate($path, $page, $sql, [], 2, 3);
+        $otpremnice = $otpr->paginate($path, $page, $sql, [], null, 3);
 
         return $this->render($response, 'otpremnice/lista.twig', compact('otpremnice', 'magacini', 'kupci'));
     }
@@ -193,7 +194,7 @@ class OtpremnicaController extends Controller
 
         // Logovi
         $sql = "SELECT * FROM otpremnice {$where} ORDER BY datum DESC;";
-        $otpremnice = $otpr->paginate($path, $page, $sql, $params, 2, 3);
+        $otpremnice = $otpr->paginate($path, $page, $sql, $params, null, 3);
         return $this->render($response, 'otpremnice/lista.twig', compact('otpremnice', 'magacini', 'kupci', 'data'));
     }
 
@@ -201,7 +202,8 @@ class OtpremnicaController extends Controller
     {
         $id = $request->getAttribute('id');
         $otpremnica = (new Otpremnica())->find($id);
-        $artikli = (new Artikal())->all();
+        //$artikli = (new Artikal())->all();
+        $artikli = (new Stanje())->magacin($otpremnica->id_magacina);
         return $this->render($response, 'otpremnice/pregled.twig', compact('otpremnica', 'artikli'));
     }
 

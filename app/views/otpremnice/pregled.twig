@@ -99,8 +99,8 @@
                     class="form-select{{ errors.id_artikla ? ' is-invalid' : '' }}" required autocomplete="off"
                     autofocus>
                     {% for art in artikli %}
-                    <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }}>
-                        {{ art.naziv }} [{{ art.kategorija().naziv }}]
+                    <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }} data-kolicina="{{ art.kolicina }}">
+                        {{ art.artikal().naziv }} [{{ art.artikal().kategorija().naziv }}] dostupno {{ art.kolicina }}
                     </option>
                     {% endfor %}
                 </select>
@@ -110,7 +110,7 @@
                 <label for="kolicina">Количина</label>
                 <input type="number" class="form-control{{ errors.kolicina ? ' is-invalid' : '' }}" name="kolicina"
                     id="kolicina" value="{{ old.kolicina ? : '0.00' }}" min="0" step="0.01" inputmode="decimal"
-                    oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0.')"
+                    oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0 и мања од доступне у магацину.')"
                     oninput="this.setCustomValidity('')" autocomplete="off" required>
                 <div class="invalid-feedback">{{ errors.kolicina.0 }}</div>
             </div>
@@ -125,3 +125,14 @@
     </div>
 </div>
 {% endblock aside %}
+{% block skripta %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    var kol = document.getElementById('kolicina');
+    document.getElementById('id_artikla').onchange = function () {
+        var m = this.selectedOptions[0].getAttribute('data-kolicina');
+        kol.setAttribute('max', m);
+    }
+});
+</script>
+{% endblock skripta %}

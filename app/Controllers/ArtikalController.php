@@ -25,7 +25,7 @@ class ArtikalController extends Controller
 
         $art = new Artikal();
         $sql = "SELECT * FROM artikli ORDER BY naziv ASC;";
-        $artikli = $art->paginate($path, $page, $sql, [], 2, 3);
+        $artikli = $art->paginate($path, $page, $sql, [], null, 3);
         return $this->render($response, 'artikli/lista.twig', compact('artikli', 'kategorije', 'jm'));
     }
 
@@ -168,7 +168,7 @@ class ArtikalController extends Controller
 
         // Logovi
         $sql = "SELECT * FROM artikli {$where} ORDER BY naziv ASC;";
-        $artikli = $art->paginate($path, $page, $sql, $params, 2, 3);
+        $artikli = $art->paginate($path, $page, $sql, $params, null, 3);
         return $this->render($response, 'artikli/lista.twig', compact('artikli', 'kategorije', 'jm', 'data'));
     }
 

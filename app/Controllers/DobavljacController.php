@@ -22,7 +22,7 @@ class DobavljacController extends Controller
         $model = new Dobavljac();
 
         $sql = "SELECT * FROM dobavljaci ORDER BY naziv DESC;";
-        $dobavljaci = $model->paginate($path, $page, $sql, [], 2, 3);
+        $dobavljaci = $model->paginate($path, $page, $sql, [], null, 3);
         return $this->render($response, 'dobavljaci/lista.twig', compact('dobavljaci'));
     }
 
@@ -88,7 +88,7 @@ class DobavljacController extends Controller
         $model = new Dobavljac();
 
         $sql = "SELECT * FROM dobavljaci ORDER BY naziv DESC;";
-        $dobavljaci = $model->paginate($path, $page, $sql, [], 2, 3);
+        $dobavljaci = $model->paginate($path, $page, $sql, [], null, 3);
         return $this->render($response, 'dobavljaci/lista.twig', compact('dobavljaci', 'data'));
     }
 

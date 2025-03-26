@@ -30,7 +30,7 @@ class LogController extends Controller
 
         // Logovi
         $sql = "SELECT * FROM logovi ORDER BY vreme DESC;";
-        $logovi = $modelLog->paginate($path, $page, $sql, [], 2, 3);
+        $logovi = $modelLog->paginate($path, $page, $sql, [], null, 3);
         return $this->render($response, 'logovi.twig', compact('logovi', 'tabele', 'korisnici'));
     }
 
@@ -99,7 +99,7 @@ class LogController extends Controller
 
         // Logovi
         $sql = "SELECT * FROM logovi {$where} ORDER BY vreme DESC;";
-        $logovi = $modelLog->paginate($path, $page, $sql, $params, 2, 3);
+        $logovi = $modelLog->paginate($path, $page, $sql, $params, null, 3);
         return $this->render($response, 'logovi.twig', compact('logovi', 'tabele', 'korisnici', 'data'));
     }
 }

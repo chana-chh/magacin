@@ -177,7 +177,10 @@ class Validator
      */
     protected function email($field, $value, $option)
     {
-        return filter_var($value, FILTER_VALIDATE_EMAIL);
+        if (!empty($value)) {
+            return filter_var($value, FILTER_VALIDATE_EMAIL);
+        }
+        return true;
     }
 
     /**
