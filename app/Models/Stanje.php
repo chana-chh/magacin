@@ -49,7 +49,7 @@ class Stanje extends Model
 
     public function stanjeMagacin(int $id_magacina)
     {
-        $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina";
+        $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina AND kolicina > 0;";
         $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
         return $stanje;
     }
@@ -59,6 +59,13 @@ class Stanje extends Model
         $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina AND id_artikla = :id_artikla;";
         $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina, ':id_artikla' => $id_artikla]);
         $stanje = $stanje[0] ?? null;
+        return $stanje;
+    }
+
+    public function stanjeUkupno()
+    {
+        $sql = "SELECT id_artikla,SUM('kolicina') FROM stanje GROUP BY id_artikla;";
+        $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
         return $stanje;
     }
 }

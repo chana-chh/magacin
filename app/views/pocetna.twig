@@ -2,7 +2,70 @@
 {% block full %}
 
 {% if korisnik.prijavljen %}
-<h1 class="text-center">{{ korisnik.puno_ime }}</h1>
+<div class="row mt-5">
+        <div class="card-group">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Пријемнице</h4>
+                    <hr>
+                    <h6 class="card-text">Преглед или додавање улаза/пријема робе</h6>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-success btn-sm" href="{{ url_for('prijemnica.lista') }}" title="Табеларни преглед пријемница"><i class="bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Отпремнице</h4>
+                    <hr>
+                    <h6 class="card-text">Преглед или додавање излаза/отпремања робе</h6>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-success btn-sm" href="{{ url_for('otpremnica.lista') }}" title="Табеларни преглед отпремница"><i class="bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Налози</h4>
+                    <hr>
+                    <h6 class="card-text">Израда и преглед налога за пренос</h6>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-success btn-sm" href="" title="Налози"><i class="bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Попис</h4>
+                    <hr>
+                    <h6 class="card-text">Израда и преглед пописа</h6>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-success btn-sm" href="" title="Попис"><i class="bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Стање</h4>
+                    <hr>
+                    <h6 class="card-text">Преглед укупног стања</h6>
+                </div>
+                <div class="card-footer text-right">
+                    <div class="btn-group btn-group-sm">
+                        <a class="btn btn-success btn-sm" href="{{ url_for('stanje.lista.ukupno') }}" title="Преглед укупног стања"><i class="bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+</div>
 {% else %}
 <div class="d-flex align-items-center justify-content-center" style="height: 90vh;">
 	<img src="img/casa.jpg" class="rounded" alt="чашица">
