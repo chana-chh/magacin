@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Popis;
+use App\Models\Artikal;
 use App\Models\Magacin;
 use App\Classes\Controller;
 use Psr\Http\Message\ResponseInterface;
@@ -158,5 +159,13 @@ class PopisController extends Controller
         $this->log($this::BRISANJE, 'Брисање пописа', $model);
         $this->flash('success', 'Успешно брисање пописа');
         return $this->redirect($request, $response, 'popis.lista');
+    }
+
+    public function getPopisPregled(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $id = $request->getAttribute('id');
+        $popis = (new Popis())->find($id);
+        $artikli = (new Artikal())->all();
+        return $this->render($response, 'popisi/pregled.twig', compact('popis', 'artikli'));
     }
 }

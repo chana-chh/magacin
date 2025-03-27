@@ -71,7 +71,10 @@
             <td>{{ pop.magacin().naziv }}</td>
             <td>{{ pop.napomena }}</td>
             <td class="text-end">
+
                 <div class="btn-group btn-group-sm">
+                    <a class="btn btn-success" href="{{ url_for('popis.pregled', { id: pop.id }) }}"><i
+                            class="bi-eye"></i></a>
                     <a class="btn btn-warning" href="{{ url_for('popis.izmena.get', { id: pop.id }) }}">
                         <i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"

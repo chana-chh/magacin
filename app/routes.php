@@ -133,6 +133,10 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/popis-pretraga', \App\Controllers\PopisController::class . ':postPopisPretraga')->setName('popis.pretraga.post');
     $group->get('/popis-pretraga', \App\Controllers\PopisController::class . ':getPopisPretraga')->setName('popis.pretraga.get');
     $group->post('/popis-brisanje', \App\Controllers\PopisController::class . ':postPopisBrisanje')->setName('popis.brisanje');
+    $group->get('/popis-pregled/{id:[0-9]+}', \App\Controllers\PopisController::class . ':getPopisPregled')->setName('popis.pregled');
+    // Popis stavke
+    $group->post('/popis-stavke-dodavanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeDodavanje')->setName('popis.stavke.dodavanje');
+    $group->post('/popis-stavke-brisanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeBrisanje')->setName('popis.stavke.brisanje');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

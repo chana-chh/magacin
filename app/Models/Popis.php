@@ -13,4 +13,9 @@ class Popis extends Model
         return (new Magacin())->find($this->id_magacina);
     }
 
+    public function stavke()
+    {
+        return $this->hasMany('App\Models\PopisArtikal', 'id_popisa');
+    }
+
 }
