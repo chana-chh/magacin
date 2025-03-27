@@ -1,7 +1,7 @@
 {% extends "templates/app.twig" %}
 {% block full %}
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <h1>
             Пописи
             {% if data %}
@@ -11,16 +11,7 @@
             {% endif %}
         </h1>
     </div>
-    <div class="col-md-4 text-end mt-3">
-        <div class="input-group">
-            <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
-            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox" autofocus>
-            <button class="btn btn-primary" type="button" id="ponisti-pretragu">
-                <i class="bi-x-square"></i> Поништи
-            </button>
-        </div>
-    </div>
-    <div class="col-md-4 text-end mt-3">
+    <div class="col-md-6 text-end mt-3">
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
             <i class="bi-arrow-down-square"></i> Филтер
         </button>
@@ -31,7 +22,7 @@
 </div>
 <hr>
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
-    <form action="" method="POST" class="form row">
+    <form action="{{ url_for('popis.pretraga.post') }}" method="POST" class="form row">
         {{ csrf|raw }}
         <div class="row mt-3 align-items-end">
             <div class="col-md-3">
@@ -81,7 +72,8 @@
             <td>{{ pop.napomena }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-warning" href="" title="Измена јединице мере"><i class="bi-pencil"></i></a>
+                    <a class="btn btn-warning" href="{{ url_for('popis.izmena.get', { id: pop.id }) }}">
+                        <i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
                         data-bs-target="#brisanjeModal" value="{{ pop.id }}"
                         onclick="document.getElementById('idBrisanje').value = this.value"><i
@@ -119,7 +111,7 @@
             <div class="modal-body">
                 <h4>Да ли желите трајно да обришете попис?</h4>
                 <p class="text-danger lead">* Ова акција је неповратна!</p>
-                <form id="brisanje-forma" action="" method="POST">
+                <form id="brisanje-forma" action="{{ url_for('popis.brisanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
             </div>
@@ -146,9 +138,8 @@
             <div class="mb-3">
                 <label for="datum">Датум</label>
                 <input type="date" class="form-control{{ errors.datum ? ' is-invalid' : '' }}" name="datum" id="datum"
-                    value="{{ old.datum ? : '' }}" maxlength="10" minlength="1"
-                    oninvalid="this.setCustomValidity('Датум је обавезан.')" oninput="this.setCustomValidity('')"
-                    autocomplete="off" required>
+                    value="{{ old.datum ? : '' }}" oninvalid="this.setCustomValidity('Датум је обавезан.')"
+                    oninput="this.setCustomValidity('')" autocomplete="off" required>
                 <div class="invalid-feedback">{{ errors.datum.0 }}</div>
             </div>
             <div class="mb-3">
@@ -170,8 +161,9 @@
 
             <div class="text-end mt-3">
                 <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
-                <a href="{{ url_for('popis.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
-                    Откажи</a>
+                <a href="{{ url_for('popis.lista') }}" class="btn btn-secondary">
+                    <i class="bi-x-square"></i> Откажи
+                </a>
             </div>
         </form>
     </div>

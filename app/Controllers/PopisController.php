@@ -54,4 +54,109 @@ class PopisController extends Controller
 
         return $this->redirect($request, $response, 'popis.lista');
     }
+
+    public function getPopisIzmena(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $id = $request->getAttribute('id');
+        $popis = (new Popis())->find($id);
+        $magacini = (new Magacin())->all();
+        return $this->render($response, 'popisi/izmena.twig', compact('popis', 'magacini'));
+    }
+
+    public function postPopisIzmena(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $this->data($request);
+        $id = (int) $data['id'];
+        unset($data['id']);
+        $rules = [
+            'id_magacina' => [
+                'required' => true,
+            ],
+            'datum' => [
+                'required' => true,
+            ],
+        ];
+
+        $this->validator()->validate($data, $rules);
+
+        if ($this->validator()->hasErrors()) {
+            $this->flash('danger', 'Неуспешна измена пописа');
+            return $this->redirect($request, $response, 'popis.izmena.get', ['id' => $id]);
+        }
+
+        $pop = new Popis();
+        $stari = $pop->find($id);
+        $data['updated_at'] = date('Y-m-d H:i:s');
+        $pop->update($data, $id);
+        $popis = $pop->find($id);
+        $this->log($this::IZMENA, 'Измена пописа', $popis, $stari);
+        $this->flash('success', 'Успешна измена пописа');
+
+        return $this->redirect($request, $response, 'popis.lista');
+    }
+
+    public function postPopisPretraga(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $this->data($request);
+        $_SESSION['MAGACIN_POPIS_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'popis.pretraga.get');
+    }
+
+    public function getPopisPretraga(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $_SESSION['MAGACIN_POPIS_PRETRAGA'] ?? [];
+        $conditions = [];
+        $params = [];
+
+        if (!empty($data['id_magacina'])) {
+            $conditions[] = 'id_magacina = :id_magacina';
+            $params[':id_magacina'] = $data['id_magacina'];
+        }
+
+        if (!empty($data['datum_1'])) {
+            $conditions[] = 'datum >= :datum_od';
+            $params[':datum_od'] = $data['datum_1'];
+        }
+
+        if (!empty($data['datum_2'])) {
+            $conditions[] = 'datum <= :datum_do';
+            $params[':datum_do'] = $data['datum_2'];
+        }
+
+        if (empty($conditions)) {
+            return $this->redirect($request, $response, 'log.lista');
+        }
+
+        $where = "WHERE " . implode(' AND ', $conditions);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $magacini = (new Magacin())->all();
+
+        $pop = new Popis();
+        $sql = "SELECT * FROM popisi {$where} ORDER BY datum DESC;";
+        $popisi = $pop->paginate($path, $page, $sql, $params);
+        return $this->render($response, 'popisi/lista.twig', compact('popisi', 'magacini', 'data'));
+    }
+
+    public function postPopisBrisanje(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $this->data($request);
+        $id = (int)$data['idBrisanje'];
+        $pop = new Popis();
+        $model = $pop->find($id);
+        $ok = $pop->deleteOne($id);
+
+        if (!$ok) {
+            $this->flash('danger', 'Неуспешно брисање пописа');
+            return $this->redirect($request, $response, 'popis.lista');
+        }
+
+        $this->log($this::BRISANJE, 'Брисање пописа', $model);
+        $this->flash('success', 'Успешно брисање пописа');
+        return $this->redirect($request, $response, 'popis.lista');
+    }
 }

@@ -25,8 +25,8 @@ class Controller
         $this->validator = $container->get(Validator::class);
         $auth = $container->get(Auth::class);
         if ($auth->isLoggedIn()) {
-        $this->korisnik = $auth->korisnik();
-        $this->logger = new Logger($this->korisnik->id);
+            $this->korisnik = $auth->korisnik();
+            $this->logger = new Logger($this->korisnik->id);
         }
     }
 

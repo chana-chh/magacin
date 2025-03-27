@@ -128,6 +128,11 @@ $app->group('', function (RouteCollectorProxy $group) {
     // Popisi
     $group->get('/popis-lista', \App\Controllers\PopisController::class . ':getPopisLista')->setName('popis.lista');
     $group->post('/popis-dodavanje', \App\Controllers\PopisController::class . ':postPopisDodavanje')->setName('popis.dodavanje.post');
+    $group->get('/popis-izmena/{id:[0-9]+}', \App\Controllers\PopisController::class . ':getPopisIzmena')->setName('popis.izmena.get');
+    $group->post('/popis-izmena', \App\Controllers\PopisController::class . ':postPopisIzmena')->setName('popis.izmena.post');
+    $group->post('/popis-pretraga', \App\Controllers\PopisController::class . ':postPopisPretraga')->setName('popis.pretraga.post');
+    $group->get('/popis-pretraga', \App\Controllers\PopisController::class . ':getPopisPretraga')->setName('popis.pretraga.get');
+    $group->post('/popis-brisanje', \App\Controllers\PopisController::class . ':postPopisBrisanje')->setName('popis.brisanje');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));
