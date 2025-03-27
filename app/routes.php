@@ -120,17 +120,14 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/otpremnica-stavke-dodavanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeDodavanje')->setName('otpremnica.stavke.dodavanje');
     $group->post('/otpremnica-stavke-brisanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeBrisanje')->setName('otpremnica.stavke.brisanje');
 
-<<<<<<< HEAD
     //Stanje
     $group->get('/stanje-lista-ukupno', \App\Controllers\StanjeController::class . ':getUkupnoLista')->setName('stanje.lista.ukupno');
     $group->post('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':postUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.post');
     $group->get('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':getUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.get');
 
-=======
     // Popisi
     $group->get('/popis-lista', \App\Controllers\PopisController::class . ':getPopisLista')->setName('popis.lista');
     $group->post('/popis-dodavanje', \App\Controllers\PopisController::class . ':postPopisDodavanje')->setName('popis.dodavanje.post');
->>>>>>> 2cab3347273055c370b3467994045aab59681e00
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));
