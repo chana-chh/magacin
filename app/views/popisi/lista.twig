@@ -1,0 +1,179 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row">
+    <div class="col-md-4">
+        <h1>
+            Пописи
+            {% if data %}
+            <span class="text-danger fs-4">[филтрирано]</span>
+            {% else %}
+            <span class="text-success fs-4">[сви записи]</span>
+            {% endif %}
+        </h1>
+    </div>
+    <div class="col-md-4 text-end mt-3">
+        <div class="input-group">
+            <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
+            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox" autofocus>
+            <button class="btn btn-primary" type="button" id="ponisti-pretragu">
+                <i class="bi-x-square"></i> Поништи
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4 text-end mt-3">
+        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
+            <i class="bi-arrow-down-square"></i> Филтер
+        </button>
+        <a class="btn btn-success" type="button" href="{{ url_for('popis.lista') }}">
+            <i class="bi-view-list"></i> Сви записи
+        </a>
+    </div>
+</div>
+<hr>
+<div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
+    <form action="" method="POST" class="form row">
+        {{ csrf|raw }}
+        <div class="row mt-3 align-items-end">
+            <div class="col-md-3">
+                <label for="id_magacina" class="form-label">Магацини</label>
+                <select name="id_magacina" id="id_magacina" class="form-select">
+                    <option value="" selected disabled>...</option>
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}">
+                        {{ mag.naziv }} [{{ mag.tip().naziv }}]</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="datum_1" class="form-label">Датум од</label>
+                <input type="date" name="datum_1" id="datum_1" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="datum_2" class="form-label">Датум до</label>
+                <input type="date" name="datum_2" id="datum_2" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock full %}
+{% block article %}
+{% set popdata = popisi.data %}
+{% set links = popisi.links %}
+<table class="table table-striped table-hover table-sm">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-15">Датум</th>
+            <th class="w-35">Магацин</th>
+            <th class="w-35">Напомена</th>
+            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pop in popdata %}
+        <tr class="pretraga">
+            <td class="text-danger">{{ pop.id }}</td>
+            <td>{{ pop.datum|date('d.m.Y') }}</td>
+            <td>{{ pop.magacin().naziv }}</td>
+            <td>{{ pop.napomena }}</td>
+            <td class="text-end">
+                <div class="btn-group btn-group-sm">
+                    <a class="btn btn-warning" href="" title="Измена јединице мере"><i class="bi-pencil"></i></a>
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
+                        data-bs-target="#brisanjeModal" value="{{ pop.id }}"
+                        onclick="document.getElementById('idBrisanje').value = this.value"><i
+                            class="bi-trash"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="row row-cols-auto">
+    <div class="col">{{ links.buttons|raw }}</div>
+    <div class="col">
+        {{ links.select|raw }}
+    </div>
+    <div class="col text-secondary pt-1">
+        Приказани редови од
+        <span class="text-danger">{{ links.row_from }}</span>
+        до
+        <span class="text-danger">{{ links.row_to }}</span>
+        од укупно
+        <span class="text-danger">{{ links.total_rows }}</span>
+    </div>
+</div>
+
+{# Modal za brisanje #}
+<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-danger">Упозорење!</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Да ли желите трајно да обришете попис?</h4>
+                <p class="text-danger lead">* Ова акција је неповратна!</p>
+                <form id="brisanje-forma" action="" method="POST">
+                    {{ csrf|raw }}
+                    <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
+                    </button>
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{# Kraj modala za brisanje #}
+{% endblock article %}
+{% block aside %}
+<div class="card border-dark">
+    <h5 class="card-header bg-black text-white">Додавање пописа</h5>
+    <div class="card-body">
+        <form action="{{ url_for('popis.dodavanje.post') }}" method="POST">
+            {{ csrf|raw }}
+            <div class="mb-3">
+                <label for="datum">Датум</label>
+                <input type="date" class="form-control{{ errors.datum ? ' is-invalid' : '' }}" name="datum" id="datum"
+                    value="{{ old.datum ? : '' }}" maxlength="10" minlength="1"
+                    oninvalid="this.setCustomValidity('Датум је обавезан.')" oninput="this.setCustomValidity('')"
+                    autocomplete="off" required>
+                <div class="invalid-feedback">{{ errors.datum.0 }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="id_magacina" class="form-label">Магацин</label>
+                <select name="id_magacina" id="id_magacina" class="form-select">
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}" {{ old.id_magacina==mag.id ? ' selected' : '' }}>
+                        {{ mag.naziv }} [{{ mag.tip().naziv }}]
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="napomena" class="form-label">Напомена</label>
+                <textarea class="form-control{{ errors.napomena ? ' is-invalid' : '' }}" name="napomena" id="napomena"
+                    rows="3">{{ old.napomena }}</textarea>
+                <div class="invalid-feedback">{{ errors.napomena.0 }}</div>
+            </div>
+
+            <div class="text-end mt-3">
+                <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
+                <a href="{{ url_for('popis.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                    Откажи</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock aside %}

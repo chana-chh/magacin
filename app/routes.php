@@ -120,6 +120,9 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/otpremnica-stavke-dodavanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeDodavanje')->setName('otpremnica.stavke.dodavanje');
     $group->post('/otpremnica-stavke-brisanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeBrisanje')->setName('otpremnica.stavke.brisanje');
 
+    // Popisi
+    $group->get('/popis-lista', \App\Controllers\PopisController::class . ':getPopisLista')->setName('popis.lista');
+    $group->post('/popis-dodavanje', \App\Controllers\PopisController::class . ':postPopisDodavanje')->setName('popis.dodavanje.post');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));
