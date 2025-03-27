@@ -25,7 +25,7 @@ class ArtikalController extends Controller
 
         $art = new Artikal();
         $sql = "SELECT * FROM artikli ORDER BY naziv ASC;";
-        $artikli = $art->paginate($path, $page, $sql, [], null, 3);
+        $artikli = $art->paginate($path, $page, $sql, []);
         return $this->render($response, 'artikli/lista.twig', compact('artikli', 'kategorije', 'jm'));
     }
 
