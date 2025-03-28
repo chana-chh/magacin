@@ -93,6 +93,7 @@ class MagacinController extends Controller
 
         $mag = new Magacin();
         $stari = $mag->find($id);
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $mag->update($data, $id);
         $magacin = $mag->find($id);
         $this->log($this::IZMENA, 'Измена магацина', $magacin, $stari);

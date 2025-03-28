@@ -93,7 +93,7 @@ class JediniceMereController extends Controller
         $this->flash('success', 'Подаци јединице мере су успешно измењени.');
         $jm = new JedinicaMere();
         $stari = $jm->find($id);
-
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $jm->update($data, $id);
         $jedinica = $jm->find($id);
         $this->log($this::IZMENA, 'Измена јединице мере', $jedinica, $stari);

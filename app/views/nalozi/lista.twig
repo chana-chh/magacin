@@ -3,7 +3,7 @@
 <div class="row mt-3">
     <div class="col-md-6">
         <h1>
-            Отпремнице
+            Налози
             {% if data %}
             <span class="text-danger fs-4">[филтрирано]</span>
             {% else %}
@@ -12,28 +12,38 @@
         </h1>
     </div>
     <div class="col-md-6 text-end">
-        <a class="btn btn-primary" type="button" href="{{ url_for('otpremnica.dodavanje.get') }}">
-            <i class="bi-plus-square"></i> Додај отпремницу
+        <a class="btn btn-primary" type="button" href="{{ url_for('nalog.dodavanje.get') }}">
+            <i class="bi-plus-square"></i> Додај налог
         </a>
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
             <i class="bi-arrow-down-square"></i> Филтер
         </button>
-        <a class="btn btn-success" type="button" href="{{ url_for('otpremnica.lista') }}">
+        <a class="btn btn-success" type="button" href="{{ url_for('nalog.lista') }}">
             <i class="bi-view-list"></i> Сви записи
         </a>
     </div>
 </div>
 <hr>
-{% set data = otpremnice.data %}
-{% set links = otpremnice.links %}
+{% set data = nalozi.data %}
+{% set links = nalozi.links %}
 
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
-    <form action="{{ url_for('otpremnica.pretraga.post') }}" method="POST">
+    <form action="{{ url_for('nalog.pretraga.post') }}" method="POST">
         {{ csrf|raw }}
 
         <div class="col">
-            <label for="id_magacina" class="form-label">Магацин</label>
-            <select name="id_magacina" id="id_magacina" class="form-select">
+            <label for="id_iz_mag" class="form-label">Магацин из кога преузимамо</label>
+            <select name="id_iz_mag" id="id_iz_mag" class="form-select">
+                <option value="" selected>...</option>
+                {% for mag in magacini %}
+                <option value="{{ mag.id }}">{{ mag.naziv }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col">
+            <label for="id_u_mag" class="form-label">Магацин у који складиштимо</label>
+            <select name="id_u_mag" id="id_u_mag" class="form-select">
                 <option value="" selected>...</option>
                 {% for mag in magacini %}
                 <option value="{{ mag.id }}">{{ mag.naziv }}</option>
@@ -47,16 +57,6 @@
         </div>
 
         <div class="col">
-            <label for="id_kupca" class="form-label">Купац</label>
-            <select name="id_kupca" id="id_kupca" class="form-select">
-                <option value="" selected>...</option>
-                {% for kupac in kupci %}
-                <option value="{{ kupac.id }}">{{ kupac.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
-
-        <div class="col">
             <label for="datum_1" class="form-label">Датум од</label>
             <input type="date" name="datum_1" id="datum_1" class="form-control">
         </div>
@@ -65,7 +65,7 @@
             <input type="date" name="datum_2" id="datum_2" class="form-control">
         </div>
 
-        <div class="col align-content-end">
+        <div class="col text-end mt-3">
             <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
         </div>
     </form>
@@ -76,31 +76,31 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-20">Магацин</th>
             <th class="w-10">Датум</th>
             <th class="w-15">Број</th>
-            <th class="w-20">Купац</th>
+            <th class="w-20">Магацин (ИЗ)</th>
+            <th class="w-20">Магацин (У)</th>
             <th class="w-20">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
-        {% for otpr in data %}
+        {% for nalo in data %}
         <tr>
-            <td class="text-danger">{{ otpr.id }}</td>
-            <td>{{ otpr.magacin().naziv }}</td>
-            <td>{{ otpr.datum|date('d.m.Y') }}</td>
-            <td>{{ otpr.broj }}</td>
-            <td>{{ otpr.kupac().naziv }}</td>
-            <td>{{ otpr.napomena|nl2br }}</td>
+            <td class="text-danger">{{ nalo.id }}</td>
+            <td>{{ nalo.datum|date('d.m.Y') }}</td>
+            <td>{{ nalo.broj }}</td>
+            <td>{{ nalo.magaciniz().naziv }}</td>
+            <td>{{ nalo.magacinu().naziv }}</td>
+            <td>{{ nalo.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-success" href="{{ url_for('otpremnica.pregled', { id: otpr.id }) }}"
-                        title="Преглед отпремнице"><i class="bi-eye"></i></a>
-                    <a class="btn btn-warning" href="{{ url_for('otpremnica.izmena.get', { id: otpr.id }) }}"
-                        title="Измена отпремнице"><i class="bi-pencil"></i></a>
+                    <a class="btn btn-success" href="{{ url_for('nalog.pregled', { id: nalo.id }) }}"
+                        title="Преглед налога"><i class="bi-eye"></i></a>
+                    <a class="btn btn-warning" href="{{ url_for('nalog.izmena.get', { id: nalo.id }) }}"
+                        title="Измена налога"><i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
-                        data-bs-target="#brisanjeModal" value="{{ otpr.id }}" title="Брисање отпремнице"
+                        data-bs-target="#brisanjeModal" value="{{ nalo.id }}" title="Брисање налога"
                         onclick="document.getElementById('idBrisanje').value = this.value">
                         <i class="bi-trash"></i></button>
                 </div>
@@ -126,7 +126,7 @@
 </div>
 
 {% else %}
-<h2>Нема отпремница</h2>
+<h2>Нема налога</h2>
 {% endif %}
 {# Modal za brisanje #}
 <div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
@@ -139,7 +139,7 @@
             <div class="modal-body">
                 <h4>Да ли желите трајно да обришете отпремницу?</h4>
                 <p class="text-danger lead">* Ова акција је неповратна!</p>
-                <form id="brisanje-forma" action="{{ url_for('otpremnica.brisanje') }}" method="POST">
+                <form id="brisanje-forma" action="{{ url_for('nalog.brisanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
             </div>

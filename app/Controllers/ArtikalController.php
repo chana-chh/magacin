@@ -106,6 +106,7 @@ class ArtikalController extends Controller
 
         $art = new Artikal();
         $stari = $art->find($id);
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $art->update($data, $id);
         $artikal = $art->find($id);
         $this->log($this::IZMENA, 'Измена артикла', $artikal, $stari);

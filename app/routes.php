@@ -125,6 +125,19 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':postUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.post');
     $group->get('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':getUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.get');
 
+    //Nalozi
+    $group->get('/nalog-lista', \App\Controllers\NalogController::class . ':getNalogLista')->setName('nalog.lista');
+    $group->get('/nalog-dodavanje', \App\Controllers\NalogController::class . ':getNalogDodavanje')->setName('nalog.dodavanje.get');
+    $group->post('/nalog-dodavanje', \App\Controllers\NalogController::class . ':postNalogDodavanje')->setName('nalog.dodavanje.post');
+    $group->get('/nalog-izmena/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogIzmena')->setName('nalog.izmena.get');
+    $group->post('/nalog-izmena', \App\Controllers\NalogController::class . ':postNalogIzmena')->setName('nalog.izmena.post');
+    $group->post('/nalog-pretraga', \App\Controllers\NalogController::class . ':postNalogPretraga')->setName('nalog.pretraga.post');
+    $group->get('/nalog-pretraga', \App\Controllers\NalogController::class . ':getNalogPretraga')->setName('nalog.pretraga.get');
+    $group->post('/nalog-brisanje', \App\Controllers\NalogController::class . ':postNalogBrisanje')->setName('nalog.brisanje');
+    $group->get('/nalog-pregled/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogPregled')->setName('nalog.pregled');
+    // Nalozi stavke
+    $group->post('/nalog-stavke-dodavanje', \App\Controllers\NalogArtikalController::class . ':postNalogStavkeDodavanje')->setName('nalog.stavke.dodavanje');
+
     // Popisi
     $group->get('/popis-lista', \App\Controllers\PopisController::class . ':getPopisLista')->setName('popis.lista');
     $group->post('/popis-dodavanje', \App\Controllers\PopisController::class . ':postPopisDodavanje')->setName('popis.dodavanje.post');

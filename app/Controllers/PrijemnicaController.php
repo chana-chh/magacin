@@ -112,6 +112,7 @@ class PrijemnicaController extends Controller
 
         $pri = new Prijemnica();
         $stari = $pri->find($id);
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $pri->update($data, $id);
         $prijemnica = $pri->find($id);
         $this->log($this::IZMENA, 'Измена пријемнице', $prijemnica, $stari);

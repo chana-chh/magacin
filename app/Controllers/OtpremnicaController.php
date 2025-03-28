@@ -112,6 +112,7 @@ class OtpremnicaController extends Controller
 
         $otpr = new Otpremnica();
         $stari = $otpr->find($id);
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $otpr->update($data, $id);
         $otpremnica = $otpr->find($id);
         $this->log($this::IZMENA, 'Измена отпремнице', $otpremnica, $stari);
@@ -201,7 +202,6 @@ class OtpremnicaController extends Controller
     {
         $id = $request->getAttribute('id');
         $otpremnica = (new Otpremnica())->find($id);
-        //$artikli = (new Artikal())->all();
         $artikli = (new Stanje())->stanjeMagacin($otpremnica->id_magacina);
         return $this->render($response, 'otpremnice/pregled.twig', compact('otpremnica', 'artikli'));
     }

@@ -189,7 +189,7 @@ class DobavljacController extends Controller
         $this->flash('success', 'Подаци добављача су успешно измењени.');
         $objekat = new Dobavljac();
         $stari = $objekat->find($id);
-
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $objekat->update($data, $id);
         $dobavljac = $objekat->find($id);
         $this->log($this::IZMENA, 'Измена добављача', $dobavljac, $stari);

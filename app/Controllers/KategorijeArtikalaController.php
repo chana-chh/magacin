@@ -81,7 +81,7 @@ class KategorijeArtikalaController extends Controller
         $this->flash('success', 'Подаци категорије артикла су успешно измењени.');
         $kat = new KategorijaArtikla();
         $stari = $kat->find($id);
-
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $kat->update($data, $id);
         $kat_artikla = $kat->find($id);
         $this->log($this::IZMENA, 'Измена категорије артикла', $kat_artikla, $stari);

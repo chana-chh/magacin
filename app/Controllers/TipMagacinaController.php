@@ -81,7 +81,7 @@ class TipMagacinaController extends Controller
         $this->flash('success', 'Подаци типа магацина су успешно измењени.');
         $tip = new TipMagacina();
         $stari = $tip->find($id);
-
+        $data['updated_at'] = date('Y-m-d H:i:s');
         $tip->update($data, $id);
         $tip_mag = $tip->find($id);
         $this->log($this::IZMENA, 'Измена типа магацина', $tip_mag, $stari);

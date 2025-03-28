@@ -137,6 +137,7 @@ class KorisnikController extends Controller
             } else {
                 unset($data['lozinka']);
             }
+            $data['updated_at'] = date('Y-m-d H:i:s');
             $modelKorisnik->update($data, $id);
             $korisnik = $modelKorisnik->find($id);
             $this->log($this::IZMENA, 'Измена корисника', $korisnik, $stari);
