@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-footer text-right">
                     <div class="btn-group btn-group-sm">
-                        <a class="btn btn-success btn-sm" href="" title="Налози"><i class="bi-eye"></i></a>
+                        <a class="btn btn-success btn-sm" href="{{ url_for('nalog.lista') }}" title="Налози"><i class="bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-footer text-right">
                     <div class="btn-group btn-group-sm">
-                        <a class="btn btn-success btn-sm" href="" title="Попис"><i class="bi-eye"></i></a>
+                        <a class="btn btn-success btn-sm" href="{{ full_url_for('popis.lista') }}" title="Попис"><i class="bi-eye"></i></a>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ class Stanje extends Model
         return $stanje;
     }
 
-    public function stanjeMagacinArtikal(int $id_magacina , int $id_artikla)
+    public function stanjeMagacinArtikal(int $id_magacina, int $id_artikla)
     {
         $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina AND id_artikla = :id_artikla;";
         $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina, ':id_artikla' => $id_artikla]);
@@ -64,8 +64,8 @@ class Stanje extends Model
 
     public function stanjeUkupno()
     {
-        $sql = "SELECT id_artikla,SUM('kolicina') FROM stanje GROUP BY id_artikla;";
-        $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
+        $sql = "SELECT id_artikla, SUM('kolicina') FROM stanje GROUP BY id_artikla;";
+        $stanje = $this->fetch($sql); // , [':id_magacina' => $id_magacina]
         return $stanje;
     }
 }

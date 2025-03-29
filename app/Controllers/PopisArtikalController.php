@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Classes\Controller;
 use App\Models\Popis;
 use App\Models\PopisArtikal;
+use App\Models\Stanje;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -30,6 +31,12 @@ class PopisArtikalController extends Controller
             return $this->redirect($request, $response, 'popis.pregled', ['id' => $data['id_popisa']]);
         }
 
+        $id_magacina = (int) $data['id_magacina'];
+        unset($data['id_magacina']);
+
+        $stanje = new Stanje();
+        $stanje_artikla = $stanje->stanjeMagacinArtikal($id_magacina, (int) $data['id_artikla']);
+        $data['stanje'] = $stanje_artikla->kolicina;
         $st = new PopisArtikal();
         $id = $st->insert($data);
         $stavka = $st->find($id);

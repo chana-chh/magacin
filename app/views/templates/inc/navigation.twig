@@ -18,7 +18,7 @@
 						data-bs-toggle="dropdown" aria-expanded="false">Стање</a>
 					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 						<li>
-							<a class="dropdown-item" href="#">Укупно</a>
+							<a class="dropdown-item" href="{{ url_for('stanje.lista.ukupno') }}">Укупно</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
@@ -93,8 +93,8 @@
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-						aria-expanded="false">Пописи</a>
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Пописи</a>
 					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 						<li>
 							<a class="dropdown-item" href="{{ full_url_for('popis.lista') }}">Пописи</a>
