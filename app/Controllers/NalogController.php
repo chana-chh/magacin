@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Artikal;
 use App\Models\Magacin;
-use App\Models\Dobavljac;
 use App\Models\Nalog;
 use App\Models\Stanje;
 use App\Classes\Controller;
@@ -208,5 +207,42 @@ class NalogController extends Controller
         $artikli = (new Stanje())->stanjeMagacin($nalog->id_iz_mag);
         $artiklisvi = (new Artikal())->all();
         return $this->render($response, 'nalozi/pregled.twig', compact('nalog', 'artikli', 'artiklisvi'));
+    }
+
+        public function getNalogPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id = $request->getAttribute('id');
+        $nalog = (new Nalog())->find($id);
+        return $this->render($response, 'nalozi/pregled_1.twig', compact('nalog'));
+    }
+
+    public function getNalogMagacinIz(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_iz_mag = (int) $request->getAttribute('id');
+        $nalozi = [];
+        $mag = new Magacin();
+        $magacin = null;
+        if ($id_iz_mag !== 0) {
+            $sql = "SELECT * FROM nalozi WHERE id_iz_mag = :id_iz_mag ORDER BY datum DESC;";
+            $nalozi = (new Nalog())->fetch($sql, [':id_iz_mag' => $id_iz_mag]);
+            $magacin = $mag->find($id_iz_mag);
+        }
+        $magaciniiz = $mag->all();
+        return $this->render($response, 'nalozi/lista_1.twig', compact('nalozi', 'magaciniiz', 'magacin'));
+    }
+
+    public function getNalogMagacinU(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_u_mag = (int) $request->getAttribute('id');
+        $nalozi = [];
+        $mag = new Magacin();
+        $magacin = null;
+        if ($id_u_mag !== 0) {
+            $sql = "SELECT * FROM nalozi WHERE id_u_mag = :id_u_mag ORDER BY datum DESC;";
+            $nalozi = (new Nalog())->fetch($sql, [':id_u_mag' => $id_u_mag]);
+            $magacin = $mag->find($id_u_mag);
+        }
+        $magaciniu = $mag->all();
+        return $this->render($response, 'nalozi/lista_1.twig', compact('nalozi', 'magaciniu', 'magacin'));
     }
 }

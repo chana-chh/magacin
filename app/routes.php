@@ -98,6 +98,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/prijemnica-pretraga', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPretraga')->setName('prijemnica.pretraga.get');
     $group->post('/prijemnica-brisanje', \App\Controllers\PrijemnicaController::class . ':postPrijemnicaBrisanje')->setName('prijemnica.brisanje');
     $group->get('/prijemnica-pregled/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPregled')->setName('prijemnica.pregled');
+    $group->get('/prijemnica-pregled-no/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaPregledNo')->setName('prijemnica.pregled.no');
     $group->get('/prijemnica-dobavljac/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaDobavljac')->setName('prijemnica.dobavljac');
     $group->get('/prijemnica-magacin/{id:[0-9]+}', \App\Controllers\PrijemnicaController::class . ':getPrijemnicaMagacin')->setName('prijemnica.magacin');
     // Prijemnica stavke
@@ -114,6 +115,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/otpremnica-pretraga', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaPretraga')->setName('otpremnica.pretraga.get');
     $group->post('/otpremnica-brisanje', \App\Controllers\OtpremnicaController::class . ':postOtpremnicaBrisanje')->setName('otpremnica.brisanje');
     $group->get('/otpremnica-pregled/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaPregled')->setName('otpremnica.pregled');
+    $group->get('/otpremnica-pregled-no/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaPregledNo')->setName('otpremnica.pregled.no');
     $group->get('/otpremnica-kupac/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaKupac')->setName('otpremnica.kupac');
     $group->get('/otpremnica-magacin/{id:[0-9]+}', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaMagacin')->setName('otpremnica.magacin');
     // otpremnica stavke
@@ -135,6 +137,10 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/nalog-pretraga', \App\Controllers\NalogController::class . ':getNalogPretraga')->setName('nalog.pretraga.get');
     $group->post('/nalog-brisanje', \App\Controllers\NalogController::class . ':postNalogBrisanje')->setName('nalog.brisanje');
     $group->get('/nalog-pregled/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogPregled')->setName('nalog.pregled');
+    $group->get('/nalog-pregled-no/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogPregledNo')->setName('nalog.pregled.no');
+    $group->get('/nalog-kupac/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogMagacinIz')->setName('nalog.magaciniz');
+    $group->get('/nalog-magacin/{id:[0-9]+}', \App\Controllers\NalogController::class . ':getNalogMagacinU')->setName('nalog.magacinu');
+
     // Nalozi stavke
     $group->post('/nalog-stavke-dodavanje', \App\Controllers\NalogArtikalController::class . ':postNalogStavkeDodavanje')->setName('nalog.stavke.dodavanje');
 

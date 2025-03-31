@@ -127,6 +127,11 @@ class PrijemnicaController extends Controller
         $id = (int) $data['idBrisanje'];
         $pri = new Prijemnica();
         $model = $pri->find($id);
+
+        if (count($model->stavke())>0) {
+            $this->flash('danger', 'Ставке морају бити уклоњене пре брисања пријемнице.');
+            return $this->redirect($request, $response, 'prijemnica.lista');
+        }
         $ok = $pri->deleteOne($id);
 
         if (!$ok) {
@@ -206,12 +211,19 @@ class PrijemnicaController extends Controller
         return $this->render($response, 'prijemnice/pregled.twig', compact('prijemnica', 'artikli'));
     }
 
+    public function getPrijemnicaPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id = $request->getAttribute('id');
+        $prijemnica = (new Prijemnica())->find($id);
+        return $this->render($response, 'prijemnice/pregled_1.twig', compact('prijemnica'));
+    }
+
     public function getPrijemnicaDobavljac(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id_dobavljaca = (int) $request->getAttribute('id');
         $prijemnice = [];
         $dob = new Dobavljac();
-        $dobaljac = null;
+        $dobavljac = null;
         if ($id_dobavljaca !== 0) {
             $sql = "SELECT * FROM prijemnice WHERE id_dobavljaca = :id_dobavljaca ORDER BY datum DESC;";
             $prijemnice = (new Prijemnica())->fetch($sql, [':id_dobavljaca' => $id_dobavljaca]);

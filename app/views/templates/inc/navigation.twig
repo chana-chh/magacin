@@ -85,10 +85,10 @@
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">По пријемном магацину</a>
+							<a class="dropdown-item" href="{{ url_for('nalog.magacinu', {id: 0}) }}">По пријемном магацину</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">По отпремном магацину</a>
+							<a class="dropdown-item" href="{{ url_for('nalog.magaciniz', {id: 0}) }}">По отпремном магацину</a>
 						</li>
 					</ul>
 				</li>

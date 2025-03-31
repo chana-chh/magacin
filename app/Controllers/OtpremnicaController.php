@@ -127,6 +127,12 @@ class OtpremnicaController extends Controller
         $id = (int) $data['idBrisanje'];
         $otpr = new Otpremnica();
         $model = $otpr->find($id);
+        
+        if (count($model->stavke())>0) {
+            $this->flash('danger', 'Ставке морају бити уклоњене пре брисања отпремнице.');
+            return $this->redirect($request, $response, 'otpremnica.lista');
+        }
+
         $ok = $otpr->deleteOne($id);
 
         if (!$ok) {
@@ -204,6 +210,13 @@ class OtpremnicaController extends Controller
         $otpremnica = (new Otpremnica())->find($id);
         $artikli = (new Stanje())->stanjeMagacin($otpremnica->id_magacina);
         return $this->render($response, 'otpremnice/pregled.twig', compact('otpremnica', 'artikli'));
+    }
+
+    public function getOtpremnicaPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id = $request->getAttribute('id');
+        $otpremnica = (new Otpremnica())->find($id);
+        return $this->render($response, 'otpremnice/pregled_1.twig', compact('otpremnica'));
     }
 
     public function getOtpremnicaKupac(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

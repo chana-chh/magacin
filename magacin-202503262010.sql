@@ -302,8 +302,10 @@ DROP TABLE IF EXISTS `nalog_artikal`;
 CREATE TABLE `nalog_artikal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_naloga` int(10) unsigned NOT NULL,
-  `id_artikla` int(10) unsigned NOT NULL,
-  `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `id_artikla_iz` INT(10) UNSIGNED NOT NULL,
+  `id_artikla_u` INT(10) UNSIGNED NOT NULL,
+  `kolicina_iz` DECIMAL(16,2) NOT NULL DEFAULT '0.00',
+  `kolicina_u` DECIMAL(16,2) NOT NULL DEFAULT '0.00',
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
