@@ -168,4 +168,93 @@ class PopisController extends Controller
         $artikli = (new Artikal())->all();
         return $this->render($response, 'popisi/pregled.twig', compact('popis', 'artikli'));
     }
+
+    public function getPopisListaPregled(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        unset($_SESSION['MAGACIN_POPIS_PRETRAGA']);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $magacini = (new Magacin())->all();
+
+        $pop = new Popis();
+        $sql = "SELECT * FROM popisi ORDER BY datum DESC;";
+        $popisi = $pop->paginate($path, $page, $sql, []);
+        return $this->render($response, 'popisi/lista_1.twig', compact('popisi', 'magacini'));
+    }
+
+    public function getPopisStavkaPregled(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $id = $request->getAttribute('id');
+        $popis = (new Popis())->find($id);
+        return $this->render($response, 'popisi/pregled_1.twig', compact('popis'));
+    }
+
+    public function postPopisPregledPretraga(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $this->data($request);
+        $_SESSION['MAGACIN_POPIS_PRETRAGA'] = $data;
+        return $this->redirect($request, $response, 'popis.pregled.pretraga.get');
+    }
+
+    public function getPopisPregledPretraga(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $_SESSION['MAGACIN_POPIS_PRETRAGA'] ?? [];
+        $conditions = [];
+        $params = [];
+
+        if (!empty($data['id_magacina'])) {
+            $conditions[] = 'id_magacina = :id_magacina';
+            $params[':id_magacina'] = $data['id_magacina'];
+        }
+
+        if (!empty($data['datum_1'])) {
+            $conditions[] = 'datum >= :datum_od';
+            $params[':datum_od'] = $data['datum_1'];
+        }
+
+        if (!empty($data['datum_2'])) {
+            $conditions[] = 'datum <= :datum_do';
+            $params[':datum_do'] = $data['datum_2'];
+        }
+
+        if (empty($conditions)) {
+            return $this->redirect($request, $response, 'log.lista');
+        }
+
+        $where = "WHERE " . implode(' AND ', $conditions);
+
+        // Paginacija
+        $path = $request->getUri()->getPath();
+        $query = $request->getQueryParams();
+        $page = $query['page'] ?? 1;
+
+        $magacini = (new Magacin())->all();
+
+        $pop = new Popis();
+        $sql = "SELECT * FROM popisi {$where} ORDER BY datum DESC;";
+        $popisi = $pop->paginate($path, $page, $sql, $params);
+        return $this->render($response, 'popisi/lista_1.twig', compact('popisi', 'magacini', 'data'));
+    }
+
+    public function postPopisZakljucavanje(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $data = $this->data($request);
+        $id = (int) $data['idZakljucavanje'];
+        $pop = new Popis();
+        $ok=$pop->update(['zakljucan' => 1], $id);
+        $model = $pop->find($id);
+
+        if (!$ok) {
+            $this->flash('danger', 'Неуспешно закључавање пописа');
+            return $this->redirect($request, $response, 'popis.lista');
+        }
+
+        $this->log($this::IZMENA, 'Закључавање пописа', $model);
+        $this->flash('success', 'Успешно закључавање пописа');
+        return $this->redirect($request, $response, 'popis.lista');
+    }
 }

@@ -153,6 +153,11 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/popis-pretraga', \App\Controllers\PopisController::class . ':getPopisPretraga')->setName('popis.pretraga.get');
     $group->post('/popis-brisanje', \App\Controllers\PopisController::class . ':postPopisBrisanje')->setName('popis.brisanje');
     $group->get('/popis-pregled/{id:[0-9]+}', \App\Controllers\PopisController::class . ':getPopisPregled')->setName('popis.pregled');
+    $group->get('/popis-lista-pregled', \App\Controllers\PopisController::class . ':getPopisListaPregled')->setName('popis.lista.pregled.get');
+    $group->get('/popis-stavke-pregled/{id:[0-9]+}', \App\Controllers\PopisController::class . ':getPopisStavkaPregled')->setName('popis.satvke.pregled.get');
+    $group->post('/popis-pregled-pretraga', \App\Controllers\PopisController::class . ':postPopisPregledPretraga')->setName('popis.pregled.pretraga.post');
+    $group->get('/popis-pregled-pretraga', \App\Controllers\PopisController::class . ':getPopisPregledPretraga')->setName('popis.pregled.pretraga.get');
+    $group->post('/popis-zakljucavanje', \App\Controllers\PopisController::class . ':postPopisZakljucavanje')->setName('popis.zakljucavanje');
     // Popis stavke
     $group->post('/popis-stavke-dodavanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeDodavanje')->setName('popis.stavke.dodavanje');
     $group->post('/popis-stavke-brisanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeBrisanje')->setName('popis.stavke.brisanje');

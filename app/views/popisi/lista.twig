@@ -58,9 +58,9 @@
         <tr>
             <th class="w-5">#</th>
             <th class="w-15">Датум</th>
-            <th class="w-35">Магацин</th>
+            <th class="w-30">Магацин</th>
             <th class="w-35">Напомена</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-15 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -75,12 +75,20 @@
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-success" href="{{ url_for('popis.pregled', { id: pop.id }) }}"><i
                             class="bi-eye"></i></a>
+                    {% if pop.zakljucan == 0 %}
+                    <button class="btn btn-primary otvori-zakljucavanje" data-bs-toggle="modal" id="zakljucavanje"
+                        data-bs-target="#zakljucavanjeModal" value="{{ pop.id }}"
+                        onclick="document.getElementById('idZakljucavanje').value = this.value"><i
+                            class="bi-key"></i></button>
                     <a class="btn btn-warning" href="{{ url_for('popis.izmena.get', { id: pop.id }) }}">
                         <i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
                         data-bs-target="#brisanjeModal" value="{{ pop.id }}"
                         onclick="document.getElementById('idBrisanje').value = this.value"><i
                             class="bi-trash"></i></button>
+                    {% else %}
+                    <button class="btn btn-warning disabled"><i class="bi-lock"></i> Закључан</button>
+                    {% endif %}
                 </div>
             </td>
         </tr>
@@ -131,6 +139,34 @@
     </div>
 </div>
 {# Kraj modala za brisanje #}
+{# Modal za zakljucavanje #}
+<div id="zakljucavanjeModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-warning">Упозорење!</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Да ли желите да закључате попис?</h4>
+                <p>Неће бити могуће да мењате и бришете попис и његове ставке.</p>
+                <form id="brisanje-forma" action="{{ url_for('popis.zakljucavanje') }}" method="POST">
+                    {{ csrf|raw }}
+                    <input type="hidden" id="idZakljucavanje" name="idZakljucavanje" value="">
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-warning">Закључај
+                    </button>
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{# Kraj modala za zakljucavanje #}
 {% endblock article %}
 {% block aside %}
 <div class="card border-dark">
@@ -172,3 +208,12 @@
     </div>
 </div>
 {% endblock aside %}
+
+{% block skripta %}
+<script>
+    function zakljucavanje(id) {
+        document.getElementById('idZakljucavanje').value = id;
+        document.getElementById('form-zakljucavanje').submit();
+    }
+</script>
+{% endblock skripta %}

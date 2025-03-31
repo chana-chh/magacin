@@ -36,7 +36,7 @@ CREATE TABLE `artikli` (
   KEY `artikli_jedinice_mere_FK` (`id_jm`),
   CONSTRAINT `artikli_jedinice_mere_FK` FOREIGN KEY (`id_jm`) REFERENCES `jedinice_mere` (`id`),
   CONSTRAINT `artikli_kategorije_artikala_FK` FOREIGN KEY (`id_kategorije`) REFERENCES `kategorije_artikala` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,15 +45,6 @@ CREATE TABLE `artikli` (
 
 LOCK TABLES `artikli` WRITE;
 /*!40000 ALTER TABLE `artikli` DISABLE KEYS */;
-INSERT INTO `artikli` VALUES
-(4,4,'шљива',15,'','2025-03-26 18:12:15','2025-03-26 18:12:15'),
-(5,5,'шљива',17,'','2025-03-26 18:12:42','2025-03-26 18:12:42'),
-(6,6,'шљива',17,'','2025-03-26 18:12:55','2025-03-26 18:12:55'),
-(7,7,'шљива',17,'','2025-03-26 18:13:08','2025-03-26 18:13:08'),
-(8,8,'шљива',17,'','2025-03-26 18:13:47','2025-03-26 18:13:47'),
-(9,9,'Дража шљива 0.7 l',14,'','2025-03-26 18:17:04','2025-03-26 18:17:04'),
-(10,9,'Дража шљива 1 l',14,'','2025-03-26 18:17:56','2025-03-26 18:17:56'),
-(11,4,'крушка',15,'','2025-03-26 18:52:54','2025-03-26 18:52:54');
 /*!40000 ALTER TABLE `artikli` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +68,7 @@ CREATE TABLE `dobavljaci` (
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `kupci_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,10 +77,6 @@ CREATE TABLE `dobavljaci` (
 
 LOCK TABLES `dobavljaci` WRITE;
 /*!40000 ALTER TABLE `dobavljaci` DISABLE KEYS */;
-INSERT INTO `dobavljaci` VALUES
-(3,'','','','','','добављач 1','','2025-03-26 18:34:13','2025-03-26 18:34:13'),
-(4,'','','','','','добављач 2','','2025-03-26 18:34:25','2025-03-26 18:34:25'),
-(5,'','','','','','добављач 3','','2025-03-26 18:34:36','2025-03-26 18:34:36');
 /*!40000 ALTER TABLE `dobavljaci` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +96,7 @@ CREATE TABLE `jedinice_mere` (
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `jedinice_mere_unique` (`jm`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,11 +105,6 @@ CREATE TABLE `jedinice_mere` (
 
 LOCK TABLES `jedinice_mere` WRITE;
 /*!40000 ALTER TABLE `jedinice_mere` DISABLE KEYS */;
-INSERT INTO `jedinice_mere` VALUES
-(14,'kom','комад','','2025-03-26 18:07:12','2025-03-26 18:07:12'),
-(15,'kg','килограм','','2025-03-26 18:07:43','2025-03-26 18:07:43'),
-(16,'t','тона','','2025-03-26 18:07:51','2025-03-26 18:07:51'),
-(17,'l','литар','','2025-03-26 18:08:02','2025-03-26 18:08:02');
 /*!40000 ALTER TABLE `jedinice_mere` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +123,7 @@ CREATE TABLE `kategorije_artikala` (
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `tipovi_magacina_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,13 +132,6 @@ CREATE TABLE `kategorije_artikala` (
 
 LOCK TABLES `kategorije_artikala` WRITE;
 /*!40000 ALTER TABLE `kategorije_artikala` DISABLE KEYS */;
-INSERT INTO `kategorije_artikala` VALUES
-(4,'сировина','воће','2025-03-26 18:09:58','2025-03-26 18:09:58'),
-(5,'кљук','џибра','2025-03-26 18:10:14','2025-03-26 18:10:14'),
-(6,'мека','мека ракија','2025-03-26 18:11:00','2025-03-26 18:11:00'),
-(7,'љута','препек','2025-03-26 18:11:12','2025-03-26 18:11:12'),
-(8,'ракија за флаширање','готова ракија спремна за флаширање','2025-03-26 18:11:36','2025-03-26 18:11:36'),
-(9,'флаширана ракија','','2025-03-26 18:15:57','2025-03-26 18:15:57');
 /*!40000 ALTER TABLE `kategorije_artikala` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +186,7 @@ CREATE TABLE `kupci` (
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `kupci_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,9 +195,6 @@ CREATE TABLE `kupci` (
 
 LOCK TABLES `kupci` WRITE;
 /*!40000 ALTER TABLE `kupci` DISABLE KEYS */;
-INSERT INTO `kupci` VALUES
-(3,'купац 1','Београд','Улица','12','011 222 333','','плаћа нередовно','2025-03-26 18:33:12','2025-03-26 18:33:12'),
-(4,'купац 2','Ниш','Улица','12','','','','2025-03-26 18:33:50','2025-03-26 18:33:50');
 /*!40000 ALTER TABLE `kupci` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +244,7 @@ CREATE TABLE `magacini` (
   PRIMARY KEY (`id`),
   KEY `magacini_tipovi_magacina_FK` (`id_tipa`),
   CONSTRAINT `magacini_tipovi_magacina_FK` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_magacina` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,14 +253,6 @@ CREATE TABLE `magacini` (
 
 LOCK TABLES `magacini` WRITE;
 /*!40000 ALTER TABLE `magacini` DISABLE KEYS */;
-INSERT INTO `magacini` VALUES
-(4,4,'магацин сировина 1','Место, Улица 22','','2025-03-26 18:21:57','2025-03-26 18:21:57'),
-(5,4,'магацин сировина 2','Место, Улица 30','','2025-03-26 18:22:24','2025-03-26 18:22:24'),
-(6,5,'магацин кљука','Место, Улица 44','','2025-03-26 18:24:13','2025-03-26 18:24:13'),
-(7,6,'магацин меке ракије','Место, Улица 11','','2025-03-26 18:24:34','2025-03-26 18:24:34'),
-(8,7,'магацин љуте ракије','Место, Улица 1','','2025-03-26 18:24:52','2025-03-26 18:24:52'),
-(9,8,'магацин ракије спремне за флаширање','Место, Улица 5','','2025-03-26 18:25:27','2025-03-26 18:25:27'),
-(10,9,'магацин готових производа','Место, Улица 51','','2025-03-26 18:26:02','2025-03-26 18:26:02');
 /*!40000 ALTER TABLE `magacini` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,17 +266,19 @@ DROP TABLE IF EXISTS `nalog_artikal`;
 CREATE TABLE `nalog_artikal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_naloga` int(10) unsigned NOT NULL,
-  `id_artikla_iz` INT(10) UNSIGNED NOT NULL,
-  `id_artikla_u` INT(10) UNSIGNED NOT NULL,
-  `kolicina_iz` DECIMAL(16,2) NOT NULL DEFAULT '0.00',
-  `kolicina_u` DECIMAL(16,2) NOT NULL DEFAULT '0.00',
+  `id_artikla_iz` int(10) unsigned NOT NULL,
+  `id_artikla_u` int(10) unsigned NOT NULL,
+  `kolicina_iz` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `kolicina_u` decimal(16,2) NOT NULL DEFAULT 0.00,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `nalog_artial_nalozi_FK` (`id_naloga`),
-  KEY `nalog_artial_artikli_FK` (`id_artikla`),
-  CONSTRAINT `nalog_artial_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
+  KEY `nalog_artial_artikli_iz_FK` (`id_artikla_iz`),
+  KEY `nalog_artial_artikli_u_FK` (`id_artikla_u`),
+  CONSTRAINT `nalog_artial_artikli_iz_FK` FOREIGN KEY (`id_artikla_iz`) REFERENCES `artikli` (`id`),
+  CONSTRAINT `nalog_artial_artikli_u_FK` FOREIGN KEY (`id_artikla_u`) REFERENCES `artikli` (`id`),
   CONSTRAINT `nalog_artial_nalozi_FK` FOREIGN KEY (`id_naloga`) REFERENCES `nalozi` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -412,7 +378,7 @@ CREATE TABLE `otpremnice` (
   KEY `otpremnice_magacini_FK` (`id_magacina`),
   CONSTRAINT `otpremnice_kupci_FK` FOREIGN KEY (`id_kupca`) REFERENCES `kupci` (`id`),
   CONSTRAINT `otpremnice_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -436,6 +402,7 @@ CREATE TABLE `popis_artikal` (
   `id_popisa` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `stanje` decimal(16,2) NOT NULL DEFAULT 0.00,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -467,6 +434,7 @@ CREATE TABLE `popisi` (
   `id_magacina` int(10) unsigned NOT NULL,
   `datum` date NOT NULL,
   `napomena` text DEFAULT NULL,
+  `zakljucan` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -537,7 +505,7 @@ CREATE TABLE `prijemnice` (
   KEY `prijemnice_magacini_FK` (`id_magacina`),
   CONSTRAINT `prijemnice_dobavljaci_FK` FOREIGN KEY (`id_dobavljaca`) REFERENCES `dobavljaci` (`id`),
   CONSTRAINT `prijemnice_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -595,7 +563,7 @@ CREATE TABLE `tipovi_magacina` (
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `tipovi_magacina_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -604,13 +572,6 @@ CREATE TABLE `tipovi_magacina` (
 
 LOCK TABLES `tipovi_magacina` WRITE;
 /*!40000 ALTER TABLE `tipovi_magacina` DISABLE KEYS */;
-INSERT INTO `tipovi_magacina` VALUES
-(4,'сировине','магацин сировина','2025-03-26 18:18:45','2025-03-26 18:18:45'),
-(5,'кљук','магацин џибре','2025-03-26 18:19:03','2025-03-26 18:19:03'),
-(6,'мека ракија','магацин меке ракије','2025-03-26 18:19:25','2025-03-26 18:19:25'),
-(7,'љута ракија','магацин препечене ракије','2025-03-26 18:19:46','2025-03-26 18:19:46'),
-(8,'ракија за флаширање','магацин ракије спремне за флаширање','2025-03-26 18:20:49','2025-03-26 18:20:49'),
-(9,'готови производи','магацин готових производа','2025-03-26 18:21:15','2025-03-26 18:21:15');
 /*!40000 ALTER TABLE `tipovi_magacina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -627,4 +588,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-26 20:10:08
+-- Dump completed on 2025-03-31 19:58:33

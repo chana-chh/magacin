@@ -2,7 +2,12 @@
 {% block full %}
 <div class="row align-items-end">
     <div class="col-md-4">
-        <h1>Попис</h1>
+        <h1>
+            Попис
+            {% if popis.zakljucan == 1 %}
+            <span class="text-info fs-4">[закључан]</span>
+            {% endif %}
+        </h1>
         <div class="h5">
             <em>Датум:</em> <span class="text-success">{{ popis.datum|date('d.m.Y') }}</span>
             <em>| Магацин:</em> <span class="text-success">{{ popis.magacin().naziv }}</span>
@@ -42,7 +47,7 @@
     </thead>
     <tbody>
         {% for stavka in popis.stavke() %}
-        <tr>
+        <tr class="pretraga">
             <td class="text-danger">{{ stavka.id }}</td>
             <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
             <td class="text-end">
@@ -55,11 +60,15 @@
             <td class="text-center">{{ stavka.artikal().jm.jm }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
+                    {% if popis.zakljucan == 0 %}
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
                         data-bs-target="#brisanjeModal" value="{{ stavka.id }}"
                         onclick="document.getElementById('idBrisanje').value = this.value">
                         <i class="bi-trash"></i>
                     </button>
+                    {% else %}
+                    <button class="btn btn-warning disabled"><i class="bi-lock"></i> Закључан</button>
+                    {% endif %}
                 </div>
             </td>
         </tr>
@@ -100,6 +109,7 @@
 {% endblock article %}
 
 {% block aside %}
+{% if popis.zakljucan == 0 %}
 <div class="card border-dark">
     <div class="card-header bg-black text-white"><strong>Додавање ставке пријемнице</strong></div>
     <div class="card-body">
@@ -137,4 +147,7 @@
         </form>
     </div>
 </div>
+{% else %}
+<p class="text-info lead">Овај попис је закључан</p>
+{% endif %}
 {% endblock aside %}
