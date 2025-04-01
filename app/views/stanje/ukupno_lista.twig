@@ -3,7 +3,7 @@
 <div class="row mt-3">
     <div class="col-md-6">
         <h1>
-            Укупно стање
+            Стање свих магацина
             {% if data %}
             <span class="text-danger fs-4">[филтрирано]</span>
             {% else %}
@@ -33,7 +33,7 @@
             <select name="id_artikla" id="id_artikla" class="form-select">
                 <option value="" selected>...</option>
                 {% for art in artikli %}
-                <option value="{{ art.id }}">{{ art.naziv }}</option>
+                <option value="{{ art.id }}">{{ art.naziv }} [{{ art.kategorija().naziv }}]</option>
                 {% endfor %}
             </select>
         </div>
@@ -51,18 +51,16 @@
             <th class="w-5">#</th>
             <th class="w-45">Назив</th>
             <th class="w-40">Количина</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10 text-end">Јединица</th>
         </tr>
     </thead>
     <tbody>
         {% for stanj in data %}
         <tr>
             <td class="text-danger">{{ stanj.id }}</td>
-            <td>{{ stanj.artikal().naziv }}</td>
+            <td>{{ stanj.artikal().naziv }} [{{ stanj.artikal().kategorija().naziv }}]</td>
             <td>{{ stanj.ukupno|number_format(2) }}</td>
-            <td class="text-end">
-                A
-            </td>
+            <td class="text-end">{{ stanj.artikal().jm.jm }}</td>
         </tr>
         {% endfor %}
     </tbody>

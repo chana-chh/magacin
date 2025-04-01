@@ -67,7 +67,7 @@
             <div class="modal-body">
                 <p>Да ли желите трајно да обришете ставку отпремнице?</p>
                 <p class="text-danger lead">* Ова акција је неповратна!</p>
-                <form id="brisanje-forma" action="" method="POST">
+                <form id="brisanje-forma" action="{{ url_for('nalog.stavke.brisanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
                     <input type="hidden" name="idMagacinau" value="{{ nalog.magacinu().id }}">

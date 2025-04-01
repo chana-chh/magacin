@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Classes\Controller;
 use App\Models\Stanje;
 use App\Models\Artikal;
+use App\Models\Magacin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -65,5 +66,35 @@ class StanjeController extends Controller
         $sql = "SELECT id_artikla,SUM(kolicina) AS ukupno FROM stanje {$where} GROUP BY id_artikla ORDER BY ukupno ASC;";
         $stanje = $sta->paginate($path, $page, $sql, $params);
         return $this->render($response, 'stanje/ukupno_lista.twig', compact('stanje', 'artikli', 'data'));
+    }
+
+    public function getStanjeMagacin(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_magacina = (int) $request->getAttribute('id');
+        $stanje = [];
+        $mag = new Magacin();
+        $magacin = null;
+        if ($id_magacina !== 0) {
+            $sql = "SELECT id_artikla, SUM(kolicina) AS kolicina FROM stanje WHERE id_magacina = :id_magacina GROUP BY id_artikla ORDER BY kolicina DESC;";
+            $stanje = (new Stanje())->fetch($sql, [':id_magacina' => $id_magacina]);
+            $magacin = $mag->find($id_magacina);
+        }
+        $magacini = $mag->all();
+        return $this->render($response, 'stanje/lista_1.twig', compact('stanje', 'magacini', 'magacin'));
+    }
+
+    public function getStanjeArtikal(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_artikla = (int) $request->getAttribute('id');
+        $stanje = [];
+        $art = new Artikal();
+        $artikal = null;
+        if ($id_artikla !== 0) {
+            $sql = "SELECT * FROM stanje WHERE id_artikla = :id_artikla;";
+            $stanje = (new Stanje())->fetch($sql, [':id_artikla' => $id_artikla]);
+            $artikal = $art->find($id_artikla);
+        }
+        $artikli = $art->all();
+        return $this->render($response, 'stanje/lista_1.twig', compact('stanje', 'artikli', 'artikal'));
     }
 }

@@ -75,8 +75,7 @@ class NalogController extends Controller
     {
         $id = $request->getAttribute('id');
         $nalog = (new Nalog())->find($id);
-        $magacini = (new Magacin())->all();
-        return $this->render($response, 'nalozi/izmena.twig', compact('nalog', 'magacini'));
+        return $this->render($response, 'nalozi/izmena.twig', compact('nalog'));
     }
 
     public function postNalogIzmena(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -85,12 +84,6 @@ class NalogController extends Controller
         $id = (int) $data['id'];
         unset($data['id']);
         $rules = [
-            'id_iz_mag' => [
-                'required' => true,
-            ],
-            'id_u_mag' => [
-                'required' => true,
-            ],
             'broj' => [
                 'required' => true,
                 'maxlen' => 100,

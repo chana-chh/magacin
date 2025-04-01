@@ -30,8 +30,8 @@
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
     <form action="{{ url_for('nalog.pretraga.post') }}" method="POST">
         {{ csrf|raw }}
-
-        <div class="col">
+<div class="row mt-3">
+        <div class="col-md-3">
             <label for="id_iz_mag" class="form-label">Магацин из кога преузимамо</label>
             <select name="id_iz_mag" id="id_iz_mag" class="form-select">
                 <option value="" selected>...</option>
@@ -41,7 +41,7 @@
             </select>
         </div>
 
-        <div class="col">
+        <div class="col-md-3">
             <label for="id_u_mag" class="form-label">Магацин у који складиштимо</label>
             <select name="id_u_mag" id="id_u_mag" class="form-select">
                 <option value="" selected>...</option>
@@ -51,23 +51,25 @@
             </select>
         </div>
 
-        <div class="col">
+        <div class="col-md-2">
             <label for="broj" class="form-label">Број</label>
             <input type="text" name="broj" id="broj" class="form-control">
         </div>
 
-        <div class="col">
+        <div class="col-md-2">
             <label for="datum_1" class="form-label">Датум од</label>
             <input type="date" name="datum_1" id="datum_1" class="form-control">
         </div>
-        <div class="col">
+        <div class="col-md-2">
             <label for="datum_2" class="form-label">Датум до</label>
             <input type="date" name="datum_2" id="datum_2" class="form-control">
         </div>
-
-        <div class="col text-end mt-3">
+</div>
+<div class="row mt-3">
+        <div class="col-md-12 text-end">
             <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
         </div>
+</div>
     </form>
 </div>
 

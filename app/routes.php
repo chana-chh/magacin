@@ -126,6 +126,8 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/stanje-lista-ukupno', \App\Controllers\StanjeController::class . ':getUkupnoLista')->setName('stanje.lista.ukupno');
     $group->post('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':postUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.post');
     $group->get('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':getUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.get');
+    $group->get('/stanje-magacin/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeMagacin')->setName('stanje.magacin');
+    $group->get('/stanje-artikal/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeArtikal')->setName('stanje.artikal');
 
     //Nalozi
     $group->get('/nalog-lista', \App\Controllers\NalogController::class . ':getNalogLista')->setName('nalog.lista');
@@ -143,6 +145,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 
     // Nalozi stavke
     $group->post('/nalog-stavke-dodavanje', \App\Controllers\NalogArtikalController::class . ':postNalogStavkeDodavanje')->setName('nalog.stavke.dodavanje');
+    $group->post('/nalog-stavke-brisanje', \App\Controllers\NalogArtikalController::class . ':postNalogStavkeBrisanje')->setName('nalog.stavke.brisanje');
 
     // Popisi
     $group->get('/popis-lista', \App\Controllers\PopisController::class . ':getPopisLista')->setName('popis.lista');

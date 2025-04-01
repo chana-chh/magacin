@@ -1,0 +1,90 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3 align-items-end">
+    <div class="col-4">
+        <h1>
+            Стање
+            {% if magacini %}
+            по <span class="text-success">магацину</span>
+            {% endif %}
+            {% if  artikli %}
+            по <span class="text-success">артиклу</span>
+            {% endif %}
+        </h1>
+    </div>
+    <div class="col-4">
+        {% if magacini %}
+        <select name="id_magacina" id="id_magacina" class="form-select form-select-lg text-primary">
+            <option value="0">...</option>
+            {% for mag in magacini %}
+            <option value="{{ mag.id }}"{{ magacin.id==mag.id ? ' selected' : '' }}>
+                {{ mag.naziv }} [{{ mag.tip.naziv }}]
+            </option>
+            {% endfor %}
+        </select>
+        {% endif %}
+        {% if artikli %}
+        <select name="id_artikla" id="id_artikla" class="form-select form-select-lg text-primary">
+            <option value="0">...</option>
+            {% for arti in artikli %}
+            <option value="{{ arti.id }}"{{ artikal.id==arti.id ? ' selected' : '' }}>
+                {{ arti.naziv }} [{{ arti.kategorija().naziv }}]
+            </option>
+            {% endfor %}
+        </select>
+        {% endif %}
+    </div>
+    <div class="col-4 text-end mt-3">
+        <div class="input-group">
+            <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
+            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox" autofocus>
+            <button class="btn btn-primary" type="button" id="ponisti-pretragu">
+                <i class="bi-x-square"></i> Поништи
+            </button>
+        </div>
+    </div>
+</div>
+<hr>
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-45">Назив</th>
+            <th class="w-40">Количина</th>
+            <th class="w-10 text-end">Јединица</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stanj in stanje %}
+        <tr class="pretraga">
+            <td class="text-danger">{{ stanj.id }}</td>
+            <td>{{ stanj.artikal().naziv }} [{{ stanj.artikal().kategorija().naziv }}]</td>
+            <td>{{ stanj.kolicina|number_format(2) }}</td>
+            <td class="text-end">{{ stanj.artikal().jm.jm }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock full %}
+
+{% block skripta %}
+{% if magacini %}
+<script>
+    document.getElementById('id_magacina').onchange = function () {
+        let url = "{{ url_for('stanje.magacin', { id: 0 }) }}";
+        url = url.replace("0", this.value);
+        window.location.href = url;
+    }
+</script>
+{% endif %}
+{% if artikli %}
+<script>
+    document.getElementById('id_artikla').onchange = function () {
+        let url = "{{ url_for('stanje.artikal', { id: 0 }) }}";
+        url = url.replace("0", this.value);
+        window.location.href = url;
+    }
+</script>
+{% endif %}
+{% endblock skripta %}

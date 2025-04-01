@@ -59,4 +59,29 @@ class NalogArtikalController extends Controller
 
         return $this->redirect($request, $response, 'nalog.pregled', ['id' => $data['id_naloga']]);
     }
+
+    public function postNalogStavkeBrisanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $id = (int) $data['idBrisanje'];
+        $id_magacinau = (int) $data['idMagacinau'];
+        $id_magacinaiz = (int) $data['idMagacinaiz'];
+        $st = new NalogArtikal();
+        $model = $st->find($id);
+        // Update kolicine na stanju (pre brisanja stavke zbog stanja)
+        $stanje = new Stanje();
+        $stanje->oduzmiKolicinu($id_magacinau, (int) $model->id_artikla_u, (float) $model->kolicina_u);
+        $stanje->dodajKolicinu($id_magacinaiz, (int) $model->id_artikla_iz, (float) $model->kolicina_iz);
+
+        $ok = $st->deleteOne($id);
+
+        if (!$ok) {
+            $this->flash('danger', 'Неуспешно брисање ставке отпремнице');
+            return $this->redirect($request, $response, 'nalog.pregled', ['id' => $model->id_naloga]);
+        }
+
+        $this->log($this::BRISANJE, 'Брисање ставке отпремнице', $model);
+        $this->flash('success', 'Успешно брисање ставке отпремнице');
+        return $this->redirect($request, $response, 'nalog.pregled', ['id' => $model->id_naloga]);
+    }
 }

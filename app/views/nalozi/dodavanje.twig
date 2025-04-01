@@ -8,7 +8,7 @@
         <form action="{{ url_for('nalog.dodavanje.post') }}" method="POST">
             {{ csrf|raw }}
             <div class="row mt-3">
-                <div class="col">
+                <div class="col-md-3">
                     <label for="id_iz_mag" class="form-label">Магацин из кога преузимамо</label>
                     <select name="id_iz_mag" id="id_iz_mag" class="form-select">
                         {% for mag in magacini %}
@@ -19,7 +19,7 @@
                     </select>
                 </div>
 
-                <div class="col">
+                <div class="col-md-3">
                     <label for="id_u_mag" class="form-label">Магацин у који складиштимо</label>
                     <select name="id_u_mag" id="id_u_mag" class="form-select">
                         {% for mag in magacini %}
@@ -30,7 +30,7 @@
                     </select>
                 </div>
 
-                <div class="col">
+                <div class="col-md-3">
                     <label for="datum" class="form-label">Датум</label>
                     <input type="date" class="form-control{{ errors.datum ? ' is-invalid' : '' }}" name="datum"
                         id="datum" value="{{ old.datum }}" oninvalid="this.setCustomValidity('Датум је обавезан.')"
@@ -38,7 +38,7 @@
                     <div class="invalid-feedback">{{ errors.datum.0 }}</div>
                 </div>
 
-                <div class="col">
+                <div class="col-md-3">
                     <label for="broj" class="form-label">Број</label>
                     <input type="text" class="form-control{{ errors.broj ? ' is-invalid' : '' }}" name="broj" id="broj"
                         value="{{ old.broj }}" maxlength="100"
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col">
+                <div class="col-md-12">
                     <label for="napomena" class="form-label">Напомена</label>
                     <textarea class="form-control{{ errors.napomena ? ' is-invalid' : '' }}" name="napomena"
                         id="napomena" rows="3">{{ old.napomena }}</textarea>
