@@ -21,8 +21,8 @@ class StanjeController extends Controller
         $page = $query['page'] ?? 1;
 
         $sta = new Stanje();
-        $sql = "SELECT id_artikla,SUM(kolicina) AS ukupno FROM stanje GROUP BY id_artikla ORDER BY ukupno ASC;";
-        $stanje = $sta->paginate($path, $page, $sql, [], null, 3);
+        $sql = "SELECT id_artikla, SUM(kolicina) AS ukupno FROM stanje GROUP BY id_artikla ORDER BY ukupno ASC;";
+        $stanje = $sta->paginate($path, $page, $sql, []);
         $artikli = (new Artikal())->all();
 
         return $this->render($response, 'stanje/ukupno_lista.twig', compact('stanje', 'artikli'));
@@ -35,18 +35,16 @@ class StanjeController extends Controller
         return $this->redirect($request, $response, 'stanje.ukupno.pretraga.get');
     }
 
-        public function getUkupnoListaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function getUkupnoListaPretraga(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $_SESSION['STANJE_UKUPNO_PRETRAGA'] ?? [];
         $conditions = [];
         $params = [];
 
-
         if (!empty($data['id_artikla'])) {
             $conditions[] = 'id_artikla = :id_artikla';
             $params[':id_artikla'] = $data['id_artikla'];
         }
-
 
         if (empty($conditions)) {
             return $this->redirect($request, $response, 'stanje.lista.ukupno');
@@ -63,7 +61,7 @@ class StanjeController extends Controller
         $artikli = (new Artikal())->all();
 
         // Logovi
-        $sql = "SELECT id_artikla,SUM(kolicina) AS ukupno FROM stanje {$where} GROUP BY id_artikla ORDER BY ukupno ASC;";
+        $sql = "SELECT id_artikla, SUM(kolicina) AS ukupno FROM stanje {$where} GROUP BY id_artikla ORDER BY ukupno ASC;";
         $stanje = $sta->paginate($path, $page, $sql, $params);
         return $this->render($response, 'stanje/ukupno_lista.twig', compact('stanje', 'artikli', 'data'));
     }
@@ -80,21 +78,22 @@ class StanjeController extends Controller
             $magacin = $mag->find($id_magacina);
         }
         $magacini = $mag->all();
-        return $this->render($response, 'stanje/lista_1.twig', compact('stanje', 'magacini', 'magacin'));
+        return $this->render($response, 'stanje/lista_artikal.twig', compact('stanje', 'magacini', 'magacin'));
     }
 
     public function getStanjeArtikal(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id_artikla = (int) $request->getAttribute('id');
+        $sta = new Stanje();
         $stanje = [];
         $art = new Artikal();
         $artikal = null;
-        if ($id_artikla !== 0) {
-            $sql = "SELECT * FROM stanje WHERE id_artikla = :id_artikla;";
-            $stanje = (new Stanje())->fetch($sql, [':id_artikla' => $id_artikla]);
+        $ukupno_artikal = $sta->stanjeArtikal($id_artikla);
+        if ($id_artikla) {
+            $stanje = $sta->stanjeUkupnoArtikal($id_artikla);
             $artikal = $art->find($id_artikla);
         }
         $artikli = $art->all();
-        return $this->render($response, 'stanje/lista_1.twig', compact('stanje', 'artikli', 'artikal'));
+        return $this->render($response, 'stanje/lista_artikal.twig', compact('stanje', 'artikli', 'artikal', 'ukupno_artikal'));
     }
 }

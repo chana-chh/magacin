@@ -7,6 +7,5 @@
 - get_uri() - returns the UriInterface object from the incoming ServerRequestInterface object
 - base_path() - returns the base path.
 
-Interno prebacivanje (nalozi), pretvaranje sirovina->kljuk->meka->ljuta->gotova->flasirana ???
-
-Za svaku izmenu dodati ```$data['updated_at'] = date('Y-m-d H:i:s');```
+Pocetno stanje.
+Ugradnica.

@@ -1,0 +1,74 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3 align-items-end">
+    <div class="col-4">
+        <h1>
+            Стање по <span class="text-success">артиклу</span>
+        </h1>
+        <p class="h4">{{ artikal.naziv }} {{ artikal.jm.jm }} [{{ artikal.kategorija().naziv }}]</p>
+    </div>
+    <div class="col-4">
+        <select name="id_artikla" id="id_artikla" class="form-select text-primary">
+            <option value="0">...</option>
+            {% for arti in artikli %}
+            <option value="{{ arti.id }}" {{ artikal.id==arti.id ? ' selected' : '' }}>
+                {{ arti.naziv }} [{{ arti.kategorija().naziv }}]
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-4 text-end mt-3">
+        <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Укупно стање</a>
+        <div class="input-group">
+            <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
+            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox">
+            <button class="btn btn-primary" type="button" id="ponisti-pretragu">
+                <i class="bi-x-square"></i> Поништи
+            </button>
+        </div>
+    </div>
+</div>
+<hr>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-35">Артикал</th>
+            <th class="w-30">Магацин</th>
+            <th class="w-20 text-end">Количина</th>
+            <th class="w-10">Јединица</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stanj in stanje %}
+        <tr class="pretraga">
+            <td class="text-danger">{{ stanj.artikal().id }}</td>
+            <td>{{ stanj.artikal().naziv }} [{{ stanj.artikal().kategorija().naziv }}]</td>
+            <td>{{ stanj.magacin().naziv }} [{{ stanj.magacin().tip().naziv }}]</td>
+            <td class="text-end">{{ stanj.kolicina|number_format(2) }}</td>
+            <td>{{ stanj.artikal().jm.jm }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="text-end">{{ ukupno_artikal|number_format(2) }}</th>
+            <th>{{ artikal.jm().jm }}</th>
+        </tr>
+    </tfoot>
+</table>
+{% endblock full %}
+
+{% block skripta %}
+<script>
+    document.getElementById('id_artikla').onchange = function () {
+        let url = "{{ url_for('stanje.artikal', { id: 0 }) }}";
+        url = url.replace("0", this.value);
+        window.location.href = url;
+    }
+</script>
+{% endblock skripta %}

@@ -7,7 +7,7 @@
     <div class="col-md-4 text-end mt-3">
         <div class="input-group">
             <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
-            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox" autofocus>
+            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox">
             <button class="btn btn-primary" type="button" id="ponisti-pretragu">
                 <i class="bi-x-square"></i> Поништи
             </button>
@@ -36,8 +36,12 @@
             <td>{{ jm.opis }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-warning" href="{{ url_for('jedinica.mere.izmena.get', { id: jm.id }) }}" title="Измена јединице мере"><i class="bi-pencil"></i></a>
-                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje" data-bs-target="#brisanjeModal" value="{{ jm.id }}" title="Брисање јединице мере" onclick="document.getElementById('idBrisanje').value = this.value"><i class="bi-trash"></i></button>
+                    <a class="btn btn-warning" href="{{ url_for('jedinica.mere.izmena.get', { id: jm.id }) }}"
+                        title="Измена јединице мере"><i class="bi-pencil"></i></a>
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
+                        data-bs-target="#brisanjeModal" value="{{ jm.id }}" title="Брисање јединице мере"
+                        onclick="document.getElementById('idBrisanje').value = this.value"><i
+                            class="bi-trash"></i></button>
                 </div>
             </td>
         </tr>
@@ -79,25 +83,34 @@
     <div class="card-body">
         <form action="{{ url_for('jedinica.mere.dodavanje') }}" method="POST">
             {{ csrf | raw }}
-                <div class="mb-3">
-                    <label for="jm">Скраћеница (јм)</label>
-                    <input type="text" class="form-control{{ errors.jm ? ' is-invalid' : '' }}" name="jm" id="jm" value="{{ old.jm ? : '' }}" maxlength="10" minlength="1" oninvalid="this.setCustomValidity('Јединица мере је обавезна и мора да садржи највише 10 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.jm.0 }}</div>
-                </div>
-                <div class="mb-3">
-                    <label for="naziv">Пун назив</label>
-                    <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv" id="naziv" value="{{ old.naziv ? : '' }}" maxlength="100" oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
-                </div>
-                <div class="mb-3">
-                    <label for="opis">Опис</label>
-                    <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis" value="{{ old.opis ? : '' }}" maxlength="250" oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
-                    <div class="invalid-feedback">{{ errors.opis.0 }}</div>
-                </div>
+            <div class="mb-3">
+                <label for="jm">Скраћеница (јм)</label>
+                <input type="text" class="form-control{{ errors.jm ? ' is-invalid' : '' }}" name="jm" id="jm"
+                    value="{{ old.jm ? : '' }}" maxlength="10" minlength="1"
+                    oninvalid="this.setCustomValidity('Јединица мере је обавезна и мора да садржи највише 10 карактера.')"
+                    oninput="this.setCustomValidity('')" autocomplete="off" required>
+                <div class="invalid-feedback">{{ errors.jm.0 }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="naziv">Пун назив</label>
+                <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv" id="naziv"
+                    value="{{ old.naziv ? : '' }}" maxlength="100"
+                    oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 100 карактера.')"
+                    oninput="this.setCustomValidity('')" autocomplete="off" required>
+                <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="opis">Опис</label>
+                <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis"
+                    value="{{ old.opis ? : '' }}" maxlength="250"
+                    oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')"
+                    oninput="this.setCustomValidity('')" autocomplete="off">
+                <div class="invalid-feedback">{{ errors.opis.0 }}</div>
+            </div>
             <div class="text-end mt-3">
-                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
-                    <a href="{{ url_for('jedinica.mere.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
-                        Откажи</a>
+                <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
+                <a href="{{ url_for('jedinica.mere.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                    Откажи</a>
             </div>
         </form>
     </div>

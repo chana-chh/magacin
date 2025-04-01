@@ -68,4 +68,28 @@ class Stanje extends Model
         $stanje = $this->fetch($sql); // , [':id_magacina' => $id_magacina]
         return $stanje;
     }
+
+    public function stanjeUkupnoArtikal(int $id_artikla)
+    {
+        $sql = "SELECT * FROM stanje WHERE id_artikla = :id_artikla;";
+        $stanje_artikli = $this->fetch($sql, [':id_artikla' => $id_artikla]);
+        return $stanje_artikli;
+    }
+
+    public function stanjeArtikal(int $id_artikla)
+    {
+        $sql = "SELECT SUM(kolicina) AS kolicina FROM stanje WHERE id_artikla = :id_artikla;";
+        $stanje = $this->fetch($sql, [':id_artikla' => $id_artikla]);
+        if (count($stanje) === 0) {
+            return 0;
+        }
+        return $stanje[0]->kolicina;
+    }
+
+    public function stanjeUkupnoMagacin(int $id_magacina)
+    {
+        $sql = "SELECT * FROM stanje WHERE id_magacina = :id_magacina AND kolicina > 0;";
+        $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
+        return $stanje;
+    }
 }
