@@ -1,0 +1,24 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3">
+    <div class="col-md-8">
+        <h1>Картица артикла</h1>
+        <p class="h4">{{ artikal.naziv }} {{ artikal.jm.jm }} [{{ artikal.kategorija().naziv }}></p>
+    </div>
+    <div class="col-md-4 text-end">
+        <a class="btn btn-success" type="button" href="{{ url_for('stanje.lista.ukupno') }}">
+            <i class="bi-view-list"></i> Сви записи
+        </a>
+    </div>
+</div>
+<hr>
+{% endblock full %}
+
+
+{% block article %}
+article
+{% endblock article %}
+
+{% block aside %}
+aside
+{% endblock aside %}

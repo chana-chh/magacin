@@ -92,4 +92,9 @@ class Stanje extends Model
         $stanje = $this->fetch($sql, [':id_magacina' => $id_magacina]);
         return $stanje;
     }
+
+    public function karticaArtikla($id_artikla)
+    {
+        // TODO: Implement karticaArtikla() method.
+    }
 }
