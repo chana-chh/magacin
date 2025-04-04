@@ -75,8 +75,8 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/dodavljac-izmena/{id}', \App\Controllers\DobavljacController::class . ':getDobavljacIzmena')->setName('dobavljac.izmena.get');
     $group->post('/dodavljac-brisanje', \App\Controllers\DobavljacController::class . ':postDobavljacBrisanje')->setName('dobavljac.brisanje');
     $group->post('/dodavljac-izmena', \App\Controllers\DobavljacController::class . ':postDobavljacIzmena')->setName('dobavljac.izmena');
-    $group->post('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':postDobavljacPretraga')->setName('dodavljac.pretraga.post');
-    $group->get('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':getDobavljacPretraga')->setName('dodavljac.pretraga.get');
+    $group->post('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':postDobavljacPretraga')->setName('dobavljac.pretraga.post');
+    $group->get('/dodavljac-pretraga', \App\Controllers\DobavljacController::class . ':getDobavljacPretraga')->setName('dobavljac.pretraga.get');
 
     // Kupci
     $group->get('/kupac-lista', \App\Controllers\KupacController::class . ':getKupacLista')->setName('kupac.lista');

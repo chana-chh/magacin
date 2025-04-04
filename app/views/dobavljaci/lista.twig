@@ -28,7 +28,7 @@
 {% set links = dobavljaci.links %}
 
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
-    <form action="{{ url_for('dodavljac.pretraga.post') }}" method="POST" class="form row">
+    <form action="{{ url_for('dobavljac.pretraga.post') }}" method="POST" class="form row">
         {{ csrf|raw }}
     <div class="row">
         <div class="col-md-3">

@@ -38,7 +38,7 @@ class DobavljacController extends Controller
         $data = $_SESSION['DOBAVLJAC_PRETRAGA'] ?? [];
         $conditions = [];
         $params = [];
-
+        //dd($data);
         if (!empty($data['naziv'])) {
             $conditions[] = 'naziv LIKE :naziv';
             $params[':naziv'] = '%' . $data['naziv'] . '%';
@@ -87,8 +87,8 @@ class DobavljacController extends Controller
 
         $model = new Dobavljac();
 
-        $sql = "SELECT * FROM dobavljaci ORDER BY naziv DESC;";
-        $dobavljaci = $model->paginate($path, $page, $sql, [], null, 3);
+        $sql = "SELECT * FROM dobavljaci {$where} ORDER BY naziv DESC;";
+        $dobavljaci = $model->paginate($path, $page, $sql, $params, null, 3);
         return $this->render($response, 'dobavljaci/lista.twig', compact('dobavljaci', 'data'));
     }
 
