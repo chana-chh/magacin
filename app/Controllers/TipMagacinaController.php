@@ -34,7 +34,7 @@ class TipMagacinaController extends Controller
         $this->validator()->validate($data, $rules);
 
         if ($this->validator()->hasErrors()) {
-            $this->flash('danger', 'Неуспешно додавање јединице мере');
+            $this->flash('danger', 'Неуспешно додавање типа магацина');
             return $this->redirect($request, $response, 'tip.magacina.lista');
         }
 

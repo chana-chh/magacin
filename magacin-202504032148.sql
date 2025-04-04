@@ -204,6 +204,25 @@ INSERT INTO `korisnici` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `korisnici`
+--
+
+DROP TABLE IF EXISTS `tipovi_naloga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipovi_naloga` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(100) NOT NULL,
+  `opis` VARCHAR(255) NULL DEFAULT NULL,
+  `vise_artikala` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `kupci`
 --
 
@@ -427,6 +446,7 @@ DROP TABLE IF EXISTS `nalozi`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalozi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_tipa` INT(10) UNSIGNED NOT NULL,
   `datum` date NOT NULL,
   `broj` varchar(100) NOT NULL,
   `id_iz_mag` int(10) unsigned NOT NULL,
@@ -435,8 +455,10 @@ CREATE TABLE `nalozi` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `prijemnice_dobavljaci_FK` (`id_iz_mag`) USING BTREE,
+  KEY `nalozi_magacin_FK` (`id_iz_mag`),
   KEY `nalozi_magacini_FK_1` (`id_u_mag`),
+  KEY `nalozi_tipovi_naloga_FK` (`id_tipa`),
+  CONSTRAINT `FK_nalozi_tipovi_naloga` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`),
   CONSTRAINT `nalozi_magacini_FK` FOREIGN KEY (`id_iz_mag`) REFERENCES `magacini` (`id`),
   CONSTRAINT `nalozi_magacini_FK_1` FOREIGN KEY (`id_u_mag`) REFERENCES `magacini` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

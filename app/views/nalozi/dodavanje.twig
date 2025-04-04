@@ -48,7 +48,17 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-12">
+                <div class="col-md-3">
+                    <label for="id_tipa" class="form-label">Типови налога</label>
+                    <select name="id_tipa" id="id_tipa" class="form-select">
+                        {% for tip in tipovi %}
+                        <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>
+                            {{ tip.naziv }} [{{ (tip.vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-9">
                     <label for="napomena" class="form-label">Напомена</label>
                     <textarea class="form-control{{ errors.napomena ? ' is-invalid' : '' }}" name="napomena"
                         id="napomena" rows="3">{{ old.napomena }}</textarea>

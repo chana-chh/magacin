@@ -36,6 +36,13 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/tip-magacina-brisanje', \App\Controllers\TipMagacinaController::class . ':postTipMagacinaBrisanje')->setName('tip.magacina.brisanje');
     $group->post('/tip-magacina-izmena', \App\Controllers\TipMagacinaController::class . ':postTipMagacinaIzmena')->setName('tip.magacina.izmena');
 
+    // Tipovi naloga
+    $group->get('/tip-naloga-lista', \App\Controllers\TipNalogaController::class . ':getTipNalogaLista')->setName('tip.naloga.lista');
+    $group->post('/tip-naloga-dodavanje', \App\Controllers\TipNalogaController::class . ':postTipNalogaDodavanje')->setName('tip.naloga.dodavanje');
+    $group->get('/tip-naloga-izmena/{id}', \App\Controllers\TipNalogaController::class . ':getTipNalogaIzmena')->setName('tip.naloga.izmena.get');
+    $group->post('/tip-naloga-brisanje', \App\Controllers\TipNalogaController::class . ':postTipNalogaBrisanje')->setName('tip.naloga.brisanje');
+    $group->post('/tip-naloga-izmena', \App\Controllers\TipNalogaController::class . ':postTipNalogaIzmena')->setName('tip.naloga.izmena');
+
     // Magacini
     $group->get('/magacin-lista', \App\Controllers\MagacinController::class . ':getMagacinLista')->setName('magacin.lista');
     $group->get('/magacin-dodavanje', \App\Controllers\MagacinController::class . ':getMagacinDodavanje')->setName('magacin.dodavanje.get');

@@ -31,7 +31,7 @@
     <form action="{{ url_for('nalog.pretraga.post') }}" method="POST">
         {{ csrf|raw }}
 <div class="row mt-3">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="id_iz_mag" class="form-label">Магацин из кога преузимамо</label>
             <select name="id_iz_mag" id="id_iz_mag" class="form-select">
                 <option value="" selected>...</option>
@@ -41,7 +41,7 @@
             </select>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="id_u_mag" class="form-label">Магацин у који складиштимо</label>
             <select name="id_u_mag" id="id_u_mag" class="form-select">
                 <option value="" selected>...</option>
@@ -50,7 +50,16 @@
                 {% endfor %}
             </select>
         </div>
-
+                <div class="col-md-2">
+                    <label for="id_tipa" class="form-label">Типови налога</label>
+                    <select name="id_tipa" id="id_tipa" class="form-select">
+                        {% for tip in tipovi %}
+                        <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>
+                            {{ tip.naziv }} [{{ (tip.vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
         <div class="col-md-2">
             <label for="broj" class="form-label">Број</label>
             <input type="text" name="broj" id="broj" class="form-control">
@@ -78,11 +87,12 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-10">Датум</th>
+            <th class="w-5">Датум</th>
+            <th class="w-20">Тип</th>
             <th class="w-15">Број</th>
-            <th class="w-20">Магацин (ИЗ)</th>
-            <th class="w-20">Магацин (У)</th>
-            <th class="w-20">Напомена</th>
+            <th class="w-15">Магацин (ИЗ)</th>
+            <th class="w-15">Магацин (У)</th>
+            <th class="w-15">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
@@ -91,6 +101,7 @@
         <tr>
             <td class="text-danger">{{ nalo.id }}</td>
             <td>{{ nalo.datum|date('d.m.Y') }}</td>
+            <td>{{ nalo.tip().naziv }} [{{ (nalo.tip().vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]</td>
             <td>{{ nalo.broj }}</td>
             <td>{{ nalo.magaciniz().naziv }}</td>
             <td>{{ nalo.magacinu().naziv }}</td>

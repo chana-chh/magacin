@@ -6,6 +6,7 @@ use App\Models\Artikal;
 use App\Models\Magacin;
 use App\Models\Nalog;
 use App\Models\Stanje;
+use App\Models\TipNaloga;
 use App\Classes\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,18 +23,19 @@ class NalogController extends Controller
         $page = $query['page'] ?? 1;
 
         $magacini = (new Magacin())->all();
-
+        $tipovi = (new TipNaloga())->all();
         $nalo = new Nalog();
         $sql = "SELECT * FROM nalozi ORDER BY datum DESC;";
         $nalozi = $nalo->paginate($path, $page, $sql, []);
 
-        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini'));
+        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini', 'tipovi'));
     }
 
     public function getNalogDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $magacini = (new Magacin())->all();
-        return $this->render($response, 'nalozi/dodavanje.twig', compact('magacini'));
+        $tipovi = (new TipNaloga())->all();
+        return $this->render($response, 'nalozi/dodavanje.twig', compact('magacini', 'tipovi'));
     }
 
     public function postNalogDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -44,6 +46,9 @@ class NalogController extends Controller
                 'required' => true,
             ],
             'id_u_mag' => [
+                'required' => true,
+            ],
+            'id_tipa' => [
                 'required' => true,
             ],
             'broj' => [
@@ -199,7 +204,13 @@ class NalogController extends Controller
         $nalog = (new Nalog())->find($id);
         $artikli = (new Stanje())->stanjeMagacin($nalog->id_iz_mag);
         $artiklisvi = (new Artikal())->all();
-        return $this->render($response, 'nalozi/pregled.twig', compact('nalog', 'artikli', 'artiklisvi'));
+        $magacini = (new Magacin())->all();
+        if ($nalog->tip()->vise_artikala == 0) {
+            return $this->render($response, 'nalozi/pregled_jedan.twig', compact('nalog', 'artikli', 'artiklisvi'));
+        }else{
+            return $this->render($response, 'nalozi/pregled_vise.twig', compact('nalog', 'artikli', 'artiklisvi', 'magacini'));
+        };
+        
     }
 
         public function getNalogPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

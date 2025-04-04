@@ -22,4 +22,9 @@ class Nalog extends Model
     {
         return $this->hasMany('App\Models\NalogArtikal', 'id_naloga');
     }
+
+    public function tip()
+    {
+        return $this->belongsTo('App\Models\TipNaloga', 'id_tipa');
+    }
 }

@@ -97,10 +97,24 @@
         <form action="{{ url_for('nalog.stavke.dodavanje') }}" method="POST">
             {{ csrf|raw }}
             <input type="hidden" name="id_naloga" value="{{ nalog.id }}">
-            <input type="hidden" name="id_iz_mag" value="{{ nalog.magaciniz().id }}">
             <input type="hidden" name="id_u_mag" value="{{ nalog.magacinu().id }}">
+            <input type="hidden" name="brojac" id="brojac">
+            <div id="selectContainer">
             <div class="mt-3">
-                <label for="id_artikla_iz" class="form-label">Артикал из магацина из кога преузимамо</label>
+                <label for="id_iz_mag" class="form-label">Магацина из кога преузимамо</label>
+                <select name="id_iz_mag" id="id_iz_mag"
+                    class="form-select{{ errors.id_iz_mag ? ' is-invalid' : '' }}" required autocomplete="off"
+                    autofocus>
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}" {{ old.id==mag.id ? ' selected' : '' }}>
+                        {{ mag.naziv }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback">{{ errors.id_iz_mag.0 }}</div>
+            </div>
+            <div class="mt-3">
+                <label for="id_artikla_iz" class="form-label">Артикал</label>
                 <select name="id_artikla_iz" id="id_artikla_iz"
                     class="form-select{{ errors.id_artikla_iz ? ' is-invalid' : '' }}" required autocomplete="off"
                     autofocus>
@@ -123,6 +137,8 @@
                     oninput="this.setCustomValidity('')" autocomplete="off" required>
                 <div class="invalid-feedback">{{ errors.kolicina_iz.0 }}</div>
             </div>
+            </div>
+            <div class="mt-3 text-end"><button type="button" class="btn btn-warning" id="dodajiz" onclick="cloneIz()"><i class="bi-plus-square"></i></button></div>
             <div class="mt-3">
                 <label for="id_artikla_u" class="form-label">Артикал који складиштимо</label>
                 <select name="id_artikla_u" id="id_artikla_u"
@@ -173,5 +189,32 @@
             kol.setAttribute('max', m);
         }
     });
+            var brojac = document.getElementById("brojac")
+            var izCounter = 1;
+        function cloneIz() {
+            var select = document.getElementById("id_iz_mag");
+            var clone = select.cloneNode(true);
+            var name = select.getAttribute("name") + izCounter++;
+            clone.id = name;
+            clone.setAttribute("name", name);
+            var x = document.createElement("LABEL");
+            var t = document.createTextNode("Магацина из кога преузимамо");
+            x.setAttribute("for", "id_iz_mag");
+            x.appendChild(t);
+            document.getElementById("selectContainer").appendChild(x);
+            document.getElementById("selectContainer").appendChild(clone);
+            var select_drugi  = document.getElementById("id_artikla_iz");
+            var clone = select_drugi .cloneNode(true);
+            var name = select_drugi .getAttribute("name") + izCounter;
+            clone.id = name;
+            clone.setAttribute("name", name);
+            var x1 = document.createElement("LABEL");
+            var t1 = document.createTextNode("Артикал");
+            x1.setAttribute("for", "id_artikla_iz");
+            x1.appendChild(t1);
+            document.getElementById("selectContainer").appendChild(x1);
+            document.getElementById("selectContainer").appendChild(clone);
+            brojac.value = izCounter;
+        };
 </script>
 {% endblock skripta %}
