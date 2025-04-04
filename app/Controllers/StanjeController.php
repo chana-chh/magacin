@@ -69,16 +69,16 @@ class StanjeController extends Controller
     public function getStanjeMagacin(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id_magacina = (int) $request->getAttribute('id');
+        $sta = new Stanje();
         $stanje = [];
         $mag = new Magacin();
         $magacin = null;
         if ($id_magacina !== 0) {
-            $sql = "SELECT id_artikla, SUM(kolicina) AS kolicina FROM stanje WHERE id_magacina = :id_magacina GROUP BY id_artikla ORDER BY kolicina DESC;";
-            $stanje = (new Stanje())->fetch($sql, [':id_magacina' => $id_magacina]);
+            $stanja = $sta->stanjeUkupnoMagacin($id_magacina);
             $magacin = $mag->find($id_magacina);
         }
         $magacini = $mag->all();
-        return $this->render($response, 'stanje/lista_artikal.twig', compact('stanje', 'magacini', 'magacin'));
+        return $this->render($response, 'stanje/lista_magacin.twig', compact('stanja', 'magacini', 'magacin'));
     }
 
     public function getStanjeArtikal(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -90,10 +90,19 @@ class StanjeController extends Controller
         $artikal = null;
         $ukupno_artikal = $sta->stanjeArtikal($id_artikla);
         if ($id_artikla) {
-            $stanje = $sta->stanjeUkupnoArtikal($id_artikla);
+            $stanja = $sta->stanjeUkupnoArtikal($id_artikla);
             $artikal = $art->find($id_artikla);
         }
         $artikli = $art->all();
-        return $this->render($response, 'stanje/lista_artikal.twig', compact('stanje', 'artikli', 'artikal', 'ukupno_artikal'));
+        return $this->render($response, 'stanje/lista_artikal.twig', compact('stanja', 'artikli', 'artikal', 'ukupno_artikal'));
+    }
+
+    public function getKarticaArtikla(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_artikla = (int) $request->getAttribute('id');
+        $art = new Artikal();
+        $artikal = $art->find($id_artikla);
+        
+        return $this->render($response, 'stanje/kartica_artikla.twig', compact('artikal'));
     }
 }

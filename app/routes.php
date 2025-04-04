@@ -128,6 +128,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/stanje-ukupno-pretraga', \App\Controllers\StanjeController::class . ':getUkupnoListaPretraga')->setName('stanje.ukupno.pretraga.get');
     $group->get('/stanje-magacin/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeMagacin')->setName('stanje.magacin');
     $group->get('/stanje-artikal/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeArtikal')->setName('stanje.artikal');
+    $group->get('/kartica-artikla/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getKarticaArtikla')->setName('kartica.artikla');
 
     //Nalozi
     $group->get('/nalog-lista', \App\Controllers\NalogController::class . ':getNalogLista')->setName('nalog.lista');

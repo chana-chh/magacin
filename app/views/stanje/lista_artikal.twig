@@ -18,7 +18,8 @@
         </select>
     </div>
     <div class="col-4 text-end mt-3">
-        <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Укупно стање</a>
+        <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Укупно
+            стање</a>
         <div class="input-group">
             <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
             <input type="search" class="form-control border-primary" id="searchbox" name="searchbox">
@@ -41,13 +42,13 @@
         </tr>
     </thead>
     <tbody>
-        {% for stanj in stanje %}
+        {% for stanje in stanja %}
         <tr class="pretraga">
-            <td class="text-danger">{{ stanj.artikal().id }}</td>
-            <td>{{ stanj.artikal().naziv }} [{{ stanj.artikal().kategorija().naziv }}]</td>
-            <td>{{ stanj.magacin().naziv }} [{{ stanj.magacin().tip().naziv }}]</td>
-            <td class="text-end">{{ stanj.kolicina|number_format(2) }}</td>
-            <td>{{ stanj.artikal().jm.jm }}</td>
+            <td class="text-danger">{{ stanje.artikal().id }}</td>
+            <td>{{ stanje.artikal().naziv }} [{{ stanje.artikal().kategorija().naziv }}]</td>
+            <td>{{ stanje.magacin().naziv }} [{{ stanje.magacin().tip().naziv }}]</td>
+            <td class="text-end">{{ stanje.kolicina|number_format(2) }}</td>
+            <td>{{ stanje.artikal().jm.jm }}</td>
         </tr>
         {% endfor %}
     </tbody>

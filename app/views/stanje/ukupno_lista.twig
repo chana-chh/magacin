@@ -1,9 +1,9 @@
 {% extends "templates/app.twig" %}
 {% block full %}
 <div class="row mt-3">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <h1>
-            Стање свих магацина
+            Стање стање артикала у свим магацинима
             {% if data %}
             <span class="text-danger fs-4">[филтрирано]</span>
             {% else %}
@@ -11,7 +11,7 @@
             {% endif %}
         </h1>
     </div>
-    <div class="col-md-6 text-end">
+    <div class="col-md-4 text-end">
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
             <i class="bi-arrow-down-square"></i> Филтер
         </button>
@@ -50,10 +50,10 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-50">Артикал</th>
+            <th class="w-45">Артикал</th>
             <th class="w-20 text-end">Количина</th>
             <th class="w-15">Јединица</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-15 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -65,7 +65,7 @@
             <td>{{ stanje.artikal().jm.jm }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-success" href="{{ url_for('stanje.artikal', {id: stanje.id_artikla}) }}"><i class="bi-eye"></i></a>
+                    <a class="btn btn-success" href="{{ url_for('stanje.artikal', {id: stanje.id_artikla}) }}"><i class="bi-eye"></i> Стање артикла</a>
                 </div>
             </td>
         </tr>

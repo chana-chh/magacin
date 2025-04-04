@@ -452,6 +452,39 @@ LOCK TABLES `nalozi` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `otpisi`
+--
+
+DROP TABLE IF EXISTS `otpisi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `otpisi` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `datum` date NOT NULL,
+  `id_magacina` int(10) unsigned NOT NULL,
+  `id_artikla` int(10) unsigned NOT NULL,
+  `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `napomena` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `otpisi_artikli_FK` (`id_artikla`),
+  KEY `otpisi_magacini_FK` (`id_magacina`),
+  CONSTRAINT `otpisi_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
+  CONSTRAINT `otpisi_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `otpisi`
+--
+
+LOCK TABLES `otpisi` WRITE;
+/*!40000 ALTER TABLE `otpisi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `otpisi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `otpremnica_artikal`
 --
 
@@ -463,6 +496,7 @@ CREATE TABLE `otpremnica_artikal` (
   `id_otpremnice` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `iznos` decimal(16,2) NOT NULL DEFAULT 0.00,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
@@ -590,6 +624,7 @@ CREATE TABLE `prijemnica_artikal` (
   `id_prijemnice` int(10) unsigned NOT NULL,
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `iznos` decimal(16,2) NOT NULL DEFAULT 0.00,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
@@ -608,15 +643,15 @@ CREATE TABLE `prijemnica_artikal` (
 LOCK TABLES `prijemnica_artikal` WRITE;
 /*!40000 ALTER TABLE `prijemnica_artikal` DISABLE KEYS */;
 INSERT INTO `prijemnica_artikal` VALUES
-(1,1,1,8000.00,'','2025-04-01 19:44:57','2025-04-01 19:44:57'),
-(3,1,8,5250.00,'','2025-04-01 19:46:56','2025-04-01 19:46:56'),
-(4,2,1,7100.00,'','2025-04-01 19:48:04','2025-04-01 19:48:04'),
-(5,2,8,5200.00,'','2025-04-01 19:48:31','2025-04-01 19:48:31'),
-(6,3,1,7555.00,'','2025-04-01 19:49:46','2025-04-01 19:49:46'),
-(7,4,8,8100.00,'','2025-04-01 19:50:39','2025-04-01 19:50:39'),
-(8,5,15,5000.00,'','2025-04-01 19:51:52','2025-04-01 19:51:52'),
-(9,5,16,2500.00,'','2025-04-01 19:52:06','2025-04-01 19:52:06'),
-(10,5,17,15000.00,'','2025-04-01 19:52:33','2025-04-01 19:52:33');
+(1,1,1,8000.00,0.00,'','2025-04-01 19:44:57','2025-04-01 19:44:57'),
+(3,1,8,5250.00,0.00,'','2025-04-01 19:46:56','2025-04-01 19:46:56'),
+(4,2,1,7100.00,0.00,'','2025-04-01 19:48:04','2025-04-01 19:48:04'),
+(5,2,8,5200.00,0.00,'','2025-04-01 19:48:31','2025-04-01 19:48:31'),
+(6,3,1,7555.00,0.00,'','2025-04-01 19:49:46','2025-04-01 19:49:46'),
+(7,4,8,8100.00,0.00,'','2025-04-01 19:50:39','2025-04-01 19:50:39'),
+(8,5,15,5000.00,0.00,'','2025-04-01 19:51:52','2025-04-01 19:51:52'),
+(9,5,16,2500.00,0.00,'','2025-04-01 19:52:06','2025-04-01 19:52:06'),
+(10,5,17,15000.00,0.00,'','2025-04-01 19:52:33','2025-04-01 19:52:33');
 /*!40000 ALTER TABLE `prijemnica_artikal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -747,4 +782,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-01 22:27:22
+-- Dump completed on 2025-04-03 21:48:49
