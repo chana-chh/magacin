@@ -173,5 +173,12 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/popis-stavke-dodavanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeDodavanje')->setName('popis.stavke.dodavanje');
     $group->post('/popis-stavke-brisanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeBrisanje')->setName('popis.stavke.brisanje');
 
+    // Otpisi
+    $group->get('/otpis-lista', \App\Controllers\OtpisController::class . ':getOtpisLista')->setName('otpis.lista');
+    $group->post('/otpis-dodavanje', \App\Controllers\OtpisController::class . ':postOtpisDodavanje')->setName('otpis.dodavanje.post');
+    $group->post('/otpis-pretraga', \App\Controllers\OtpisController::class . ':postOtpisPretraga')->setName('otpis.pretraga.post');
+    $group->get('/otpis-pretraga', \App\Controllers\OtpisController::class . ':getOtpisPretraga')->setName('otpis.pretraga.get');
+    $group->post('/otpis-brisanje', \App\Controllers\OtpisController::class . ':postOtpisBrisanje')->setName('otpis.brisanje');
+
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

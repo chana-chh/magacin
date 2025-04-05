@@ -9,7 +9,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class JediniceMereController extends Controller
 {
-
     public function getJedinicaMereLista(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $model = new JedinicaMere();
