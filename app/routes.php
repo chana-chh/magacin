@@ -111,6 +111,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     // Prijemnica stavke
     $group->post('/prijemnica-stavke-dodavanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeDodavanje')->setName('prijemnica.stavke.dodavanje');
     $group->post('/prijemnica-stavke-brisanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeBrisanje')->setName('prijemnica.stavke.brisanje');
+    $group->post('/prijemnica-stavke-placanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkePlacanje')->setName('prijemnica.stavke.placanje');
 
     //Otpremnice
     $group->get('/otpremnica-lista', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaLista')->setName('otpremnica.lista');

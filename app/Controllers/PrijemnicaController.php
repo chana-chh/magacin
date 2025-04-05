@@ -128,7 +128,7 @@ class PrijemnicaController extends Controller
         $pri = new Prijemnica();
         $model = $pri->find($id);
 
-        if (count($model->stavke())>0) {
+        if (count($model->stavke()) > 0) {
             $this->flash('danger', 'Ставке морају бити уклоњене пре брисања пријемнице.');
             return $this->redirect($request, $response, 'prijemnica.lista');
         }

@@ -20,30 +20,38 @@
 <hr>
 
 {% if prijemnica.stavke()|length > 0 %}
-<div class="row">
-    <div class="col-md-8 offset-md-2">
 <table class="table table-hover">
     <thead class="table-dark">
         <tr>
-            <th class="w-5 text-center">#</th>
-            <th class="w-50 text-center">Артикал</th>
-            <th class="w-40 text-center">Количина</th>
-            <th class="w-5 text-center">Јм</th>
+            <th class="w-5">#</th>
+            <th class="w-30">Артикал</th>
+            <th class="w-10 text-end">Количина</th>
+            <th class="w-5">Јм</th>
+            <th class="w-15 text-end">Износ</th>
+            <th class="w-5 text-center">Плаћ</th>
+            <th class="w-30">Опис</th>
         </tr>
     </thead>
     <tbody>
         {% for stavka in prijemnica.stavke() %}
         <tr>
-            <td class="text-danger text-center">{{ stavka.id }}</td>
-            <td class="text-center">{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
-            <td class="text-center">{{ stavka.kolicina|number_format(2) }}</td>
-            <td class="text-center">{{ stavka.artikal().jm.jm }}</td>
+            <td class="text-danger">{{ stavka.id }}</td>
+            <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
+            <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
+            <td>{{ stavka.artikal().jm.jm }}</td>
+            <td class="text-end">{{ stavka.iznos|number_format(2) }}</td>
+            <td class="text-center">
+                {% if stavka.placeno %}
+                <i class="bi-check-circle text-success"></i>
+                {% else %}
+                <i class="bi-x-circle text-danger"></i>
+                {% endif %}
+            </td>
+            <td>{{ stavka.opis }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-    </div>
-</div>
 {% else %}
 <h2>Нема ставки</h2>
 {% endif %}

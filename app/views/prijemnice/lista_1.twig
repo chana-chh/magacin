@@ -50,11 +50,14 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-20">Магацин</th>
-            <th class="w-10">Датум</th>
-            <th class="w-15">Број</th>
-            <th class="w-20">Добављач</th>
-            <th class="w-20">Напомена</th>
+            <th class="w-5">Датум</th>
+            <th class="w-15">Магацин</th>
+            <th class="w-15">Добављач</th>
+            <th class="w-5">Број</th>
+            <th class="w-10 text-end">Износ</th>
+            <th class="w-10 text-end">Плаћено</th>
+            <th class="w-10 text-end">Остатак</th>
+            <th class="w-15">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
@@ -62,10 +65,13 @@
         {% for pr in prijemnice %}
         <tr class="pretraga">
             <td class="text-danger">{{ pr.id }}</td>
-            <td>{{ pr.magacin().naziv }}</td>
             <td>{{ pr.datum|date('d.m.Y') }}</td>
-            <td>{{ pr.broj }}</td>
+            <td>{{ pr.magacin().naziv }}</td>
             <td>{{ pr.dobavljac().naziv }}</td>
+            <td>{{ pr.broj }}</td>
+            <td class="text-end">{{ pr.ukupanIzanos()|number_format(2) }}</td>
+            <td class="text-end text-success">{{ pr.placeniIzanos()|number_format(2) }}</td>
+            <td class="text-end text-danger">{{ pr.dugIzanos()|number_format(2) }}</td>
             <td>{{ pr.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
@@ -77,35 +83,6 @@
         {% endfor %}
     </tbody>
 </table>
-
-{# Modal za brisanje #}
-<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title text-danger">Упозорење!</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
-            </div>
-            <div class="modal-body">
-                <h4>Да ли желите трајно да обришете артикал?</h4>
-                <p class="text-danger lead">* Ова акција је неповратна!</p>
-                <form id="brisanje-forma" action="{{ url_for('prijemnica.brisanje') }}" method="POST">
-                    {{ csrf|raw }}
-                    <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
-            </div>
-            <div class="modal-footer">
-                <div class="form-group">
-                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
-                    </button>
-                    <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
-                    </a>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{# Kraj modala za brisanje #}
 
 {% endblock full %}
 
