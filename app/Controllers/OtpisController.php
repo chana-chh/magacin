@@ -141,4 +141,16 @@ class OtpisController extends Controller
         $otpisi = $otp->paginate($path, $page, $sql, $params);
         return $this->render($response, 'otpisi/lista.twig', compact('otpisi', 'magacini', 'artikli', 'data'));
     }
+
+    public function getOtpisArtikal(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id_artikla = (int) $request->getAttribute('id');
+        $otp = new Otpis();
+        $otpisi = $otp->otpisArtikli($id_artikla);
+        $art = new Artikal();
+        $artikli = $art->all();
+        $artikal = $art->find($id_artikla);
+        $ukupno_artikal = $otp->otpisArtikliSum($id_artikla);
+        return $this->render($response, 'otpisi/pregled.twig', compact('otpisi', 'artikli', 'artikal', 'ukupno_artikal'));
+    }
 }

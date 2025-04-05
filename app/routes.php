@@ -179,6 +179,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/otpis-pretraga', \App\Controllers\OtpisController::class . ':postOtpisPretraga')->setName('otpis.pretraga.post');
     $group->get('/otpis-pretraga', \App\Controllers\OtpisController::class . ':getOtpisPretraga')->setName('otpis.pretraga.get');
     $group->post('/otpis-brisanje', \App\Controllers\OtpisController::class . ':postOtpisBrisanje')->setName('otpis.brisanje');
+    $group->get('/otpis-artikal/{id:[0-9]+}', \App\Controllers\OtpisController::class . ':getOtpisArtikal')->setName('otpis.artikal');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));
