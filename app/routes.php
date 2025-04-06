@@ -129,6 +129,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     // otpremnica stavke
     $group->post('/otpremnica-stavke-dodavanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeDodavanje')->setName('otpremnica.stavke.dodavanje');
     $group->post('/otpremnica-stavke-brisanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeBrisanje')->setName('otpremnica.stavke.brisanje');
+    $group->post('/otpremnica-stavke-placanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkePlacanje')->setName('otpremnica.stavke.placanje');
 
     //Stanje
     $group->get('/stanje-lista-ukupno', \App\Controllers\StanjeController::class . ':getUkupnoLista')->setName('stanje.lista.ukupno');

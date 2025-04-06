@@ -30,43 +30,45 @@
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
     <form action="{{ url_for('otpremnica.pretraga.post') }}" method="POST">
         {{ csrf|raw }}
+        <div class="row">
+            <div class="col">
+                <label for="id_magacina" class="form-label">Магацин</label>
+                <select name="id_magacina" id="id_magacina" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}">{{ mag.naziv }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <div class="col">
-            <label for="id_magacina" class="form-label">Магацин</label>
-            <select name="id_magacina" id="id_magacina" class="form-select">
-                <option value="" selected>...</option>
-                {% for mag in magacini %}
-                <option value="{{ mag.id }}">{{ mag.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
+            <div class="col">
+                <label for="broj" class="form-label">Број</label>
+                <input type="text" name="broj" id="broj" class="form-control">
+            </div>
 
-        <div class="col">
-            <label for="broj" class="form-label">Број</label>
-            <input type="text" name="broj" id="broj" class="form-control">
+            <div class="col">
+                <label for="id_kupca" class="form-label">Купац</label>
+                <select name="id_kupca" id="id_kupca" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for kupac in kupci %}
+                    <option value="{{ kupac.id }}">{{ kupac.naziv }}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <label for="datum_1" class="form-label">Датум од</label>
+                <input type="date" name="datum_1" id="datum_1" class="form-control">
+            </div>
+            <div class="col">
+                <label for="datum_2" class="form-label">Датум до</label>
+                <input type="date" name="datum_2" id="datum_2" class="form-control">
+            </div>
 
-        <div class="col">
-            <label for="id_kupca" class="form-label">Купац</label>
-            <select name="id_kupca" id="id_kupca" class="form-select">
-                <option value="" selected>...</option>
-                {% for kupac in kupci %}
-                <option value="{{ kupac.id }}">{{ kupac.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
-
-        <div class="col">
-            <label for="datum_1" class="form-label">Датум од</label>
-            <input type="date" name="datum_1" id="datum_1" class="form-control">
-        </div>
-        <div class="col">
-            <label for="datum_2" class="form-label">Датум до</label>
-            <input type="date" name="datum_2" id="datum_2" class="form-control">
-        </div>
-
-        <div class="col align-content-end">
-            <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+            <div class="col align-content-end">
+                <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+            </div>
         </div>
     </form>
 </div>
@@ -76,31 +78,37 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-20">Магацин</th>
-            <th class="w-10">Датум</th>
-            <th class="w-15">Број</th>
-            <th class="w-20">Купац</th>
-            <th class="w-20">Напомена</th>
+            <th class="w-5">Датум</th>
+            <th class="w-15">Магацин</th>
+            <th class="w-15">Купац</th>
+            <th class="w-5">Број</th>
+            <th class="w-10 text-end">Износ</th>
+            <th class="w-10 text-end">Плаћено</th>
+            <th class="w-10 text-end">Остатак</th>
+            <th class="w-15">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
-        {% for otpr in data %}
+        {% for otpremnica in data %}
         <tr>
-            <td class="text-danger">{{ otpr.id }}</td>
-            <td>{{ otpr.magacin().naziv }}</td>
-            <td>{{ otpr.datum|date('d.m.Y') }}</td>
-            <td>{{ otpr.broj }}</td>
-            <td>{{ otpr.kupac().naziv }}</td>
-            <td>{{ otpr.napomena|nl2br }}</td>
+            <td class="text-danger">{{ otpremnica.id }}</td>
+            <td>{{ otpremnica.datum|date('d.m.Y') }}</td>
+            <td>{{ otpremnica.magacin().naziv }}</td>
+            <td>{{ otpremnica.kupac().naziv }}</td>
+            <td>{{ otpremnica.broj }}</td>
+            <td class="text-end">{{ otpremnica.ukupanIzanos()|number_format(2) }}</td>
+            <td class="text-end text-success">{{ otpremnica.placeniIzanos()|number_format(2) }}</td>
+            <td class="text-end text-danger">{{ otpremnica.dugIzanos()|number_format(2) }}</td>
+            <td>{{ otpremnica.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-success" href="{{ url_for('otpremnica.pregled', { id: otpr.id }) }}"
+                    <a class="btn btn-success" href="{{ url_for('otpremnica.pregled', { id: otpremnica.id }) }}"
                         title="Преглед отпремнице"><i class="bi-eye"></i></a>
-                    <a class="btn btn-warning" href="{{ url_for('otpremnica.izmena.get', { id: otpr.id }) }}"
+                    <a class="btn btn-warning" href="{{ url_for('otpremnica.izmena.get', { id: otpremnica.id }) }}"
                         title="Измена отпремнице"><i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
-                        data-bs-target="#brisanjeModal" value="{{ otpr.id }}" title="Брисање отпремнице"
+                        data-bs-target="#brisanjeModal" value="{{ otpremnica.id }}" title="Брисање отпремнице"
                         onclick="document.getElementById('idBrisanje').value = this.value">
                         <i class="bi-trash"></i></button>
                 </div>

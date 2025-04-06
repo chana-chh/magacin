@@ -204,25 +204,6 @@ INSERT INTO `korisnici` VALUES
 UNLOCK TABLES;
 
 --
--- Table structure for table `korisnici`
---
-
-DROP TABLE IF EXISTS `tipovi_naloga`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipovi_naloga` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `naziv` varchar(100) NOT NULL,
-  `opis` VARCHAR(255) NULL DEFAULT NULL,
-  `vise_artikala` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0',
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `kupci`
 --
 
@@ -274,7 +255,7 @@ CREATE TABLE `logovi` (
   `vreme` datetime NOT NULL DEFAULT current_timestamp(),
   `id_korisnika` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,7 +337,40 @@ INSERT INTO `logovi` VALUES
 (70,'ДОДАВАЊЕ','Додавање пријемнице','prijemnice','[NEW]\nid = 5\ndatum = 2025-04-29\nbroj = БР-111/2025\nid_dobavljaca = 3\nid_magacina = 9\nnapomena = \ncreated_at = 2025-04-01 19:51:32\nupdated_at = 2025-04-01 19:51:32\n','2025-04-01 19:51:32',1),
 (71,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 8\nid_prijemnice = 5\nid_artikla = 15\nkolicina = 5000.00\nopis = \ncreated_at = 2025-04-01 19:51:52\nupdated_at = 2025-04-01 19:51:52\n','2025-04-01 19:51:52',1),
 (72,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 9\nid_prijemnice = 5\nid_artikla = 16\nkolicina = 2500.00\nopis = \ncreated_at = 2025-04-01 19:52:06\nupdated_at = 2025-04-01 19:52:06\n','2025-04-01 19:52:06',1),
-(73,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 10\nid_prijemnice = 5\nid_artikla = 17\nkolicina = 15000.00\nopis = \ncreated_at = 2025-04-01 19:52:33\nupdated_at = 2025-04-01 19:52:33\n','2025-04-01 19:52:33',1);
+(73,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 10\nid_prijemnice = 5\nid_artikla = 17\nkolicina = 15000.00\nopis = \ncreated_at = 2025-04-01 19:52:33\nupdated_at = 2025-04-01 19:52:33\n','2025-04-01 19:52:33',1),
+(74,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 1\ndatum = 2025-04-01\nid_magacina = 1\nid_artikla = 1\nkolicina = 100.00\nnapomena = \ncreated_at = 2025-04-05 09:54:30\nupdated_at = 2025-04-05 09:54:30\n','2025-04-05 09:54:30',1),
+(75,'БРИСАЊЕ','Брисање ставке пријемнице','otpisi','[NEW]\nid = 1\ndatum = 2025-04-01\nid_magacina = 1\nid_artikla = 1\nkolicina = 100.00\nnapomena = \ncreated_at = 2025-04-05 09:54:30\nupdated_at = 2025-04-05 09:54:30\n','2025-04-05 10:07:18',1),
+(76,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 2\ndatum = 2025-04-01\nid_magacina = 1\nid_artikla = 1\nkolicina = 100.00\nnapomena = \ncreated_at = 2025-04-05 10:10:14\nupdated_at = 2025-04-05 10:10:14\n','2025-04-05 10:10:14',1),
+(77,'БРИСАЊЕ','Брисање ставке пријемнице','otpisi','[NEW]\nid = 2\ndatum = 2025-04-01\nid_magacina = 1\nid_artikla = 1\nkolicina = 100.00\nnapomena = \ncreated_at = 2025-04-05 10:10:14\nupdated_at = 2025-04-05 10:10:14\n','2025-04-05 10:15:58',1),
+(78,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 3\ndatum = 2025-04-01\nid_magacina = 1\nid_artikla = 1\nkolicina = 100.00\nnapomena = \ncreated_at = 2025-04-05 10:18:03\nupdated_at = 2025-04-05 10:18:03\n','2025-04-05 10:18:03',1),
+(79,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 4\ndatum = 2025-04-02\nid_magacina = 1\nid_artikla = 8\nkolicina = 50.00\nnapomena = \ncreated_at = 2025-04-05 12:32:39\nupdated_at = 2025-04-05 12:32:39\n','2025-04-05 12:32:39',1),
+(80,'БРИСАЊЕ','Брисање отписа','otpisi','[NEW]\nid = 4\ndatum = 2025-04-02\nid_magacina = 1\nid_artikla = 8\nkolicina = 50.00\nnapomena = \ncreated_at = 2025-04-05 12:32:39\nupdated_at = 2025-04-05 12:32:39\n','2025-04-05 12:33:04',1),
+(81,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 5\ndatum = 2025-04-02\nid_magacina = 2\nid_artikla = 1\nkolicina = 5.00\nnapomena = \ncreated_at = 2025-04-05 12:33:31\nupdated_at = 2025-04-05 12:33:31\n','2025-04-05 12:33:31',1),
+(82,'ДОДАВАЊЕ','Додавање отписа','otpisi','[NEW]\nid = 6\ndatum = 2025-04-03\nid_magacina = 1\nid_artikla = 8\nkolicina = 50.00\nnapomena = \ncreated_at = 2025-04-05 12:33:48\nupdated_at = 2025-04-05 12:33:48\n','2025-04-05 12:33:48',1),
+(83,'ДОДАВАЊЕ','Додавање пописа','popisi','[NEW]\nid = 1\nid_magacina = 1\ndatum = 2025-04-09\nnapomena = \nzakljucan = 0\ncreated_at = 2025-04-05 19:50:59\nupdated_at = 2025-04-05 19:50:59\n','2025-04-05 19:50:59',1),
+(84,'ДОДАВАЊЕ','Додавање ставке пописа','popis_artikal','[NEW]\nid = 1\nid_popisa = 1\nid_artikla = 1\nkolicina = 7000.00\nstanje = 15000.00\ncreated_at = 2025-04-05 19:51:11\nupdated_at = 2025-04-05 19:51:11\n','2025-04-05 19:51:11',1),
+(85,'БРИСАЊЕ','Брисање ставке пописа','popis_artikal','[NEW]\nid = 1\nid_popisa = 1\nid_artikla = 1\nkolicina = 7000.00\nstanje = 15000.00\ncreated_at = 2025-04-05 19:51:11\nupdated_at = 2025-04-05 19:51:11\n','2025-04-05 19:51:16',1),
+(86,'ДОДАВАЊЕ','Додавање ставке пописа','popis_artikal','[NEW]\nid = 2\nid_popisa = 1\nid_artikla = 1\nkolicina = 13780.00\nstanje = 15000.00\ncreated_at = 2025-04-05 19:51:23\nupdated_at = 2025-04-05 19:51:23\n','2025-04-05 19:51:23',1),
+(87,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 8\nid_prijemnice = 5\nid_artikla = 15\nkolicina = 5000.00\niznos = 0.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-01 19:51:52\nupdated_at = 2025-04-01 19:51:52\n','2025-04-05 20:13:42',1),
+(88,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 8\nid_prijemnice = 5\nid_artikla = 15\nkolicina = 5000.00\niznos = 0.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-01 19:51:52\nupdated_at = 2025-04-01 19:51:52\n','2025-04-05 20:13:55',1),
+(89,'ДОДАВАЊЕ','Додавање пријемнице','prijemnice','[NEW]\nid = 6\ndatum = 2025-04-05\nbroj = 333-444/2025\nid_dobavljaca = 2\nid_magacina = 1\nnapomena = тестирање плаћања\ncreated_at = 2025-04-05 20:14:44\nupdated_at = 2025-04-05 20:14:44\n','2025-04-05 20:14:44',1),
+(90,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 11\nid_prijemnice = 6\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-05 20:15:20\nupdated_at = 2025-04-05 20:15:20\n','2025-04-05 20:15:20',1),
+(91,'ДОДАВАЊЕ','Додавање ставке пријемнице','prijemnica_artikal','[NEW]\nid = 12\nid_prijemnice = 6\nid_artikla = 8\nkolicina = 1000.00\niznos = 30000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-05 20:15:40\nupdated_at = 2025-04-05 20:15:40\n','2025-04-05 20:15:40',1),
+(92,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 11\nid_prijemnice = 6\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-05 20:15:20\nupdated_at = 2025-04-05 20:15:20\n','2025-04-05 20:19:53',1),
+(93,'ИЗМЕНА','Измена пријемнице','prijemnice','[NEW]\nid = 6\ndatum = 2025-04-05\nbroj = 333/2025\nid_dobavljaca = 2\nid_magacina = 1\nnapomena = тестирање плаћања\ncreated_at = 2025-04-05 20:14:44\nupdated_at = 2025-04-05 20:20:42\n\n[OLD]\nid = 6\ndatum = 2025-04-05\nbroj = 333-444/2025\nid_dobavljaca = 2\nid_magacina = 1\nnapomena = тестирање плаћања\ncreated_at = 2025-04-05 20:14:44\nupdated_at = 2025-04-05 20:14:44\n','2025-04-05 20:20:42',1),
+(94,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 12\nid_prijemnice = 6\nid_artikla = 8\nkolicina = 1000.00\niznos = 30000.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-05 20:15:40\nupdated_at = 2025-04-05 20:15:40\n','2025-04-05 20:25:13',1),
+(95,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 11\nid_prijemnice = 6\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-05 20:15:20\nupdated_at = 2025-04-05 20:15:20\n','2025-04-05 20:25:33',1),
+(96,'ДОДАВАЊЕ','Додавање отпремнице','otpremnice','[NEW]\nid = 1\ndatum = 2025-04-06\nbroj = 123\nid_kupca = 1\nid_magacina = 1\nnapomena = тестирање плаћања\ncreated_at = 2025-04-06 09:47:08\nupdated_at = 2025-04-06 09:47:08\n','2025-04-06 09:47:08',1),
+(97,'ДОДАВАЊЕ','Додавање ставке отпремнице','otpremnica_artikal','[NEW]\nid = 1\nid_otpremnice = 1\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-06 10:28:47\nupdated_at = 2025-04-06 10:28:47\n','2025-04-06 10:28:47',1),
+(98,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 1\nid_prijemnice = 1\nid_artikla = 1\nkolicina = 8000.00\niznos = 0.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-01 19:44:57\nupdated_at = 2025-04-01 19:44:57\n','2025-04-06 10:28:54',1),
+(99,'ДОДАВАЊЕ','Додавање ставке отпремнице','otpremnica_artikal','[NEW]\nid = 2\nid_otpremnice = 1\nid_artikla = 1\nkolicina = 5000.00\niznos = 40000.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-06 10:30:18\nupdated_at = 2025-04-06 10:30:18\n','2025-04-06 10:30:18',1),
+(100,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 1\nid_prijemnice = 1\nid_artikla = 1\nkolicina = 8000.00\niznos = 0.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-01 19:44:57\nupdated_at = 2025-04-01 19:44:57\n','2025-04-06 10:30:33',1),
+(101,'ИЗМЕНА','Промена статуса плаћања','prijemnica_artikal','[NEW]\nid = 1\nid_prijemnice = 1\nid_artikla = 1\nkolicina = 8000.00\niznos = 0.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-01 19:44:57\nupdated_at = 2025-04-01 19:44:57\n','2025-04-06 10:31:08',1),
+(102,'ИЗМЕНА','Промена статуса плаћања','otpremnica_artikal','[NEW]\nid = 1\nid_otpremnice = 1\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-06 10:28:47\nupdated_at = 2025-04-06 10:28:47\n','2025-04-06 10:32:07',1),
+(103,'ДОДАВАЊЕ','Додавање отпремнице','otpremnice','[NEW]\nid = 2\ndatum = 2025-04-06\nbroj = 124\nid_kupca = 2\nid_magacina = 2\nnapomena = \ncreated_at = 2025-04-06 10:33:01\nupdated_at = 2025-04-06 10:33:01\n','2025-04-06 10:33:01',1),
+(104,'ДОДАВАЊЕ','Додавање ставке отпремнице','otpremnica_artikal','[NEW]\nid = 3\nid_otpremnice = 2\nid_artikla = 1\nkolicina = 550.00\niznos = 7000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-06 10:33:21\nupdated_at = 2025-04-06 10:33:21\n','2025-04-06 10:33:21',1),
+(105,'ИЗМЕНА','Промена статуса плаћања','otpremnica_artikal','[NEW]\nid = 3\nid_otpremnice = 2\nid_artikla = 1\nkolicina = 550.00\niznos = 7000.00\nplaceno = 1\nopis = \ncreated_at = 2025-04-06 10:33:21\nupdated_at = 2025-04-06 10:33:21\n','2025-04-06 10:34:08',1),
+(106,'ИЗМЕНА','Промена статуса плаћања','otpremnica_artikal','[NEW]\nid = 1\nid_otpremnice = 1\nid_artikla = 1\nkolicina = 5000.00\niznos = 50000.00\nplaceno = 0\nopis = \ncreated_at = 2025-04-06 10:28:47\nupdated_at = 2025-04-06 10:28:47\n','2025-04-06 10:34:18',1);
 /*!40000 ALTER TABLE `logovi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,7 +460,7 @@ DROP TABLE IF EXISTS `nalozi`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalozi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_tipa` INT(10) UNSIGNED NOT NULL,
+  `id_tipa` int(10) unsigned NOT NULL,
   `datum` date NOT NULL,
   `broj` varchar(100) NOT NULL,
   `id_iz_mag` int(10) unsigned NOT NULL,
@@ -455,12 +469,12 @@ CREATE TABLE `nalozi` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `nalozi_magacin_FK` (`id_iz_mag`),
+  KEY `prijemnice_dobavljaci_FK` (`id_iz_mag`) USING BTREE,
   KEY `nalozi_magacini_FK_1` (`id_u_mag`),
   KEY `nalozi_tipovi_naloga_FK` (`id_tipa`),
-  CONSTRAINT `FK_nalozi_tipovi_naloga` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`),
   CONSTRAINT `nalozi_magacini_FK` FOREIGN KEY (`id_iz_mag`) REFERENCES `magacini` (`id`),
-  CONSTRAINT `nalozi_magacini_FK_1` FOREIGN KEY (`id_u_mag`) REFERENCES `magacini` (`id`)
+  CONSTRAINT `nalozi_magacini_FK_1` FOREIGN KEY (`id_u_mag`) REFERENCES `magacini` (`id`),
+  CONSTRAINT `nalozi_tipovi_naloga_FK` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -494,7 +508,7 @@ CREATE TABLE `otpisi` (
   KEY `otpisi_magacini_FK` (`id_magacina`),
   CONSTRAINT `otpisi_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
   CONSTRAINT `otpisi_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -503,6 +517,10 @@ CREATE TABLE `otpisi` (
 
 LOCK TABLES `otpisi` WRITE;
 /*!40000 ALTER TABLE `otpisi` DISABLE KEYS */;
+INSERT INTO `otpisi` VALUES
+(3,'2025-04-01',1,1,100.00,'','2025-04-05 10:18:03','2025-04-05 10:18:03'),
+(5,'2025-04-02',2,1,5.00,'','2025-04-05 12:33:31','2025-04-05 12:33:31'),
+(6,'2025-04-03',1,8,50.00,'','2025-04-05 12:33:48','2025-04-05 12:33:48');
 /*!40000 ALTER TABLE `otpisi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -519,6 +537,7 @@ CREATE TABLE `otpremnica_artikal` (
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
   `iznos` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `placeno` tinyint(4) NOT NULL DEFAULT 0,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
@@ -527,7 +546,7 @@ CREATE TABLE `otpremnica_artikal` (
   KEY `prijemnica_artikal_prijemnice_FK` (`id_otpremnice`) USING BTREE,
   CONSTRAINT `otpremnica_artikal_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
   CONSTRAINT `otpremnica_artikal_otpremnice_FK` FOREIGN KEY (`id_otpremnice`) REFERENCES `otpremnice` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -536,6 +555,10 @@ CREATE TABLE `otpremnica_artikal` (
 
 LOCK TABLES `otpremnica_artikal` WRITE;
 /*!40000 ALTER TABLE `otpremnica_artikal` DISABLE KEYS */;
+INSERT INTO `otpremnica_artikal` VALUES
+(1,1,1,5000.00,50000.00,0,'','2025-04-06 10:28:47','2025-04-06 10:28:47'),
+(2,1,1,5000.00,40000.00,1,'','2025-04-06 10:30:18','2025-04-06 10:30:18'),
+(3,2,1,550.00,7000.00,1,'','2025-04-06 10:33:21','2025-04-06 10:33:21');
 /*!40000 ALTER TABLE `otpremnica_artikal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -560,7 +583,7 @@ CREATE TABLE `otpremnice` (
   KEY `otpremnice_magacini_FK` (`id_magacina`),
   CONSTRAINT `otpremnice_kupci_FK` FOREIGN KEY (`id_kupca`) REFERENCES `kupci` (`id`),
   CONSTRAINT `otpremnice_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -569,6 +592,9 @@ CREATE TABLE `otpremnice` (
 
 LOCK TABLES `otpremnice` WRITE;
 /*!40000 ALTER TABLE `otpremnice` DISABLE KEYS */;
+INSERT INTO `otpremnice` VALUES
+(1,'2025-04-06','123',1,1,'тестирање плаћања','2025-04-06 09:47:08','2025-04-06 09:47:08'),
+(2,'2025-04-06','124',2,2,'','2025-04-06 10:33:01','2025-04-06 10:33:01');
 /*!40000 ALTER TABLE `otpremnice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -592,7 +618,7 @@ CREATE TABLE `popis_artikal` (
   KEY `popis_artikal_artikli_FK` (`id_artikla`),
   CONSTRAINT `popis_artikal_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
   CONSTRAINT `popis_artikal_popisi_FK` FOREIGN KEY (`id_popisa`) REFERENCES `popisi` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -601,6 +627,8 @@ CREATE TABLE `popis_artikal` (
 
 LOCK TABLES `popis_artikal` WRITE;
 /*!40000 ALTER TABLE `popis_artikal` DISABLE KEYS */;
+INSERT INTO `popis_artikal` VALUES
+(2,1,1,13780.00,15000.00,'2025-04-05 19:51:23','2025-04-05 19:51:23');
 /*!40000 ALTER TABLE `popis_artikal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -622,7 +650,7 @@ CREATE TABLE `popisi` (
   PRIMARY KEY (`id`),
   KEY `popisi_magacini_FK` (`id_magacina`),
   CONSTRAINT `popisi_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -631,6 +659,8 @@ CREATE TABLE `popisi` (
 
 LOCK TABLES `popisi` WRITE;
 /*!40000 ALTER TABLE `popisi` DISABLE KEYS */;
+INSERT INTO `popisi` VALUES
+(1,1,'2025-04-09','',0,'2025-04-05 19:50:59','2025-04-05 19:50:59');
 /*!40000 ALTER TABLE `popisi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -647,6 +677,7 @@ CREATE TABLE `prijemnica_artikal` (
   `id_artikla` int(10) unsigned NOT NULL,
   `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
   `iznos` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `placeno` tinyint(4) NOT NULL DEFAULT 0,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
@@ -655,7 +686,7 @@ CREATE TABLE `prijemnica_artikal` (
   KEY `prijemnica_artikal_artikli_FK` (`id_artikla`),
   CONSTRAINT `prijemnica_artikal_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
   CONSTRAINT `prijemnica_artikal_prijemnice_FK` FOREIGN KEY (`id_prijemnice`) REFERENCES `prijemnice` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -665,15 +696,17 @@ CREATE TABLE `prijemnica_artikal` (
 LOCK TABLES `prijemnica_artikal` WRITE;
 /*!40000 ALTER TABLE `prijemnica_artikal` DISABLE KEYS */;
 INSERT INTO `prijemnica_artikal` VALUES
-(1,1,1,8000.00,0.00,'','2025-04-01 19:44:57','2025-04-01 19:44:57'),
-(3,1,8,5250.00,0.00,'','2025-04-01 19:46:56','2025-04-01 19:46:56'),
-(4,2,1,7100.00,0.00,'','2025-04-01 19:48:04','2025-04-01 19:48:04'),
-(5,2,8,5200.00,0.00,'','2025-04-01 19:48:31','2025-04-01 19:48:31'),
-(6,3,1,7555.00,0.00,'','2025-04-01 19:49:46','2025-04-01 19:49:46'),
-(7,4,8,8100.00,0.00,'','2025-04-01 19:50:39','2025-04-01 19:50:39'),
-(8,5,15,5000.00,0.00,'','2025-04-01 19:51:52','2025-04-01 19:51:52'),
-(9,5,16,2500.00,0.00,'','2025-04-01 19:52:06','2025-04-01 19:52:06'),
-(10,5,17,15000.00,0.00,'','2025-04-01 19:52:33','2025-04-01 19:52:33');
+(1,1,1,8000.00,0.00,1,'','2025-04-01 19:44:57','2025-04-01 19:44:57'),
+(3,1,8,5250.00,0.00,0,'','2025-04-01 19:46:56','2025-04-01 19:46:56'),
+(4,2,1,7100.00,0.00,0,'','2025-04-01 19:48:04','2025-04-01 19:48:04'),
+(5,2,8,5200.00,0.00,0,'','2025-04-01 19:48:31','2025-04-01 19:48:31'),
+(6,3,1,7555.00,0.00,0,'','2025-04-01 19:49:46','2025-04-01 19:49:46'),
+(7,4,8,8100.00,0.00,0,'','2025-04-01 19:50:39','2025-04-01 19:50:39'),
+(8,5,15,5000.00,0.00,0,'','2025-04-01 19:51:52','2025-04-01 19:51:52'),
+(9,5,16,2500.00,0.00,0,'','2025-04-01 19:52:06','2025-04-01 19:52:06'),
+(10,5,17,15000.00,0.00,0,'','2025-04-01 19:52:33','2025-04-01 19:52:33'),
+(11,6,1,5000.00,50000.00,0,'','2025-04-05 20:15:20','2025-04-05 20:15:20'),
+(12,6,8,1000.00,30000.00,1,'','2025-04-05 20:15:40','2025-04-05 20:15:40');
 /*!40000 ALTER TABLE `prijemnica_artikal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -698,7 +731,7 @@ CREATE TABLE `prijemnice` (
   KEY `prijemnice_magacini_FK` (`id_magacina`),
   CONSTRAINT `prijemnice_dobavljaci_FK` FOREIGN KEY (`id_dobavljaca`) REFERENCES `dobavljaci` (`id`),
   CONSTRAINT `prijemnice_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -712,7 +745,8 @@ INSERT INTO `prijemnice` VALUES
 (2,'2025-03-08','БР-444/2025',2,1,'','2025-04-01 19:47:48','2025-04-01 19:47:48'),
 (3,'2025-03-19','БР-565/2025',1,2,'','2025-04-01 19:49:30','2025-04-01 19:49:30'),
 (4,'2025-03-26','БР-788/2025',2,2,'','2025-04-01 19:50:27','2025-04-01 19:50:27'),
-(5,'2025-04-29','БР-111/2025',3,9,'','2025-04-01 19:51:32','2025-04-01 19:51:32');
+(5,'2025-04-29','БР-111/2025',3,9,'','2025-04-01 19:51:32','2025-04-01 19:51:32'),
+(6,'2025-04-05','333/2025',2,1,'тестирање плаћања','2025-04-05 20:14:44','2025-04-05 20:20:42');
 /*!40000 ALTER TABLE `prijemnice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -745,9 +779,9 @@ CREATE TABLE `stanje` (
 LOCK TABLES `stanje` WRITE;
 /*!40000 ALTER TABLE `stanje` DISABLE KEYS */;
 INSERT INTO `stanje` VALUES
-(1,1,1,15100.00,'2025-04-01 19:44:57','2025-04-01 19:44:57'),
-(2,1,8,10450.00,'2025-04-01 19:45:17','2025-04-01 19:45:17'),
-(3,2,1,7555.00,'2025-04-01 19:49:46','2025-04-01 19:49:46'),
+(1,1,1,10000.00,'2025-04-01 19:44:57','2025-04-01 19:44:57'),
+(2,1,8,11400.00,'2025-04-01 19:45:17','2025-04-01 19:45:17'),
+(3,2,1,7000.00,'2025-04-01 19:49:46','2025-04-01 19:49:46'),
 (4,2,8,8100.00,'2025-04-01 19:50:39','2025-04-01 19:50:39'),
 (5,9,15,5000.00,'2025-04-01 19:51:52','2025-04-01 19:51:52'),
 (6,9,16,2500.00,'2025-04-01 19:52:06','2025-04-01 19:52:06'),
@@ -792,6 +826,34 @@ INSERT INTO `tipovi_magacina` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipovi_naloga`
+--
+
+DROP TABLE IF EXISTS `tipovi_naloga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipovi_naloga` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(100) NOT NULL,
+  `opis` varchar(255) DEFAULT NULL,
+  `vise_artikala` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipovi_naloga`
+--
+
+LOCK TABLES `tipovi_naloga` WRITE;
+/*!40000 ALTER TABLE `tipovi_naloga` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipovi_naloga` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'magacin'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -804,4 +866,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-03 21:48:49
+-- Dump completed on 2025-04-06 10:35:24

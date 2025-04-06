@@ -23,4 +23,30 @@ class Otpremnica extends Model
         return $this->hasMany('App\Models\OtpremnicaArtikal', 'id_otpremnice');
     }
 
+    public function ukupanIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice;";
+        $params = [":id_otpremnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
+
+    public function placeniIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice AND placeno = 1;";
+        $params = [":id_otpremnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
+
+    public function dugIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice AND placeno = 0;";
+        $params = [":id_otpremnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
 }
