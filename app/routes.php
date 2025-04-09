@@ -183,5 +183,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->post('/otpis-brisanje', \App\Controllers\OtpisController::class . ':postOtpisBrisanje')->setName('otpis.brisanje');
     $group->get('/otpis-artikal/{id:[0-9]+}', \App\Controllers\OtpisController::class . ':getOtpisArtikal')->setName('otpis.artikal');
 
+    // Kartica artikla
+
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));
