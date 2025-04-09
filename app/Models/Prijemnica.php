@@ -22,4 +22,31 @@ class Prijemnica extends Model
     {
         return $this->hasMany('App\Models\PrijemnicaArtikal', 'id_prijemnice');
     }
+
+    public function ukupanIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice;";
+        $params = [":id_prijemnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
+
+    public function placeniIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 1;";
+        $params = [":id_prijemnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
+
+    public function dugIzanos()
+    {
+        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 0;";
+        $params = [":id_prijemnice" => $this->id];
+        $iznos = $this->fetch($sql, $params);
+        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
+        return $ukupno;
+    }
 }

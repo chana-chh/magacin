@@ -1,0 +1,76 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3 align-items-end">
+    <div class="col-4">
+        <h1>
+            Отписи по <span class="text-success">артиклу</span>
+        </h1>
+        <p class="h4">{{ artikal.naziv }} {{ artikal.jm().jm }} [{{ artikal.kategorija().naziv }}]</p>
+    </div>
+    <div class="col-4">
+        <select name="id_artikla" id="id_artikla" class="form-select text-primary">
+            <option value="0">...</option>
+            {% for arti in artikli %}
+            <option value="{{ arti.id }}" {{ artikal.id==arti.id ? ' selected' : '' }}>
+                {{ arti.naziv }} [{{ arti.kategorija().naziv }}]
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-4 text-end mt-3">
+        <a href="{{ url_for('otpis.lista') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Сви отписи</a>
+        <div class="input-group">
+            <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
+            <input type="search" class="form-control border-primary" id="searchbox" name="searchbox">
+            <button class="btn btn-primary" type="button" id="ponisti-pretragu">
+                <i class="bi-x-square"></i> Поништи
+            </button>
+        </div>
+    </div>
+</div>
+<hr>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th class="w-5">#</th>
+            <th class="w-25">Артикал</th>
+            <th class="w-20">Магацин</th>
+            <th class="w-15 text-end">Количина</th>
+            <th class="w-5">Јединица</th>
+            <th class="w-30">Напомена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for otpis in otpisi %}
+        <tr class="pretraga">
+            <td class="text-danger">{{ otpis.artikal().id }}</td>
+            <td>{{ otpis.artikal().naziv }} [{{ otpis.artikal().kategorija().naziv }}]</td>
+            <td>{{ otpis.magacin().naziv }} [{{ otpis.magacin().tip().naziv }}]</td>
+            <td class="text-end">{{ otpis.kolicina|number_format(2) }}</td>
+            <td>{{ otpis.artikal().jm.jm }}</td>
+            <td>{{ otpis.napomena }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="text-end">{{ ukupno_artikal|number_format(2) }}</th>
+            <th>{{ artikal.jm().jm }}</th>
+        </tr>
+    </tfoot>
+</table>
+{% endblock full %}
+
+{% block skripta %}
+<script>
+    document.getElementById('id_artikla').onchange = function () {
+        let url = "{{ url_for('otpis.artikal', { id: 0 }) }}";
+        url = url.replace("0", this.value);
+        window.location.href = url;
+    }
+</script>
+{% endblock skripta %}

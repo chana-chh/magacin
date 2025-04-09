@@ -111,6 +111,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     // Prijemnica stavke
     $group->post('/prijemnica-stavke-dodavanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeDodavanje')->setName('prijemnica.stavke.dodavanje');
     $group->post('/prijemnica-stavke-brisanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkeBrisanje')->setName('prijemnica.stavke.brisanje');
+    $group->post('/prijemnica-stavke-placanje', \App\Controllers\PrijemnicaArtikalController::class . ':postPrijemnicaStavkePlacanje')->setName('prijemnica.stavke.placanje');
 
     //Otpremnice
     $group->get('/otpremnica-lista', \App\Controllers\OtpremnicaController::class . ':getOtpremnicaLista')->setName('otpremnica.lista');
@@ -128,6 +129,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     // otpremnica stavke
     $group->post('/otpremnica-stavke-dodavanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeDodavanje')->setName('otpremnica.stavke.dodavanje');
     $group->post('/otpremnica-stavke-brisanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkeBrisanje')->setName('otpremnica.stavke.brisanje');
+    $group->post('/otpremnica-stavke-placanje', \App\Controllers\OtpremnicaArtikalController::class . ':postOtpremnicaStavkePlacanje')->setName('otpremnica.stavke.placanje');
 
     //Stanje
     $group->get('/stanje-lista-ukupno', \App\Controllers\StanjeController::class . ':getUkupnoLista')->setName('stanje.lista.ukupno');
@@ -172,6 +174,14 @@ $app->group('', function (RouteCollectorProxy $group) {
     // Popis stavke
     $group->post('/popis-stavke-dodavanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeDodavanje')->setName('popis.stavke.dodavanje');
     $group->post('/popis-stavke-brisanje', \App\Controllers\PopisArtikalController::class . ':postPopisStavkeBrisanje')->setName('popis.stavke.brisanje');
+
+    // Otpisi
+    $group->get('/otpis-lista', \App\Controllers\OtpisController::class . ':getOtpisLista')->setName('otpis.lista');
+    $group->post('/otpis-dodavanje', \App\Controllers\OtpisController::class . ':postOtpisDodavanje')->setName('otpis.dodavanje.post');
+    $group->post('/otpis-pretraga', \App\Controllers\OtpisController::class . ':postOtpisPretraga')->setName('otpis.pretraga.post');
+    $group->get('/otpis-pretraga', \App\Controllers\OtpisController::class . ':getOtpisPretraga')->setName('otpis.pretraga.get');
+    $group->post('/otpis-brisanje', \App\Controllers\OtpisController::class . ':postOtpisBrisanje')->setName('otpis.brisanje');
+    $group->get('/otpis-artikal/{id:[0-9]+}', \App\Controllers\OtpisController::class . ':getOtpisArtikal')->setName('otpis.artikal');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

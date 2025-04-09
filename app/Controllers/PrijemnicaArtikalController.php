@@ -13,6 +13,8 @@ class PrijemnicaArtikalController extends Controller
     public function postPrijemnicaStavkeDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
+        $placeno = $data['placeno'] ? 1 : 0;
+        $data['placeno'] = $placeno;
         $rules = [
             'id_artikla' => [
                 'required' => true,
@@ -60,7 +62,7 @@ class PrijemnicaArtikalController extends Controller
         // Update kolicine na stanju (pre brisanja stavke zbog stanja)
         $stanje = new Stanje();
         $stanje->oduzmiKolicinu($id_magacina, (int) $model->id_artikla, (float) $model->kolicina);
-        
+
         $ok = $st->deleteOne($id);
 
         if (!$ok) {
@@ -71,5 +73,25 @@ class PrijemnicaArtikalController extends Controller
         $this->log($this::BRISANJE, 'Брисање ставке пријемнице', $model);
         $this->flash('success', 'Успешно брисање ставке пријемнице');
         return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $model->id_prijemnice]);
+    }
+
+    public function postPrijemnicaStavkePlacanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $id = (int) $data['idPlacanje'];
+        $sta = new PrijemnicaArtikal();
+        $stavka = $sta->find($id);
+        $novi_status = $stavka->placeno === 0 ? 1 : 0;
+        $ok = $sta->update(['placeno' => $novi_status], $id);
+        $model = $sta->find($id);
+
+        if (!$ok) {
+            $this->flash('danger', 'Неуспешна промена статуса плаћања');
+            return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $stavka->id_prijemnice]);
+        }
+
+        $this->log($this::IZMENA, 'Промена статуса плаћања', $model);
+        $this->flash('success', 'Успешна промена статуса плаћања');
+        return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $stavka->id_prijemnice]);
     }
 }

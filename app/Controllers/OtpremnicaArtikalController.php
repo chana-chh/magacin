@@ -72,4 +72,24 @@ class OtpremnicaArtikalController extends Controller
         $this->flash('success', 'Успешно брисање ставке отпремнице');
         return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $model->id_otpremnice]);
     }
+
+    public function postOtpremnicaStavkePlacanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $data = $this->data($request);
+        $id = (int) $data['idPlacanje'];
+        $sta = new OtpremnicaArtikal();
+        $stavka = $sta->find($id);
+        $novi_status = $stavka->placeno === 0 ? 1 : 0;
+        $ok = $sta->update(['placeno' => $novi_status], $id);
+        $model = $sta->find($id);
+
+        if (!$ok) {
+            $this->flash('danger', 'Неуспешна промена статуса плаћања');
+            return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $stavka->id_otpremnice]);
+        }
+
+        $this->log($this::IZMENA, 'Промена статуса плаћања', $model);
+        $this->flash('success', 'Успешна промена статуса плаћања');
+        return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $stavka->id_otpremnice]);
+    }
 }
