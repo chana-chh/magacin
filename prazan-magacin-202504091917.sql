@@ -67,7 +67,7 @@ CREATE TABLE `dobavljaci` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `kupci_unique` (`naziv`)
+  UNIQUE KEY `dobavljaci_unique` (`naziv`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,7 +122,7 @@ CREATE TABLE `kategorije_artikala` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `tipovi_magacina_unique` (`naziv`)
+  UNIQUE KEY `kategorije_artikala_unique` (`naziv`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -133,33 +133,6 @@ CREATE TABLE `kategorije_artikala` (
 LOCK TABLES `kategorije_artikala` WRITE;
 /*!40000 ALTER TABLE `kategorije_artikala` DISABLE KEYS */;
 /*!40000 ALTER TABLE `kategorije_artikala` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tipovi_naloga`
---
-
-DROP TABLE IF EXISTS `tipovi_naloga`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipovi_naloga` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `naziv` varchar(100) NOT NULL,
-  `opis` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tipovi_naloga`
---
-
-LOCK TABLES `tipovi_naloga` WRITE;
-/*!40000 ALTER TABLE `tipovi_naloga` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipovi_naloga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -292,10 +265,11 @@ DROP TABLE IF EXISTS `nalog_artikal`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalog_artikal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_artikla` INT(10) UNSIGNED NOT NULL,
-  `id_magacina` INT(10) UNSIGNED NOT NULL,
-  `smer` ENUM('УЛАЗ','ИЗЛАЗ') NOT NULL,
-  `kolicina` DECIMAL(16,2) NOT NULL DEFAULT 0.00,
+  `id_naloga` int(10) unsigned NOT NULL,
+  `id_artikla` int(10) unsigned NOT NULL,
+  `id_magacina` int(10) unsigned NOT NULL,
+  `smer` enum('УЛАЗ','ИЗЛАЗ') NOT NULL,
+  `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
@@ -303,9 +277,9 @@ CREATE TABLE `nalog_artikal` (
   KEY `nalog_artikal_nalozi_FK` (`id_naloga`),
   KEY `nalog_artikal_artikli_FK` (`id_artikla`),
   KEY `nalog_artikal_magacini_FK` (`id_magacina`),
-  CONSTRAINT `FK_nalog_artikal_artikli` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
-  CONSTRAINT `FK_nalog_artikal_magacini` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`),
-  CONSTRAINT `FK_nalog_artikal_nalozi` FOREIGN KEY (`id_naloga`) REFERENCES `nalozi` (`id`)
+  CONSTRAINT `nalog_artikal_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
+  CONSTRAINT `nalog_artikal_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`),
+  CONSTRAINT `nalog_artikal_nalozi_FK` FOREIGN KEY (`id_naloga`) REFERENCES `nalozi` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -327,19 +301,19 @@ DROP TABLE IF EXISTS `nalozi`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalozi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_tipa` INT(10) UNSIGNED NOT NULL,
+  `id_tipa` int(10) unsigned NOT NULL,
   `datum` date NOT NULL,
   `broj` varchar(100) NOT NULL,
-  `magacin_iz` VARCHAR(50) NULL DEFAULT NULL,
-  `magacin_u` VARCHAR(50) NULL DEFAULT NULL,
-  `artikli_iz` VARCHAR(50) NULL DEFAULT NULL,
-  `artikli_u` VARCHAR(50) NULL DEFAULT NULL,
+  `magacin_iz` varchar(50) DEFAULT NULL,
+  `magacin_u` varchar(50) DEFAULT NULL,
+  `artikli_iz` varchar(50) DEFAULT NULL,
+  `artikli_u` varchar(50) DEFAULT NULL,
   `napomena` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `nalozi_tipovi_naloga_FK` (`id_tipa`),
-  CONSTRAINT `FK_nalozi_tipovi_naloga` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`)
+  CONSTRAINT `nalozi_tipovi_naloga_FK` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -350,6 +324,39 @@ CREATE TABLE `nalozi` (
 LOCK TABLES `nalozi` WRITE;
 /*!40000 ALTER TABLE `nalozi` DISABLE KEYS */;
 /*!40000 ALTER TABLE `nalozi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `otpisi`
+--
+
+DROP TABLE IF EXISTS `otpisi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `otpisi` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `datum` date NOT NULL,
+  `id_magacina` int(10) unsigned NOT NULL,
+  `id_artikla` int(10) unsigned NOT NULL,
+  `kolicina` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `napomena` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `otpisi_artikli_FK` (`id_artikla`),
+  KEY `otpisi_magacini_FK` (`id_magacina`),
+  CONSTRAINT `otpisi_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
+  CONSTRAINT `otpisi_magacini_FK` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `otpisi`
+--
+
+LOCK TABLES `otpisi` WRITE;
+/*!40000 ALTER TABLE `otpisi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `otpisi` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -368,10 +375,10 @@ CREATE TABLE `otpremnica_artikal` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `prijemnica_artikal_artikli_FK` (`id_artikla`) USING BTREE,
-  KEY `prijemnica_artikal_prijemnice_FK` (`id_otpremnice`) USING BTREE,
+  KEY `otpremnica_artikal_artikli_FK` (`id_artikla`) USING BTREE,
+  KEY `otpremnica_artikal_prijemnice_FK` (`id_otpremnice`) USING BTREE,
   CONSTRAINT `otpremnica_artikal_artikli_FK` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
-  CONSTRAINT `otpremnica_artikal_otpremnice_FK` FOREIGN KEY (`id_otpremnice`) REFERENCES `otpremnice` (`id`)
+  CONSTRAINT `otpremnica_artikal_prijemnice_FK` FOREIGN KEY (`id_otpremnice`) REFERENCES `otpremnice` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -603,6 +610,33 @@ LOCK TABLES `tipovi_magacina` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipovi_naloga`
+--
+
+DROP TABLE IF EXISTS `tipovi_naloga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipovi_naloga` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(100) NOT NULL,
+  `opis` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipovi_naloga`
+--
+
+LOCK TABLES `tipovi_naloga` WRITE;
+/*!40000 ALTER TABLE `tipovi_naloga` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipovi_naloga` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'magacin'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -615,4 +649,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-31 19:58:33
+-- Dump completed on 2025-04-09 19:17:15
