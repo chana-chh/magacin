@@ -20,15 +20,11 @@ class TipNalogaController extends Controller
     public function postTipNalogaDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
-        $data['vise_artikala'] = isset($data['vise_artikala']) ? 1 : 0;
         $rules = [
             'naziv' => [
                 'required' => true,
                 'maxlen' => 100,
                 'alnum' => true,
-            ],
-            'vise_artikala' => [
-                'required' => true
             ],
             'opis' => [
                 'maxlen' => 255,
@@ -64,17 +60,13 @@ class TipNalogaController extends Controller
         $data = $this->data($request);
         $id = (int) $data['id'];
         unset($data['id']);
-        $vise_artikala = isset($data['vise_artikala']) ? 1 : 0;
-        $data['vise_artikala'] = $vise_artikala;
+
         
         $rules = [
             'naziv' => [
                 'required' => true,
                 'maxlen' => 100,
                 'alnum' => true,
-            ],
-            'vise_artikala' => [
-                'required' => true
             ],
             'opis' => [
                 'maxlen' => 255,

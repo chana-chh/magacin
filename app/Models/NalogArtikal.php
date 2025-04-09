@@ -13,13 +13,14 @@ class NalogArtikal extends Model
         return $this->belongsTo('App\Models\Nalog', 'id_naloga');
     }
 
-    public function artikaliz()
+    public function artikal()
     {
-        return $this->belongsTo('App\Models\Artikal', 'id_artikla_iz');
+        return $this->belongsTo('App\Models\Artikal', 'id_artikla');
     }
 
-    public function artikalu()
+    public function magacin()
     {
-        return $this->belongsTo('App\Models\Artikal', 'id_artikla_u');
+        return $this->belongsTo('App\Models\Magacin', 'id_magacina');
     }
+
 }

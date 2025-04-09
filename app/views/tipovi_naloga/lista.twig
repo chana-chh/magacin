@@ -80,10 +80,6 @@
                 <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis" value="{{ old.opis ? : '' }}" maxlength="250" oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
                 <div class="invalid-feedback">{{ errors.opis.0 }}</div>
             </div>
-            <div class="form-check mt-3">
-                <input type="checkbox" name="vise_artikala" id="vise_artikala" class="form-check-input{{ errors.vise_artikala ? ' is-invalid' : '' }}" value="" {{ old.vise_artikala ? 'checked' : '' }}>
-                <label for="vise_artikala">Више артикала</label>
-            </div>
             <div class="text-end mt-3">
                 <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
                 <a href="{{ url_for('tip.naloga.lista') }}" class="btn btn-secondary"><i class="bi-x-square"></i>

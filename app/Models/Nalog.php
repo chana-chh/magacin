@@ -8,15 +8,6 @@ class Nalog extends Model
 {
     protected string $table = 'nalozi';
 
-    public function magaciniz()
-    {
-        return (new Magacin())->find($this->id_iz_mag);
-    }
-
-    public function magacinu()
-    {
-        return (new Magacin())->find($this->id_u_mag);
-    }
 
     public function stavke()
     {
@@ -26,5 +17,61 @@ class Nalog extends Model
     public function tip()
     {
         return $this->belongsTo('App\Models\TipNaloga', 'id_tipa');
+    }
+
+    public function magaciniiz()
+    {
+        $magacin = new Magacin();
+        if(!$this->magacin_iz){
+            return null;
+        }
+        $niz = explode( ',', $this->magacin_iz);
+        $jed = array_unique($niz);
+        $str = implode(',', $jed);
+        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
+        $magacini = $magacin->fetch($sql);
+        return $magacini;
+    }
+
+    public function magaciniu()
+    {
+        $magacin = new Magacin();
+        if(!$this->magacin_u){
+            return null;
+        }
+        $niz = explode( ',', $this->magacin_u);
+        $jed = array_unique($niz);
+        $str = implode(',', $jed);
+        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
+        $magacini = $magacin->fetch($sql);
+        return $magacini;
+    }
+
+    public function artikaliz()
+    {
+        $artikal = new Artikal();
+        if(!$this->artikli_iz){
+            return null;
+        }
+        $niz = explode( ',', $this->artikli_iz);
+        $jed = array_unique($niz);
+        $str = implode(',', $jed);
+        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
+        $magacini = $artikal->fetch($sql);
+        return $magacini;
+    }
+
+    public function artikalu()
+    {
+        $artikal = new Artikal();
+        if(!$this->artikli_u){
+            return null;
+        }
+        $niz = explode( ',', $this->artikli_u);
+        $jed = array_unique($niz);
+        $str = implode(',', $jed);
+        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
+        $magacini = $artikal->fetch($sql);
+        return $magacini;
     }
 }

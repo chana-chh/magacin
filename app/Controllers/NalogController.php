@@ -24,30 +24,24 @@ class NalogController extends Controller
 
         $magacini = (new Magacin())->all();
         $tipovi = (new TipNaloga())->all();
+        $artikli = (new Artikal())->all();
         $nalo = new Nalog();
         $sql = "SELECT * FROM nalozi ORDER BY datum DESC;";
         $nalozi = $nalo->paginate($path, $page, $sql, []);
 
-        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini', 'tipovi'));
+        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini', 'tipovi', 'artikli'));
     }
 
     public function getNalogDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $magacini = (new Magacin())->all();
         $tipovi = (new TipNaloga())->all();
-        return $this->render($response, 'nalozi/dodavanje.twig', compact('magacini', 'tipovi'));
+        return $this->render($response, 'nalozi/dodavanje.twig', compact('tipovi'));
     }
 
     public function postNalogDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
         $rules = [
-            'id_iz_mag' => [
-                'required' => true,
-            ],
-            'id_u_mag' => [
-                'required' => true,
-            ],
             'id_tipa' => [
                 'required' => true,
             ],
@@ -89,6 +83,9 @@ class NalogController extends Controller
         $id = (int) $data['id'];
         unset($data['id']);
         $rules = [
+            'id_tipa' => [
+                'required' => true,
+            ],
             'broj' => [
                 'required' => true,
                 'maxlen' => 100,
@@ -153,14 +150,29 @@ class NalogController extends Controller
         $conditions = [];
         $params = [];
 
-        if (!empty($data['id_iz_mag'])) {
-            $conditions[] = 'id_iz_mag = :id_iz_mag';
-            $params[':id_iz_mag'] = $data['id_iz_mag'];
+        if (!empty($data['magacin_iz'])) {
+            $conditions[] = 'magacin_iz regexp :magacin_iz';
+            $params[':magacin_iz'] = '[[:<:]]' . $data['magacin_iz'] . '[[:>:]]';
         }
 
-        if (!empty($data['id_u_mag'])) {
-            $conditions[] = 'id_u_mag = :id_u_mag';
-            $params[':id_u_mag'] = $data['id_u_mag'];
+        if (!empty($data['magacin_u'])) {
+            $conditions[] = 'magacin_u regexp :magacin_u';
+            $params[':magacin_u'] = '[[:<:]]' . $data['magacin_u'] . '[[:>:]]';
+        }
+
+        if (!empty($data['artikli_iz'])) {
+            $conditions[] = 'artikli_iz regexp :artikli_iz';
+            $params[':artikli_iz'] = '[[:<:]]' . $data['artikli_iz'] . '[[:>:]]';
+        }
+
+        if (!empty($data['artikli_u'])) {
+            $conditions[] = 'artikli_u regexp :artikli_u';
+            $params[':artikli_u'] = '[[:<:]]' . $data['artikli_u'] . '[[:>:]]';
+        }
+
+        if (!empty($data['id_tipa'])) {
+            $conditions[] = 'id_tipa = :id_tipa';
+            $params[':id_tipa'] = $data['id_tipa'];
         }
 
         if (!empty($data['broj'])) {
@@ -191,29 +203,24 @@ class NalogController extends Controller
 
         $pri = new Nalog();
         $magacini = (new Magacin())->all();
-
+        $tipovi = (new TipNaloga())->all();
+        $artikli = (new Artikal())->all();
         // Logovi
         $sql = "SELECT * FROM nalozi {$where} ORDER BY datum DESC;";
         $nalozi = $pri->paginate($path, $page, $sql, $params);
-        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini', 'data'));
+        return $this->render($response, 'nalozi/lista.twig', compact('nalozi', 'magacini', 'tipovi', 'artikli', 'data'));
     }
 
     public function getNalogPregled(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id = $request->getAttribute('id');
         $nalog = (new Nalog())->find($id);
-        $artikli = (new Stanje())->stanjeMagacin($nalog->id_iz_mag);
-        $artiklisvi = (new Artikal())->all();
+        $artikli = (new Artikal())->all();
         $magacini = (new Magacin())->all();
-        if ($nalog->tip()->vise_artikala == 0) {
-            return $this->render($response, 'nalozi/pregled_jedan.twig', compact('nalog', 'artikli', 'artiklisvi'));
-        }else{
-            return $this->render($response, 'nalozi/pregled_vise.twig', compact('nalog', 'artikli', 'artiklisvi', 'magacini'));
-        };
-        
+        return $this->render($response, 'nalozi/pregled.twig', compact('nalog', 'artikli', 'magacini'));  
     }
 
-        public function getNalogPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function getNalogPregledNo(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id = $request->getAttribute('id');
         $nalog = (new Nalog())->find($id);
@@ -222,14 +229,14 @@ class NalogController extends Controller
 
     public function getNalogMagacinIz(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $id_iz_mag = (int) $request->getAttribute('id');
+        $magacin_iz = (int) $request->getAttribute('id');
         $nalozi = [];
         $mag = new Magacin();
         $magacin = null;
-        if ($id_iz_mag !== 0) {
-            $sql = "SELECT * FROM nalozi WHERE id_iz_mag = :id_iz_mag ORDER BY datum DESC;";
-            $nalozi = (new Nalog())->fetch($sql, [':id_iz_mag' => $id_iz_mag]);
-            $magacin = $mag->find($id_iz_mag);
+        if ($magacin_iz !== 0) {
+            $sql = "SELECT * FROM nalozi WHERE magacin_iz regexp :magacin_iz ORDER BY datum DESC;";
+            $nalozi = (new Nalog())->fetch($sql, [':magacin_iz' => '[[:<:]]'.$magacin_iz.'[[:>:]]']);
+            $magacin = $mag->find($magacin_iz);
         }
         $magaciniiz = $mag->all();
         return $this->render($response, 'nalozi/lista_1.twig', compact('nalozi', 'magaciniiz', 'magacin'));
@@ -237,14 +244,14 @@ class NalogController extends Controller
 
     public function getNalogMagacinU(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $id_u_mag = (int) $request->getAttribute('id');
+        $magacin_u = (int) $request->getAttribute('id');
         $nalozi = [];
         $mag = new Magacin();
         $magacin = null;
-        if ($id_u_mag !== 0) {
-            $sql = "SELECT * FROM nalozi WHERE id_u_mag = :id_u_mag ORDER BY datum DESC;";
-            $nalozi = (new Nalog())->fetch($sql, [':id_u_mag' => $id_u_mag]);
-            $magacin = $mag->find($id_u_mag);
+        if ($magacin_u !== 0) {
+            $sql = "SELECT * FROM nalozi WHERE magacin_u regexp :magacin_u ORDER BY datum DESC;";
+            $nalozi = (new Nalog())->fetch($sql, [':magacin_u' => '[[:<:]]'.$magacin_u.'[[:>:]]']);
+            $magacin = $mag->find($magacin_u);
         }
         $magaciniu = $mag->all();
         return $this->render($response, 'nalozi/lista_1.twig', compact('nalozi', 'magaciniu', 'magacin'));

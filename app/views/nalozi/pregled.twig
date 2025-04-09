@@ -2,12 +2,12 @@
 {% block full %}
 <div class="row align-items-end">
     <div class="col-8">
-        <h1>Налог <span class="text-success fs-4">[{{ nalog.tip().naziv }} - {{ (nalog.tip().vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]</span></h1>
+        <h1>Налог <span class="text-success fs-4">[{{ nalog.tip().naziv }}]</span></h1>
         <div class="h5">
             <em>Број:</em> <span class="text-success">{{ nalog.broj }}</span>
             <em>од</em> <span class="text-success">{{ nalog.datum|date('d.m.Y') }}</span>
-            <em>| Магацин из:</em> <span class="text-success">{{ nalog.magaciniz().naziv }}</span>
-            <em>| Магацин у:</em> <span class="text-success">{{ nalog.magacinu().naziv }}</span>
+            <em>| Магацин из:</em> <span class="text-success">{% for magiz in nalog.magaciniiz() %}{{ magiz.naziv }}{% if loop.last == false  %},{% else %} {% endif %} {% endfor %}</span>
+            <em>| Магацин у:</em> <span class="text-success">{% for magu in nalog.magaciniu() %}{{ magu.naziv }}{% if loop.last == false  %},{% else %} {% endif %} {% endfor %}</span>
         </div>
     </div>
     <div class="col-4 text-end">
@@ -25,10 +25,10 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-20">Артикал из</th>
-            <th class="w-20">Артикал у</th>
-            <th class="w-10 text-end">Количина из</th>
-            <th class="w-10 text-end">Количина у</th>
+            <th class="w-20">Магацин</th>
+            <th class="w-20">Артикал</th>
+            <th class="w-10 text-end">Количина</th>
+            <th class="w-15 text-end">Смер</th>
             <th class="w-20">Опис</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
@@ -37,10 +37,10 @@
         {% for stavka in nalog.stavke() %}
         <tr>
             <td class="text-danger">{{ stavka.id }}</td>
-            <td>{{ stavka.artikaliz().naziv }} [{{ stavka.artikaliz().kategorija().naziv }}]</td>
-            <td>{{ stavka.artikalu().naziv }} [{{ stavka.artikalu().kategorija().naziv }}]</td>
-            <td class="text-end">{{ stavka.kolicina_iz|number_format(2) }}</td>
-            <td class="text-end">{{ stavka.kolicina_u|number_format(2) }}</td>
+            <td>{{ stavka.magacin().naziv }}</td>
+            <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
+            <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
+            <td class="text-end">{{ stavka.smer }}</td>
             <td>{{ stavka.opis }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
@@ -70,8 +70,6 @@
                 <form id="brisanje-forma" action="{{ url_for('nalog.stavke.brisanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
-                    <input type="hidden" name="idMagacinau" value="{{ nalog.magacinu().id }}">
-                    <input type="hidden" name="idMagacinaiz" value="{{ nalog.magaciniz().id }}">
             </div>
             <div class="modal-footer">
                 <div class="form-group">
@@ -97,53 +95,54 @@
         <form action="{{ url_for('nalog.stavke.dodavanje') }}" method="POST">
             {{ csrf|raw }}
             <input type="hidden" name="id_naloga" value="{{ nalog.id }}">
-            <input type="hidden" name="id_iz_mag" value="{{ nalog.magaciniz().id }}">
-            <input type="hidden" name="id_u_mag" value="{{ nalog.magacinu().id }}">
             <div class="mt-3">
-                <label for="id_artikla_iz" class="form-label">Артикал из магацина из кога преузимамо</label>
-                <select name="id_artikla_iz" id="id_artikla_iz"
-                    class="form-select{{ errors.id_artikla_iz ? ' is-invalid' : '' }}" required autocomplete="off"
+                <label for="smer" class="form-label">СМЕР</label>
+                <select name="smer" id="smer"
+                    class="form-select{{ errors.smer ? ' is-invalid' : '' }}" required autocomplete="off"
                     autofocus>
-                    {% for stanje in artikli %}
-                    <option value="{{ stanje.id_artikla }}" {{ old.id_artikla==stanje.id_artikla ? ' selected' : '' }}
-                        data-kolicina="{{ stanje.kolicina }}">
-                        {{ stanje.artikal().naziv }} {{ stanje.artikal().jm.jm}} [{{ stanje.artikal().kategorija().naziv }}]
-                        доступно {{ stanje.kolicina }}
+                    <option value="1" {{ old.smer==1 ? ' selected' : '' }}>
+                        УЛАЗ
+                    </option>                    
+                    <option value="2" {{ old.smer==2 ? ' selected' : '' }}>
+                        ИЗЛАЗ
+                    </option>
+                </select>
+                <div class="invalid-feedback">{{ errors.smer.0 }}</div>
+            </div>
+            <div class="mt-3">
+                <label for="id_magacina" class="form-label">Магацина</label>
+                <select name="id_magacina" id="id_magacina"
+                    class="form-select{{ errors.id_magacina ? ' is-invalid' : '' }}" required autocomplete="off"
+                    autofocus>
+                    {% for maga in magacini %}
+                    <option value="{{ maga.id }}" {{ old.id==maga.id ? ' selected' : '' }}>
+                        {{ maga.naziv }}
                     </option>
                     {% endfor %}
                 </select>
-                <div class="invalid-feedback">{{ errors.id_artikla_iz.0 }}</div>
+                <div class="invalid-feedback">{{ errors.id_magacina.0 }}</div>
             </div>
             <div class="mt-3">
-                <label for="kolicina_iz">Количина ИЗ</label>
-                <input type="number" class="form-control{{ errors.kolicina_iz ? ' is-invalid' : '' }}" name="kolicina_iz"
-                    id="kolicina_iz" value="{{ old.kolicina_iz ? : '0.00' }}" min="0" step="0.01"
-                    max="{{ artikli.0.kolicina }}" inputmode="decimal"
+                <label for="id_artikla" class="form-label">Артикал</label>
+                <select name="id_artikla" id="id_artikla"
+                    class="form-select{{ errors.id_artikla ? ' is-invalid' : '' }}" required autocomplete="off"
+                    autofocus>
+                    {% for art in artikli %}
+                    <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }}>
+                        {{ art.naziv }} {{ art.jm.jm}} [{{ art.kategorija().naziv }}]
+                    </option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback">{{ errors.id_artikla.0 }}</div>
+            </div>
+            <div class="mt-3">
+                <label for="kolicina">Количина</label>
+                <input type="number" class="form-control{{ errors.kolicina ? ' is-invalid' : '' }}" name="kolicina"
+                    id="kolicina" value="{{ old.kolicina ? : '0.00' }}" min="0" step="0.01"
+                    inputmode="decimal"
                     oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0 и мања од доступне у магацину.')"
                     oninput="this.setCustomValidity('')" autocomplete="off" required>
-                <div class="invalid-feedback">{{ errors.kolicina_iz.0 }}</div>
-            </div>
-            <div class="mt-3">
-                <label for="id_artikla_u" class="form-label">Артикал који складиштимо</label>
-                <select name="id_artikla_u" id="id_artikla_u"
-                    class="form-select{{ errors.id_artikla_u ? ' is-invalid' : '' }}" required autocomplete="off"
-                    autofocus>
-                    {% for art in artiklisvi %}
-                    <option value="{{ art.id }}" {{ old.id==art.id ? ' selected' : '' }}>
-                        {{ art.naziv }} [{{ art.kategorija().naziv }}]
-                    </option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback">{{ errors.id_artikla_u.0 }}</div>
-            </div>
-            <div class="mt-3">
-                <label for="kolicina_u">Количина У</label>
-                <input type="number" class="form-control{{ errors.kolicina_u ? ' is-invalid' : '' }}" name="kolicina_u"
-                    id="kolicina_u" value="{{ old.kolicina_u ? : '0.00' }}" min="0" step="0.01"
-                    inputmode="decimal"
-                    oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0.')"
-                    oninput="this.setCustomValidity('')" autocomplete="off" required>
-                <div class="invalid-feedback">{{ errors.kolicina_u.0 }}</div>
+                <div class="invalid-feedback">{{ errors.kolicina.0 }}</div>
             </div>
             <div class="row mt-3">
                 <div class="col">
@@ -164,14 +163,3 @@
     </div>
 </div>
 {% endblock aside %}
-{% block skripta %}
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        var kol = document.getElementById('kolicina');
-        document.getElementById('id_artikla').onchange = function () {
-            var m = this.selectedOptions[0].getAttribute('data-kolicina');
-            kol.setAttribute('max', m);
-        }
-    });
-</script>
-{% endblock skripta %}

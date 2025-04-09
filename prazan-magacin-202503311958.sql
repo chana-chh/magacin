@@ -136,6 +136,33 @@ LOCK TABLES `kategorije_artikala` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipovi_naloga`
+--
+
+DROP TABLE IF EXISTS `tipovi_naloga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipovi_naloga` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(100) NOT NULL,
+  `opis` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tipovi_naloga_unique` (`naziv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipovi_naloga`
+--
+
+LOCK TABLES `tipovi_naloga` WRITE;
+/*!40000 ALTER TABLE `tipovi_naloga` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipovi_naloga` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `korisnici`
 --
 
@@ -265,21 +292,20 @@ DROP TABLE IF EXISTS `nalog_artikal`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalog_artikal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_naloga` int(10) unsigned NOT NULL,
-  `id_artikla_iz` int(10) unsigned NOT NULL,
-  `id_artikla_u` int(10) unsigned NOT NULL,
-  `kolicina_iz` decimal(16,2) NOT NULL DEFAULT 0.00,
-  `kolicina_u` decimal(16,2) NOT NULL DEFAULT 0.00,
+  `id_artikla` INT(10) UNSIGNED NOT NULL,
+  `id_magacina` INT(10) UNSIGNED NOT NULL,
+  `smer` ENUM('УЛАЗ','ИЗЛАЗ') NOT NULL,
+  `kolicina` DECIMAL(16,2) NOT NULL DEFAULT 0.00,
   `opis` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `nalog_artial_nalozi_FK` (`id_naloga`),
-  KEY `nalog_artial_artikli_iz_FK` (`id_artikla_iz`),
-  KEY `nalog_artial_artikli_u_FK` (`id_artikla_u`),
-  CONSTRAINT `nalog_artial_artikli_iz_FK` FOREIGN KEY (`id_artikla_iz`) REFERENCES `artikli` (`id`),
-  CONSTRAINT `nalog_artial_artikli_u_FK` FOREIGN KEY (`id_artikla_u`) REFERENCES `artikli` (`id`),
-  CONSTRAINT `nalog_artial_nalozi_FK` FOREIGN KEY (`id_naloga`) REFERENCES `nalozi` (`id`)
+  KEY `nalog_artikal_nalozi_FK` (`id_naloga`),
+  KEY `nalog_artikal_artikli_FK` (`id_artikla`),
+  KEY `nalog_artikal_magacini_FK` (`id_magacina`),
+  CONSTRAINT `FK_nalog_artikal_artikli` FOREIGN KEY (`id_artikla`) REFERENCES `artikli` (`id`),
+  CONSTRAINT `FK_nalog_artikal_magacini` FOREIGN KEY (`id_magacina`) REFERENCES `magacini` (`id`),
+  CONSTRAINT `FK_nalog_artikal_nalozi` FOREIGN KEY (`id_naloga`) REFERENCES `nalozi` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -301,18 +327,19 @@ DROP TABLE IF EXISTS `nalozi`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nalozi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_tipa` INT(10) UNSIGNED NOT NULL,
   `datum` date NOT NULL,
   `broj` varchar(100) NOT NULL,
-  `id_iz_mag` int(10) unsigned NOT NULL,
-  `id_u_mag` int(10) unsigned NOT NULL,
+  `magacin_iz` VARCHAR(50) NULL DEFAULT NULL,
+  `magacin_u` VARCHAR(50) NULL DEFAULT NULL,
+  `artikli_iz` VARCHAR(50) NULL DEFAULT NULL,
+  `artikli_u` VARCHAR(50) NULL DEFAULT NULL,
   `napomena` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `prijemnice_dobavljaci_FK` (`id_iz_mag`) USING BTREE,
-  KEY `nalozi_magacini_FK_1` (`id_u_mag`),
-  CONSTRAINT `nalozi_magacini_FK` FOREIGN KEY (`id_iz_mag`) REFERENCES `magacini` (`id`),
-  CONSTRAINT `nalozi_magacini_FK_1` FOREIGN KEY (`id_u_mag`) REFERENCES `magacini` (`id`)
+  KEY `nalozi_tipovi_naloga_FK` (`id_tipa`),
+  CONSTRAINT `FK_nalozi_tipovi_naloga` FOREIGN KEY (`id_tipa`) REFERENCES `tipovi_naloga` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

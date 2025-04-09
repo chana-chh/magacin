@@ -32,8 +32,8 @@
         {{ csrf|raw }}
 <div class="row mt-3">
         <div class="col-md-2">
-            <label for="id_iz_mag" class="form-label">Магацин из кога преузимамо</label>
-            <select name="id_iz_mag" id="id_iz_mag" class="form-select">
+            <label for="magacin_iz" class="form-label">Магацин из кога преузимамо</label>
+            <select name="magacin_iz" id="magacin_iz" class="form-select">
                 <option value="" selected>...</option>
                 {% for mag in magacini %}
                 <option value="{{ mag.id }}">{{ mag.naziv }}</option>
@@ -42,8 +42,8 @@
         </div>
 
         <div class="col-md-2">
-            <label for="id_u_mag" class="form-label">Магацин у који складиштимо</label>
-            <select name="id_u_mag" id="id_u_mag" class="form-select">
+            <label for="magacin_u" class="form-label">Магацин у који складиштимо</label>
+            <select name="magacin_u" id="magacin_u" class="form-select">
                 <option value="" selected>...</option>
                 {% for mag in magacini %}
                 <option value="{{ mag.id }}">{{ mag.naziv }}</option>
@@ -53,9 +53,10 @@
                 <div class="col-md-2">
                     <label for="id_tipa" class="form-label">Типови налога</label>
                     <select name="id_tipa" id="id_tipa" class="form-select">
+                        <option value="" selected>...</option>
                         {% for tip in tipovi %}
                         <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>
-                            {{ tip.naziv }} [{{ (tip.vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]
+                            {{ tip.naziv }}
                         </option>
                         {% endfor %}
                     </select>
@@ -75,6 +76,27 @@
         </div>
 </div>
 <div class="row mt-3">
+        <div class="col-md-2">
+            <label for="artikli_iz" class="form-label">Артикал који преузимамо</label>
+            <select name="artikli_iz" id="artikli_iz" class="form-select">
+                <option value="" selected>...</option>
+                {% for art in artikli %}
+                <option value="{{ art.id }}">{{ art.naziv }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="artikli_u" class="form-label">Артикал који складиштимо</label>
+            <select name="artikli_u" id="artikli_u" class="form-select">
+                <option value="" selected>...</option>
+                {% for art in artikli %}
+                <option value="{{ art.id }}">{{ art.naziv }}</option>
+                {% endfor %}
+            </select>
+        </div>
+</div>
+<div class="row mt-3">
         <div class="col-md-12 text-end">
             <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
         </div>
@@ -87,11 +109,13 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-5">Датум</th>
-            <th class="w-20">Тип</th>
-            <th class="w-15">Број</th>
-            <th class="w-15">Магацин (ИЗ)</th>
-            <th class="w-15">Магацин (У)</th>
+            <th class="w-10">Број</th>
+            <th class="w-10">Датум</th>
+            <th class="w-10">Тип</th>
+            <th class="w-10">Магацин (ИЗ)</th>
+            <th class="w-10">Магацин (У)</th>
+            <th class="w-10">Артикал (ИЗ)</th>
+            <th class="w-10">Артикал (У)</th>
             <th class="w-15">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
@@ -100,11 +124,21 @@
         {% for nalo in data %}
         <tr>
             <td class="text-danger">{{ nalo.id }}</td>
+            {% if (nalo.magacin_iz is not empty and nalo.magacin_u is empty) or (nalo.magacin_u is not empty and nalo.magacin_iz is empty) %}
+                <td class="text-danger fw-bold">{{ nalo.broj }}</td>
+            {% else %}
+                <td>{{ nalo.broj }}</td>
+            {% endif %}
             <td>{{ nalo.datum|date('d.m.Y') }}</td>
-            <td>{{ nalo.tip().naziv }} [{{ (nalo.tip().vise_artikala == 1) ? 'Више артикала' : 'Један артикал' }}]</td>
-            <td>{{ nalo.broj }}</td>
-            <td>{{ nalo.magaciniz().naziv }}</td>
-            <td>{{ nalo.magacinu().naziv }}</td>
+            <td>{{ nalo.tip().naziv }}</td>
+            <td>{% for magiz in nalo.magaciniiz() %}<small>
+                    {{ magiz.naziv }} </small><br/>{% endfor %}</td>
+            <td>{% for magu in nalo.magaciniu() %}<small>
+                    {{ magu.naziv }}</small><br/>{% endfor %}</td>
+            <td>{% for artiz in nalo.artikaliz() %}<small>
+                    {{ artiz.naziv }}</small><br/>{% endfor %}</td>
+            <td>{% for artu in nalo.artikalu() %}<small>
+                    {{ artu.naziv }}</small><br/>{% endfor %}</td>
             <td>{{ nalo.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">

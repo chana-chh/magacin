@@ -70,7 +70,7 @@ class StanjeController extends Controller
     {
         $id_magacina = (int) $request->getAttribute('id');
         $sta = new Stanje();
-        $stanje = [];
+        $stanja = [];
         $mag = new Magacin();
         $magacin = null;
         if ($id_magacina !== 0) {

@@ -6,8 +6,8 @@
         <div class="h5">
             <em>Број:</em> <span class="text-success">{{ nalog.broj }}</span>
             <em>од</em> <span class="text-success">{{ nalog.datum|date('d.m.Y') }}</span>
-            <em>| Магацин из:</em> <span class="text-success">{{ nalog.magaciniz().naziv }}</span>
-            <em>| Магацин у:</em> <span class="text-success">{{ nalog.magacinu().naziv }}</span>
+            <em>| Магацин из:</em> <span class="text-success">{% for magiz in nalog.magaciniiz() %}{{ magiz.naziv }}{% if loop.last == false  %},{% else %} {% endif %} {% endfor %}</span>
+            <em>| Магацин у:</em> <span class="text-success">{% for magu in nalog.magaciniu() %}{{ magu.naziv }}{% if loop.last == false  %},{% else %} {% endif %} {% endfor %}</span>
         </div>
     </div>
     <div class="col-4 text-end">
@@ -25,11 +25,11 @@
 <table class="table table-hover">
     <thead class="table-dark">
         <tr>
-            <th class="w-5">#</th>
-            <th class="w-20">Артикал из</th>
-            <th class="w-20">Артикал у</th>
-            <th class="w-10 text-end">Количина из</th>
-            <th class="w-10 text-end">Количина у</th>
+            <th class="w-15">#</th>
+            <th class="w-20">Магацин</th>
+            <th class="w-20">Артикал</th>
+            <th class="w-10 text-end">Количина</th>
+            <th class="w-15">Смер</th>
             <th class="w-20">Опис</th>
         </tr>
     </thead>
@@ -37,10 +37,10 @@
         {% for stavka in nalog.stavke() %}
         <tr>
             <td class="text-danger">{{ stavka.id }}</td>
-            <td>{{ stavka.artikaliz().naziv }} [{{ stavka.artikaliz().kategorija().naziv }}]</td>
-            <td>{{ stavka.artikalu().naziv }} [{{ stavka.artikalu().kategorija().naziv }}]</td>
-            <td class="text-end">{{ stavka.kolicina_iz|number_format(2) }}</td>
-            <td class="text-end">{{ stavka.kolicina_u|number_format(2) }}</td>
+            <td>{{ stavka.magacin().naziv }}</td>
+            <td>{{ stavka.artikal().naziv }} [{{ stavka.artikal().kategorija().naziv }}]</td>
+            <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
+            <td>{{ stavka.smer }}</td>
             <td>{{ stavka.opis }}</td>
         </tr>
         {% endfor %}
