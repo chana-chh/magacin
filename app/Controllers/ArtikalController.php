@@ -2,12 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\Otpis;
 use App\Models\Artikal;
 use App\Classes\Controller;
 use App\Models\JedinicaMere;
+use App\Models\NalogArtikal;
 use App\Models\KategorijaArtikla;
+use App\Models\OtpremnicaArtikal;
+use App\Models\PrijemnicaArtikal;
+use App\Models\Stavka;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use DateTime;
 
 class ArtikalController extends Controller
 {
@@ -180,5 +186,121 @@ class ArtikalController extends Controller
         $data = $this->data($request);
         $_SESSION['MAGACIN_ARTIKAL_PRETRAGA'] = $data;
         return $this->redirect($request, $response, 'artikal.pretraga.get');
+    }
+
+    public function getArtikalKartica(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        $id = (int) $request->getAttribute('id');
+        $art = new Artikal();
+        $artikal = $art->find($id);
+        $artikli = $art->all();
+
+        $stavke = [];
+        $kolicina = 0;
+
+        // prijemnice stavke
+        $prijemnice_stavke = (new PrijemnicaArtikal())->artikliPrijemnice($id);
+
+        // otpisi stavke
+        $otpisi_stavke = (new Otpis())->artikliOtpis($id);
+
+        // otpremnice stavke
+        $otpremnice_stavke = (new OtpremnicaArtikal())->artikliOtpremnice($id);
+
+        // nalozi stavke
+        $nalozi_stavke = (new NalogArtikal())->artikliNalozi($id);
+
+        foreach ($prijemnice_stavke as $stavka) {
+            $st = new Stavka();
+            $st->vrsta = 'пријемница';
+            $st->datum = new DateTime($stavka->prijemnica()->datum);
+            $st->izlaz_tabela = $stavka->prijemnica()->dobavljac()->getTable();
+            $st->izlaz_id = $stavka->prijemnica()->dobavljac()->id;
+            $st->ulaz_tabela = $stavka->prijemnica()->magacin()->getTable();
+            $st->ulaz_id = $stavka->prijemnica()->magacin()->id;
+            $st->kolicina = $stavka->kolicina;
+            $st->ui = 1;
+            $st->iznos = $stavka->iznos;
+            $st->placeno = $stavka->placeno;
+            $st->stanje = 0;
+            $stavke[] = $st;
+            $kolicina += $stavka->kolicina;
+        }
+
+        foreach ($otpisi_stavke as $stavka) {
+            $st = new Stavka();
+            $st->vrsta = 'отпис';
+            $st->datum = new DateTime($stavka->datum);
+            $st->izlaz_tabela = $stavka->getTable();
+            $st->izlaz_id = $stavka->id;
+            $st->ulaz_tabela = '';
+            $st->ulaz_id = 0;
+            $st->kolicina = $stavka->kolicina;
+            $st->ui = 0;
+            $st->iznos = 0;
+            $st->placeno = 0;
+            $st->stanje = 0;
+            $stavke[] = $st;
+            $kolicina -= $stavka->kolicina;
+        }
+
+        foreach ($otpremnice_stavke as $stavka) {
+            $st = new Stavka();
+            $st->vrsta = 'отпремница';
+            $st->datum = new DateTime($stavka->otpremnica()->datum);
+            $st->izlaz_tabela = $stavka->otpremnica()->magacin()->getTable();
+            $st->izlaz_id = $stavka->otpremnica()->magacin()->id;
+            $st->ulaz_tabela = $stavka->otpremnica()->kupac()->getTable();
+            $st->ulaz_id = $stavka->otpremnica()->kupac()->id;
+            $st->kolicina = $stavka->kolicina;
+            $st->ui = 0;
+            $st->iznos = $stavka->iznos;
+            $st->placeno = $stavka->placeno;
+            $st->stanje = 0;
+            $stavke[] = $st;
+            $kolicina -= $stavka->kolicina;
+        }
+
+        foreach ($nalozi_stavke as $stavka) {
+            $st = new Stavka();
+            $st->vrsta = 'интерни налог';
+            $st->datum = new DateTime($stavka->nalog()->datum);
+            if ($stavka->smer === 'УЛАЗ') {
+                $st->izlaz_tabela = '';
+                $st->izlaz_id = 0;
+                $st->ulaz_tabela = $stavka->magacin()->getTable();
+                $st->ulaz_id = $stavka->magacin()->id;
+                $st->ui = 1;
+                $kolicina += $stavka->kolicina;
+            } else {
+                $st->izlaz_tabela = $stavka->magacin()->getTable();
+                $st->izlaz_id = $stavka->magacin()->id;
+                $st->ulaz_tabela = '';
+                $st->ulaz_id = 0;
+                $st->ui = 0;
+                $kolicina -= $stavka->kolicina;
+            }
+            $st->kolicina = $stavka->kolicina;
+            $st->iznos = 0;
+            $st->placeno = 0;
+            $st->stanje = 0;
+            $stavke[] = $st;
+        }
+
+        usort($stavke, function ($a, $b) {
+            return $a->datum <=> $b->datum;
+        });
+
+        $stanje = 0;
+        foreach ($stavke as $stavka) {
+            if ($stavka->ui == 1) {
+                $stanje += $stavka->kolicina;
+            } else {
+                $stanje -= $stavka->kolicina;
+            }
+            $stavka->stanje = $stanje;
+        }
+
+        return $this->render($response, 'artikli/kartica.twig', compact('artikal', 'artikli', 'stavke', 'kolicina'));
     }
 }

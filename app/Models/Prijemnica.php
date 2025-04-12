@@ -25,6 +25,9 @@ class Prijemnica extends Model
 
     public function ukupanIzanos()
     {
+        if (count($this->stavke()) === 0){
+            return 0;
+        }
         $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice;";
         $params = [":id_prijemnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
@@ -34,6 +37,9 @@ class Prijemnica extends Model
 
     public function placeniIzanos()
     {
+        if (count($this->stavke()) === 0) {
+            return 0;
+        }
         $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 1;";
         $params = [":id_prijemnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
@@ -43,6 +49,9 @@ class Prijemnica extends Model
 
     public function dugIzanos()
     {
+        if (count($this->stavke()) === 0) {
+            return 0;
+        }
         $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 0;";
         $params = [":id_prijemnice" => $this->id];
         $iznos = $this->fetch($sql, $params);

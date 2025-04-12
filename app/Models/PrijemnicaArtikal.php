@@ -17,4 +17,10 @@ class PrijemnicaArtikal extends Model
     {
         return $this->belongsTo('App\Models\Artikal', 'id_artikla');
     }
+
+    public function artikliPrijemnice(int $id_artikla)
+    {
+        $sql = "SELECT * FROM prijemnica_artikal WHERE id_artikla = :id_artikla;";
+        return $this->fetch($sql, [':id_artikla' => $id_artikla]);
+    }
 }

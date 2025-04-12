@@ -13,13 +13,16 @@
     </div>
     <div class="col-md-6 text-end">
         <a class="btn btn-primary" type="button" href="{{ url_for('nalog.dodavanje.get') }}">
-            <i class="bi-plus-square"></i> Додај налог
+            <i class="bi-plus-square"></i>
+            Додај налог
         </a>
         <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#pretraga">
-            <i class="bi-arrow-down-square"></i> Филтер
+            <i class="bi-arrow-down-square"></i>
+            Филтер
         </button>
         <a class="btn btn-success" type="button" href="{{ url_for('nalog.lista') }}">
-            <i class="bi-view-list"></i> Сви записи
+            <i class="bi-view-list"></i>
+            Сви записи
         </a>
     </div>
 </div>
@@ -30,41 +33,41 @@
 <div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
     <form action="{{ url_for('nalog.pretraga.post') }}" method="POST">
         {{ csrf|raw }}
-<div class="row mt-3">
-        <div class="col-md-2">
-            <label for="magacin_iz" class="form-label">Магацин из кога преузимамо</label>
-            <select name="magacin_iz" id="magacin_iz" class="form-select">
-                <option value="" selected>...</option>
-                {% for mag in magacini %}
-                <option value="{{ mag.id }}">{{ mag.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label for="magacin_iz" class="form-label">Магацин из кога преузимамо</label>
+                <select name="magacin_iz" id="magacin_iz" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}">{{ mag.naziv }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <div class="col-md-2">
-            <label for="magacin_u" class="form-label">Магацин у који складиштимо</label>
-            <select name="magacin_u" id="magacin_u" class="form-select">
-                <option value="" selected>...</option>
-                {% for mag in magacini %}
-                <option value="{{ mag.id }}">{{ mag.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
-                <div class="col-md-2">
-                    <label for="id_tipa" class="form-label">Типови налога</label>
-                    <select name="id_tipa" id="id_tipa" class="form-select">
-                        <option value="" selected>...</option>
-                        {% for tip in tipovi %}
-                        <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>
-                            {{ tip.naziv }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-        <div class="col-md-2">
-            <label for="broj" class="form-label">Број</label>
-            <input type="text" name="broj" id="broj" class="form-control">
-        </div>
+            <div class="col-md-2">
+                <label for="magacin_u" class="form-label">Магацин у који складиштимо</label>
+                <select name="magacin_u" id="magacin_u" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for mag in magacini %}
+                    <option value="{{ mag.id }}">{{ mag.naziv }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="id_tipa" class="form-label">Типови налога</label>
+                <select name="id_tipa" id="id_tipa" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for tip in tipovi %}
+                    <option value="{{ tip.id }}" {{ old.id_tipa==tip.id ? ' selected' : '' }}>
+                        {{ tip.naziv }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="broj" class="form-label">Број</label>
+                <input type="text" name="broj" id="broj" class="form-control">
+            </div>
 
             <div class="col-md-2">
                 <label for="datum_1" class="form-label">Датум од</label>
@@ -76,32 +79,33 @@
             </div>
         </div>
         <div class="row mt-3">
-        <div class="col-md-2">
-            <label for="artikli_iz" class="form-label">Артикал који преузимамо</label>
-            <select name="artikli_iz" id="artikli_iz" class="form-select">
-                <option value="" selected>...</option>
-                {% for art in artikli %}
-                <option value="{{ art.id }}">{{ art.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
+            <div class="col-md-2">
+                <label for="artikli_iz" class="form-label">Артикал који преузимамо</label>
+                <select name="artikli_iz" id="artikli_iz" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for art in artikli %}
+                    <option value="{{ art.id }}">{{ art.naziv }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <div class="col-md-2">
-            <label for="artikli_u" class="form-label">Артикал који складиштимо</label>
-            <select name="artikli_u" id="artikli_u" class="form-select">
-                <option value="" selected>...</option>
-                {% for art in artikli %}
-                <option value="{{ art.id }}">{{ art.naziv }}</option>
-                {% endfor %}
-            </select>
-        </div>
-</div>
-        <div class="row mt-3">
-            <div class="col-md-12 text-end">
-                <button type="submit" class="btn btn-primary"><i class="bi-search"></i> Пронађи</button>
+            <div class="col-md-2">
+                <label for="artikli_u" class="form-label">Артикал који складиштимо</label>
+                <select name="artikli_u" id="artikli_u" class="form-select">
+                    <option value="" selected>...</option>
+                    {% for art in artikli %}
+                    <option value="{{ art.id }}">{{ art.naziv }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
-</div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi-search"></i>
+                    Пронађи</button>
+            </div>
+        </div>
     </form>
 </div>
 
@@ -118,39 +122,60 @@
             <th class="w-10">Артикал (ИЗ)</th>
             <th class="w-10">Артикал (У)</th>
             <th class="w-15">Напомена</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10 text-end">
+                <i class="bi-gear"></i>
+                Акције
+            </th>
         </tr>
     </thead>
     <tbody>
         {% for nalo in data %}
         <tr>
             <td class="text-danger">{{ nalo.id }}</td>
-            {% if (nalo.magacin_iz is not empty and nalo.magacin_u is empty) or (nalo.magacin_u is not empty and nalo.magacin_iz is empty) %}
-                <td class="text-danger fw-bold">{{ nalo.broj }}</td>
+            {% if (nalo.magacin_iz is not empty and nalo.magacin_u is empty) or (nalo.magacin_u is not empty and
+            nalo.magacin_iz is empty) %}
+            <td class="text-danger fw-bold">{{ nalo.broj }}</td>
             {% else %}
-                <td>{{ nalo.broj }}</td>
+            <td>{{ nalo.broj }}</td>
             {% endif %}
             <td>{{ nalo.datum|date('d.m.Y') }}</td>
             <td>{{ nalo.tip().naziv }}</td>
-            <td>{% for magiz in nalo.magaciniiz() %}<small>
-                    {{ magiz.naziv }} </small><br/>{% endfor %}</td>
-            <td>{% for magu in nalo.magaciniu() %}<small>
-                    {{ magu.naziv }}</small><br/>{% endfor %}</td>
-            <td>{% for artiz in nalo.artikaliz() %}<small>
-                    {{ artiz.naziv }}</small><br/>{% endfor %}</td>
-            <td>{% for artu in nalo.artikalu() %}<small>
-                    {{ artu.naziv }}</small><br/>{% endfor %}</td>
+            <td>
+                {% for magiz in nalo.magaciniiz() %}
+                <small>{{ magiz.naziv }}</small><br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for magu in nalo.magaciniu() %}
+                <small>{{ magu.naziv }}</small><br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for artiz in nalo.artikaliz() %}
+                <small>{{ artiz.naziv }} [{{ artiz.kategorija().naziv }}]</small><br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for artu in nalo.artikalu() %}
+                <small>{{ artu.naziv }}[{{ artu.kategorija().naziv }}]</small><br>
+                {% endfor %}
+            </td>
             <td>{{ nalo.napomena|nl2br }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-success" href="{{ url_for('nalog.pregled', { id: nalo.id }) }}"
-                        title="Преглед налога"><i class="bi-eye"></i></a>
+                        title="Преглед налога">
+                        <i class="bi-eye"></i>
+                    </a>
                     <a class="btn btn-warning" href="{{ url_for('nalog.izmena.get', { id: nalo.id }) }}"
-                        title="Измена налога"><i class="bi-pencil"></i></a>
+                        title="Измена налога">
+                        <i class="bi-pencil"></i>
+                    </a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
                         data-bs-target="#brisanjeModal" value="{{ nalo.id }}" title="Брисање налога"
                         onclick="document.getElementById('idBrisanje').value = this.value">
-                        <i class="bi-trash"></i></button>
+                        <i class="bi-trash"></i>
+                    </button>
                 </div>
             </td>
         </tr>

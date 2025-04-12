@@ -96,13 +96,4 @@ class StanjeController extends Controller
         $artikli = $art->all();
         return $this->render($response, 'stanje/lista_artikal.twig', compact('stanja', 'artikli', 'artikal', 'ukupno_artikal'));
     }
-
-    public function getKarticaArtikla(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
-    {
-        $id_artikla = (int) $request->getAttribute('id');
-        $art = new Artikal();
-        $artikal = $art->find($id_artikla);
-        
-        return $this->render($response, 'stanje/kartica_artikla.twig', compact('artikal'));
-    }
 }

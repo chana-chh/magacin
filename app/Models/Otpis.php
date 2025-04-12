@@ -30,4 +30,10 @@ class Otpis extends Model
         $kolicina = $this->fetch($sql, [':id_artikla' => $id_artikla]);
         return $kolicina[0]->kolicina ?? 0;
     }
+
+    public function artikliOtpis(int $id_artikla)
+    {
+        $sql = "SELECT * FROM otpisi WHERE id_artikla = :id_artikla;";
+        return $this->fetch($sql, [':id_artikla' => $id_artikla]);
+    }
 }

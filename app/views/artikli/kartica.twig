@@ -1,0 +1,107 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<div class="row mt-3 align-items-end">
+    <div class="col-md-8">
+        <h1>Картица артикла</h1>
+        <div class="h5">
+            <em>Артикал:</em> <span class="text-success">{{ artikal.naziv }}</span>
+            <em>| Јединица мере:</em> <span class="text-success">{{ artikal.jm().jm }} / {{ artikal.jm().naziv
+                }}</span></em>
+            <em>| Категорија:</em> <span class="text-success">{{ artikal.kategorija().naziv }}</span>
+        </div>
+    </div>
+
+    <div class="col-md-4 text-end">
+        <select name="id_artikla" id="id_artikla" class="form-select text-primary">
+            <option value="0">...</option>
+            {% for art in artikli %}
+            <option value="{{ art.id }}" {{ art.id==artikal.id ? ' selected' : '' }}>
+                {{ art.naziv }} {{ art.jm().jm }} [{{ art.kategorija().naziv }}]
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<hr>
+
+<table class="table table-sm table-hover">
+<thead>
+    <tr class="table-dark">
+        <th class="w-10">Врста</th>
+        <th class="w-10">Датум</th>
+        <th class="w-10">Излаз</th>
+        <th class="w-10">Улаз</th>
+        <th class="w-10 text-end">Количина</th>
+        <th class="w-10 text-end">Стање</th>
+        <th class="w-10 text-end">Износ</th>
+        <th class="w-10 text-center">Плаћено</th>
+        <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+    </tr>
+</thead>
+<tbody>
+    {% for st in stavke %}
+    <tr>
+        <td>
+            {{ st.vrsta }}
+        </td>
+        <td>
+            {{ st.datum|date('d.m.Y') }}
+        </td>
+        <td>
+            {{ st.izlaz_tabela }} : {{ st.izlaz_id }}
+        </td>
+        <td>
+            {{ st.ulaz_tabela }} : {{ st.ulaz_id }}
+        </td>
+        <td class="text-end{{ st.ui == 1 ? ' text-success' : ' text-danger' }}">
+            {{ st.ui == 1 ? '+' : '-' }} {{ st.kolicina|number_format(2) }} {{ artikal.jm().jm }}
+        </td>
+        <td class="text-end">
+            {{ st.stanje|number_format(2) }} {{ artikal.jm().jm }}
+        </td>
+        <td class="text-end">
+            {{ st.iznos|number_format(2) }}
+        </td>
+        <td class="text-center">
+            {% if st.placeno %}
+            <i class="bi-check-circle text-success"></i>
+            {% else %}
+            <i class="bi-x-circle text-danger"></i>
+            {% endif %}
+        </td>
+        <td class="text-end">
+            <div class="btn-group btn-group-sm">
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+<tfoot>
+<tr class="table-info">
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th class="text-end">
+        <em>Стање:</em>
+    </th>
+    <th class="text-end">
+        {{ kolicina|number_format(2) }} {{ artikal.jm().jm }}
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+</tr>
+</tfoot>
+</table>
+{% endblock full %}
+
+{% block skripta %}
+<script>
+    document.getElementById('id_artikla').onchange = function () {
+        let url = "{{ url_for('artikal.kartica', { id: 0 }) }}";
+        url = url.replace("0", this.value);
+        window.location.href = url;
+    }
+</script>
+{% endblock skripta %}

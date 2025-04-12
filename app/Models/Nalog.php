@@ -22,10 +22,10 @@ class Nalog extends Model
     public function magaciniiz()
     {
         $magacin = new Magacin();
-        if(!$this->magacin_iz){
+        if (!$this->magacin_iz) {
             return null;
         }
-        $niz = explode( ',', $this->magacin_iz);
+        $niz = explode(',', $this->magacin_iz);
         $jed = array_unique($niz);
         $str = implode(',', $jed);
         $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
@@ -36,10 +36,10 @@ class Nalog extends Model
     public function magaciniu()
     {
         $magacin = new Magacin();
-        if(!$this->magacin_u){
+        if (!$this->magacin_u) {
             return null;
         }
-        $niz = explode( ',', $this->magacin_u);
+        $niz = explode(',', $this->magacin_u);
         $jed = array_unique($niz);
         $str = implode(',', $jed);
         $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
@@ -50,28 +50,28 @@ class Nalog extends Model
     public function artikaliz()
     {
         $artikal = new Artikal();
-        if(!$this->artikli_iz){
+        if (!$this->artikli_iz) {
             return null;
         }
-        $niz = explode( ',', $this->artikli_iz);
+        $niz = explode(',', $this->artikli_iz);
         $jed = array_unique($niz);
         $str = implode(',', $jed);
-        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
-        $magacini = $artikal->fetch($sql);
-        return $magacini;
+        $sql = "SELECT * FROM artikli WHERE id IN ({$str});";
+        $artikli = $artikal->fetch($sql);
+        return $artikli;
     }
 
     public function artikalu()
     {
         $artikal = new Artikal();
-        if(!$this->artikli_u){
+        if (!$this->artikli_u) {
             return null;
         }
-        $niz = explode( ',', $this->artikli_u);
+        $niz = explode(',', $this->artikli_u);
         $jed = array_unique($niz);
         $str = implode(',', $jed);
-        $sql = "SELECT * FROM magacini WHERE id IN ({$str});";
-        $magacini = $artikal->fetch($sql);
-        return $magacini;
+        $sql = "SELECT * FROM artikli WHERE id IN ({$str});";
+        $artikli = $artikal->fetch($sql);
+        return $artikli;
     }
 }

@@ -184,6 +184,7 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/otpis-artikal/{id:[0-9]+}', \App\Controllers\OtpisController::class . ':getOtpisArtikal')->setName('otpis.artikal');
 
     // Kartica artikla
+    $group->get('/artikal-kartica/{id:[0-9]+}', \App\Controllers\ArtikalController::class . ':getArtikalKartica')->setName('artikal.kartica');
 
     $group->get('/odjava', App\Controllers\AuthController::class . ':getOdjava')->setName('odjava');
 })->add(new AuthMiddleware($container));

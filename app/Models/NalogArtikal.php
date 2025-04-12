@@ -23,4 +23,9 @@ class NalogArtikal extends Model
         return $this->belongsTo('App\Models\Magacin', 'id_magacina');
     }
 
+    public function artikliNalozi(int $id_artikla)
+    {
+        $sql = "SELECT * FROM nalog_artikal WHERE id_artikla = :id_artikla";
+        return $this->fetch($sql, [':id_artikla' => $id_artikla]);
+    }
 }
