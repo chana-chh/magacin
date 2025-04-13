@@ -2,18 +2,20 @@
 
 namespace App\Controllers;
 
+use DateTime;
 use App\Models\Otpis;
+use App\Models\Stavka;
 use App\Models\Artikal;
 use App\Classes\Controller;
 use App\Models\JedinicaMere;
 use App\Models\NalogArtikal;
+use Slim\Routing\RouteParser;
+use Slim\Routing\RouteContext;
 use App\Models\KategorijaArtikla;
 use App\Models\OtpremnicaArtikal;
 use App\Models\PrijemnicaArtikal;
-use App\Models\Stavka;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use DateTime;
 
 class ArtikalController extends Controller
 {
@@ -210,14 +212,16 @@ class ArtikalController extends Controller
         // nalozi stavke
         $nalozi_stavke = (new NalogArtikal())->artikliNalozi($id);
 
+        $routeParser = RouteContext::fromRequest($request)->getRouteParser();
+
         foreach ($prijemnice_stavke as $stavka) {
             $st = new Stavka();
             $st->vrsta = 'пријемница';
             $st->datum = new DateTime($stavka->prijemnica()->datum);
-            $st->izlaz_tabela = $stavka->prijemnica()->dobavljac()->getTable();
-            $st->izlaz_id = $stavka->prijemnica()->dobavljac()->id;
-            $st->ulaz_tabela = $stavka->prijemnica()->magacin()->getTable();
-            $st->ulaz_id = $stavka->prijemnica()->magacin()->id;
+            $st->izlaz = $stavka->prijemnica()->broj . ' / ' . $stavka->prijemnica()->dobavljac()->naziv;
+            $st->izlaz_ruta = $routeParser->urlFor('prijemnica.pregled.no', ['id' => $stavka->prijemnica()->id]);
+            $st->ulaz = $stavka->prijemnica()->broj . ' / ' . $stavka->prijemnica()->magacin()->naziv;
+            $st->ulaz_ruta = $routeParser->urlFor('prijemnica.magacin', ['id' => $stavka->prijemnica()->magacin()->id]);
             $st->kolicina = $stavka->kolicina;
             $st->ui = 1;
             $st->iznos = $stavka->iznos;
@@ -231,10 +235,10 @@ class ArtikalController extends Controller
             $st = new Stavka();
             $st->vrsta = 'отпис';
             $st->datum = new DateTime($stavka->datum);
-            $st->izlaz_tabela = $stavka->getTable();
-            $st->izlaz_id = $stavka->id;
-            $st->ulaz_tabela = '';
-            $st->ulaz_id = 0;
+            $st->izlaz = $stavka->artikal()->naziv;
+            $st->izlaz_ruta = $routeParser->urlFor('otpis.artikal', ['id' => $stavka->id_artikla]);
+            $st->ulaz = '';
+            $st->ulaz_ruta = '';
             $st->kolicina = $stavka->kolicina;
             $st->ui = 0;
             $st->iznos = 0;
@@ -248,10 +252,10 @@ class ArtikalController extends Controller
             $st = new Stavka();
             $st->vrsta = 'отпремница';
             $st->datum = new DateTime($stavka->otpremnica()->datum);
-            $st->izlaz_tabela = $stavka->otpremnica()->magacin()->getTable();
-            $st->izlaz_id = $stavka->otpremnica()->magacin()->id;
-            $st->ulaz_tabela = $stavka->otpremnica()->kupac()->getTable();
-            $st->ulaz_id = $stavka->otpremnica()->kupac()->id;
+            $st->izlaz = $stavka->otpremnica()->broj . ' / ' . $stavka->otpremnica()->magacin()->naziv;
+            $st->izlaz_ruta = $routeParser->urlFor('otpremnica.magacin', ['id' => $stavka->otpremnica()->magacin()->id]);
+            $st->ulaz = $stavka->otpremnica()->broj . ' / ' . $stavka->otpremnica()->kupac();
+            $st->ulaz_ruta = $routeParser->urlFor('otpremnica.pregled.no', ['id' => $stavka->otpremnica()->id]);
             $st->kolicina = $stavka->kolicina;
             $st->ui = 0;
             $st->iznos = $stavka->iznos;
@@ -266,17 +270,17 @@ class ArtikalController extends Controller
             $st->vrsta = 'интерни налог';
             $st->datum = new DateTime($stavka->nalog()->datum);
             if ($stavka->smer === 'УЛАЗ') {
-                $st->izlaz_tabela = '';
-                $st->izlaz_id = 0;
-                $st->ulaz_tabela = $stavka->magacin()->getTable();
-                $st->ulaz_id = $stavka->magacin()->id;
+                $st->izlaz = '';
+                $st->izlaz_ruta = '';
+                $st->ulaz = $stavka->nalog()->broj . ' / ' . $stavka->magacin()->naziv;
+                $st->ulaz_ruta = $routeParser->urlFor('nalog.magacinu', ['id' => $stavka->magacin()->id]);
                 $st->ui = 1;
                 $kolicina += $stavka->kolicina;
             } else {
-                $st->izlaz_tabela = $stavka->magacin()->getTable();
-                $st->izlaz_id = $stavka->magacin()->id;
-                $st->ulaz_tabela = '';
-                $st->ulaz_id = 0;
+                $st->izlaz = $stavka->nalog()->broj . ' / ' . $stavka->magacin()->naziv;
+                $st->izlaz_ruta = $routeParser->urlFor('nalog.magacinu', ['id' => $stavka->magacin()->id]);
+                $st->ulaz = '';
+                $st->ulaz_ruta = '';
                 $st->ui = 0;
                 $kolicina -= $stavka->kolicina;
             }

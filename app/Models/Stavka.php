@@ -8,10 +8,10 @@ class Stavka
 {
     public DateTime $datum;
     public string $vrsta;
-    public string $izlaz_tabela;
-    public int $izlaz_id;
-    public string $ulaz_tabela;
-    public int $ulaz_id;
+    public string $izlaz_ruta;
+    public string $ulaz_ruta;
+    public string $izlaz;
+    public string $ulaz;
     public float $kolicina;
     public float $stanje;
     public int $ui; // 0 - izlaz, 1 - ulaz

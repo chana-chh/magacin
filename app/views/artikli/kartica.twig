@@ -25,74 +25,72 @@
 <hr>
 
 <table class="table table-sm table-hover">
-<thead>
-    <tr class="table-dark">
-        <th class="w-10">Врста</th>
-        <th class="w-10">Датум</th>
-        <th class="w-10">Излаз</th>
-        <th class="w-10">Улаз</th>
-        <th class="w-10 text-end">Количина</th>
-        <th class="w-10 text-end">Стање</th>
-        <th class="w-10 text-end">Износ</th>
-        <th class="w-10 text-center">Плаћено</th>
-        <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
-    </tr>
-</thead>
-<tbody>
-    {% for st in stavke %}
-    <tr>
-        <td>
-            {{ st.vrsta }}
-        </td>
-        <td>
-            {{ st.datum|date('d.m.Y') }}
-        </td>
-        <td>
-            {{ st.izlaz_tabela }} : {{ st.izlaz_id }}
-        </td>
-        <td>
-            {{ st.ulaz_tabela }} : {{ st.ulaz_id }}
-        </td>
-        <td class="text-end{{ st.ui == 1 ? ' text-success' : ' text-danger' }}">
-            {{ st.ui == 1 ? '+' : '-' }} {{ st.kolicina|number_format(2) }} {{ artikal.jm().jm }}
-        </td>
-        <td class="text-end">
-            {{ st.stanje|number_format(2) }} {{ artikal.jm().jm }}
-        </td>
-        <td class="text-end">
-            {{ st.iznos|number_format(2) }}
-        </td>
-        <td class="text-center">
-            {% if st.placeno %}
-            <i class="bi-check-circle text-success"></i>
-            {% else %}
-            <i class="bi-x-circle text-danger"></i>
-            {% endif %}
-        </td>
-        <td class="text-end">
-            <div class="btn-group btn-group-sm">
-            </div>
-        </td>
-    </tr>
-    {% endfor %}
-</tbody>
-<tfoot>
-<tr class="table-info">
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th class="text-end">
-        <em>Стање:</em>
-    </th>
-    <th class="text-end">
-        {{ kolicina|number_format(2) }} {{ artikal.jm().jm }}
-    </th>
-    <th></th>
-    <th></th>
-    <th></th>
-</tr>
-</tfoot>
+    <thead>
+        <tr class="table-dark">
+            <th class="w-10">Врста</th>
+            <th class="w-5">Датум</th>
+            <th class="w-25">Излаз</th>
+            <th class="w-25">Улаз</th>
+            <th class="w-10 text-end">Количина</th>
+            <th class="w-10 text-end">Стање</th>
+            <th class="w-10 text-end">Износ</th>
+            <th class="w-5 text-center">Плаћено</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for st in stavke %}
+        <tr>
+            <td>
+                {{ st.vrsta }}
+            </td>
+            <td>
+                {{ st.datum|date('d.m.Y') }}
+            </td>
+            <td>
+                <a class="link-underline link-underline-opacity-0" href="{{ st.izlaz_ruta }}" target="_blank">
+                    {{ st.izlaz }}
+                </a>
+            </td>
+            <td>
+                <a class="link-underline link-underline-opacity-0" href="{{ st.ulaz_ruta }}" target="_blank">
+                    {{ st.ulaz }}
+                </a>
+            </td>
+            <td class="text-end{{ st.ui == 1 ? ' text-success' : ' text-danger' }}">
+                {{ st.ui == 1 ? '+' : '-' }} {{ st.kolicina|number_format(2) }} {{ artikal.jm().jm }}
+            </td>
+            <td class="text-end">
+                {{ st.stanje|number_format(2) }} {{ artikal.jm().jm }}
+            </td>
+            <td class="text-end">
+                {{ st.iznos|number_format(2) }}
+            </td>
+            <td class="text-center">
+                {% if st.placeno %}
+                <i class="bi-check-circle text-success"></i>
+                {% else %}
+                <i class="bi-x-circle text-danger"></i>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr class="table-info">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="text-end">
+                <em>Стање:</em>
+            </th>
+            <th class="text-end">
+                {{ kolicina|number_format(2) }} {{ artikal.jm().jm }}
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>
 {% endblock full %}
 
