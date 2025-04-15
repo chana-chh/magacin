@@ -33,7 +33,8 @@
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ url_for('artikal.kartica', {id: 0}) }}">Картица артикла</a>
+							<a class="dropdown-item" href="{{ url_for('artikal.kartica', {id: 0}) }}">Картица
+								артикла</a>
 						</li>
 					</ul>
 				</li>
@@ -99,22 +100,22 @@
 						data-bs-toggle="dropdown" aria-expanded="false">Пописи</a>
 					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('popis.lista') }}">Пописи</a>
+							<a class="dropdown-item" href="{{ url_for('popis.lista') }}">Пописи</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('popis.lista.pregled.get') }}">Преглед</a>
+							<a class="dropdown-item" href="{{ url_for('popis.lista.pregled.get') }}">Преглед</a>
 						</li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-						aria-expanded="false">Отписи</a>
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Отписи</a>
 					<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('otpis.lista') }}">Отписи</a>
+							<a class="dropdown-item" href="{{ url_for('otpis.lista') }}">Отписи</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
@@ -129,50 +130,50 @@
 						data-bs-toggle="dropdown" aria-expanded="false">Шифарници</a>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('tip.naloga.lista') }}">Типови налога</a>
+							<a class="dropdown-item" href="{{ url_for('tip.naloga.lista') }}">Типови налога</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('jedinica.mere.lista') }}">Јединице мере</a>
+							<a class="dropdown-item" href="{{ url_for('jedinica.mere.lista') }}">Јединице мере</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('kategorija.artikla.lista') }}">Категорије
+							<a class="dropdown-item" href="{{ url_for('kategorija.artikla.lista') }}">Категорије
 								артикала</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('artikal.lista') }}">Артикли</a>
+							<a class="dropdown-item" href="{{ url_for('artikal.lista') }}">Артикли</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('tip.magacina.lista') }}">Типови магацина</a>
+							<a class="dropdown-item" href="{{ url_for('tip.magacina.lista') }}">Типови магацина</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('magacin.lista') }}">Магацини</a>
-						</li>
-						<li>
-							<hr class="dropdown-divider" />
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ full_url_for('kupac.lista') }}">Купци</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ full_url_for('dobavljac.lista') }}">Добављачи</a>
+							<a class="dropdown-item" href="{{ url_for('magacin.lista') }}">Магацини</a>
 						</li>
 						<li>
 							<hr class="dropdown-divider" />
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('korisnik.lista') }}">Корисници</a>
+							<a class="dropdown-item" href="{{ url_for('kupac.lista') }}">Купци</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ full_url_for('log.lista') }}">Логови</a>
+							<a class="dropdown-item" href="{{ url_for('dobavljac.lista') }}">Добављачи</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider" />
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ url_for('korisnik.lista') }}">Корисници</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ url_for('log.lista') }}">Логови</a>
 						</li>
 					</ul>
 				</li>
