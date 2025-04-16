@@ -18,6 +18,9 @@
         </select>
     </div>
     <div class="col-4 text-end mt-3">
+                <a class="btn btn-primary mb-2" type="button" href="{{ url_for('stanje.dodavanje.get') }}">
+            <i class="bi-plus-square"></i> Додај артикал на стање !!!
+        </a>
         <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Укупно
             стање</a>
         <div class="input-group">
@@ -50,12 +53,47 @@
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-success" href="{{ url_for('stanje.artikal', {id: stanje.id_artikla}) }}"><i
                             class="bi-eye"></i> Стање артикла</a>
+                                        <a class="btn btn-warning" href="{{ url_for('stanje.izmena.get', { id: stanje.id }) }}"
+                        title="Измена артикла на стању"><i class="bi-pencil"></i> !!!</a>
+                    <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
+                        data-bs-target="#brisanjeModal" value="{{ stanje.id }}" title="Брисање артикла на стању"
+                        onclick="document.getElementById('idBrisanje').value = this.value"><i
+                            class="bi-trash"></i> !!!</button>
                 </div>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+{# Modal za brisanje #}
+<div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-danger">Упозорење!</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Да ли желите трајно да обришете артикал са стања?</h4>
+                <p class="text-danger lead">* Ова акција је неповратна!</p>
+                <form id="brisanje-forma" action="{{ url_for('stanje.brisanje') }}" method="POST">
+                    {{ csrf|raw }}
+                    <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
+                    </button>
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
+                    </a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{# Kraj modala za brisanje #}
 {% endblock full %}
 
 {% block skripta %}

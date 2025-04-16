@@ -138,6 +138,12 @@ $app->group('', function (RouteCollectorProxy $group) {
     $group->get('/stanje-magacin/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeMagacin')->setName('stanje.magacin');
     $group->get('/stanje-artikal/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeArtikal')->setName('stanje.artikal');
     $group->get('/kartica-artikla/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getKarticaArtikla')->setName('kartica.artikla');
+    //PRIVREMENO
+    $group->get('/stanje-dodavanje', \App\Controllers\StanjeController::class . ':getStanjeDodavanje')->setName('stanje.dodavanje.get');
+    $group->post('/stanje-dodavanje', \App\Controllers\StanjeController::class . ':postStanjeDodavanje')->setName('stanje.dodavanje.post');
+    $group->get('/stanje-izmena/{id:[0-9]+}', \App\Controllers\StanjeController::class . ':getStanjeIzmena')->setName('stanje.izmena.get');
+    $group->post('/stanje-izmena', \App\Controllers\StanjeController::class . ':postStanjeIzmena')->setName('stanje.izmena.post');
+    $group->post('/stanje-brisanje', \App\Controllers\StanjeController::class . ':postStanjeBrisanje')->setName('stanje.brisanje');
 
     //Nalozi
     $group->get('/nalog-lista', \App\Controllers\NalogController::class . ':getNalogLista')->setName('nalog.lista');

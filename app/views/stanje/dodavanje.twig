@@ -1,0 +1,50 @@
+{% extends "templates/app.twig" %}
+{% block full %}
+<h1>СТАЊЕ !!!</h1>
+<hr>
+<div class="card border-dark">
+    <h5 class="card-header">Додавање артикла на стање</h5>
+    <div class="card-body">
+        <form action="{{ url_for('stanje.dodavanje.post') }}" method="POST">
+            {{ csrf|raw }}
+            <div class="row mt-3">
+                <div class="mt-3">
+                    <label for="id_magacina" class="form-label">Магацин</label>
+                    <select name="id_magacina" id="id_magacina" class="form-select" required>
+                        <option value="" selected>...</option>
+                        {% for mag in magacini %}
+                        <option value="{{ mag.id }}" {{ old.id_magacina==mag.id ? ' selected' : '' }}>
+                            {{ mag.naziv }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mt-3">
+                    <label for="id_artikla" class="form-label">Артикал</label>
+                    <select name="id_artikla" id="id_artikla" class="form-select{{ errors.id_artikla ? ' is-invalid' : '' }}" required autocomplete="off">
+                        <option value="" selected>...</option>
+                        {% for art in artikli %}
+                        <option value="{{ art.id }}" {{ old.id_artikla==art.id ? ' selected' : '' }}>
+                            {{ art.naziv }} {{ art.jm.jm}} [{{ art.kategorija().naziv }}]
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">{{ errors.id_artikla.0 }}</div>
+                </div>
+                <div class="mt-3">
+                    <label for="kolicina">Количина</label>
+                    <input type="number" class="form-control{{ errors.kolicina ? ' is-invalid' : '' }}" name="kolicina" id="kolicina" value="{{ old.kolicina ? : '0.00' }}" min="0" step="0.01" inputmode="decimal" oninvalid="this.setCustomValidity('Количина је обавезна и мора мора бити већа од 0.')" oninput="this.setCustomValidity('')" autocomplete="off" required>
+                    <div class="invalid-feedback">{{ errors.kolicina.0 }}</div>
+                </div>
+            </div>
+            <div class="row text-end">
+                <div class="mt-3 col">
+                    <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>
+                    <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-secondary"><i class="bi-x-square"></i>
+                        Откажи</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock full %}

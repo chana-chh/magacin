@@ -18,6 +18,9 @@
         </select>
     </div>
     <div class="col-4 text-end mt-3">
+                        <a class="btn btn-primary mb-2" type="button" href="{{ url_for('stanje.dodavanje.get') }}">
+            <i class="bi-plus-square"></i> Додај артикал на стање !!!
+        </a>
         <a href="{{ url_for('stanje.lista.ukupno') }}" class="btn btn-warning mb-2"><i class="bi-arrow-left"></i> Укупно
             стање</a>
         <div class="input-group">
