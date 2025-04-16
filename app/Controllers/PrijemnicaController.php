@@ -27,7 +27,6 @@ class PrijemnicaController extends Controller
         $pri = new Prijemnica();
         $sql = "SELECT * FROM prijemnice ORDER BY datum DESC;";
         $prijemnice = $pri->paginate($path, $page, $sql, []);
-
         return $this->render($response, 'prijemnice/lista.twig', compact('prijemnice', 'magacini', 'dobavljaci'));
     }
 
