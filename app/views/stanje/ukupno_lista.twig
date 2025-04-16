@@ -3,7 +3,7 @@
 <div class="row mt-3">
     <div class="col-md-8">
         <h1>
-            Стање стање артикала у свим магацинима
+            Стање артикала у свим магацинима
             {% if data %}
             <span class="text-danger fs-4">[филтрирано]</span>
             {% else %}
@@ -65,7 +65,8 @@
             <td>{{ stanje.artikal().jm.jm }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
-                    <a class="btn btn-success" href="{{ url_for('stanje.artikal', {id: stanje.id_artikla}) }}"><i class="bi-eye"></i> Стање артикла</a>
+                    <a class="btn btn-success" href="{{ url_for('stanje.artikal', {id: stanje.id_artikla}) }}"><i
+                            class="bi-eye"></i> Стање артикла</a>
                 </div>
             </td>
         </tr>
