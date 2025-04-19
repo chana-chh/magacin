@@ -34,3 +34,5 @@ Pocetno stanje.
         - datum prevoza
         - registarski broj vozila
 - dodati klasu za stampanje
+
+Ja ću kupce, dobavljače, naloge i štampu (prvo ću da sredim poglede iz šifarnika) i u tom segmentu proveru brisanja
