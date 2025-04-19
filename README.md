@@ -9,6 +9,28 @@
 
 Pocetno stanje.
 
-12.04.2025. istice neki codespace (NAPRAVITI BACKUP)
+## TODO
 
-ТЕСТ !!!
+- datum postaviti na local
+- provera prilikom brisanja da li je nesto vezano za zapis koji se brise
+- provera stanja prilikom brisanja prijemnica/otpremnica/nalog (da ne brise vise od trenutnog stanja)
+- na prijemnicu i otpremnicu dodati:
+    - nacin otpreme
+    - mesto i adreca izdavanja robe (adresa magacina) - vec postoji
+    - tekuci racun i pib (dodaje se na kupca i dobavljaca)
+    - cena po jm (dodaje se na stavke prijemnice/otpremnice)
+- evidencija prijema/predaje:
+    - izdao:
+        - ime i prezime
+        - jmbg/lk
+        - datum izdavanja
+    - primio:
+        - ime i prezime
+        - jmbg/lk
+        - datum prijema
+    - prevoz:
+        - ime i prezime
+        - jmbg/lk
+        - datum prevoza
+        - registarski broj vozila
+- dodati klasu za stampanje
