@@ -18,8 +18,8 @@ Pocetno stanje.
     - nacin otpreme
     - mesto i adreca izdavanja robe (adresa magacina) - vec postoji
     - tekuci racun i pib (dodaje se na kupca i dobavljaca)
-    - cena po jm (dodaje se na stavke prijemnice/otpremnice)
-- evidencija prijema/predaje:
+    - cena po jm (dodaje se na stavke prijemnice/otpremnice) chh
+- evidencija prijema/predaje (dodaje se na prijemnicu/otpremnicu): chh
     - izdao:
         - ime i prezime
         - jmbg/lk
