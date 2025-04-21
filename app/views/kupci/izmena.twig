@@ -9,11 +9,27 @@
             {{ csrf | raw }}
             <input type="hidden" id="id" name="id" value="{{ kupac.id }}"/>
             <div class="row mt-3">
+            <div class="col-md-4">
                     <label for="naziv">Назив купца</label>
                     <input type="text" class="form-control{{ errors.naziv ? ' is-invalid' : '' }}" name="naziv" id="naziv" value="{{ old.naziv ? : kupac.naziv }}" maxlength="255" 
                     oninvalid="this.setCustomValidity('Назив је обавезан и мора да садржи највише 255 карактера.')" 
                     oninput="this.setCustomValidity('')" autocomplete="off" required>
                     <div class="invalid-feedback">{{ errors.naziv.0 }}</div>
+            </div>
+                <div class="col-md-4">
+                    <label for="pib">ПИБ</label>
+                    <input type="text" class="form-control{{ errors.pib ? ' is-invalid' : '' }}" name="pib" id="pib" value="{{ old.pib ? : dobavljac.pib }}" maxlength="50" 
+                    oninvalid="this.setCustomValidity('ПИБ мора да садржи највише 50 карактера.')" 
+                    oninput="this.setCustomValidity('')" autocomplete="off">
+                    <div class="invalid-feedback">{{ errors.pib.0 }}</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="racun">Рачун</label>
+                    <input type="text" class="form-control{{ errors.racun ? ' is-invalid' : '' }}" name="racun" id="racun" value="{{ old.racun ? : dobavljac.racun }}" maxlength="50" 
+                    oninvalid="this.setCustomValidity('Рачун мора да садржи највише 50 карактера.')" 
+                    oninput="this.setCustomValidity('')" autocomplete="off">
+                    <div class="invalid-feedback">{{ errors.racun.0 }}</div>
+                </div>
             </div>
             <div class="row g-3 mt-3">
                 <div class="col-md-4">

@@ -44,6 +44,16 @@ class KupacController extends Controller
             $params[':naziv'] = '%' . $data['naziv'] . '%';
         }
 
+        if (!empty($data['pib'])) {
+            $conditions[] = 'pib LIKE :pib';
+            $params[':pib'] = '%' . $data['pib'] . '%';
+        }
+
+        if (!empty($data['racun'])) {
+            $conditions[] = 'racun LIKE :racun';
+            $params[':racun'] = '%' . $data['racun'] . '%';
+        }
+
         if (!empty($data['adresa_mesto'])) {
             $conditions[] = 'adresa_mesto LIKE :adresa_mesto';
             $params[':adresa_mesto'] = '%' . $data['adresa_mesto'] . '%';
@@ -110,6 +120,12 @@ class KupacController extends Controller
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
+            'pib' => [
+                'maxlen' => 50,
+            ],
+            'racun' => [
+                'maxlen' => 50,
+            ],
             'adresa_ulica' => [
                 'maxlen' => 100,
             ],
@@ -164,6 +180,12 @@ class KupacController extends Controller
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
+            'pib' => [
+                'maxlen' => 50,
+            ],
+            'racun' => [
+                'maxlen' => 50,
+            ],
             'adresa_ulica' => [
                 'maxlen' => 100,
             ],
@@ -203,6 +225,11 @@ class KupacController extends Controller
         $objekat = new Kupac();
         $model = $objekat->find($id);
         $ok = $objekat->deleteOne($id);
+
+        if (count($model->otpremnice())>0) {
+            $this->flash('danger', 'Све отпремнице на којима се јавља овај купац морају бити уклоњене пре брисања купца');
+            return $this->redirect($request, $response, 'dobavljac.lista');
+        }
 
         if (!$ok) {
             $this->flash('danger', 'Неуспешно брисање купца');

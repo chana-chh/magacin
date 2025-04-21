@@ -2,9 +2,10 @@
 {% block full %}
 
 {% if korisnik.prijavljen %}
-<div class="container-fluid p-5">
-    <div class="row mb-5">
-        <div class="col-md-4 card text-center">
+<div class="container-fluid mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+        <div class="card text-center">
             <div class="card-body">
                 <h4 class="card-title">Пријемнице</h4>
                 <hr>
@@ -17,7 +18,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 card text-center">
+    </div>
+        <div class="col">
+        <div class="card text-center">
             <div class="card-body">
                 <h4 class="card-title">Отпремнице</h4>
                 <hr>
@@ -30,7 +33,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 card text-center">
+    </div>
+        <div class="col">
+        <div class="card text-center">
             <div class="card-body">
                 <h4 class="card-title">Налози</h4>
                 <hr>
@@ -43,8 +48,10 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-md-4 card text-center">
+        <div class="col">
+        <div class="card text-center">
             <div class="card-body">
                 <h4 class="card-title">Попис</h4>
                 <hr>
@@ -57,7 +64,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 card text-center">
+    </div>
+        <div class="col">
+        <div class="card text-center">
             <div class="card-body">
                 <h4 class="card-title">Стање</h4>
                 <hr>
@@ -70,8 +79,11 @@
                 </div>
             </div>
         </div>
-
     </div>
+</div>
+</div>
+<div class="container-fluid mt-5 mb-5">
+<hr style="height:2px;border-width:0;color:white;background-color:white">
 </div>
 {% else %}
 <div class="d-flex align-items-center justify-content-center" style="height: 90vh;">

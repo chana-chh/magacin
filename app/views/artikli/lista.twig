@@ -11,7 +11,7 @@
             {% endif %}
         </h1>
     </div>
-    <div class="col-md-6 text-end mt-3">
+    <div class="col-md-6 text-end mt-3 ne_stampaj">
         <a class="btn btn-primary" type="button" href="{{ url_for('artikal.dodavanje.get') }}">
             <i class="bi-plus-square"></i> Додај артикал
         </a>
@@ -26,7 +26,7 @@
 <hr>
 {% set data = artikli.data %}
 {% set links = artikli.links %}
-<div class="collapse border border-primary p-2 my-2 rounded-2" id="pretraga">
+<div class="collapse border border-primary p-2 my-2 rounded-2 ne_stampaj" id="pretraga">
     <form action="{{ url_for('artikal.pretraga.post') }}" method="POST" class="form row">
         {{ csrf|raw }}
         <div class="row mt-3">
@@ -63,7 +63,7 @@
         </div>
     </form>
 </div>
-
+<div class="table-responsive-md">
 <table class="table table-hover table-sm">
     <thead class="table-dark">
         <tr>
@@ -72,7 +72,7 @@
             <th class="w-30">Назив</th>
             <th class="w-15">Јединица мере</th>
             <th class="w-25">Напомена</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -83,7 +83,7 @@
             <td>{{ art.naziv }}</td>
             <td>{{ art.jm().jm }} <em>[{{ art.jm().naziv }}]</em></td>
             <td>{{ art.napomena|nl2br }}</td>
-            <td class="text-end">
+            <td class="text-end ne_stampaj">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-warning" href="{{ url_for('artikal.izmena.get', { id: art.id }) }}"
                         title="Измена артикла"><i class="bi-pencil"></i></a>
@@ -112,7 +112,7 @@
         <span class="text-danger">{{ links.total_rows }}</span>
     </div>
 </div>
-
+</div>
 {# Modal za brisanje #}
 <div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

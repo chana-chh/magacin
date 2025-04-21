@@ -96,6 +96,12 @@ class TipNalogaController extends Controller
         $id = (int) $data['idBrisanje'];
         $tip = new TipNaloga();
         $model = $tip->find($id);
+
+        if (count($model->nalozi())>0) {
+            $this->flash('danger', 'Сви налози овог типа морају бити уклоњени пре брисања самог типа');
+            return $this->redirect($request, $response, 'tip.naloga.lista');
+        }
+
         $ok = $tip->deleteOne($id);
 
         if (!$ok) {

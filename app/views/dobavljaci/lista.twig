@@ -11,7 +11,7 @@
             {% endif %}
         </h1>
     </div>
-    <div class="col-md-6 text-end mt-3">
+    <div class="col-md-6 text-end mt-3 ne_stampaj">
         <a class="btn btn-primary" type="button" href="{{ url_for('dobavljac.dodavanje.get') }}">
             <i class="bi-plus-square"></i> Додај добављача
         </a>
@@ -57,7 +57,17 @@
                 <label for="telefon" class="form-label">Телефон</label>
                 <input type="text" name="telefon" id="telefon" class="form-control">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
+                <label for="pib" class="form-label">ПИБ</label>
+                <input type="text" name="pib" id="pib" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="racun" class="form-label">Рачун</label>
+                <input type="text" name="racun" id="racun" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <label for="napomena" class="form-label">Напомена</label>
                 <input type="text" name="napomena" id="napomena" class="form-control">
             </div>
@@ -71,16 +81,19 @@
 </div>
 
 {% if data|length > 0 %}
+<div class="table-responsive-md">
 <table class="table table-hover table-sm">
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
             <th class="w-15">Назив</th>
-            <th class="w-20">Адреса</th>
-            <th class="w-15">Електорнска адреса</th>
-            <th class="w-15">Телефон</th>
-            <th class="w-20">Напомена</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10">ПИБ</th>
+            <th class="w-10">Рачун</th>
+            <th class="w-15">Адреса</th>
+            <th class="w-10">Електорнска адреса</th>
+            <th class="w-10">Телефон</th>
+            <th class="w-15">Напомена</th>
+            <th class="w-10 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -88,11 +101,13 @@
         <tr>
             <td class="text-danger">{{ dobavljac.id }}</td>
             <td>{{ dobavljac.naziv }}</td>
+            <td>{{ dobavljac.pib }}</td>
+            <td>{{ dobavljac.racun }}</td>
             <td>{{ dobavljac.adresa() }}</td>
             <td>{{ dobavljac.email }}</td>
             <td>{{ dobavljac.telefon }}</td>
-            <td>{{ dobavljac.napomena }}</td>
-            <td class="text-end">
+            <td>{{ dobavljac.napomena|nl2br }}</td>
+            <td class="text-end ne_stampaj">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-warning" href="{{ url_for('dobavljac.izmena.get', { id: dobavljac.id }) }}"
                         title="Измена добављача"><i class="bi-pencil"></i></a>
@@ -106,7 +121,6 @@
         {% endfor %}
     </tbody>
 </table>
-
 <div class="row row-cols-auto">
     <div class="col">{{ links.buttons|raw }}</div>
     <div class="col">
@@ -124,11 +138,15 @@
 {% else %}
 <h2>Нема добављача</h2>
 {% endif %}
-
+</div>
+<div class="container-fluid mt-5 mb-5">
+<hr style="height:2px;border-width:0;color:white;background-color:white">
+</div>
 {# Modal za brisanje #}
 <div id="brisanjeModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form id="brisanje-forma" action="{{ url_for('dobavljac.brisanje') }}" method="POST">
             <div class="modal-header">
                 <h2 class="modal-title text-danger">Упозорење!</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
@@ -136,12 +154,10 @@
             <div class="modal-body">
                 <h4>Да ли желите трајно да обришете добављача?</h4>
                 <p class="text-danger lead">* Ова акција је неповратна!</p>
-                <form id="brisanje-forma" action="{{ url_for('dobavljac.brisanje') }}" method="POST">
                     {{ csrf | raw }}
                     <input type="hidden" id="idBrisanje" name="idBrisanje" value="">
             </div>
             <div class="modal-footer">
-                <div class="form-group">
                     <button id="btn-brisanje-obrisi" type="submit" class="btn btn-danger">Обриши
                     </button>
                     <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
@@ -151,6 +167,5 @@
             </div>
         </div>
     </div>
-</div>
 {# Kraj modala za brisanje #}
 {% endblock full %}

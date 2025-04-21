@@ -129,6 +129,48 @@ class ArtikalController extends Controller
         $id = (int) $data['idBrisanje'];
         $art = new Artikal();
         $model = $art->find($id);
+
+        if (count($model->artikliNaloga())>0) {
+            $this->flash('danger', 'Ови артикли са свих ставки налога у којима се јављају морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->naloziIz())>0) {
+            $this->flash('danger', 'Сви налози у којима се јавља овај артикал морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->naloziU())>0) {
+            $this->flash('danger', 'Сви налози у којима се јавља овај артикал морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->otpisi())>0) {
+            $this->flash('danger', 'Сви отписи у којима се јавља овај артикал морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->artikliOtpremnice())>0) {
+            $this->flash('danger', 'Све ставке отпремнице у којима се јавља овај артикал морају бити уклоњене пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->popisArtikli())>0) {
+            $this->flash('danger', 'Све ставке пописа у којима се јавља овај артикал морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+        if (count($model->artikliPrijemnice())>0) {
+            $this->flash('danger', 'Све ставке пријемнице у којима се јавља овај артикал морају бити уклоњене пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }        
+
+        if (count($model->stanje())>0) {
+            $this->flash('danger', 'Још увек има артикала на стању морају бити уклоњени пре брисања артикла');
+            return $this->redirect($request, $response, 'artikal.lista');
+        }
+
+
         $ok = $art->deleteOne($id);
 
         if (!$ok) {

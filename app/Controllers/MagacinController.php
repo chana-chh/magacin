@@ -108,6 +108,47 @@ class MagacinController extends Controller
         $id = (int) $data['idBrisanje'];
         $mag = new Magacin();
         $model = $mag->find($id);
+
+        if (count($model->artikliNaloga())>0) {
+            $this->flash('danger', 'Сви артикли налога који се налазе у овом магацину морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->naloziIz())>0) {
+            $this->flash('danger', 'Сви налози из овог магацина морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->naloziU())>0) {
+            $this->flash('danger', 'Сви налози у овај магацина морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->otpisi())>0) {
+            $this->flash('danger', 'Сви отписи везани за овај магацин морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->otpremnice())>0) {
+            $this->flash('danger', 'Све отпремнице везане за овај магацин морају бити уклоњене пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->popisi())>0) {
+            $this->flash('danger', 'Сви пописи оваг магацина морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
+        if (count($model->prijemnice())>0) {
+            $this->flash('danger', 'Сви пријемнице везане за овај магацин морају бити уклоњене пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }        
+
+        if (count($model->stanje())>0) {
+            $this->flash('danger', 'Још увек има артикала на стању магацина морају бити уклоњени пре брисања магацина');
+            return $this->redirect($request, $response, 'magacin.lista');
+        }
+
         $ok = $mag->deleteOne($id);
 
         if (!$ok) {

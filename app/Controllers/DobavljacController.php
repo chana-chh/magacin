@@ -38,10 +38,20 @@ class DobavljacController extends Controller
         $data = $_SESSION['DOBAVLJAC_PRETRAGA'] ?? [];
         $conditions = [];
         $params = [];
-        //dd($data);
+
         if (!empty($data['naziv'])) {
             $conditions[] = 'naziv LIKE :naziv';
             $params[':naziv'] = '%' . $data['naziv'] . '%';
+        }
+
+        if (!empty($data['pib'])) {
+            $conditions[] = 'pib LIKE :pib';
+            $params[':pib'] = '%' . $data['pib'] . '%';
+        }
+
+        if (!empty($data['racun'])) {
+            $conditions[] = 'racun LIKE :racun';
+            $params[':racun'] = '%' . $data['racun'] . '%';
         }
 
         if (!empty($data['adresa_mesto'])) {
@@ -110,6 +120,12 @@ class DobavljacController extends Controller
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
+            'pib' => [
+                'maxlen' => 50,
+            ],
+            'racun' => [
+                'maxlen' => 50,
+            ],
             'adresa_ulica' => [
                 'maxlen' => 100,
             ],
@@ -164,6 +180,12 @@ class DobavljacController extends Controller
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
+            'pib' => [
+                'maxlen' => 50,
+            ],
+            'racun' => [
+                'maxlen' => 50,
+            ],
             'adresa_ulica' => [
                 'maxlen' => 100,
             ],
@@ -202,6 +224,12 @@ class DobavljacController extends Controller
         $id = (int) $data['idBrisanje'];
         $objekat = new Dobavljac();
         $model = $objekat->find($id);
+
+        if (count($model->prijemnice())>0) {
+            $this->flash('danger', 'Све пријемнице на којима се јавља овај добављач морају бити уклоњене пре брисања добављача');
+            return $this->redirect($request, $response, 'dobavljac.lista');
+        }
+
         $ok = $objekat->deleteOne($id);
 
         if (!$ok) {
