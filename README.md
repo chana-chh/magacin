@@ -18,8 +18,8 @@ Pocetno stanje.
     - nacin otpreme
     - mesto i adreca izdavanja robe (adresa magacina) - vec postoji
     - tekuci racun i pib (dodaje se na kupca i dobavljaca)
-    - cena po jm (dodaje se na stavke prijemnice/otpremnice)
-- evidencija prijema/predaje:
+    - cena po jm (dodaje se na stavke prijemnice/otpremnice) chh
+- evidencija prijema/predaje (dodaje se na prijemnicu/otpremnicu): chh
     - izdao:
         - ime i prezime
         - jmbg/lk
@@ -36,3 +36,5 @@ Pocetno stanje.
 - dodati klasu za stampanje
 
 Ja ću kupce, dobavljače, naloge i štampu (prvo ću da sredim poglede iz šifarnika) i u tom segmentu proveru brisanja
+
+Problem da brisanjem stavki
