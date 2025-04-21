@@ -21,6 +21,10 @@ class OtpremnicaArtikalController extends Controller
                 'required' => true,
                 'min' => 0,
             ],
+            'cena' => [
+                'required' => true,
+                'min' => 0,
+            ],
             'opis' => [
                 'maxlen' => 255,
             ],
@@ -41,6 +45,7 @@ class OtpremnicaArtikalController extends Controller
         $stanje->oduzmiKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $st = new OtpremnicaArtikal();
+        $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
         $id = $st->insert($data);
         $stavka = $st->find($id);
 

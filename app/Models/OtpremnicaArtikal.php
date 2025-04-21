@@ -23,4 +23,9 @@ class OtpremnicaArtikal extends Model
         $sql = "SELECT * FROM otpremnica_artikal WHERE id_artikla = :id_artikla";
         return $this->fetch($sql, [':id_artikla' => $id_artikla]);
     }
+
+    public function iznosUnupno()
+    {
+        return (float) $this->kolicina * (float) $this->cena;
+    }
 }

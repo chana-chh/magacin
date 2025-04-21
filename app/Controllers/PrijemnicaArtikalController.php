@@ -23,6 +23,10 @@ class PrijemnicaArtikalController extends Controller
                 'required' => true,
                 'min' => 0,
             ],
+            'cena' => [
+                'required' => true,
+                'min' => 0,
+            ],
             'opis' => [
                 'maxlen' => 255,
             ],
@@ -43,6 +47,7 @@ class PrijemnicaArtikalController extends Controller
         $stanje->dodajKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $st = new PrijemnicaArtikal();
+        $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
         $id = $st->insert($data);
         $stavka = $st->find($id);
 
