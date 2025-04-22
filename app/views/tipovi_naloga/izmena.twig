@@ -19,10 +19,6 @@
                     <input type="text" class="form-control{{ errors.opis ? ' is-invalid' : '' }}" name="opis" id="opis" value="{{ old.opis ? : tip.opis }}" maxlength="250" oninvalid="this.setCustomValidity('Опис мора да садржи највише 255 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.opis.0 }}</div>
                 </div>
-                <div class="form-check col-md-3 mt-4">
-                    <input type="checkbox" name="vise_artikala" id="vise_artikala" class="form-check-input{{ errors.vise_artikala ? ' is-invalid' : '' }}" value="" {{ tip.vise_artikala == 0 ? "" :'checked="checked"'}}>
-                    <label for="vise_artikala">Више артикала</label>
-                </div>
             </div>
             <div class="text-end mt-3">
                 <div class="col">

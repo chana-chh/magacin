@@ -21,7 +21,7 @@ class KupacController extends Controller
 
         $model = new Kupac();
 
-        $sql = "SELECT * FROM kupci ORDER BY naziv DESC;";
+        $sql = "SELECT * FROM kupci ORDER BY naziv ASC;";
         $kupci = $model->paginate($path, $page, $sql, [], null, 3);
         return $this->render($response, 'kupci/lista.twig', compact('kupci'));
     }
@@ -97,7 +97,7 @@ class KupacController extends Controller
 
         $model = new Kupac();
 
-        $sql = "SELECT * FROM kupci {$where} ORDER BY naziv DESC;";
+        $sql = "SELECT * FROM kupci {$where} ORDER BY naziv ASC;";
         $kupci = $model->paginate($path, $page, $sql, $params, null, 3);
         return $this->render($response, 'kupci/lista.twig', compact('kupci', 'data'));
     }

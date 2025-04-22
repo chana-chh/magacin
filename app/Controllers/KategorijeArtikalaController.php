@@ -97,7 +97,7 @@ class KategorijeArtikalaController extends Controller
 
         if (count($model->artikli())>0) {
             $this->flash('danger', 'Сви артили у овој категорији морају бити уклоњени пре брисања категорије');
-            return $this->redirect($request, $response, 'kategorija.lista');
+            return $this->redirect($request, $response, 'kategorija.artikla.lista');
         }
 
         $ok = $kat->deleteOne($id);

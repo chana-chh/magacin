@@ -87,26 +87,26 @@
         <tr>
             <th class="w-5">#</th>
             <th class="w-15">Назив</th>
-            <th class="w-10">ПИБ</th>
+            <th class="w-5">ПИБ</th>
             <th class="w-10">Рачун</th>
             <th class="w-15">Адреса</th>
             <th class="w-10">Електорнска адреса</th>
             <th class="w-10">Телефон</th>
-            <th class="w-15">Напомена</th>
-            <th class="w-10 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
+            <th class="w-25">Напомена</th>
+            <th class="w-5 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
         {% for dobavljac in data %}
         <tr>
             <td class="text-danger">{{ dobavljac.id }}</td>
-            <td>{{ dobavljac.naziv }}</td>
+            <td><strong>{{ dobavljac.naziv }}</strong></td>
             <td>{{ dobavljac.pib }}</td>
             <td>{{ dobavljac.racun }}</td>
             <td>{{ dobavljac.adresa() }}</td>
-            <td>{{ dobavljac.email }}</td>
+            <td><a href="mailto:{{ dobavljac.email }}">{{ dobavljac.email }}</a></td>
             <td>{{ dobavljac.telefon }}</td>
-            <td>{{ dobavljac.napomena|nl2br }}</td>
+            <td><small>{{ dobavljac.napomena|nl2br }}</small></td>
             <td class="text-end ne_stampaj">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-warning" href="{{ url_for('dobavljac.izmena.get', { id: dobavljac.id }) }}"
@@ -121,6 +121,7 @@
         {% endfor %}
     </tbody>
 </table>
+</div>
 <div class="row row-cols-auto">
     <div class="col">{{ links.buttons|raw }}</div>
     <div class="col">
@@ -138,7 +139,7 @@
 {% else %}
 <h2>Нема добављача</h2>
 {% endif %}
-</div>
+
 <div class="container-fluid mt-5 mb-5">
 <hr style="height:2px;border-width:0;color:white;background-color:white">
 </div>
