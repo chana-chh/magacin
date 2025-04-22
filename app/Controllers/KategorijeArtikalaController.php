@@ -94,6 +94,12 @@ class KategorijeArtikalaController extends Controller
         $id = (int) $data['idBrisanje'];
         $kat = new KategorijaArtikla();
         $model = $kat->find($id);
+
+        if (count($model->artikli())>0) {
+            $this->flash('danger', 'Сви артили у овој категорији морају бити уклоњени пре брисања категорије');
+            return $this->redirect($request, $response, 'kategorija.lista');
+        }
+
         $ok = $kat->deleteOne($id);
 
         if (!$ok) {

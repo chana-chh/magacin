@@ -129,7 +129,7 @@ class ArtikalController extends Controller
         $id = (int) $data['idBrisanje'];
         $art = new Artikal();
         $model = $art->find($id);
-
+        dd(count($model->naloziIz()));
         if (count($model->artikliNaloga())>0) {
             $this->flash('danger', 'Ови артикли са свих ставки налога у којима се јављају морају бити уклоњени пре брисања артикла');
             return $this->redirect($request, $response, 'artikal.lista');

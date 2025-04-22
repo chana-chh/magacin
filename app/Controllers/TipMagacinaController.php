@@ -94,6 +94,12 @@ class TipMagacinaController extends Controller
         $id = (int) $data['idBrisanje'];
         $tip = new TipMagacina();
         $model = $tip->find($id);
+
+        if (count($model->magacini())>0) {
+            $this->flash('danger', 'Сви магацини овог типа морају бити уклоњени пре брисања самог типа');
+            return $this->redirect($request, $response, 'tip.magacina.lista');
+        }
+
         $ok = $tip->deleteOne($id);
 
         if (!$ok) {

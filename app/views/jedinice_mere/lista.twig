@@ -4,7 +4,7 @@
     <div class="col-md-8">
         <h1>Јединице мере</h1>
     </div>
-    <div class="col-md-4 text-end mt-3">
+    <div class="col-md-4 text-end mt-3 ne_stampaj">
         <div class="input-group">
             <span class="input-group-text bg-primary text-white border-primary"><i class="bi-search"></i></span>
             <input type="search" class="form-control border-primary" id="searchbox" name="searchbox">
@@ -24,7 +24,7 @@
             <th class="w-10">Јединица</th>
             <th class="w-15">Назив</th>
             <th class="w-60">Опис</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@
             <td>{{ jm.jm }}</td>
             <td>{{ jm.naziv }}</td>
             <td>{{ jm.opis }}</td>
-            <td class="text-end">
+            <td class="text-end ne_stampaj">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-warning" href="{{ url_for('jedinica.mere.izmena.get', { id: jm.id }) }}"
                         title="Измена јединице мере"><i class="bi-pencil"></i></a>
@@ -78,7 +78,7 @@
 {# Kraj modala za brisanje #}
 {% endblock article %}
 {% block aside %}
-<div class="card border-dark">
+<div class="card border-dark ne_stampaj">
     <h5 class="card-header">Додавање јединице мере</h5>
     <div class="card-body">
         <form action="{{ url_for('jedinica.mere.dodavanje') }}" method="POST">

@@ -105,6 +105,12 @@ class JediniceMereController extends Controller
         $id = (int) $data['idBrisanje'];
         $jm = new JedinicaMere();
         $model = $jm->find($id);
+
+        if (count($model->artikli())>0) {
+            $this->flash('danger', 'Сви артили са овом јединицом мере морају бити уклоњени пре брисања јединице мере');
+            return $this->redirect($request, $response, 'jedinica.mere.lista');
+        }
+
         $ok = $jm->deleteOne($id);
 
         if (!$ok) {

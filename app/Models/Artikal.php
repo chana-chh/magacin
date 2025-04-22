@@ -25,12 +25,16 @@ class Artikal extends Model
 
     public function naloziIz()
     {
-        return $this->hasMany('App\Models\Nalog', 'artikli_iz');
+        $sql = "SELECT * FROM nalozi WHERE artikli_iz regexp :id_artikla;";
+        $nalozi_artikli = $this->fetch($sql, [':id_artikla' =>'[[:<:]]'.$this->id.'[[:>:]]']);
+        return $nalozi_artikli;
     }
 
     public function naloziU()
     {
-        return $this->hasMany('App\Models\Nalog', 'artikli_u');
+        $sql = "SELECT * FROM nalozi WHERE artikli_u regexp :id_artikla;";
+        $nalozi_artikli = $this->fetch($sql, [':id_artikla' =>'[[:<:]]'.$this->id.'[[:>:]]']);
+        return $nalozi_artikli;        
     }
 
     public function otpisi()

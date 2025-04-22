@@ -21,12 +21,16 @@ class Magacin extends Model
 
     public function naloziIz()
     {
-        return $this->hasMany('App\Models\Nalog', 'magacin_iz');
+        $sql = "SELECT * FROM nalozi WHERE magacin_iz regexp :id_artikla;";
+        $nalozi_artikli = $this->fetch($sql, [':id_artikla' =>'[[:<:]]'.$this->id.'[[:>:]]']);
+        return $nalozi_artikli;
     }
 
     public function naloziU()
     {
-        return $this->hasMany('App\Models\Nalog', 'magacin_u');
+        $sql = "SELECT * FROM nalozi WHERE magacin_u regexp :id_artikla;";
+        $nalozi_artikli = $this->fetch($sql, [':id_artikla' =>'[[:<:]]'.$this->id.'[[:>:]]']);
+        return $nalozi_artikli;
     }
 
     public function otpisi()

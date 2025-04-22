@@ -10,7 +10,7 @@
             <th class="w-10">#</th>
             <th class="w-20">Назив</th>
             <th class="w-60">Опис</th>
-            <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
+            <th class="w-10 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@
             <td class="text-danger">{{ tip.id }}</td>
             <td>{{ tip.naziv }}</td>
             <td>{{ tip.opis }}</td>
-            <td class="text-end">
+            <td class="text-end ne_stampaj">
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-warning" href="{{ url_for('tip.magacina.izmena.get', { id: tip.id }) }}"
                         title="Измена типа магацина"><i class="bi-pencil"></i></a>
@@ -63,7 +63,7 @@
 {# Kraj modala za brisanje #}
 {% endblock article %}
 {% block aside %}
-<div class="card border-dark">
+<div class="card border-dark ne_stampaj">
     <h5 class="card-header">Додавање типа магацина</h5>
     <div class="card-body">
         <form action="{{ url_for('tip.magacina.dodavanje') }}" method="POST">
