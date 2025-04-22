@@ -57,7 +57,128 @@
                     <div class="invalid-feedback">{{ errors.napomena.0 }}</div>
                 </div>
             </div>
-
+            <div class="row mt-3">
+                <div class="col">
+                    <h5 class="text-info">Издао</h5>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="izdao_ime" class="form-label">Име и презиме</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.izdao_ime ? ' is-invalid' : '' }}"
+                                name="izdao_ime" id="izdao_ime" value="{{ old.izdao_ime }}" maxlength="100">
+                            <div class="invalid-feedback">{{ errors.izdao_ime.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="izdao_jmbg" class="form-label">ЈМБГ (ЛК)</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.izdao_jmbg ? ' is-invalid' : '' }}"
+                                name="izdao_jmbg" id="izdao_jmbg" value="{{ old.izdao_jmbg }}" maxlength="20">
+                            <div class="invalid-feedback">{{ errors.izdao_jmbg.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="izdao_datum" class="form-label">Датум</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="date"
+                                class="form-control form-control-sm{{ errors.izdao_datum ? ' is-invalid' : '' }}"
+                                name="izdao_datum" id="izdao_datum" value="{{ old.izdao_datum }}">
+                            <div class="invalid-feedback">{{ errors.izdao_datum.0 }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="text-info">Превоз</h5>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="prevoz_ime" class="form-label">Име и презиме</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.prevoz_ime ? ' is-invalid' : '' }}"
+                                name="prevoz_ime" id="prevoz_ime" value="{{ old.prevoz_ime }}" maxlength="100">
+                            <div class="invalid-feedback">{{ errors.prevoz_ime.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="prevoz_jmbg" class="form-label">ЈМБГ (ЛК)</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.prevoz_jmbg ? ' is-invalid' : '' }}"
+                                name="prevoz_jmbg" id="prevoz_jmbg" value="{{ old.prevoz_jmbg }}" maxlength="20">
+                            <div class="invalid-feedback">{{ errors.prevoz_jmbg.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="prevoz_datum" class="form-label">Датум</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="date"
+                                class="form-control form-control-sm{{ errors.prevoz_datum ? ' is-invalid' : '' }}"
+                                name="prevoz_datum" id="prevoz_datum" value="{{ old.prevoz_datum }}">
+                            <div class="invalid-feedback">{{ errors.prevoz_datum.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="prevoz_registracija" class="form-label">Возило рег. број</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.prevoz_registracija ? ' is-invalid' : '' }}"
+                                name="prevoz_registracija" id="prevoz_registracija"
+                                value="{{ old.prevoz_registracija }}" maxlength="50">
+                            <div class="invalid-feedback">{{ errors.prevoz_registracija.0 }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="text-info">Примио</h5>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="primio_ime" class="form-label">Име и презиме</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.primio_ime ? ' is-invalid' : '' }}"
+                                name="primio_ime" id="primio_ime" value="{{ old.primio_ime }}" maxlength="100">
+                            <div class="invalid-feedback">{{ errors.primio_ime.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="primio_jmbg" class="form-label">ЈМБГ (ЛК)</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                class="form-control form-control-sm{{ errors.primio_jmbg ? ' is-invalid' : '' }}"
+                                name="primio_jmbg" id="primio_jmbg" value="{{ old.primio_jmbg }}" maxlength="20">
+                            <div class="invalid-feedback">{{ errors.primio_jmbg.0 }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-3">
+                            <label for="primio_datum" class="form-label">Датум</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="date"
+                                class="form-control form-control-sm{{ errors.primio_datum ? ' is-invalid' : '' }}"
+                                name="primio_datum" id="primio_datum" value="{{ old.primio_datum }}">
+                            <div class="invalid-feedback">{{ errors.primio_datum.0 }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row text-end">
                 <div class="mt-3 col">
                     <button type="submit" class="btn btn-primary"><i class="bi-plus-square"></i> Додај</button>

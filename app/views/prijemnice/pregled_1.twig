@@ -9,7 +9,35 @@
             <em>| Магацин:</em> <span class="text-success">{{ prijemnica.magacin().naziv }}</span>
             <em>| Добављач:</em> <span class="text-success">{{ prijemnica.dobavljac().naziv }}</span>
         </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="h6 text-primary">Издао:</div>
+                <small>
+                    <em>Име и презиме:</em> {{ prijemnica.izdao_ime }}<br>
+                    <em>ЈМБГ (ЛК):</em> {{ prijemnica.izdao_jmbg }}<br>
+                    <em>Датум:</em> {{ prijemnica.izdao_datum|date('d.m.Y') }}
+                </small>
+            </div>
+            <div class="col-4">
+                <div class="h6 text-primary">Превоз:</div>
+                <small>
+                    <em>Име и презиме:</em> {{ prijemnica.prevoz_ime }}<br>
+                    <em>ЈМБГ (ЛК):</em> {{ prijemnica.prevoz_jmbg }}<br>
+                    <em>Датум:</em> {{ prijemnica.prevoz_datum|date('d.m.Y') }}<br>
+                    <em>Возило рег. број:</em> {{ prijemnica.prevoz_registracija }}
+                </small>
+            </div>
+            <div class="col-4">
+                <div class="h6 text-primary">Примио:</div>
+                <small>
+                    <em>Име и презиме:</em> {{ prijemnica.primio_ime }}<br>
+                    <em>ЈМБГ (ЛК):</em> {{ prijemnica.primio_jmbg }}<br>
+                    <em>Датум:</em> {{ prijemnica.primio_datum|date('d.m.Y') }}
+                </small>
+            </div>
+        </div>
     </div>
+
     <div class="col-4 text-end">
         <button class="btn btn-warning" onclick="history.back()">
             <i class="bi-arrow-left-short"></i> Назад
