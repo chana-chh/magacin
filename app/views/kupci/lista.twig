@@ -62,12 +62,6 @@
                 <input type="text" name="pib" id="pib" class="form-control">
             </div>
             <div class="col-md-3">
-                <label for="racun" class="form-label">Рачун</label>
-                <input type="text" name="racun" id="racun" class="form-control">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
                 <label for="napomena" class="form-label">Напомена</label>
                 <input type="text" name="napomena" id="napomena" class="form-control">
             </div>
@@ -86,13 +80,12 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-15">Назив</th>
+            <th class="w-20">Назив</th>
             <th class="w-5">ПИБ</th>
-            <th class="w-10">Рачун</th>
             <th class="w-15">Адреса</th>
             <th class="w-10">Електорнска адреса</th>
             <th class="w-10">Телефон</th>
-            <th class="w-25">Напомена</th>
+            <th class="w-30">Напомена</th>
             <th class="w-5 text-end ne_stampaj"><i class="bi-gear"></i> Акције</th>
         </tr>
     </thead>
@@ -102,7 +95,6 @@
             <td class="text-danger">{{ kupac.id }}</td>
             <td><strong>{{ kupac.naziv }}</strong></td>
             <td>{{ kupac.pib }}</td>
-            <td>{{ kupac.racun }}</td>
             <td>{{ kupac.adresa() }}</td>
             <td><a href="mailto:{{ kupac.email }}">{{ kupac.email }}</a></td>
             <td>{{ kupac.telefon }}</td>

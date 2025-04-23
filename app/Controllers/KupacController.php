@@ -49,11 +49,6 @@ class KupacController extends Controller
             $params[':pib'] = '%' . $data['pib'] . '%';
         }
 
-        if (!empty($data['racun'])) {
-            $conditions[] = 'racun LIKE :racun';
-            $params[':racun'] = '%' . $data['racun'] . '%';
-        }
-
         if (!empty($data['adresa_mesto'])) {
             $conditions[] = 'adresa_mesto LIKE :adresa_mesto';
             $params[':adresa_mesto'] = '%' . $data['adresa_mesto'] . '%';
@@ -115,15 +110,11 @@ class KupacController extends Controller
                 'required' => true,
                 'unique' => 'kupci.naziv',
                 'maxlen' => 255,
-                'alnum' => true,
             ],
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
             'pib' => [
-                'maxlen' => 50,
-            ],
-            'racun' => [
                 'maxlen' => 50,
             ],
             'adresa_ulica' => [
@@ -136,7 +127,7 @@ class KupacController extends Controller
                 'maxlen' => 30,
             ],
             'email' => [
-                'maxlen' => 30,
+                'maxlen' => 60,
                 'email' => true,
             ]
         ];
@@ -175,15 +166,11 @@ class KupacController extends Controller
                 'required' => true,
                 'unique' => 'kupci.naziv#id:'.$id,
                 'maxlen' => 255,
-                'alnum' => true,
             ],
             'adresa_mesto' => [
                 'maxlen' => 50,
             ],
             'pib' => [
-                'maxlen' => 50,
-            ],
-            'racun' => [
                 'maxlen' => 50,
             ],
             'adresa_ulica' => [
@@ -196,7 +183,7 @@ class KupacController extends Controller
                 'maxlen' => 30,
             ],
             'email' => [
-                'maxlen' => 30,
+                'maxlen' => 60,
                 'email' => true,
             ]
         ];

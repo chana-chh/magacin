@@ -24,11 +24,11 @@
                     <div class="invalid-feedback">{{ errors.pib.0 }}</div>
                 </div>
                 <div class="col-md-4">
-                    <label for="racun">Рачун</label>
-                    <input type="text" class="form-control{{ errors.racun ? ' is-invalid' : '' }}" name="racun" id="racun" value="{{ old.racun ? : kupac.racun }}" maxlength="50" 
-                    oninvalid="this.setCustomValidity('Рачун мора да садржи највише 50 карактера.')" 
+                    <label for="email">Електорнска адреса</label>
+                    <input type="email" placeholder="ime@domen.com" class="form-control{{ errors.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old.email ? : kupac.email }}" maxlength="100" 
+                    oninvalid="this.setCustomValidity('Електорнска адреса мора да садржи највише 100 карактера.')" 
                     oninput="this.setCustomValidity('')" autocomplete="off">
-                    <div class="invalid-feedback">{{ errors.racun.0 }}</div>
+                    <div class="invalid-feedback">{{ errors.adresa_mesto.0 }}</div>
                 </div>
             </div>
             <div class="row g-3 mt-3">
@@ -62,14 +62,7 @@
                     oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.telefon.0 }}</div>
                 </div>
-                <div class="col-md-4">
-                    <label for="email">Електорнска адреса</label>
-                    <input type="email" placeholder="ime@domen.com" class="form-control{{ errors.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old.email ? : kupac.email }}" maxlength="100" 
-                    oninvalid="this.setCustomValidity('Електорнска адреса мора да садржи највише 100 карактера.')" 
-                    oninput="this.setCustomValidity('')" autocomplete="off">
-                    <div class="invalid-feedback">{{ errors.adresa_mesto.0 }}</div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <label for="napomena" class="form-label">Напомена</label>
                     <textarea name="napomena" class="form-control" id="napomena" rows="3">{{ old.napomena ? : kupac.napomena }}</textarea>
                 </div>
