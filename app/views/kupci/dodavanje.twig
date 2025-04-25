@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="email">Електорнска адреса</label>
-                    <input type="email" placeholder="ime@domen.com" class="form-control{{ errors.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old.email ? : '' }}" maxlength="100" oninvalid="this.setCustomValidity('Електорнска адреса мора да садржи највише 100 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
+                    <input type="email" placeholder="ime@domen.com" class="form-control{{ errors.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ old.email ? : '' }}" maxlength="60" oninvalid="this.setCustomValidity('Електорнска адреса мора да садржи највише 100 карактера.')" oninput="this.setCustomValidity('')" autocomplete="off">
                     <div class="invalid-feedback">{{ errors.adresa_mesto.0 }}</div>
                 </div>
             </div>

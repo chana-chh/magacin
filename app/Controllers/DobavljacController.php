@@ -115,7 +115,6 @@ class DobavljacController extends Controller
                 'required' => true,
                 'unique' => 'dobavljaci.naziv',
                 'maxlen' => 255,
-                'alnum' => true,
             ],
             'adresa_mesto' => [
                 'maxlen' => 50,
@@ -136,7 +135,7 @@ class DobavljacController extends Controller
                 'maxlen' => 30,
             ],
             'email' => [
-                'maxlen' => 30,
+                'maxlen' => 60,
                 'email' => true,
             ]
         ];
