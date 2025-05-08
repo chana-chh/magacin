@@ -36,7 +36,7 @@ class PopisArtikalController extends Controller
 
         $stanje = new Stanje();
         $stanje_artikla = $stanje->stanjeMagacinArtikal($id_magacina, (int) $data['id_artikla']);
-        $data['stanje'] = $stanje_artikla->kolicina;
+        $data['stanje'] = $stanje_artikla ? $stanje_artikla->kolicina : 0;
         $st = new PopisArtikal();
         $id = $st->insert($data);
         $stavka = $st->find($id);

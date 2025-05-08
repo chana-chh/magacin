@@ -245,16 +245,22 @@ class PopisController extends Controller
         $data = $this->data($request);
         $id = (int) $data['idZakljucavanje'];
         $pop = new Popis();
-        $ok=$pop->update(['zakljucan' => 1], $id);
         $model = $pop->find($id);
+        $zakljucan = (int) $model->zakljucan;
+        if ($zakljucan === 1) {
+            $zakljucan = 0;
+        } else {
+            $zakljucan = 1;
+        }
+        $ok = $pop->update(['zakljucan' => $zakljucan], $id);
 
         if (!$ok) {
-            $this->flash('danger', 'Неуспешно закључавање пописа');
+            $this->flash('danger', 'Неуспешно закључавање/откључавање пописа');
             return $this->redirect($request, $response, 'popis.lista');
         }
 
-        $this->log($this::IZMENA, 'Закључавање пописа', $model);
-        $this->flash('success', 'Успешно закључавање пописа');
+        $this->log($this::IZMENA, 'Закључавање/откључавање пописа', $model);
+        $this->flash('success', 'Успешно закључавање/откључавање пописа');
         return $this->redirect($request, $response, 'popis.lista');
     }
 }

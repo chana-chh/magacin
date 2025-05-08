@@ -71,23 +71,20 @@
             <td>{{ pop.magacin().naziv }}</td>
             <td>{{ pop.napomena }}</td>
             <td class="text-end">
-
                 <div class="btn-group btn-group-sm">
                     <a class="btn btn-success" href="{{ url_for('popis.pregled', { id: pop.id }) }}"><i
                             class="bi-eye"></i></a>
-                    {% if pop.zakljucan == 0 %}
                     <button class="btn btn-primary otvori-zakljucavanje" data-bs-toggle="modal" id="zakljucavanje"
                         data-bs-target="#zakljucavanjeModal" value="{{ pop.id }}"
                         onclick="document.getElementById('idZakljucavanje').value = this.value"><i
                             class="bi-key"></i></button>
+                    {% if pop.zakljucan == 0 %}
                     <a class="btn btn-warning" href="{{ url_for('popis.izmena.get', { id: pop.id }) }}">
                         <i class="bi-pencil"></i></a>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
                         data-bs-target="#brisanjeModal" value="{{ pop.id }}"
                         onclick="document.getElementById('idBrisanje').value = this.value"><i
                             class="bi-trash"></i></button>
-                    {% else %}
-                    <button class="btn btn-warning disabled"><i class="bi-lock"></i> Закључан</button>
                     {% endif %}
                 </div>
             </td>
@@ -148,15 +145,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
             </div>
             <div class="modal-body">
-                <h4>Да ли желите да закључате попис?</h4>
-                <p>Неће бити могуће да мењате и бришете попис и његове ставке.</p>
+                <h4>Да ли желите да закључате/откључате попис?</h4>
                 <form id="brisanje-forma" action="{{ url_for('popis.zakljucavanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idZakljucavanje" name="idZakljucavanje" value="">
             </div>
             <div class="modal-footer">
                 <div class="form-group">
-                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-warning">Закључај
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-warning">Закључај/Откључај
                     </button>
                     <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
                     </a>
