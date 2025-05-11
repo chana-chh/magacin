@@ -36,20 +36,20 @@ Pocetno stanje.
 - dodati klasu za stampanje
 
 Za prebacivanje na server
-views
-    prijemnice
-        lista.twig
-        pregled.twig
-    otpremnice
-        lista.twig
-        pregled.twig
+- views
+    - prijemnice
+        - lista.twig
+        - pregled.twig
+    - otpremnice
+        - lista.twig
+        - pregled.twig
 
-Models
-    Prijemnica.php
-    Otpreminca.php
+- Models
+    - Prijemnica.php
+    - Otpreminca.php
 
-Controllers
-    PrijemnicaController.php
-    OtpremnicaController.php
-    PrijemnicaArtikalController.php
-    OtpremnicaArtikalController.php
+- Controllers
+    - PrijemnicaController.php
+    - OtpremnicaController.php
+    - PrijemnicaArtikalController.php
+    - OtpremnicaArtikalController.php
