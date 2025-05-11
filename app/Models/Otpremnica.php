@@ -25,7 +25,7 @@ class Otpremnica extends Model
 
     public function ukupanIzanos()
     {
-        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice;";
+        $sql = "SELECT SUM(kolicina * cena) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice;";
         $params = [":id_otpremnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
         $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
@@ -34,7 +34,7 @@ class Otpremnica extends Model
 
     public function placeniIzanos()
     {
-        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice AND placeno = 1;";
+        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice;";
         $params = [":id_otpremnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
         $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
@@ -43,10 +43,6 @@ class Otpremnica extends Model
 
     public function dugIzanos()
     {
-        $sql = "SELECT SUM(iznos) AS ukupno FROM otpremnica_artikal WHERE id_otpremnice = :id_otpremnice AND placeno = 0;";
-        $params = [":id_otpremnice" => $this->id];
-        $iznos = $this->fetch($sql, $params);
-        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
-        return $ukupno;
+        return $this->ukupanIzanos() - $this->placeniIzanos();
     }
 }

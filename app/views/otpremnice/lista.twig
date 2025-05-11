@@ -84,7 +84,7 @@
             <th class="w-5">Број</th>
             <th class="w-10 text-end">Износ</th>
             <th class="w-10 text-end">Плаћено</th>
-            <th class="w-10 text-end">Остатак</th>
+            <th class="w-10 text-end">Дуг</th>
             <th class="w-15">Напомена</th>
             <th class="w-10 text-end"><i class="bi-gear"></i> Акције</th>
         </tr>
@@ -97,7 +97,7 @@
             <td>{{ otpremnica.magacin().naziv }}</td>
             <td>{{ otpremnica.kupac().naziv }}</td>
             <td>{{ otpremnica.broj }}</td>
-            <td class="text-end">{{ otpremnica.ukupanIzanos()|number_format(2) }}</td>
+            <td class="text-end text-primary">{{ otpremnica.ukupanIzanos()|number_format(2) }}</td>
             <td class="text-end text-success">{{ otpremnica.placeniIzanos()|number_format(2) }}</td>
             <td class="text-end text-danger">{{ otpremnica.dugIzanos()|number_format(2) }}</td>
             <td>{{ otpremnica.napomena|nl2br }}</td>

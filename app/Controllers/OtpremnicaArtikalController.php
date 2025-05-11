@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Classes\Controller;
+use App\Models\Otpremnica;
 use App\Models\OtpremnicaArtikal;
 use App\Models\Stanje;
 use Psr\Http\Message\ResponseInterface;
@@ -45,7 +46,8 @@ class OtpremnicaArtikalController extends Controller
         $stanje->oduzmiKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $st = new OtpremnicaArtikal();
-        $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
+        // $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
+        $data['iznos'] = 0;
         $id = $st->insert($data);
         $stavka = $st->find($id);
 
@@ -82,19 +84,19 @@ class OtpremnicaArtikalController extends Controller
     {
         $data = $this->data($request);
         $id = (int) $data['idPlacanje'];
+        $iznos = (float) $data['iznosPlacanje'];
         $sta = new OtpremnicaArtikal();
         $stavka = $sta->find($id);
-        $novi_status = $stavka->placeno === 0 ? 1 : 0;
-        $ok = $sta->update(['placeno' => $novi_status], $id);
+        $ok = $sta->update(['iznos' => $iznos], $id);
         $model = $sta->find($id);
 
         if (!$ok) {
-            $this->flash('danger', 'Неуспешна промена статуса плаћања');
+            $this->flash('danger', 'Неуспешна промена плаћања');
             return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $stavka->id_otpremnice]);
         }
 
-        $this->log($this::IZMENA, 'Промена статуса плаћања', $model);
-        $this->flash('success', 'Успешна промена статуса плаћања');
+        $this->log($this::IZMENA, 'Промена плаћања', $model);
+        $this->flash('success', 'Успешна промена плаћања');
         return $this->redirect($request, $response, 'otpremnica.pregled', ['id' => $stavka->id_otpremnice]);
     }
 }

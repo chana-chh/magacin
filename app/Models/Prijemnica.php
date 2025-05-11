@@ -28,7 +28,7 @@ class Prijemnica extends Model
         if (count($this->stavke()) === 0){
             return 0;
         }
-        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice;";
+        $sql = "SELECT SUM(kolicina * cena) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice;";
         $params = [":id_prijemnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
         $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
@@ -40,7 +40,7 @@ class Prijemnica extends Model
         if (count($this->stavke()) === 0) {
             return 0;
         }
-        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 1;";
+        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice;";
         $params = [":id_prijemnice" => $this->id];
         $iznos = $this->fetch($sql, $params);
         $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
@@ -49,13 +49,6 @@ class Prijemnica extends Model
 
     public function dugIzanos()
     {
-        if (count($this->stavke()) === 0) {
-            return 0;
-        }
-        $sql = "SELECT SUM(iznos) AS ukupno FROM prijemnica_artikal WHERE id_prijemnice = :id_prijemnice AND placeno = 0;";
-        $params = [":id_prijemnice" => $this->id];
-        $iznos = $this->fetch($sql, $params);
-        $ukupno = $iznos[0] ? $iznos[0]->ukupno : 0;
-        return $ukupno;
+        return $this->ukupanIzanos() - $this->placeniIzanos();
     }
 }

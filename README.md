@@ -34,3 +34,22 @@ Pocetno stanje.
         - datum prevoza
         - registarski broj vozila
 - dodati klasu za stampanje
+
+Za prebacivanje na server
+views
+    prijemnice
+        lista.twig
+        pregled.twig
+    otpremnice
+        lista.twig
+        pregled.twig
+
+Models
+    Prijemnica.php
+    Otpreminca.php
+
+Controllers
+    PrijemnicaController.php
+    OtpremnicaController.php
+    PrijemnicaArtikalController.php
+    OtpremnicaArtikalController.php

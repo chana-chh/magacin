@@ -41,6 +41,9 @@ class OtpremnicaController extends Controller
     public function postOtpremnicaDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
+        $data['izdao_datum'] = $data['izdao_datum'] === '' ? null : $data['izdao_datum'];
+        $data['prevoz_datum'] = $data['prevoz_datum'] === '' ? null : $data['prevoz_datum'];
+        $data['primio_datum'] = $data['primio_datum'] === '' ? null : $data['primio_datum'];
         $rules = [
             'id_magacina' => [
                 'required' => true,
@@ -85,6 +88,9 @@ class OtpremnicaController extends Controller
     public function postOtpremnicaIzmena(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
+        $data['izdao_datum'] = $data['izdao_datum'] === '' ? null : $data['izdao_datum'];
+        $data['prevoz_datum'] = $data['prevoz_datum'] === '' ? null : $data['prevoz_datum'];
+        $data['primio_datum'] = $data['primio_datum'] === '' ? null : $data['primio_datum'];
         $id = (int) $data['id'];
         unset($data['id']);
         $rules = [

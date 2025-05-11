@@ -13,8 +13,8 @@ class PrijemnicaArtikalController extends Controller
     public function postPrijemnicaStavkeDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
-        $placeno = $data['placeno'] ? 1 : 0;
-        $data['placeno'] = $placeno;
+        // $placeno = $data['placeno'] ? 1 : 0;
+        // $data['placeno'] = $placeno;
         $rules = [
             'id_artikla' => [
                 'required' => true,
@@ -47,7 +47,8 @@ class PrijemnicaArtikalController extends Controller
         $stanje->dodajKolicinu($id_magacina, (int) $data['id_artikla'], (float) $data['kolicina']);
 
         $st = new PrijemnicaArtikal();
-        $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
+        // $data['iznos'] = (float) $data['kolicina'] * (float) $data['cena'];
+        $data['iznos'] = 0;
         $id = $st->insert($data);
         $stavka = $st->find($id);
 
@@ -84,19 +85,19 @@ class PrijemnicaArtikalController extends Controller
     {
         $data = $this->data($request);
         $id = (int) $data['idPlacanje'];
+        $iznos = (float) $data['iznosPlacanje'];
         $sta = new PrijemnicaArtikal();
         $stavka = $sta->find($id);
-        $novi_status = $stavka->placeno === 0 ? 1 : 0;
-        $ok = $sta->update(['placeno' => $novi_status], $id);
+        $ok = $sta->update(['iznos' => $iznos], $id);
         $model = $sta->find($id);
 
         if (!$ok) {
-            $this->flash('danger', 'Неуспешна промена статуса плаћања');
+            $this->flash('danger', 'Неуспешна промена плаћања');
             return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $stavka->id_prijemnice]);
         }
 
-        $this->log($this::IZMENA, 'Промена статуса плаћања', $model);
-        $this->flash('success', 'Успешна промена статуса плаћања');
+        $this->log($this::IZMENA, 'Промена плаћања', $model);
+        $this->flash('success', 'Успешна промена плаћања');
         return $this->redirect($request, $response, 'prijemnica.pregled', ['id' => $stavka->id_prijemnice]);
     }
 }

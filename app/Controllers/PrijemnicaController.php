@@ -40,6 +40,9 @@ class PrijemnicaController extends Controller
     public function postPrijemnicaDodavanje(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
+        $data['izdao_datum'] = $data['izdao_datum'] === '' ? null : $data['izdao_datum'];
+        $data['prevoz_datum'] = $data['prevoz_datum'] === '' ? null : $data['prevoz_datum'];
+        $data['primio_datum'] = $data['primio_datum'] === '' ? null : $data['primio_datum'];
         $rules = [
             'id_magacina' => [
                 'required' => true,
@@ -84,6 +87,9 @@ class PrijemnicaController extends Controller
     public function postPrijemnicaIzmena(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = $this->data($request);
+        $data['izdao_datum'] = $data['izdao_datum'] === '' ? null : $data['izdao_datum'];
+        $data['prevoz_datum'] = $data['prevoz_datum'] === '' ? null : $data['prevoz_datum'];
+        $data['primio_datum'] = $data['primio_datum'] === '' ? null : $data['primio_datum'];
         $id = (int) $data['id'];
         unset($data['id']);
         $rules = [

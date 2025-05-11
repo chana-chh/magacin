@@ -15,7 +15,7 @@
                 <small>
                     <em>Име и презиме:</em> {{ prijemnica.izdao_ime }}<br>
                     <em>ЈМБГ (ЛК):</em> {{ prijemnica.izdao_jmbg }}<br>
-                    <em>Датум:</em> {{ prijemnica.izdao_datum|date('d.m.Y') }}
+                    <em>Датум:</em> {{ prijemnica.izdao_datum is none ? '' : prijemnica.izdao_datum|date('d.m.Y') }}
                 </small>
             </div>
             <div class="col-4">
@@ -23,7 +23,8 @@
                 <small>
                     <em>Име и презиме:</em> {{ prijemnica.prevoz_ime }}<br>
                     <em>ЈМБГ (ЛК):</em> {{ prijemnica.prevoz_jmbg }}<br>
-                    <em>Датум:</em> {{ prijemnica.prevoz_datum|date('d.m.Y') }}<br>
+                    <em>Датум:</em> {{ prijemnica.prevoz_datum is none ? '' : prijemnica.prevoz_datum|date('d.m.Y')
+                    }}<br>
                     <em>Возило рег. број:</em> {{ prijemnica.prevoz_registracija }}
                 </small>
             </div>
@@ -32,7 +33,7 @@
                 <small>
                     <em>Име и презиме:</em> {{ prijemnica.primio_ime }}<br>
                     <em>ЈМБГ (ЛК):</em> {{ prijemnica.primio_jmbg }}<br>
-                    <em>Датум:</em> {{ prijemnica.primio_datum|date('d.m.Y') }}
+                    <em>Датум:</em> {{ prijemnica.primio_datum is none ? '' : prijemnica.primio_datum|date('d.m.Y') }}
                 </small>
             </div>
         </div>
@@ -52,12 +53,13 @@
     <thead class="table-dark">
         <tr>
             <th class="w-5">#</th>
-            <th class="w-25">Артикал</th>
+            <th class="w-20">Артикал</th>
             <th class="w-10 text-end">Количина</th>
             <th class="w-5">Јм</th>
-            <th class="w-10 text-end">Цена</th>
-            <th class="w-15 text-end">Износ</th>
-            <th class="w-5 text-center">Плаћ</th>
+            <th class="w-5 text-end">Цена</th>
+            <th class="w-10 text-end">Износ</th>
+            <th class="w-10 text-end">Плаћено</th>
+            <th class="w-10 text-end">Дуг</th>
             <th class="w-25">Опис</th>
             <th class="w-5 text-end"><i class="bi-gear"></i></th>
         </tr>
@@ -70,20 +72,15 @@
             <td class="text-end">{{ stavka.kolicina|number_format(2) }}</td>
             <td>{{ stavka.artikal().jm.jm }}</td>
             <td class="text-end">{{ stavka.cena|number_format(2) }}</td>
-            <td class="text-end">{{ stavka.iznos|number_format(2) }}</td>
-            <td class="text-center">
-                {% if stavka.placeno %}
-                <i class="bi-check-circle text-success"></i>
-                {% else %}
-                <i class="bi-x-circle text-danger"></i>
-                {% endif %}
-            </td>
+            <td class="text-end text-primary">{{ stavka.iznosUnupno()|number_format(2) }}</td>
+            <td class="text-end text-success">{{ stavka.iznos|number_format(2) }}</td>
+            <td class="text-end text-danger">{{ (stavka.iznosUnupno() - stavka.iznos)|number_format(2) }}</td>
             <td>{{ stavka.opis }}</td>
             <td class="text-end">
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-primary otvori-placanje" data-bs-toggle="modal" id="placanje"
-                        data-bs-target="#placanjeModal" value="{{ stavka.id }}"
-                        onclick="document.getElementById('idPlacanje').value = this.value">
+                        data-bs-target="#placanjeModal" value="{{ stavka.id }}" data-max="{{ stavka.iznosUnupno() }}"
+                        data-cur="{{ stavka.iznos }}" onclick="osveziUplatu(this)">
                         <i class="bi-currency-exchange"></i>
                     </button>
                     <button class="btn btn-danger otvori-brisanje" data-bs-toggle="modal" id="brisanje"
@@ -139,16 +136,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
             </div>
             <div class="modal-body">
-                <h4>Да ли желите да промените статус плаћања?</h4>
-                <p>Статус плаћања ће се променити у <em class="text-success">плаћено</em> ако је тренутни статус <em
-                        class="text-danger">није плаћено</em> и обрнуто.</p>
+                <h4>Да ли желите да промените износ плаћања?</h4>
                 <form id="placanje-forma" action="{{ url_for('prijemnica.stavke.placanje') }}" method="POST">
                     {{ csrf|raw }}
                     <input type="hidden" id="idPlacanje" name="idPlacanje" value="">
+                    <div class="form-group">
+                        <label for="iznosPlacanje">Износ</label>
+                        <input type="number" class="form-control" id="iznosPlacanje" name="iznosPlacanje" step="0.01" required>
+                    </div>
             </div>
             <div class="modal-footer">
                 <div class="form-group">
-                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-warning">Промени статус
+                    <button id="btn-brisanje-obrisi" type="submit" class="btn btn-warning">Промени износ
                     </button>
                     <a class="btn btn-secondary" data-bs-dismiss="modal">Откажи
                     </a>
@@ -191,19 +190,19 @@
             </div>
             <div class="row mt-3 align-items-end">
                 <div class="col-8">
-                    <label for="iznos" class="form-label">Износ</label>
-                    <input type="number" class="form-control{{ errors.iznos ? ' is-invalid' : '' }}" name="iznos"
-                        id="iznos" value="{{ old.iznos ? : '0.00' }}"
-                        oninvalid="this.setCustomValidity('Износ је обавезан.')" oninput="this.setCustomValidity('')"
+                    <label for="cena" class="form-label">Цена по јединици мере</label>
+                    <input type="number" class="form-control{{ errors.cena ? ' is-invalid' : '' }}" name="cena"
+                        id="cena" value="{{ old.cena ? : '0.00' }}"
+                        oninvalid="this.setCustomValidity('Цена је обавезна.')" oninput="this.setCustomValidity('')"
                         autocomplete="off" required>
-                    <div class="invalid-feedback">{{ errors.iznos.0 }}</div>
+                    <div class="invalid-feedback">{{ errors.cena.0 }}</div>
                 </div>
-                <div class="col-4 form-check">
+                {# <div class="col-4 form-check">
                     <input class="form-check-input" type="checkbox" value="1" id="placeno" name="placeno">
                     <label class="form-check-label" for="placeno">
                         Плаћено
                     </label>
-                </div>
+                </div> #}
             </div>
             <div class="row mt-3">
                 <div class="col">
@@ -224,3 +223,19 @@
     </div>
 </div>
 {% endblock aside %}
+
+{% block skripta %}
+<script>
+    function osveziUplatu(el) {
+        let id = el.value;
+        let max = el.dataset.max;
+        let cur = el.dataset.cur;
+        console.log(id, max, cur);
+        let idP = document.getElementById('idPlacanje');
+        idP.value = id;
+        let input = document.getElementById('iznosPlacanje');
+        input.value = cur;
+        input.setAttribute('max', max);
+    };
+</script>
+{% endblock skripta %}
